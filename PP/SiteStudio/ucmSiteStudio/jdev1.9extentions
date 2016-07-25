@@ -1,0 +1,508 @@
+About
+-----
+
+Oracle JDeveloper 11g Release 1 11.1.1.9.0
+Studio Edition Version 11.1.1.9.0
+Build JDEVADF_11.1.1.9.0_GENERIC_150314.0718.6673
+Copyright © 1997, 2015, Oracle and/or its affiliates. All rights reserved.
+IDE Version: 11.1.1.9.40.66.73
+Product ID: oracle.jdeveloper
+Product Version: 11.1.1.9.40.66.73
+
+Version
+-------
+
+Component	Version
+=========	=======
+ADF Business Components	11.1.1.66.73
+Java(TM) Platform	1.6.0_29
+Oracle IDE	11.1.1.9.40.66.73
+Versioning Support	11.1.1.9.40.66.73
+
+Properties
+----------
+
+Name	Value
+====	=====
+awt.toolkit	sun.awt.windows.WToolkit
+ceditor.java.parse.large	1500
+ceditor.java.parse.small	300
+class.load.environment	oracle.ide.boot.IdeClassLoadEnvironment
+class.load.log.level	CONFIG
+class.transfer	delegate
+compiler.vmargs	-Xmx512m
+EDITOR_J2SE_VERSION	1.5
+feedbackmanager.disable	false
+file.encoding	Cp1252
+file.encoding.pkg	sun.io
+file.separator	\
+ice.browser.forcegc	false
+ice.pilots.html4.ignoreNonGenericFonts	true
+ice.pilots.html4.tileOptThreshold	0
+ide.bootstrap.start	137951982113
+ide.build	JDEVADF_11.1.1.9.0_GENERIC_150314.0718.6673
+ide.conf	C:\Oracle\Middleware9\jdeveloper\jdev\bin\jdev.conf
+ide.config_pathname	C:\Oracle\Middleware9\jdeveloper\jdev\bin\jdev.conf
+ide.debugbuild	false
+ide.devbuild	false
+ide.editions	oracle.studio, oracle.j2ee, oracle.jdeveloper
+ide.extension.role.search.path	jdev/roles
+ide.extension.search.path	jdev/extensions:sqldeveloper/extensions
+ide.feedbackmanager.customer	false
+ide.firstrun	false
+ide.java.maxversion	1.8
+ide.java.minversion	1.6.0_04
+ide.launcherProcessId	5584
+ide.main.class	oracle.ide.boot.IdeLauncher
+ide.max.jar.handles	500
+ide.patches.dir	jdev/lib/patches
+ide.pref.dir	C:\Users\mmitkees\AppData\Roaming\JDeveloper
+ide.pref.dir.base	C:\Users\mmitkees\AppData\Roaming
+ide.product	oracle.jdeveloper
+ide.role	<none>
+ide.shell.enableFileTypeAssociation	C:\Oracle\Middleware9\jdeveloper\jdeveloper.exe
+ide.splash.screen	splash.gif
+ide.startingArg0	C:\Oracle\Middleware9\jdeveloper\jdeveloper.exe
+ide.startingcwd	C:\Oracle\Middleware9\jdeveloper
+ide.throttleLocale	true
+ide.user.dir	C:\Users\mmitkees\AppData\Roaming\JDeveloper
+ide.user.dir.var	JDEV_USER_HOME,JDEV_USER_DIR
+ide.work.dir	C:\\JDeveloper
+ide.work.dir.base	C:\Users\mmitkees\Documents
+ilog.propagatesPropertyEditors	false
+inJUIDesigntime	true
+insight.suppresshidden	true
+INSIGHT_OMIT_HIDDEN	true
+java.awt.graphicsenv	sun.awt.Win32GraphicsEnvironment
+java.awt.printerjob	sun.awt.windows.WPrinterJob
+java.class.path	..\..\ide\lib\ide-boot.jar
+java.class.version	50.0
+java.endorsed.dirs	C:\Oracle\Middleware9\jdk160_29\jre\lib\endorsed
+java.ext.dirs	C:\Oracle\Middleware9\jdk160_29\jre\lib\ext;C:\Windows\Sun\Java\lib\ext
+java.home	C:\Oracle\Middleware9\jdk160_29\jre
+java.io.tmpdir	C:\Users\mmitkees\AppData\Local\Temp\
+java.library.path	C:\Oracle\Middleware9\jdeveloper;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\CrSSL\bin;C:\Program Files (x86)\CrSSL\bin;C:\Program Files (x86)\CrSSL\bin;C:\Program Files (x86)\CrSSL\bin;.
+java.naming.factory.initial	oracle.javatools.jndi.LocalInitialContextFactory
+java.protocol.handler.pkgs	oracle.jdevimpl.handler
+java.runtime.name	Java(TM) SE Runtime Environment
+java.runtime.version	1.6.0_29-b11
+java.specification.name	Java Platform API Specification
+java.specification.vendor	Sun Microsystems Inc.
+java.specification.version	1.6
+java.vendor	Sun Microsystems Inc.
+java.vendor.url	http://java.sun.com/
+java.vendor.url.bug	http://java.sun.com/cgi-bin/bugreport.cgi
+java.version	1.6.0_29
+java.vm.info	mixed mode
+java.vm.name	Java HotSpot(TM) Client VM
+java.vm.specification.name	Java Virtual Machine Specification
+java.vm.specification.vendor	Sun Microsystems Inc.
+java.vm.specification.version	1.0
+java.vm.vendor	Sun Microsystems Inc.
+java.vm.version	20.4-b02
+javax.xml.parsers.DocumentBuilderFactory	oracle.xml.jaxp.JXDocumentBuilderFactory
+jbo.debugoutput	silent
+jbo.showdebugwarningbanner	false
+jps.authz	NULL
+line.separator	\r\n
+oracle.adfm.usemds	false
+oracle.home	C:\Oracle\Middleware9\jdeveloper
+oracle.ide.launcher.startup.time	1465884075081
+oracle.j2ee.extension.status	enabled
+oracle.jbo.usemds	false
+oracle.jdeveloper.webservice.hidePropertyOverride	false
+oracle.jdeveloper.webservice.showAllOwsmPolicyTypes	false
+oracle.mds.internal.config.override.emptystore	true
+oracle.security.jps.config	/C:/Users/mmitkees/AppData/Roaming/JDeveloper/system11.1.1.9.40.66.73/DefaultDomain/config/fmwconfig/jps-config-jse.xml
+oracle.soap.transport.noHTTPClient	true
+oracle.translated.locales	de,es,fr,it,ja,ko,pt_BR,zh_CN,zh_TW
+oracle.xdkjava.compatibility.version	9.0.4
+os.arch	x86
+os.name	Windows NT (unknown)
+os.version	6.2
+path.separator	;
+reserved_filenames	con,aux,prn,lpt1,lpt2,lpt3,lpt4,lpt5,lpt6,lpt7,lpt8,lpt9,com1,com2,com3,com4,com5,com6,com7,com8,com9,conin$,conout,conout$
+sun.arch.data.model	32
+sun.awt.disablegrab	true
+sun.awt.keepWorkingSetOnMinimize	true
+sun.boot.class.path	../../rdbms/jlib/ojdi.jar;../lib/lwawt.jar;C:\Oracle\Middleware9\jdk160_29\jre\lib\alt-string.jar;C:\Oracle\Middleware9\jdk160_29\jre\lib\alt-rt.jar;C:\Oracle\Middleware9\jdk160_29\jre\lib\resources.jar;C:\Oracle\Middleware9\jdk160_29\jre\lib\rt.jar;C:\Oracle\Middleware9\jdk160_29\jre\lib\sunrsasign.jar;C:\Oracle\Middleware9\jdk160_29\jre\lib\jsse.jar;C:\Oracle\Middleware9\jdk160_29\jre\lib\jce.jar;C:\Oracle\Middleware9\jdk160_29\jre\lib\charsets.jar;C:\Oracle\Middleware9\jdk160_29\jre\lib\modules\jdk.boot.jar;C:\Oracle\Middleware9\jdk160_29\jre\classes;C:\Oracle\Middleware9\jdk160_29\lib\tools.jar;C:\Oracle\Middleware9\jdk160_29\lib\dt.jar
+sun.boot.library.path	C:\Oracle\Middleware9\jdk160_29\jre\bin
+sun.cpu.endian	little
+sun.cpu.isalist	pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86
+sun.desktop	windows
+sun.io.unicode.encoding	UnicodeLittle
+sun.java2d.noddraw	true
+sun.jnu.encoding	Cp1252
+sun.management.compiler	HotSpot Client Compiler
+sun.os.patch.level	
+svnkit.sax.useDefault	true
+user.country	US
+user.dir	C:\Oracle\Middleware9\jdeveloper\jdev\bin
+user.home	C:\Users\mmitkees
+user.language	en
+user.name	mmitkees
+user.timezone	Asia/Muscat
+user.variant	
+wasp.location	../../uddi
+weblogic.home	C:\Oracle\Middleware9\wlserver_10.3\server
+weblogic.security.SSL.ignoreHostnameVerification	true
+weblogic.security.TrustKeyStore	DemoTrust
+windows.shell.font.languages	en
+
+Extensions
+----------
+
+Name	Identifier	Version	Status
+====	==========	=======	======
+adf-installer-ide	adf.installer.dt	11.1.1.9.40.66.73	Loaded
+ADF View Debugging Design Time	adf.view.debugging.dt	11.1.1.9.40.66.73	Loaded
+ADF Business Components	oracle.BC4J	11.1.1.9.40.66.73	Loaded
+ADF Faces Databinding Design Time	oracle.adf-faces-databinding-dt	11.1.1.9.40.66.73	Loaded
+ADF Faces Design Time	oracle.adf-faces-dt	11.1.1.9.40.66.73	Loaded
+adfquerylovdt	oracle.adf-faces-query-and-lov-dt	11.1.1.9.40.66.73	Loaded
+ADF Region Design Time	oracle.adf-faces-region-dt	11.1.1.9.40.66.73	Loaded
+ADF Faces Runtime Help	oracle.adf-faces-rt-doc	11.1.1.0.0	Loaded
+ADF Faces Skin Design Time	oracle.adf-faces-skin-dt	11.1.1.9.40.66.73	Loaded
+ADF Page Template DT	oracle.adf-faces-templating-dt	11.1.1.9.40.66.73	Loaded
+adf-model-debugger-dt	oracle.adf-model-debugger-dt	11.1.1.9.40.66.73	Loaded
+Oracle Page Templates	oracle.adf-page-template-samples	11.1.1.9.40.66.73	Loaded
+adf-share-audit	oracle.adf-share-audit	11.1.1.9.40.66.73	Loaded
+ADFv Common Databinding	oracle.adf-view-databinding-dt	11.1.1.9.40.66.73	Loaded
+adfm-business-editor-deploy	oracle.adf.businesseditor.deploy	11.1.1.9.40.66.73	Loaded
+ADF Common Audit	oracle.adf.common.audit	0	Loaded
+ADF Controller Configuration Design Time	oracle.adf.controller.config.dt	11.1.1.9.40.66.73	Loaded
+ADF Debugger	oracle.adf.debug	11.1.1.9.40.66.73	Loaded
+ADF Debugger Diagram Support	oracle.adf.debug.diagram	11.1.1.9.40.66.73	Loaded
+ADF DT at RT Regisrations	oracle.adf.dt.at.rt.ide.registration	11.1.1.9.40.66.73	Loaded
+ADF JMX Data Control Designtime	oracle.adf.jmxdc	11.1.1.9.40.66.73	Loaded
+ADF Java Server Faces Diagram	oracle.adf.jsf.diagram	11.1.1.9.40.66.73	Loaded
+ADF Lifecycle Design Time	oracle.adf.lifecycle.dt	11.1.1.9.40.66.73	Loaded
+ADF Management Pages	oracle.adf.management	11.1.1.9.40.66.73	Loaded
+adfm-business-editor-ide	oracle.adf.model.businesseditor	11.1.1.9.40.66.73	Loaded
+adf-model-tools	oracle.adf.model.tools	11.1.1.9.40.66.73	Loaded
+ADF Page Flow Design Time	oracle.adf.pageflow.dt	11.1.1.9.40.66.73	Loaded
+ADF Page Flow Design Time Extras	oracle.adf.pageflow.dt.extras	11.1.1.9.40.66.73	Loaded
+ADF Context Debugger	oracle.adf.share.debug	11.1.1.9.40.66.73	Loaded
+adf-share-deploy-dt	oracle.adf.share.deploy.dt	11.1.1.9.40.66.73	Loaded
+adf-share-dt	oracle.adf.share.dt	11.1.1.9.40.66.73	Loaded
+ADF String Editor	oracle.adf.stringeditor	11.1.1.9.40.66.73	Loaded
+ADF Struts and Model One Databinding	oracle.adf.struts.and.model.one.databinding.dt	11.1.1.9.40.66.73	Loaded
+Fusion Web Application (ADF) Template	oracle.adf.webapp.template	11.1.1.9.40.66.73	Loaded
+ADF Business Components Annotations	oracle.adfbcdt.annotations	11.1.2	Loaded
+ADF Business Components Modeler	oracle.adfbcdt.modeler	11.1.1.9.40.66.73	Loaded
+adf-deploy-dt	oracle.adfdt.common.deploy	11.1.1.9.40.66.73	Loaded
+adf-deploy-dt-mds	oracle.adfdt.common.deploy.mds	11.1.1.9.40.66.73	Loaded
+ADF Desktop Integration Design Time	oracle.adfdt.desktopintegration	11.1.1.9.40.66.73	Loaded
+ADF Swing	oracle.adfdt.swingcore	11.1.1.9.40.66.73	Loaded
+adf-security-policy-dt	oracle.adfdtinternal.adf-security-policy-dt	11.1.1.9.40.66.73	Loaded
+ADF Faces Design Time Migration	oracle.adffacesdt.migration	11.1.1.9.40.66.73	Loaded
+adf-jar-utils-dt	oracle.adfinternal.library.jars.utils.dt	11.1.1.9.40.66.73	Loaded
+oracle.adfm	oracle.adfm	11.1.1.9.40.66.73	Loaded
+adfm-business-editor-settings-ide	oracle.adfm.businesseditor.settings	11.1.1.9.40.66.73	Loaded
+oracle.adfm.contextual	oracle.adfm.contextual	11.1.1.9.40.66.73	Loaded
+dcadapters-ide	oracle.adfm.dc-adapters	11.1.1.9.40.66.73	Loaded
+adf-model-sqldc-ide	oracle.adfm.sqldc	11.1.1.9.40.66.73	Loaded
+adfmcoredt-xdf	oracle.adfm.xdf	11.1.1.9.40.66.73	Loaded
+ADF Menu Model Design-Time	oracle.adfmenudt	11.1.1.9.40.66.73	Loaded
+WebCenter Portal - Portlet Consumer Support	oracle.adfp.portlet	11.1.1.9.0.151005.2311	Loaded
+Ant	oracle.ant	11.1.1.9.40.66.73	Loaded
+ADF Business Components Dependency	oracle.bc4j.dependency	11.1.1.9.40.66.73	Loaded
+ADF Business Components	oracle.bc4j.rest	11.1.2	Loaded
+ADF Business Components Syscat	oracle.bc4j.syscat	0	Loaded
+ADF Business Components Tester	oracle.bc4j.tester	11.1.1.9.40.66.73	Loaded
+ADF Business Components Deployment	oracle.bc4jdt.deploy	11.1.1.9.40.66.73	Loaded
+bi-jdbc	oracle.bi.jdbc	11.1.1.9.40.66.73	Loaded
+BI Beans Graph	oracle.bibeans	11.1.1.9.40.66.73	Loaded
+Business Modelers	oracle.bm	11.1.1.9.40.66.73	Loaded
+jdukshare	oracle.bm.jdukshare	11.1.1.9.40.66.73	Loaded
+BM metamodel framework	oracle.bm.meta	11.1.1.9.40.66.73	Loaded
+Controller to ADF Bindings Bridge	oracle.controller.bindings.dt	11.1.1.9.40.66.73	Loaded
+Legacy Controller Design-Time	oracle.controller.bm.dt	11.1.1.9.40.66.73	Loaded
+Common Controller Design-Time	oracle.controller.dt	11.1.1.9.40.66.73	Loaded
+J2EE CSS	oracle.css	11.1.1.9.40.66.73	Loaded
+Database Modeler	oracle.dbmodeler	11.1.1.9.40.66.73	Loaded
+Database Modeler Migration	oracle.dbmodeler.migrate	11.1.1.9.40.66.73	Loaded
+db-modeler-transform	oracle.dbmodeler.transform	11.1.1.9.40.66.73	Loaded
+deploy-ant	oracle.deploy.ant	11.1.1.9.40.66.73	Loaded
+Oracle JDevloper Deployment Core Module	oracle.deploy.core	11.1.1.9.40.66.73	Loaded
+OAR/MAR/SAR Deployment Support Extension	oracle.deploy.orapp	11.1.1.9.40.66.73	Loaded
+Diagram Framework	oracle.diagram	11.1.1.9.40.66.73	Loaded
+Diagram Javadoc Extension	oracle.diagram.javadoc	11.1.1.9.40.66.73	Loaded
+JViews Registration Addin	oracle.diagram.registration	11.1.1.9.40.66.73	Loaded
+Diagram Thumbnail	oracle.diagram.thumbnail	11.1.1.9.40.66.73	Loaded
+Diagram Framework Toplink extensions	oracle.diagram.toplink	11.1.1.9.40.66.73	Loaded
+Diagram to XMLEF Bridge	oracle.diagram.xmlef	11.1.1.9.40.66.73	Loaded
+ADF Faces Data Visualization Tools Help	oracle.dvt-faces-doc	11.1.1.0.0	Loaded
+ADF Data Visualizations Design Time Tests	oracle.dvt.dt	11.1.1.9.40.66.73	Loaded
+oracle.dynamic-faces-dt	oracle.dynamic.faces	11.1.1.9.40.66.73	Loaded
+EJB	oracle.ejb	11.1.1.9.40.66.73	Loaded
+EJB Modeler	oracle.ejbmodeler	11.1.1.9.40.66.73	Loaded
+WebCenter Portal - External Application Support	oracle.extapp	11.1.1.9.0.151005.2311	Loaded
+HTML	oracle.html	11.1.1.9.40.66.73	Loaded
+Oracle IDE	oracle.ide	11.1.1.9.40.66.73	Loaded
+appoverview	oracle.ide.appoverview	11.1.1.9.40.66.73	Loaded
+Fusion Application Overview Definition	oracle.ide.appoverview.fusion.definition	11.1.1.9.40.66.73	Loaded
+Application State Manager	oracle.ide.appstate	11.1.1.9.40.66.73	Loaded
+Application State - Editors	oracle.ide.appstate.editors	11.1.1.9.40.66.73	Loaded
+audit	oracle.ide.audit	11.1.1.9.40.66.73	Loaded
+audit-core	oracle.ide.audit.core	11.1.1.9.40.66.73	Loaded
+Call Hierarchy	oracle.ide.call-hierarchy	0	Loaded
+Call Hierarchy Java	oracle.ide.call-hierarchy-java	0	Loaded
+Code Editor	oracle.ide.ceditor	11.1.1.9.40.66.73	Loaded
+Template	oracle.ide.ceditor-template	11.1.1.9.40.66.73	Loaded
+Editor Tint	oracle.ide.ceditor-tint	11.1.1.9.40.66.73	Loaded
+Database UI	oracle.ide.db	11.1.1.9.40.66.73	Loaded
+db-audit	oracle.ide.db.audit	11.1.1.9.40.66.73	Loaded
+Database Object Explorers	oracle.ide.db.explorer	11.1.1.9.40.66.73	Loaded
+oracle.ide.dependency	oracle.ide.dependency	11.1.1.9.40.66.73	Loaded
+ide-diagnostics	oracle.ide.diagnostics	11.1.1.0.0	Loaded
+Diff/Merge	oracle.ide.diffmerge	11.1.1.9.40.66.73	Loaded
+External Tools	oracle.ide.externaltools	11.1.1.9.40.66.73	Loaded
+Feedback	oracle.ide.feedback	11.1.1.9.40.66.73	Loaded
+oracle.ide.filequery	oracle.ide.filequery	11.1.1.9.40.66.73	Loaded
+File Support	oracle.ide.files	11.1.1.9.40.66.73	Loaded
+Object Gallery	oracle.ide.gallery	11.1.1.9.40.66.73	Loaded
+Go to File	oracle.ide.gotofile	11.1.1.9.40.66.73	Loaded
+Help System	oracle.ide.help	11.1.1.9.40.66.73	Loaded
+Import/Export Support	oracle.ide.importexport	11.1.1.9.40.66.73	Loaded
+oracle.ide.indexing	oracle.ide.indexing	11.1.1.9.40.66.73	Loaded
+Property Inspector	oracle.ide.inspector	11.1.1.9.40.66.73	Loaded
+JavaScript Language Support	oracle.ide.javascript	11.1.1.9.40.66.73	Loaded
+Log Window	oracle.ide.log	11.1.1.9.40.66.73	Loaded
+Navigator	oracle.ide.navigator	11.1.1.9.40.66.73	Loaded
+Component Palette	oracle.ide.palette1	11.1.1.9.40.66.73	Loaded
+palette2	oracle.ide.palette2	11.1.1.9.40.66.73	Loaded
+Peek	oracle.ide.peek	11.1.1.9.40.66.73	Loaded
+Persistent Storage	oracle.ide.persistence	11.1.1.9.40.66.73	Loaded
+QuickDiff	oracle.ide.quickdiff	11.1.1.9.40.66.73	Loaded
+Replace With	oracle.ide.replace	11.1.1.9.40.66.73	Loaded
+IDE Reports Extension	oracle.ide.report	11.1.1.9.40.66.73	Loaded
+Resource Bundle Support	oracle.ide.resourcebundle	11.1.1.9.40.66.73	Loaded
+Runner	oracle.ide.runner	11.1.1.9.40.66.73	Loaded
+Search Bar	oracle.ide.searchbar	11.1.1.0.0	Loaded
+SearchBar Commands	oracle.ide.searchbar.commands	11.1.1.9.40.66.73	Loaded
+searchbar-gallery	oracle.ide.searchbar.gallery	11.1.1.9.40.66.73	Loaded
+searchbar-help	oracle.ide.searchbar.help	11.1.1.9.40.66.73	Loaded
+searchbar-index	oracle.ide.searchbar.index	11.1.1.9.40.66.73	Loaded
+Searchbar Preferences	oracle.ide.searchbar.preferences	11.1.1.9.40.66.73	Loaded
+status	oracle.ide.status	11.1.1.9.40.66.73	Loaded
+oracle.ide.usages-tracking	oracle.ide.usages-tracking	11.1.1.9.40.66.73	Loaded
+Virtual File System	oracle.ide.vfs	11.1.1.9.40.66.73	Loaded
+VHV	oracle.ide.vhv	11.1.1.9.40.66.73	Loaded
+Web Browser and Proxy	oracle.ide.webbrowser	11.1.1.9.40.66.73	Loaded
+Check For Updates	oracle.ide.webupdate	11.1.1.9.40.66.73	Loaded
+XML Editing Framework IDE Extension	oracle.ide.xmlef	11.1.1.9.40.66.73	Loaded
+Mac OS X Adapter	oracle.ideimpl.apple	11.1.1.9.40.66.73	Loaded
+Application State - Application Navigator	oracle.ideimpl.appstate.appnav	11.1.1.9.40.66.73	Loaded
+feedback-client2	oracle.ideimpl.feedback2.client	11.1.1.9.40.66.73	Loaded
+Index Migrator support	oracle.ideimpl.indexing-migrator	11.1.1.9.40.66.73	Loaded
+Nightly Indexing support	oracle.ideimpl.indexing-rt	11.1.1.9.40.66.73	Loaded
+J2EE	oracle.j2ee	11.1.1.9.40.66.73	Loaded
+J2EE-ADRS	oracle.j2ee.adrs	11.1.1.9.40.66.73	Loaded
+j2ee-adrsimpl	oracle.j2ee.adrsimpl	11.1.1.0.0	Loaded
+j2ee-cloud	oracle.j2ee.cloud	11.1.1.9.40.66.73	Loaded
+j2ee-facelets	oracle.j2ee.facelets	11.1.1.9.40.66.73	Loaded
+J2EE Faces Config	oracle.j2ee.facesconfig	11.1.1.9.40.66.73	Loaded
+J2ee extension help	oracle.j2ee.help	11.1.1.0.0	Loaded
+j2ee-jpsconfig	oracle.j2ee.jpsconfig	11.1.1.9.40.66.73	Loaded
+j2ee-security	oracle.j2ee.security	11.1.1.9.40.66.73	Loaded
+j2ee-server	oracle.j2ee.server	11.1.1.0.0	Loaded
+j2ee-server-dt	oracle.j2ee.server.dt	11.1.1.9.40.66.73	Loaded
+j2ee-serverimpl	oracle.j2ee.serverimpl	11.1.1.9.40.66.73	Loaded
+J2EE Web App	oracle.j2ee.webapp	11.1.1.9.40.66.73	Loaded
+J2EE	oracle.j2ee.webapp.ve	11.1.1.9.40.66.73	Loaded
+J2EE	oracle.j2ee.webapp.ve.facelets	11.1.1.9.40.66.73	Loaded
+j2ee-weblogic	oracle.j2ee.weblogic	11.1.1.9.40.66.73	Loaded
+j2ee-weblogic-editors	oracle.j2ee.weblogic.editors	11.1.1.9.40.66.73	Loaded
+WebStart	oracle.j2ee.webstart	11.1.1.0.0	Loaded
+Java extension help	oracle.java.help	11.1.1.0.0	Loaded
+Extended IDE Platform	oracle.javacore	11.1.1.9.40.66.73	Loaded
+Java Class Modeler	oracle.javamodeler	11.1.1.9.40.66.73	Loaded
+Java Modeler Toplink extensions	oracle.javamodeler.toplink	11.1.1.9.40.66.73	Loaded
+Reports Extension	oracle.javatools.report	11.1.1.9.40.66.73	Loaded
+JDeveloper	oracle.jdeveloper	11.1.1.9.40.66.73	Loaded
+ADF Library Design Time	oracle.jdeveloper.adflibrary	11.1.1.9.40.66.73	Loaded
+Java Annotation Inspector	oracle.jdeveloper.annotation.inspector	11.1.1.9.40.66.73	Loaded
+Archive Compare	oracle.jdeveloper.archive-compare	11.1.1.9.40.66.73	Loaded
+Resource Catalog Application Server Adapter	oracle.jdeveloper.asadapter	11.1.1.9.40.66.73	Loaded
+rcasadapter-cloud	oracle.jdeveloper.asadapter.cloud	11.1.1.9.40.66.73	Loaded
+rcasadapter-cloud-api	oracle.jdeveloper.asadapter.cloud.api	11.1.1.9.40.66.73	Loaded
+rcasadapter-dt	oracle.jdeveloper.asadapter.dt	11.1.1.9.40.66.73	Loaded
+rcasadapter-oc4j	oracle.jdeveloper.asadapter.oc4j	11.1.1.9.40.66.73	Loaded
+rcasadapter-rescat2	oracle.jdeveloper.asadapter.rescat2	11.1.1.9.40.66.73	Loaded
+rcasadapter-thirdparty	oracle.jdeveloper.asadapter.thirdparty	11.1.1.9.40.66.73	Loaded
+rcasadapter-weblogic	oracle.jdeveloper.asadapter.weblogic	11.1.1.9.40.66.73	Loaded
+rcasadapter-weblogic-api	oracle.jdeveloper.asadapter.weblogic.api	11.1.1.9.40.66.73	Loaded
+Application Server Manager	oracle.jdeveloper.asnav	11.1.1.9.40.66.73	Loaded
+asnav-cloud	oracle.jdeveloper.asnav.cloud	11.1.1.9.40.66.73	Loaded
+asnav-weblogic	oracle.jdeveloper.asnav.weblogic	11.1.1.9.40.66.73	Loaded
+Audit Oracle Cloud Support	oracle.jdeveloper.audit.cloud	11.1.2	Loaded
+Bug Reporter	oracle.jdeveloper.bugfiler	11.1.1.9.40.66.73	Loaded
+Java Breadcrumbs	oracle.jdeveloper.ceditor-breadcrumbs-java	11.1.1.9.40.66.73	Loaded
+Editor Tint (Java)	oracle.jdeveloper.ceditor-tint-java	11.1.1.9.40.66.73	Loaded
+classpath: protocol handler extension	oracle.jdeveloper.classpath	11.1.1.0.0	Loaded
+Oracle Cloud	oracle.jdeveloper.cloud	11.1.1.0.0	Loaded
+Database Features (JDeveloper)	oracle.jdeveloper.db	11.1.1.9.40.66.73	Loaded
+Database Connection Support	oracle.jdeveloper.db.connection	11.1.1.9.40.66.73	Loaded
+PL/SQL Debugger	oracle.jdeveloper.db.debug.plsql	11.1.1.9.40.66.73	Loaded
+PROBE Debugger	oracle.jdeveloper.db.debug.probe	11.1.1.9.40.66.73	Loaded
+Database Object Dependency API Support	oracle.jdeveloper.db.dependency	11.1.1.9.40.66.73	Loaded
+JPublisher	oracle.jdeveloper.db.jpub	11.1.1.9.40.66.73	Loaded
+Database Features (SQLDeveloper in JDeveloper)	oracle.jdeveloper.db.navigator	11.1.1.9.40.66.73	Loaded
+Resource Catalog DB UI extension	oracle.jdeveloper.db.rcadapter.ui	11.1.1.9.40.66.73	Loaded
+SQL*Plus Integration	oracle.jdeveloper.db.sqlplus	11.1.1.9.40.66.73	Loaded
+Database Object Transfer Framework	oracle.jdeveloper.db.transfer	11.1.1.9.40.66.73	Loaded
+Extension Designtime Core	oracle.jdeveloper.extensiondt.core	11.1.1.9.40.66.73	Loaded
+Extension Designtime UI	oracle.jdeveloper.extensiondt.ui	11.1.1.9.40.66.73	Loaded
+Versioning Support for Git	oracle.jdeveloper.git	11.1.1.9.40.66.73	Loaded
+Go to Java Type	oracle.jdeveloper.gotojava	11.1.1.9.40.66.73	Loaded
+History Support	oracle.jdeveloper.history	11.1.1.9.40.66.73	Loaded
+Java Structure Compare	oracle.jdeveloper.java-compare	11.1.1.9.40.66.73	Loaded
+dependency-java	oracle.jdeveloper.java.dependency	11.1.1.9.40.66.73	Loaded
+JGoodies Forms	oracle.jdeveloper.jgoodies	11.1.1.9.40.66.73	Loaded
+JSON Language support	oracle.jdeveloper.json	11.1.1.9.40.66.73	Loaded
+library-dconfig-infra	oracle.jdeveloper.library.dconfig.infra	11.1.1.9.40.66.73	Loaded
+library-jee-api	oracle.jdeveloper.library.jee.api	11.1.1.9.40.66.73	Loaded
+library-jmx	oracle.jdeveloper.library.jmx	11.1.1.9.40.66.73	Loaded
+library-jps	oracle.jdeveloper.library.jps	11.1.1.9.40.66.73	Loaded
+library-weblogic-api	oracle.jdeveloper.library.weblogic.api	11.1.1.9.40.66.73	Loaded
+library-weblogic-client	oracle.jdeveloper.library.weblogic.client	11.1.1.9.40.66.73	Loaded
+Oracle Enterprise Repository Editor	oracle.jdeveloper.oereditor	11.1.1.9.40.66.73	Loaded
+Offline Database	oracle.jdeveloper.offlinedb	11.1.1.9.40.66.73	Loaded
+Offline Database Reports Extension	oracle.jdeveloper.offlinedb.report	11.1.1.9.40.66.73	Loaded
+Offline Database SXML	oracle.jdeveloper.offlinedb.sxml	11.1.1.9.40.66.73	Loaded
+Offline Database Import/Generate	oracle.jdeveloper.offlinedb.transfer	11.1.1.9.40.66.73	Loaded
+Offline Database User Properties	oracle.jdeveloper.offlinedb.userprops	11.1.1.9.40.66.73	Loaded
+Offline Database User Properties SXML	oracle.jdeveloper.offlinedb.userprops.sxml	11.1.1.9.40.66.73	Loaded
+Command Line Formatting Support	oracle.jdeveloper.ojformat	11.1.1.9.40.66.73	Loaded
+Profiler	oracle.jdeveloper.profiler	11.1.1.9.40.66.73	Loaded
+Properties File Support	oracle.jdeveloper.props	11.1.1.9.40.66.73	Loaded
+Resource Catalog Database Adapter	oracle.jdeveloper.rcdbadapter	11.1.1.9.40.66.73	Loaded
+Resource Lookup	oracle.jdeveloper.rclookup	11.1.1.9.40.66.73	Loaded
+Resource Catalog WSIL Adapter	oracle.jdeveloper.rcwsiladapter	11.1.1.9.40.66.73	Loaded
+Refactoring	oracle.jdeveloper.refactoring	11.1.1.9.40.66.73	Loaded
+dependency-refactor	oracle.jdeveloper.refactoring.dependency	11.1.1.9.40.66.73	Loaded
+resourcebundle-api-adfdeps	oracle.jdeveloper.resourcebundle.adfdeps	11.1.1.9.40.66.73	Loaded
+resourcebundle-customization	oracle.jdeveloper.resourcebundle.customization	11.1.1.9.40.66.73	Loaded
+Resource Bundle Support for Properties Files	oracle.jdeveloper.resourcebundle.props	11.1.1.9.40.66.73	Loaded
+Design Time Resource Bundle Variable Resolver	oracle.jdeveloper.resourcebundle.resolver.dt	11.1.1.9.40.66.73	Loaded
+JDeveloper Runner	oracle.jdeveloper.runner	11.1.1.9.40.66.73	Loaded
+Java Type Search	oracle.jdeveloper.searchbar.java	11.1.1.9.40.66.73	Loaded
+SQLJ	oracle.jdeveloper.sqlj	11.1.1.9.40.66.73	Loaded
+Versioning Support for Subversion	oracle.jdeveloper.subversion	11.1.1.9.40.66.73	Loaded
+Jdeveloper UI Editor	oracle.jdeveloper.uieditor	11.1.1.9.40.66.73	Loaded
+Versioning Support	oracle.jdeveloper.vcs	11.1.1.9.40.66.73	Loaded
+WebDAV Connection Support	oracle.jdeveloper.webdav2	11.1.1.9.40.66.73	Loaded
+Web Services	oracle.jdeveloper.webservice	11.1.1.9.40.66.73	Loaded
+REST Web Services	oracle.jdeveloper.webservice.rest	11.1.1.9.40.66.73	Loaded
+OWSM Policy Manager Installer	oracle.jdeveloper.webservice.wsmpm.installer	11.1.1.9.40.66.73	Loaded
+WSDL Chooser	oracle.jdeveloper.wsdllookup	11.1.1.0.0	Loaded
+Jdeveloper XML Extension	oracle.jdeveloper.xml	11.1.1.9.40.66.73	Loaded
+XML Compare	oracle.jdeveloper.xml-compare	11.1.1.9.40.66.73	Loaded
+XML Editing Framework Java Integration	oracle.jdeveloper.xmlef	11.1.1.9.40.66.73	Loaded
+deploy-rt	oracle.jdevimpl.deploy-rt	11.1.1.9.40.66.73	Loaded
+Command Line Make/Rebuild Support	oracle.jdevimpl.oj-compiler	11.1.1.9.40.66.73	Loaded
+Command Line SCA Compiler	oracle.jdevimpl.oj-sca	0	Loaded
+rescat2	oracle.jdevimpl.rescat2	11.1.1.9.40.66.73	Loaded
+UDDI Resource Catalogue Provider	oracle.jdevimpl.uddiadapter	11.1.1.9.40.66.73	Loaded
+URL Connection Designtime	oracle.jdevimpl.urlconn	0	Loaded
+WSDL web services extension	oracle.jdevimpl.wsdl	11.1.1.9.40.66.73	Loaded
+xml-schema-dt	oracle.jdevimpl.xml.schema	11.1.1.9.40.66.73	Loaded
+xsl-dt	oracle.jdevimpl.xml.xsl	11.1.1.9.40.66.73	Loaded
+Java Server Faces Page Flow Modeler	oracle.jsfmod	11.1.1.9.40.66.73	Loaded
+MDS Extension	oracle.mds	11.1.1.9.40.66.73	Loaded
+Oracle MDS Design time	oracle.mds.dt	11.1.1.9.40.66.73	Loaded
+Modeler Framework	oracle.modeler	11.1.1.9.40.66.73	Loaded
+Modelling migration from BM	oracle.modeler.bm.migrate	11.1.1.9.40.66.73	Loaded
+Legacy Preferences integration for BM	oracle.modeler.bm.prefs	11.1.1.9.40.66.73	Loaded
+Modeler Framework Common Layer	oracle.modeler.common	11.1.1.9.40.66.73	Loaded
+MOF Modeler Integration	oracle.modeler.mof	11.1.1.9.40.66.73	Loaded
+mof	oracle.mof	11.1.1.9.40.66.73	Loaded
+MOF Ide Integration	oracle.mof.ide	11.1.1.9.40.66.73	Loaded
+mof-index	oracle.mof.index	11.1.1.9.40.66.73	Loaded
+mof-xmi	oracle.mof.xmi	11.1.1.9.40.66.73	Loaded
+Common Page Flow Design-Time	oracle.pageflow.dt	11.1.1.9.40.66.73	Loaded
+placeholderdc-dt	oracle.placeholderdc.dt	11.1.1.9.40.66.73	Loaded
+placeholder-jsf-ui	oracle.placeholderjsf-ui	11.1.1.9.40.66.73	Loaded
+WebCenter Portlet Bridge Service	oracle.portlet.bridge.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Portlet Producer Support	oracle.portlets	11.1.1.9.0.151005.2311	Loaded
+resourcebundle-api-xliff	oracle.resourcebundle.xliff	11.1.1.9.40.66.73	Loaded
+Oracle SQL Developer	oracle.sqldeveloper	11.2.0.10.04	Loaded
+Oracle SQL Developer - Database Cart	oracle.sqldeveloper.dbcart	11.2.0.10.04	Loaded
+Oracle SQL Developer - Object Viewer	oracle.sqldeveloper.oviewer	11.2.0.10.04	Loaded
+Oracle SQL Developer - Reports	oracle.sqldeveloper.report	11.2.0.10.04	Loaded
+Oracle SQL Developer - Snippet	oracle.sqldeveloper.snippet	11.2.0.10.04	Loaded
+Oracle SQL Developer - 3rd Party Database Browsers	oracle.sqldeveloper.thirdparty.browsers	11.2.0.10.04	Loaded
+Oracle SQL Developer - Worksheet v2	oracle.sqldeveloper.worksheet	11.2.0.10.04	Loaded
+Oracle SQL Developer - XML Schema	oracle.sqldeveloper.xmlschema	11.2.0.10.04	Loaded
+Struts Page Flow Modeler	oracle.struts	11.1.1.9.40.66.73	Loaded
+ADF Struts Page Flow Modeler	oracle.struts.adf	11.1.1.9.40.66.73	Loaded
+Studio	oracle.studio	11.1.1.9.40.66.73	Loaded
+Studio extension help	oracle.studio.help	11.1.1.0.0	Loaded
+JavaBeans, Swing, and AWT	oracle.swingawt	11.1.1.9.40.66.73	Loaded
+oracle.todo.tasks	oracle.todo.tasks	11.1.1.9.40.66.73	Loaded
+TopLink	oracle.toplink	11.1.1.9.40.66.73	Loaded
+Trinidad Databinding Design Time	oracle.trinidad-databinding-dt	11.1.1.9.40.66.73	Loaded
+Trinidad Design Time	oracle.trinidad-dt	11.1.1.9.40.66.73	Loaded
+RIDC	oracle.ucm.ridc.jdev	11.1.1.9.0.141119.1743.8096	Loaded
+Site Studio	oracle.ucm.wcm.jdev	11.1.1.8.0.5006	Loaded
+UML v2	oracle.uml.v2	11.1.1.9.40.66.73	Loaded
+UML v2 Activity Modeler	oracle.uml.v2.activity	11.1.1.9.40.66.73	Loaded
+UML v2 Class Diagram	oracle.uml.v2.clazz	11.1.1.9.40.66.73	Loaded
+UML v2 Migration	oracle.uml.v2.migrate	11.1.1.9.40.66.73	Loaded
+UML2 Modelers Common Classes	oracle.uml.v2.modeler	11.1.1.9.40.66.73	Loaded
+UML v2 Sequence Diagram	oracle.uml.v2.sequence	11.1.1.9.40.66.73	Loaded
+UML v2 Transformation to Java	oracle.uml.v2.umljava	11.1.1.9.40.66.73	Loaded
+UML v2 Use Case Diagram	oracle.uml.v2.usecase	11.1.1.9.40.66.73	Loaded
+UML XMI	oracle.uml.v2.xmi	11.1.1.9.40.66.73	Loaded
+Oracle User Messaging Service Client Extension	oracle.ums.jdev	11.1.1.9.0	Loaded
+WebCenter Personalization ADRS	oracle.wcps.tools.adrs	11.1.1.7.0	Loaded
+WebCenter Personalization Common	oracle.wcps.tools.common	11.1.1.7.0	Loaded
+WebCenter Personalization Properties Tools	oracle.wcps.tools.properties	11.1.1.7.0	Loaded
+WebCenter Personalization Scenario Tools	oracle.wcps.tools.scenarios	11.1.1.7.0	Loaded
+ADF Faces Cache	oracle.webcache	11.1.1.9.40.66.73	Loaded
+WebCenter Portal - ActivityGraph Service	oracle.webcenter.activitygraph.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Activity Streaming Service	oracle.webcenter.activitystreaming.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Analytics Service	oracle.webcenter.analytics.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Framework	oracle.webcenter.app	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Catalog Service	oracle.webcenter.catalog	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Announcement Service	oracle.webcenter.collab.announcement	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Common Collab Service	oracle.webcenter.collab.common	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Events Service	oracle.webcenter.collab.event	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Discussion Service	oracle.webcenter.collab.forum	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Mail Service	oracle.webcenter.collab.mail	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Instant Messaging and Presence (IMP) Service	oracle.webcenter.collab.rtc	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - SmartTag	oracle.webcenter.collab.smarttagdt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Poll Service	oracle.webcenter.collab.surveyservicedt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Framework Design-Time	oracle.webcenter.common	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Composer	oracle.webcenter.composer.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Documents Service	oracle.webcenter.content.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal Task Flow Customization Framework	oracle.webcenter.cust	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Customizable Components	oracle.webcenter.custcomps.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Lists Service	oracle.webcenter.list.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Navigation Editor	oracle.webcenter.navigationeditor.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Navigation Task Flows	oracle.webcenter.navigationtaskflows.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Notification Service	oracle.webcenter.notification.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Page Service	oracle.webcenter.page	11.1.1.9.0.151005.2311	Loaded
+WebCenter Page Style	oracle.webcenter.pagestyle.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - People Service	oracle.webcenter.people.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - PeopleConnections Personal Web	oracle.webcenter.peopleconnections.personalweb.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Framework	oracle.webcenter.portal	11.1.1.8.0.141129.1901	Loaded
+Oracle WebCenter Portal Server Extension	oracle.webcenter.portal.server.ext	11.1.1.9.0.151005.2311	Loaded
+Oracle WebCenter Portal DT Share Extension	oracle.webcenter.portal.server.share	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Portlet Editor	oracle.webcenter.portlet.editor	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Preconfigured Server	oracle.webcenter.preconfigserver	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Recent Activity Service	oracle.webcenter.recentactivity.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Links Service	oracle.webcenter.relationship.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Resource Catalog	oracle.webcenter.resourcecatalog.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - RSS Service	oracle.webcenter.rss.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Search Service	oracle.webcenter.search.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Page Template	oracle.webcenter.sitetemplate.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Skin Editor	oracle.webcenter.skin.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal Client Service	oracle.webcenter.spaces.client.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Tags Service	oracle.webcenter.tagging.dt	11.1.1.9.0.151005.2311	Loaded
+WebCenter Portal - Worklist Service	oracle.webcenter.worklist	11.1.1.9.0.151005.2311	Loaded
+Oracle Mobile ADF	oracle.wireless.dt	11.1.1.9.40.66.73	Loaded
+xsqldt-ide	oracle.xsqldt-ide	11.1.1.9.40.66.73	Loaded
+Quick Start Features for Web Applications	quickstart.webapp.dt	11.1.1.9.40.66.73	Loaded
+

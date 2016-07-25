@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config xmlns="http://www.stellent.com/wcm/ns/8.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.stellent.com/wcm/ns/8.0.0 http://www.oracle.com/openwcm/wcm_site_config.xsd">
+    <system>
+        <sites>
+            <site contributionEnabled="true" extension=".html" id="PPSite" urlPattern="/PPSite/*"/>
+        </sites>
+        <contentServer adminUser="sysadmin" connectionName="pp-app-rep"/>
+        <staging publicDir="/wcm"/>
+        <security enabled="true"/>
+    </system>
+    <mappings>
+        <pageTemplates>
+            <mapping id="ssd-home-pt" path="/wcm/templates/page/home.jspx"/>
+        </pageTemplates>
+        <regionTemplates/>
+        <subTemplates/>
+    </mappings>
+</config>

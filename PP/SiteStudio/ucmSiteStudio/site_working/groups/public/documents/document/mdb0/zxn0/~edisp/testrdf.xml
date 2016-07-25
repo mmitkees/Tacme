@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<regionDefinition xmlns="http://www.oracle.com/sitestudio/Element/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.oracle.com/sitestudio/Element/ http://www.oracle.com/sitestudio/ss_element_definition.xsd">
+    <elements>
+        <elementReference location="MYLIST" name="ststiclist">
+            <property name="label" value="ststiclist"/>
+            <property name="description" value=""/>
+        </elementReference>
+        <elementReference location="PAGE_BODY_ENGLISH" name="asd">
+            <property name="label" value="sda"/>
+            <property name="description" value=""/>
+        </elementReference>
+    </elements>
+    <property name="description" value=""/>
+    <dataProperty name="metadata"></dataProperty>
+    <complexProperty name="switchregioncontent">
+        <property name="createnewxml" value="true"/>
+        <property name="createnewnative" value="false"/>
+        <property name="choosemanaged" value="true"/>
+        <property name="chooselocal" value="false"/>
+        <property name="choosenone" value="false"/>
+        <valueList name="createnewnativedoctypes"/>
+        <complexProperty name="choosemanagedquerytext">
+            <property name="corecontentonly" value="false"/>
+            <dataProperty name="querytext">((xWebsiteObjectType &lt;matches&gt; `Data File`) &lt;and&gt; (xRegionDefinition &lt;matches&gt; `TESTRDF`)) &lt;or&gt; (xWebsiteObjectType &lt;matches&gt; `Native Document`)</dataProperty>
+        </complexProperty>
+        <dataProperty name="defaultmetadata"></dataProperty>
+    </complexProperty>
+</regionDefinition>

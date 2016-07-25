@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementDefinition xmlns="http://www.oracle.com/sitestudio/Element/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.oracle.com/sitestudio/Element/ http://www.oracle.com/sitestudio/ss_element_definition.xsd">
+    <elements>
+        <elementReference location="PP-IMAGE" name="Image">
+            <property name="label" value="Image"/>
+            <property name="description" value=""/>
+        </elementReference>
+        <elementReference location="PP-DESC" name="TextArabic">
+            <property name="label" value="Text Arabic"/>
+            <property name="description" value=""/>
+        </elementReference>
+        <elementReference location="PP-DESC" name="TextEnglish">
+            <property name="label" value="Text English"/>
+            <property name="description" value=""/>
+        </elementReference>
+    </elements>
+    <property name="type" value="2"/>
+    <property name="description" value=""/>
+    <complexProperty name="flags">
+        <property name="canUndo" value="true"/>
+        <property name="canRedo" value="true"/>
+        <property name="canCut" value="false"/>
+        <property name="canCopy" value="false"/>
+        <property name="canPaste" value="false"/>
+        <property name="canApplyBold" value="false"/>
+        <property name="canApplyItalic" value="false"/>
+        <property name="canUnderline" value="false"/>
+        <property name="canRemoveFormatting" value="false"/>
+        <property name="canApplyOrderedList" value="false"/>
+        <property name="canApplyUnorderedList" value="false"/>
+        <property name="canIndent" value="false"/>
+        <property name="canOutdent" value="false"/>
+        <property name="canLeftJustify" value="false"/>
+        <property name="canCenterJustify" value="false"/>
+        <property name="canRightJustify" value="false"/>
+        <property name="canInsertImage" value="false"/>
+        <property name="canInsertLink" value="false"/>
+        <property name="canRemoveLink" value="false"/>
+        <property name="canInsertHorizontalRule" value="false"/>
+        <property name="canInsertLineBreak" value="false"/>
+        <property name="canInsertNonBreakingSpace" value="false"/>
+        <property name="canAddRow" value="true"/>
+        <property name="canRemoveRow" value="true"/>
+        <property name="canEditRow" value="true"/>
+        <property name="canMoveUp" value="true"/>
+        <property name="canMoveDown" value="true"/>
+        <property name="canChangeFontFace" value="false"/>
+        <property name="canChangeFontSize" value="false"/>
+        <property name="canChangeForegroundColor" value="false"/>
+        <property name="canChangeBackgroundColor" value="false"/>
+        <property name="canShowNextPage" value="false"/>
+        <property name="canShowPrevPage" value="false"/>
+        <property name="canChangeColumns" value="false"/>
+        <property name="canRefresh" value="false"/>
+        <property name="canCreateNew" value="false"/>
+        <property name="canExcludeFromList" value="false"/>
+        <property name="canViewDocInfo" value="false"/>
+        <property name="canSpellCheck" value="false"/>
+        <property name="isRequired" value="false"/>
+        <property name="canApplyCssClasses" value="false"/>
+        <property name="canEditTarget" value="false"/>
+        <property name="enableEditorCSSOverride" value="false"/>
+        <property name="canIncludeInList" value="false"/>
+        <property name="enableTableSupport" value="false"/>
+        <property name="canPasteFormattedContent" value="false"/>
+        <property name="enableObjectProperties" value="false"/>
+        <property name="enableValidation" value="false"/>
+        <property name="canShowAccessibilityReport" value="false"/>
+        <property name="canShowSourceMode" value="false"/>
+        <property name="canExpandEditor" value="false"/>
+        <property name="canShowInclusionInList" value="false"/>
+        <property name="canApplyTags" value="false"/>
+        <property name="canSetHeight" value="false"/>
+        <property name="disableEncloseText" value="false"/>
+        <property name="enableCustomConfiguration" value="false"/>
+        <property name="canPrint" value="false"/>
+        <property name="canApplySubscript" value="false"/>
+        <property name="canApplySuperscript" value="false"/>
+        <property name="canApplyStrikethrough" value="false"/>
+        <property name="canInsertSymbol" value="false"/>
+        <property name="canInsertBookmark" value="false"/>
+        <property name="canSelectAll" value="false"/>
+        <property name="canSearchAndReplace" value="false"/>
+        <property name="canShowHtmlElements" value="false"/>
+        <property name="canFullJustify" value="false"/>
+        <property name="canApplyBlockquote" value="false"/>
+        <property name="enableFormSupport" value="false"/>
+        <property name="canInsertFlash" value="false"/>
+    </complexProperty>
+    <property name="height" value=""/>
+</elementDefinition>

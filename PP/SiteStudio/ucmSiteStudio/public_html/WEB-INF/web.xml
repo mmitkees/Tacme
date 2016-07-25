@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
+  <context-param>
+    <param-name>oracle.adf.jsp.provider.5</param-name>
+    <param-value>oracle.stellent.wcm.javaee.shared.jsp.IdcJspProvider</param-value>
+  </context-param>
+  <filter>
+    <filter-name>JpsFilter</filter-name>
+    <filter-class>oracle.security.jps.ee.http.JpsFilter</filter-class>
+    <init-param>
+      <param-name>enable.anonymous</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter>
+    <description>OpenWCM Mode Filter</description>
+    <filter-name>wcmmodefilter</filter-name>
+    <filter-class>oracle.stellent.wcm.javaee.servlet.filter.ModeFilter</filter-class>
+  </filter>
+  <filter>
+    <description>OpenWCM Site Filter</description>
+    <filter-name>wcmsitefilter</filter-name>
+    <filter-class>oracle.stellent.wcm.javaee.servlet.filter.WCMSiteFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>JpsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>wcmmodefilter</filter-name>
+    <url-pattern>/wcm-contrib/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>wcmmodefilter</filter-name>
+    <url-pattern>/wcm-design/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>wcmsitefilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+  <servlet>
+    <description>For proxying Content Server content and services</description>
+    <display-name>SSXA Proxy Servlet</display-name>
+    <servlet-name>wcmproxy</servlet-name>
+    <servlet-class>oracle.stellent.wcm.javaee.servlet.proxy.ProxyServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <description>Renders a placeholder tag</description>
+    <display-name>SSXA Placeholder Renderer Servlet</display-name>
+    <servlet-name>wcmplaceholderrenderer</servlet-name>
+    <servlet-class>oracle.stellent.wcm.javaee.servlet.renderer.PlaceHolderRendererServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <description>Initializes the OpenWCM framework</description>
+    <display-name>OpenWCM Initialization Servlet</display-name>
+    <servlet-name>wcmInitServlet</servlet-name>
+    <servlet-class>oracle.stellent.wcm.javaee.servlet.filter.WCMInitializeServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>wcmproxy</servlet-name>
+    <url-pattern>/wcm/idc/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>wcmplaceholderrenderer</servlet-name>
+    <url-pattern>/wcm/idc-ph/*</url-pattern>
+  </servlet-mapping>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/wcm/support/login/wcm-login.jsp?tryagain=true</location>
+  </error-page>
+  <error-page>
+    <exception-type>oracle.stellent.wcm.client.ApplicationException</exception-type>
+    <location>/wcm/support/wcm-page-error.jsp</location>
+  </error-page>
+  <jsp-config>
+    <jsp-property-group>
+      <display-name>Fragments</display-name>
+      <url-pattern>*.jspf</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
+      <is-xml>true</is-xml>
+    </jsp-property-group>
+  </jsp-config>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>ContributionMode</web-resource-name>
+      <url-pattern>/wcm-contrib/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>WCMContributor</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>DesignerMode</web-resource-name>
+      <url-pattern>/wcm-design/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>WCMContributor</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>OpenWCM</realm-name>
+    <form-login-config>
+      <form-login-page>/wcm/support/login/wcm-login.jsp</form-login-page>
+      <form-error-page>/wcm/support/login/wcm-login.jsp?tryagain=true</form-error-page>
+    </form-login-config>
+  </login-config>
+  <security-role>
+    <role-name>WCMContributor</role-name>
+  </security-role>
+</web-app>

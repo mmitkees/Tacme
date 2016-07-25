@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementDefinition xmlns="http://www.oracle.com/sitestudio/Element/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.oracle.com/sitestudio/Element/ http://www.oracle.com/sitestudio/ss_element_definition.xsd">
+    <property name="type" value="1"/>
+    <property name="description" value="Add Text as Description"/>
+    <complexProperty name="flags">
+        <property name="canUndo" value="true"/>
+        <property name="canRedo" value="true"/>
+        <property name="canCut" value="true"/>
+        <property name="canCopy" value="true"/>
+        <property name="canPaste" value="true"/>
+        <property name="canApplyBold" value="true"/>
+        <property name="canApplyItalic" value="true"/>
+        <property name="canUnderline" value="true"/>
+        <property name="canRemoveFormatting" value="true"/>
+        <property name="canApplyOrderedList" value="true"/>
+        <property name="canApplyUnorderedList" value="true"/>
+        <property name="canIndent" value="true"/>
+        <property name="canOutdent" value="true"/>
+        <property name="canLeftJustify" value="true"/>
+        <property name="canCenterJustify" value="true"/>
+        <property name="canRightJustify" value="true"/>
+        <property name="canInsertImage" value="true"/>
+        <property name="canInsertLink" value="true"/>
+        <property name="canRemoveLink" value="true"/>
+        <property name="canInsertHorizontalRule" value="true"/>
+        <property name="canInsertLineBreak" value="true"/>
+        <property name="canInsertNonBreakingSpace" value="true"/>
+        <property name="canAddRow" value="false"/>
+        <property name="canRemoveRow" value="false"/>
+        <property name="canEditRow" value="false"/>
+        <property name="canMoveUp" value="false"/>
+        <property name="canMoveDown" value="false"/>
+        <property name="canChangeFontFace" value="true"/>
+        <property name="canChangeFontSize" value="true"/>
+        <property name="canChangeForegroundColor" value="true"/>
+        <property name="canChangeBackgroundColor" value="true"/>
+        <property name="canShowNextPage" value="false"/>
+        <property name="canShowPrevPage" value="false"/>
+        <property name="canChangeColumns" value="false"/>
+        <property name="canRefresh" value="false"/>
+        <property name="canCreateNew" value="false"/>
+        <property name="canExcludeFromList" value="false"/>
+        <property name="canViewDocInfo" value="false"/>
+        <property name="canSpellCheck" value="true"/>
+        <property name="isRequired" value="true"/>
+        <property name="canApplyCssClasses" value="true"/>
+        <property name="canEditTarget" value="false"/>
+        <property name="canIncludeInList" value="false"/>
+        <property name="enableTableSupport" value="true"/>
+        <property name="canPasteFormattedContent" value="true"/>
+        <property name="enableObjectProperties" value="true"/>
+        <property name="enableValidation" value="true"/>
+        <property name="canShowAccessibilityReport" value="true"/>
+        <property name="canShowSourceMode" value="true"/>
+        <property name="canExpandEditor" value="true"/>
+        <property name="canShowInclusionInList" value="false"/>
+        <property name="canApplyTags" value="true"/>
+        <property name="canSetHeight" value="false"/>
+        <property name="disableEncloseText" value="false"/>
+        <property name="canSelectAll" value="true"/>
+        <property name="canSearchAndReplace" value="true"/>
+    </complexProperty>
+    <valueList name="classes"/>
+    <valueList name="tags"/>
+    <property name="height" value=""/>
+    <complexProperty name="insertimagequerytext">
+        <property name="corecontentonly" value="false"/>
+        <dataProperty name="querytext">
+			
+		</dataProperty>
+    </complexProperty>
+    <complexProperty name="linktoregioncontent">
+        <property name="createnewxml" value="true"/>
+        <property name="createnewnative" value="false"/>
+        <property name="choosemanaged" value="true"/>
+        <property name="chooselocal" value="false"/>
+        <property name="choosenone" value="false"/>
+        <valueList name="createnewnativedoctypes"/>
+        <complexProperty name="choosemanagedquerytext">
+            <property name="corecontentonly" value="false"/>
+            <dataProperty name="querytext">
+				xWebsiteObjectType &lt;Matches&gt; `Data File` &lt;OR&gt; xWebsiteObjectType &lt;Matches&gt; `Native Document`
+			</dataProperty>
+        </complexProperty>
+        <dataProperty name="defaultmetadata">
+			
+		</dataProperty>
+    </complexProperty>
+    <complexProperty name="validate">
+        <property name="docname" value="SS_DEFAULT_VALIDATION_SCRIPT"/>
+        <property name="language" value="javascript"/>
+        <property name="methodname" value="fnSSVDefaultWysiwygValidation"/>
+        <property name="paramtype" value="html"/>
+        <valueList name="parameters">
+            <value></value>
+            <value>250</value>
+            <value></value>
+            <value>true</value>
+            <value>true</value>
+            <value>true</value>
+        </valueList>
+    </complexProperty>
+</elementDefinition>
