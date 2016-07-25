@@ -1,0 +1,60 @@
+# default application storage directory used by the IDE Performance Cache feature
+.data/
+
+# used for ADF styles caching
+temp/
+
+# default output directories
+classes/
+deploy/
+javadoc/
+
+# lock file, a part of Oracle Credential Store Framework
+cwallet.sso.lck
+
+
+# jdeveloper ignore list
+**/.*.cs
+**/.#*
+**/.ade_path
+**/.ade_path/**
+**/.data/**
+**/.depprod
+**/.depprod_nt
+**/.do_pool
+**/.do_pool/**
+**/.fullsource
+**/.fullsource_nt
+**/.svn/**
+**/*.bak
+**/*.cdi
+**/*.class
+**/*.client_contrib
+**/*.contrib*
+**/*.DS_Store
+**/*.generated.java
+**/*.ignore
+**/*.keep
+**/*.labellog.emd
+**/*.metadata
+**/*.metadata
+**/*.mv.*
+**/*.rename.*
+**/*.rvi
+**/*.saved.*
+**/*.scc
+**/*.sync.*
+**/*.unbranch.*
+**/*.unco.*
+**/*.unmkelem.*
+**/*~
+**/*#GRABTRANS*
+**/*#JDEVADF_*
+**/classes/**
+**/CVS/**
+**/deploy/**
+**/modelers.map
+**/temp/**
+/BscsWrapper/src/META-INF/jax-ws-catalog.xml
+/.adf/META-INF/connections.xml
+/.adf/META-INF/connections.xml
