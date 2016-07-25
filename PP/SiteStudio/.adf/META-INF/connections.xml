@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="pp-app-rep" className="oracle.stellent.ridc.convenience.adf.mbeans.IdcConnection" xmlns="">
+      <Factory className="oracle.stellent.ridc.convenience.adf.mbeans.IdcConnectionFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="oracle.stellent.idc.connectionUrl">
+            <Contents>idc://pp-app-rep:4444</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oracle.stellent.idc.idcServerURL">
+            <Contents>http://pp-app-rep:16200/cs/idcplg</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>
