@@ -1,0 +1,20 @@
+<mds:customization version="11.1.1.66.73"
+                   xmlns:mds="http://xmlns.oracle.com/mds">
+  <mds:modify element="bc1">
+    <mds:attribute name="styleClass" value="breadCrumb-inside"/>
+  </mds:modify>
+  <mds:modify element="cni1">
+    <mds:attribute name="styleClass" value="breadCrumb-item"/>
+    <mds:attribute name="partialSubmit" value="false"/>
+    <mds:removeAttribute name="action"/>
+    <mds:removeAttribute name="actionListener"/>
+    <mds:attribute name="destination" value="#{node.goLinkPrettyUrl}"/>
+  </mds:modify>
+</mds:customization>
+
+
+
+
+
+
+

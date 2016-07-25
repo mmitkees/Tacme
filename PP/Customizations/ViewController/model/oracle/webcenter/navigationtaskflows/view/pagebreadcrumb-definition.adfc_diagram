@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="y">434.20117</property>
+      <property
+         name="x">94.03223</property>
+   </OverallProperties>
+   <ParentAction
+      id="ParentAction2">
+      <property
+         name="activityId">wcnav_parentAction</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>wcnav_parentAction&lt;/b>&lt;/p>&lt;p>Activity Type:  Parent Action&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">266.5</property>
+      <property
+         name="x">94.03223</property>
+   </ParentAction>
+   <View
+      id="View3">
+      <property
+         name="activityId">pagebreadcrumb</property>
+      <property
+         name="page">/oracle/webcenter/navigationtaskflows/view/pagebreadcrumb.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>pagebreadcrumb&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">98.79883</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">94.03223</property>
+   </View>
+</SDM>
