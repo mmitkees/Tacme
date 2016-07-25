@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="carrersAdminViewPageDef"
+                Package="jsffViews">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VacanciesAdminView2" RangeSize="25"
+              DataControl="ppCarrersServiceDataControl"
+              id="VacanciesAdminView2Iterator"/>
+    <searchRegion Binds="VacanciesAdminView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="VacanciesAdminView2Query"/>
+    <searchRegion Criteria="VacanciesAdminViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="VacanciesAdminView2Iterator"
+                  id="VacanciesAdminViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="VacanciesAdminView2Iterator" id="VacanciesAdminView2">
+      <nodeDefinition DefName="com.pp.carrers.app.model.views.VacanciesAdminView"
+                      Name="VacanciesAdminView20">
+        <AttrNames>
+          <Item Value="PositionId"/>
+          <Item Value="VadminName"/>
+          <Item Value="VadminMobileNumber"/>
+          <Item Value="VadminEmail"/>
+          <Item Value="VadminNationality"/>
+          <Item Value="VadminAttachUrl"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

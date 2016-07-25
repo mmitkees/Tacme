@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.pp.carrers.app.model.services.ppCarrersService">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.pp.carrers.app.model.Model" name="ppCarrersServiceLocal" ApplicationName="com.pp.carrers.app.model.services.ppCarrersService">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.pp.carrers.app.model.services.ppCarrersService"/>
+         <Custom JDBCDataSource="jdbc/ppdevDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.pp.carrers.app.model.Model" name="ppCarrersServiceShared" ApplicationName="com.pp.carrers.app.model.services.ppCarrersService">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.pp.carrers.app.model.services.ppCarrersService"/>
+         <Custom JDBCDataSource="jdbc/ppdevDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

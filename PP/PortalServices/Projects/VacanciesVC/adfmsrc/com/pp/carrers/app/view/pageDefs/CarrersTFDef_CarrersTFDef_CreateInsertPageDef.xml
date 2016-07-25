@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="CarrersTFDef_CarrersTFDef_CreateInsertPageDef"
+                Package="com.pp.carrers.app.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="PpCarrersView1" RangeSize="25"
+              DataControl="ppCarrersServiceDataControl"
+              id="PpCarrersView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="PpCarrersView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

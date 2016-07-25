@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.pp.component.model.faq.services.faqAppModule">
+      <AppModuleConfig name="faqAppModuleLocal" ApplicationName="com.pp.component.model.faq.services.faqAppModule" DeployPlatform="LOCAL" jbo.project="com.pp.component.model.faq.FAQBC">
+         <Security AppModuleJndiName="com.pp.component.model.faq.services.faqAppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ppdevDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="faqAppModuleShared" ApplicationName="com.pp.component.model.faq.services.faqAppModule" DeployPlatform="LOCAL" jbo.project="com.pp.component.model.faq.FAQBC">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="com.pp.component.model.faq.services.faqAppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ppdevDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

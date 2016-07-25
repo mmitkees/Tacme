@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="AddComplainPageDef"
+                Package="com.pp.component.view.snc.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ComplainsSuggestionsView1" RangeSize="25"
+              DataControl="SNVAppModuleDataControl"
+              id="ComplainsSuggestionsView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ComplainsSuggestionsView1Iterator"
+                     id="SenderName">
+      <AttrNames>
+        <Item Value="SenderName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ComplainsSuggestionsView1Iterator"
+                     id="SenderEmail">
+      <AttrNames>
+        <Item Value="SenderEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ComplainsSuggestionsView1Iterator"
+                     id="MessageBody">
+      <AttrNames>
+        <Item Value="MessageBody"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ComplainsSuggestionsView1Iterator" StaticList="false"
+          Uses="LOV_MessageType" id="MessageType" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ComplainsSuggestionsView1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="SNVAppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <methodAction id="isDuplicate"
+                  InstanceName="SNVAppModuleDataControl.dataProvider"
+                  DataControl="SNVAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="isDuplicate" IsViewObjectMethod="false"
+                  ReturnName="data.SNVAppModuleDataControl.methodResults.isDuplicate_SNVAppModuleDataControl_dataProvider_isDuplicate_result">
+      <NamedData NDName="cid" NDType="int"/>
+    </methodAction>
+    <action IterBinding="ComplainsSuggestionsView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

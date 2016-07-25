@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EventsBC"
+  Version="11.1.1.64.93"
+  SeparateXMLFiles="true"
+  PackageName="com.pp.evts.ae.model">
+  <DesignTime>
+    <Attr Name="_jprName" Value="../../../../../../EventsBC.jpr"/>
+    <Attr Name="_NamedConnection" Value="ppdev"/>
+    <Attr Name="_appModuleNames0"
+      Value="com.pp.evts.ae.model.services.PortalEvtsAM"/>
+  </DesignTime>
+  <Containee
+    Name="entities"
+    PackageName="com.pp.evts.ae.model.entities"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="services"
+    PackageName="com.pp.evts.ae.model.services"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="viewLinks"
+    PackageName="com.pp.evts.ae.model.views.viewLinks"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="views"
+    PackageName="com.pp.evts.ae.model.views"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+</JboProject>

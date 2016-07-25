@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1">
+    <af:inputText value="#{bindings.CaseNo.inputValue}"
+                  label="#{bindings.CaseNo.hints.label}"
+                  required="#{bindings.CaseNo.hints.mandatory}"
+                  columns="#{bindings.CaseNo.hints.displayWidth}"
+                  maximumLength="#{bindings.CaseNo.hints.precision}"
+                  shortDesc="#{bindings.CaseNo.hints.tooltip}" id="it3">
+      <f:validator binding="#{bindings.CaseNo.validator}"/>
+      <af:convertNumber groupingUsed="false"
+                        pattern="#{bindings.CaseNo.format}"/>
+    </af:inputText>
+    <af:selectOneChoice value="#{bindings.CaseYear.inputValue}"
+                        label="#{bindings.CaseYear.label}"
+                        required="#{bindings.CaseYear.hints.mandatory}"
+                        shortDesc="#{bindings.CaseYear.hints.tooltip}"
+                        id="soc2">
+      <f:selectItems value="#{bindings.CaseYear.items}" id="si2"/>
+    </af:selectOneChoice>
+    <af:selectOneChoice value="#{bindings.ProsecName.inputValue}"
+                        label="#{bindings.ProsecName.label}"
+                        required="#{bindings.ProsecName.hints.mandatory}"
+                        shortDesc="#{bindings.ProsecName.hints.tooltip}"
+                        id="soc3">
+      <f:selectItems value="#{bindings.ProsecName.items}" id="si1"/>
+    </af:selectOneChoice>
+    <af:selectOneChoice value="#{bindings.RelCase.inputValue}"
+                        label="#{bindings.RelCase.label}"
+                        required="#{bindings.RelCase.hints.mandatory}"
+                        shortDesc="#{bindings.RelCase.hints.tooltip}" id="soc1">
+      <f:selectItems value="#{bindings.RelCase.items}" id="si3"/>
+    </af:selectOneChoice>
+    <af:inputText value="#{bindings.ErrorType.inputValue}"
+                  label="#{bindings.ErrorType.hints.label}"
+                  required="#{bindings.ErrorType.hints.mandatory}"
+                  columns="#{bindings.ErrorType.hints.displayWidth}"
+                  maximumLength="#{bindings.ErrorType.hints.precision}"
+                  shortDesc="#{bindings.ErrorType.hints.tooltip}" id="it1">
+      <f:validator binding="#{bindings.ErrorType.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.ReqId.inputValue}"
+                  label="#{bindings.ReqId.hints.label}"
+                  required="#{bindings.ReqId.hints.mandatory}"
+                  columns="#{bindings.ReqId.hints.displayWidth}"
+                  maximumLength="#{bindings.ReqId.hints.precision}"
+                  shortDesc="#{bindings.ReqId.hints.tooltip}" id="it2">
+      <f:validator binding="#{bindings.ReqId.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.CorrectedPhrase.inputValue}"
+                  label="#{bindings.CorrectedPhrase.hints.label}"
+                  required="#{bindings.CorrectedPhrase.hints.mandatory}"
+                  columns="#{bindings.CorrectedPhrase.hints.displayWidth}"
+                  maximumLength="#{bindings.CorrectedPhrase.hints.precision}"
+                  shortDesc="#{bindings.CorrectedPhrase.hints.tooltip}"
+                  id="it5">
+      <f:validator binding="#{bindings.CorrectedPhrase.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.CaseInfo.inputValue}"
+                  label="#{bindings.CaseInfo.hints.label}"
+                  required="#{bindings.CaseInfo.hints.mandatory}"
+                  columns="#{bindings.CaseInfo.hints.displayWidth}"
+                  maximumLength="#{bindings.CaseInfo.hints.precision}"
+                  shortDesc="#{bindings.CaseInfo.hints.tooltip}" id="it4">
+      <f:validator binding="#{bindings.CaseInfo.validator}"/>
+    </af:inputText>
+  </af:panelFormLayout>
+  <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit"
+                    disabled="#{!bindings.Commit.enabled}" id="cb1"/>
+</jsp:root>

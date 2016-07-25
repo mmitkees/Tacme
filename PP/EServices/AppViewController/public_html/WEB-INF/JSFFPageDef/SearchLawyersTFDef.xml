@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="SearchLawyersTFDef">
+    <default-activity id="__1">SearchLawyersView</default-activity>
+    <data-control-scope id="__12">
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__11">
+      <managed-bean-name id="__9">srchLawyersBean</managed-bean-name>
+      <managed-bean-class id="__10">com.app.view.beans.srchLawyers</managed-bean-class>
+      <managed-bean-scope id="__8">request</managed-bean-scope>
+    </managed-bean>
+    <view id="SearchLawyersView">
+      <page>/WEB-INF/JSFF Pages/SearchLawyersView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

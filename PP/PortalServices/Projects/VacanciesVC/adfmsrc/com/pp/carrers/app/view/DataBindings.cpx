@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.pp.carrers.app.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/AddCarrers.jsff"
+          usageId="com_pp_carrers_app_view_AddCarrersPageDef"/>
+    <page path="/WEB-INF/CarrersTFDef.xml#CarrersTFDef@CreateInsert"
+          usageId="com_pp_carrers_app_view_CarrersTFDef_CarrersTFDef_CreateInsertPageDef"/>
+    <page path="/Test.jspx" usageId="com_pp_carrers_app_view_TestPageDef"/>
+    <page path="/CarrersList.jsff"
+          usageId="com_pp_carrers_app_view_CarrersListPageDef"/>
+    <page path="/WEB-INF/CarrersListTFDef.xml#CarrersListTFDef@carrersExec"
+          usageId="com_pp_carrers_app_view_CarrersListTFDef_CarrersListTFDef_carrersExecPageDef"/>
+    <page path="/CarrersPortalView.jsff"
+          usageId="com_pp_carrers_app_view_CarrersPortalViewPageDef"/>
+    <page path="/CarrersListView.jsff"
+          usageId="com_pp_carrers_app_view_CarrersListViewPageDef"/>
+    <page path="/CarrersAdminView.jsff"
+          usageId="com_pp_carrers_app_view_CarrersAdminViewPageDef"/>
+    <page path="/WEB-INF/CarrersTFDef.xml#CarrersTFDef@Rollback"
+          usageId="com_pp_carrers_app_view_CarrersTFDef_CarrersTFDef_RollbackPageDef"/>
+    <page path="/WEB-INF/CarrersListTFDef.xml#CarrersListTFDef@ExecuteWithParams"
+          usageId="com_pp_carrers_app_view_CarrersListTFDef_CarrersListTFDef_ExecuteWithParamsPageDef"/>
+    <page path="/CarrersTest.jspx"
+          usageId="com_pp_carrers_app_view_CarrersTestPageDef"/>
+    <page path="/WEB-INF/CarrersListTFDef.xml#CarrersListTFDef@executePPCarrersview"
+          usageId="com_pp_carrers_app_view_CarrersListTFDef_CarrersListTFDef_executePPCarrersviewPageDef"/>
+    <page path="/WEB-INF/CarrersTFDef.xml#CarrersTFDef@executePPCarrersview"
+          usageId="com_pp_carrers_app_view_CarrersTFDef_CarrersTFDef_executePPCarrersviewPageDef"/>
+    <page path="/WEB-INF/carrersUploadCVTFDef.xml#carrersUploadCVTFDef@CreateInsert"
+          usageId="com_pp_carrers_app_view_carrersUploadCVTFDef_carrersUploadCVTFDef_CreateInsertPageDef"/>
+    <page path="/jsffViews/carrersUploadCVView.jsff"
+          usageId="com_pp_carrers_app_view_carrersUploadCVViewPageDef"/>
+    <page path="/WEB-INF/CarrersListTFDef.xml#CarrersListTFDef@CreateInsert"
+          usageId="com_pp_carrers_app_view_CarrersListTFDef_CarrersListTFDef_CreateInsertPageDef"/>
+    <page path="/jsffViews/carrersAdminView.jsff"
+          usageId="com_pp_carrers_app_view_carrersAdminViewPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_pp_carrers_app_view_AddCarrersPageDef"
+          path="com.pp.carrers.app.view.pageDefs.AddCarrersPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersTFDef_CarrersTFDef_CreateInsertPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersTFDef_CarrersTFDef_CreateInsertPageDef"/>
+    <page id="com_pp_carrers_app_view_TestPageDef"
+          path="com.pp.carrers.app.view.pageDefs.TestPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersListPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersListPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersListTFDef_CarrersListTFDef_carrersExecPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersListTFDef_CarrersListTFDef_carrersExecPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersPortalViewPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersPortalViewPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersListViewPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersListViewPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersAdminViewPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersAdminViewPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersTFDef_CarrersTFDef_RollbackPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersTFDef_CarrersTFDef_RollbackPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersListTFDef_CarrersListTFDef_ExecuteWithParamsPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersListTFDef_CarrersListTFDef_ExecuteWithParamsPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersTestPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersTestPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersListTFDef_CarrersListTFDef_executePPCarrersviewPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersListTFDef_CarrersListTFDef_executePPCarrersviewPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersTFDef_CarrersTFDef_executePPCarrersviewPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersTFDef_CarrersTFDef_executePPCarrersviewPageDef"/>
+    <page id="com_pp_carrers_app_view_carrersUploadCVTFDef_carrersUploadCVTFDef_CreateInsertPageDef"
+          path="com.pp.carrers.app.view.pageDefs.carrersUploadCVTFDef_carrersUploadCVTFDef_CreateInsertPageDef"/>
+    <page id="com_pp_carrers_app_view_carrersUploadCVViewPageDef"
+          path="jsffViews.carrersUploadCVViewPageDef"/>
+    <page id="com_pp_carrers_app_view_CarrersListTFDef_CarrersListTFDef_CreateInsertPageDef"
+          path="com.pp.carrers.app.view.pageDefs.CarrersListTFDef_CarrersListTFDef_CreateInsertPageDef"/>
+    <page id="com_pp_carrers_app_view_carrersAdminViewPageDef"
+          path="jsffViews.carrersAdminViewPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ppCarrersServiceDataControl"
+                     Package="com.pp.carrers.app.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="ppCarrersServiceLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

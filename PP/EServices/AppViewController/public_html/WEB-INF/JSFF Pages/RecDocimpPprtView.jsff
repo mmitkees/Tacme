@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+    <af:panelGroupLayout id="pgl16" layout="vertical">
+      <af:menuBar id="mb1">
+        <af:commandLink text="Click here for E-Services" id="cl1"
+                        action="exit1"/>
+      </af:menuBar>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl9" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="Receiving of Deposits, Impoundment, Documents, or Passports" id="ot2"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl8" layout="vertical"
+                         styleClass="eServicesFormData">
+      <af:panelGroupLayout id="pgl15" layout="vertical">
+        <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_caseinfo']}"
+                       id="ot8" styleClass="casEinfo_hEad"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl6" layout="vertical">
+        <af:panelGroupLayout id="pgl14" layout="vertical">
+          <af:panelFormLayout id="pfl1" maxColumns="2" rows="1"
+                              styleClass="service">
+            <af:panelFormLayout id="pfl2">
+              <af:panelLabelAndMessage label="#{bnd['p_case_no']}" id="plam1">
+                <af:inputText value="#{bindings.CaseNo.inputValue}"
+                              required="#{bindings.CaseNo.hints.mandatory}"
+                              maximumLength="#{bindings.CaseNo.hints.precision}"
+                              shortDesc="#{bindings.CaseNo.hints.tooltip}"
+                              id="it2" simple="true" immediate="true">
+                  <f:validator binding="#{bindings.CaseNo.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.CaseNo.format}"/>
+                </af:inputText>
+                <af:panelGroupLayout id="pgl7" layout="vertical">
+                  <af:outputText value="Error Message" id="ot3"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.CaseYear.label}"
+                                       id="plam2">
+                <af:selectOneChoice value="#{bindings.CaseYear.inputValue}"
+                                    required="#{bindings.CaseYear.hints.mandatory}"
+                                    shortDesc="#{bindings.CaseYear.hints.tooltip}"
+                                    id="soc2" simple="true" immediate="true">
+                  <f:selectItems value="#{bindings.CaseYear.items}" id="si3"/>
+                </af:selectOneChoice>
+                <af:panelGroupLayout id="pgl10" layout="vertical">
+                  <af:outputText value="Error Message" id="ot4"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.ProsecutionName.label}"
+                                       id="plam3">
+                <af:selectOneChoice value="#{bindings.ProsecutionName.inputValue}"
+                                    required="#{bindings.ProsecutionName.hints.mandatory}"
+                                    shortDesc="#{bindings.ProsecutionName.hints.tooltip}"
+                                    id="soc1" simple="true" immediate="true">
+                  <f:selectItems value="#{bindings.ProsecutionName.items}"
+                                 id="si2"/>
+                </af:selectOneChoice>
+                <af:panelGroupLayout id="pgl11" layout="vertical">
+                  <af:outputText value="Error Message" id="ot6"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl3">
+              <af:panelLabelAndMessage label="#{bindings.RelationCase.label}"
+                                       id="plam4">
+                <af:selectOneChoice value="#{bindings.RelationCase.inputValue}"
+                                    required="#{bindings.RelationCase.hints.mandatory}"
+                                    shortDesc="#{bindings.RelationCase.hints.tooltip}"
+                                    id="soc3" simple="true" immediate="true">
+                  <f:selectItems value="#{bindings.RelationCase.items}"
+                                 id="si1"/>
+                </af:selectOneChoice>
+                <af:panelGroupLayout id="pgl12" layout="vertical">
+                  <af:outputText value="Error Message" id="ot5"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.RestrType.hints.label}"
+                                       id="plam5">
+                <af:inputText value="#{bindings.RestrType.inputValue}"
+                              required="#{bindings.RestrType.hints.mandatory}"
+                              maximumLength="#{bindings.RestrType.hints.precision}"
+                              shortDesc="#{bindings.RestrType.hints.tooltip}"
+                              id="it1" simple="true" immediate="true">
+                  <f:validator binding="#{bindings.RestrType.validator}"/>
+                </af:inputText>
+                <af:panelGroupLayout id="pgl13" layout="vertical">
+                  <af:outputText value="Error Message" id="ot7"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl3" layout="vertical">
+          <af:panelFormLayout id="pfl6" styleClass="service">
+            <af:panelFormLayout id="pfl5">
+              <af:panelLabelAndMessage label="Upload File" id="plam6">
+                <af:inputFile id="if1" autoSubmit="true"
+                              disabled="#{pageFlowScope.AppServiceRDIP.DFlag eq 'Y'}"
+                              valueChangeListener="#{pageFlowScope.AppServiceRDIP.rec_doc_in_onFileUploadVCL}"
+                              binding="#{pageFlowScope.AppServiceRDIP.recDocimpUPFilebind}"
+                              maximumFiles="5" simple="true" immediate="true"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl2" layout="vertical">
+        <af:panelFormLayout id="pfl4" rows="1" styleClass="serviceButton">
+          <af:commandButton text="#{bnd['p_submit']}" id="cb2"
+                            disabled="#{pageFlowScope.AppServiceRDIP.DFlag eq 'Y'}"
+                            action="#{pageFlowScope.AppServiceRDIP.rec_dep_in_action}"
+                            styleClass="btn-action"/>
+          <af:commandButton text="#{bnd['p_clear']}" id="cb3"
+                            disabled="#{pageFlowScope.AppServiceRDIP.DFlag eq 'Y'}"
+                            action="#{pageFlowScope.AppServiceRDIP.clearrec_dep_in_action}"
+                            styleClass="btn-secondary"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

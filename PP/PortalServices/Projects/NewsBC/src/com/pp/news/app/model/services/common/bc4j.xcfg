@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.pp.news.app.model.services.NewsAppModuleService">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.pp.news.app.model.NewsModel" name="NewsAppModuleServiceLocal" ApplicationName="com.pp.news.app.model.services.NewsAppModuleService">
+         <Security AppModuleJndiName="com.pp.news.app.model.services.NewsAppModuleService"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ppdevDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.pp.news.app.model.NewsModel" name="NewsAppModuleServiceShared" ApplicationName="com.pp.news.app.model.services.NewsAppModuleService">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="com.pp.news.app.model.services.NewsAppModuleService"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ppdevDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

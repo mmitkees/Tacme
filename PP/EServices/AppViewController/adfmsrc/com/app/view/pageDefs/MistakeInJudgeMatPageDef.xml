@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="MistakeInJudgeMatPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqCorrMistJudgMatView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqCorrMistJudgMatView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <attributeValues IterBinding="ReqCorrMistJudgMatView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqCorrMistJudgMatView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqCorrMistJudgMatView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecName" DTSupportsMRU="false"/>
+    <list IterBinding="ReqCorrMistJudgMatView1Iterator" StaticList="false"
+          Uses="LOV_RelCase_en" id="RelCase" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqCorrMistJudgMatView1Iterator"
+                     id="ErrorType">
+      <AttrNames>
+        <Item Value="ErrorType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqCorrMistJudgMatView1Iterator"
+                     id="CorrectedPhrase">
+      <AttrNames>
+        <Item Value="CorrectedPhrase"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

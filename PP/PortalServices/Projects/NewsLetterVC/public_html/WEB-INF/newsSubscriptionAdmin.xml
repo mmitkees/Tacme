@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2"
+             id="__8">
+  <task-flow-definition id="newsSubscriptionAdmin">
+    <default-activity id="__1">newsSubscrAdmin</default-activity>
+    <data-control-scope id="__7">
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__3">
+      <managed-bean-name id="__5">newsSubAdminBean</managed-bean-name>
+      <managed-bean-class id="__4">newsSubAdminBean</managed-bean-class>
+      <managed-bean-scope id="__2">request</managed-bean-scope>
+    </managed-bean>
+    <view id="newsSubscrAdmin">
+      <page id="__6">/newsSubscrAdmin.jsff</page>
+    </view>
+    <view id="newsSubsSuccess">
+      <page id="__14">/newsSubsSuccess.jsff</page>
+    </view>
+    <control-flow-rule id="__9">
+      <from-activity-id id="__10">newsSubscrAdmin</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome id="__13">Y</from-outcome>
+        <to-activity-id id="__11">newsSubsSuccess</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

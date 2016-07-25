@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="vacanciesvcBundle"
+         value="#{adfBundle['com.pp.carrers.VacanciesVCBundle']}"/>
+  <af:panelGroupLayout id="pgl6" layout="scroll" styleClass="career-wrap">
+    <af:panelGroupLayout id="pgl5" layout="vertical" rendered="false"
+                         styleClass="career-details">
+      <af:table value="#{bindings.PpCarrersView1.collectionModel}" var="row"
+                rows="#{bindings.PpCarrersView1.rangeSize}"
+                emptyText="#{bindings.PpCarrersView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                fetchSize="#{bindings.PpCarrersView1.rangeSize}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.PpCarrersView1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.PpCarrersView1.collectionModel.makeCurrent}"
+                rowSelection="single" id="t1"
+                styleClass="taBhaed AFStretchWidth" rendered="false">
+        <af:column sortProperty="#{bindings.PpCarrersView1.hints.PositionId.name}"
+                   sortable="false"
+                   headerText="#{bindings.PpCarrersView1.hints.PositionId.label}"
+                   id="c4">
+          <af:inputText value="#{row.bindings.PositionId.inputValue}"
+                        label="#{bindings.PpCarrersView1.hints.PositionId.label}"
+                        required="#{bindings.PpCarrersView1.hints.PositionId.mandatory}"
+                        columns="#{bindings.PpCarrersView1.hints.PositionId.displayWidth}"
+                        maximumLength="#{bindings.PpCarrersView1.hints.PositionId.precision}"
+                        shortDesc="#{bindings.PpCarrersView1.hints.PositionId.tooltip}"
+                        id="it2">
+            <f:validator binding="#{row.bindings.PositionId.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.PpCarrersView1.hints.Status.name}"
+                   sortable="false"
+                   headerText="#{bindings.PpCarrersView1.hints.Status.label}"
+                   id="c5">
+          <af:selectOneChoice value="#{row.bindings.Status.inputValue}"
+                              label="#{row.bindings.Status.label}"
+                              required="#{bindings.PpCarrersView1.hints.Status.mandatory}"
+                              shortDesc="#{bindings.PpCarrersView1.hints.Status.tooltip}"
+                              id="soc1">
+            <f:selectItems value="#{row.bindings.Status.items}" id="si1"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column sortProperty="#{bindings.PpCarrersView1.hints.CreateDate.name}"
+                   sortable="false"
+                   headerText="#{bindings.PpCarrersView1.hints.CreateDate.label}"
+                   id="c7">
+          <af:inputDate value="#{row.bindings.CreateDate.inputValue}"
+                        label="#{bindings.PpCarrersView1.hints.CreateDate.label}"
+                        required="#{bindings.PpCarrersView1.hints.CreateDate.mandatory}"
+                        shortDesc="#{bindings.PpCarrersView1.hints.CreateDate.tooltip}"
+                        id="id1">
+            <f:validator binding="#{row.bindings.CreateDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.PpCarrersView1.hints.CreateDate.format}"/>
+          </af:inputDate>
+        </af:column>
+        <af:column sortProperty="#{bindings.PpCarrersView1.hints.CloseDate.name}"
+                   sortable="false"
+                   headerText="#{bindings.PpCarrersView1.hints.CloseDate.label}"
+                   id="c6">
+          <af:inputDate value="#{row.bindings.CloseDate.inputValue}"
+                        label="#{bindings.PpCarrersView1.hints.CloseDate.label}"
+                        required="#{bindings.PpCarrersView1.hints.CloseDate.mandatory}"
+                        shortDesc="#{bindings.PpCarrersView1.hints.CloseDate.tooltip}"
+                        id="id2">
+            <f:validator binding="#{row.bindings.CloseDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.PpCarrersView1.hints.CloseDate.format}"/>
+          </af:inputDate>
+        </af:column>
+        <af:column sortProperty="#{bindings.PpCarrersView1.hints.JobTitle.name}"
+                   sortable="false"
+                   headerText="#{bindings.PpCarrersView1.hints.JobTitle.label}"
+                   id="c9">
+          <af:inputText value="#{row.bindings.JobTitle.inputValue}"
+                        label="#{bindings.PpCarrersView1.hints.JobTitle.label}"
+                        required="#{bindings.PpCarrersView1.hints.JobTitle.mandatory}"
+                        columns="#{bindings.PpCarrersView1.hints.JobTitle.displayWidth}"
+                        maximumLength="#{bindings.PpCarrersView1.hints.JobTitle.precision}"
+                        shortDesc="#{bindings.PpCarrersView1.hints.JobTitle.tooltip}"
+                        id="it6">
+            <f:validator binding="#{row.bindings.JobTitle.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.PpCarrersView1.hints.JobResp.name}"
+                   sortable="false"
+                   headerText="#{bindings.PpCarrersView1.hints.JobResp.label}"
+                   id="c8">
+          <af:inputText value="#{row.bindings.JobResp.inputValue}"
+                        label="#{bindings.PpCarrersView1.hints.JobResp.label}"
+                        required="#{bindings.PpCarrersView1.hints.JobResp.mandatory}"
+                        columns="#{bindings.PpCarrersView1.hints.JobResp.displayWidth}"
+                        maximumLength="#{bindings.PpCarrersView1.hints.JobResp.precision}"
+                        shortDesc="#{bindings.PpCarrersView1.hints.JobResp.tooltip}"
+                        id="it5">
+            <f:validator binding="#{row.bindings.JobResp.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.PpCarrersView1.hints.JobReq.name}"
+                   sortable="false"
+                   headerText="#{bindings.PpCarrersView1.hints.JobReq.label}"
+                   id="c1">
+          <af:inputText value="#{row.bindings.JobReq.inputValue}"
+                        label="#{bindings.PpCarrersView1.hints.JobReq.label}"
+                        required="#{bindings.PpCarrersView1.hints.JobReq.mandatory}"
+                        columns="#{bindings.PpCarrersView1.hints.JobReq.displayWidth}"
+                        maximumLength="#{bindings.PpCarrersView1.hints.JobReq.precision}"
+                        shortDesc="#{bindings.PpCarrersView1.hints.JobReq.tooltip}"
+                        id="it1">
+            <f:validator binding="#{row.bindings.JobReq.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.PpCarrersView1.hints.CarrersUcmId.name}"
+                   sortable="false"
+                   headerText="#{bindings.PpCarrersView1.hints.CarrersUcmId.label}"
+                   id="c3">
+          <af:inputText value="#{row.bindings.CarrersUcmId.inputValue}"
+                        label="#{bindings.PpCarrersView1.hints.CarrersUcmId.label}"
+                        required="#{bindings.PpCarrersView1.hints.CarrersUcmId.mandatory}"
+                        columns="#{bindings.PpCarrersView1.hints.CarrersUcmId.displayWidth}"
+                        maximumLength="#{bindings.PpCarrersView1.hints.CarrersUcmId.precision}"
+                        shortDesc="#{bindings.PpCarrersView1.hints.CarrersUcmId.tooltip}"
+                        id="it3">
+            <f:validator binding="#{row.bindings.CarrersUcmId.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.PpCarrersView1.hints.Statusdecl.name}"
+                   sortable="false"
+                   headerText="#{bindings.PpCarrersView1.hints.Statusdecl.label}"
+                   id="c10">
+          <af:inputText value="#{row.bindings.Statusdecl.inputValue}"
+                        label="#{bindings.PpCarrersView1.hints.Statusdecl.label}"
+                        required="#{bindings.PpCarrersView1.hints.Statusdecl.mandatory}"
+                        columns="#{bindings.PpCarrersView1.hints.Statusdecl.displayWidth}"
+                        maximumLength="#{bindings.PpCarrersView1.hints.Statusdecl.precision}"
+                        shortDesc="#{bindings.PpCarrersView1.hints.Statusdecl.tooltip}"
+                        id="it4">
+            <f:validator binding="#{row.bindings.Statusdecl.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.PpCarrersView1.hints.CloseCB.name}"
+                   sortable="false"
+                   headerText="#{bindings.PpCarrersView1.hints.CloseCB.label}"
+                   id="c2">
+          <af:selectBooleanCheckbox value="#{row.bindings.CloseCB.inputValue}"
+                                    label="#{row.bindings.CloseCB.label}"
+                                    shortDesc="#{bindings.PpCarrersView1.hints.CloseCB.tooltip}"
+                                    id="sbc1" styleClass="checklbl"/>
+        </af:column>
+      </af:table>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl8" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="#{vacanciesvcBundle.p_carrers}" id="ot7"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl1" layout="horizontal">
+      <af:inputText label="#{vacanciesvcBundle.p_1carrerSearch}" id="it12"
+                    value="#{carrersListBean.b_search}"/>
+      <af:inputText label="Job tittle" id="it13"
+                    value="#{carrersListBean.clb_jobtitle}" rendered="false"/>
+      <af:inputText label="Job requirement" id="it14"
+                    value="#{carrersListBean.clb_jobreq}" rendered="false"/>
+    </af:panelGroupLayout>
+    <af:commandButton text="#{vacanciesvcBundle.p_1carrerSearch}" id="cb1"
+                      action="#{carrersListBean.search_action}"
+                      styleClass="proceed-btn"/>
+    <af:panelGroupLayout id="pgl7" layout="vertical">
+      <af:listView id="lv1" value="#{bindings.PpCarrersView1.collectionModel}"
+                   var="row" rows="#{bindings.PpCarrersView1.rangeSize}"
+                   fetchSize="#{bindings.PpCarrersView1.rangeSize}"
+                   selectedRowKeys="#{bindings.PpCarrersView1.collectionModel.selectedRow}"
+                   selectionListener="#{bindings.PpCarrersView1.collectionModel.makeCurrent}"
+                   selection="single" styleClass="serviceListItem">
+        <f:facet name="groupHeaderStamp"/>
+        <af:listItem id="li1" styleClass="serviceViewItem">
+          <af:panelGroupLayout id="pgl3" layout="vertical"
+                               styleClass="AFStretchWidth">
+            <af:outputText value="#{row.PositionId}" id="ot1" truncateAt="0"
+                           rendered="false"/>
+            <af:panelGroupLayout id="pgl9" styleClass="carrerTitle"
+                                 layout="vertical">
+              <af:commandImageLink text="#{row.PositionId}" id="cil1"
+                                   inlineStyle="font-weight:bold;"
+                                   action="carrersPortal">
+                <af:setActionListener from="#{row.PositionId}"
+                                      to="#{pageFlowScope.id}"/>
+              </af:commandImageLink>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl10" styleClass="carrerTitle"
+                                 layout="vertical">
+              <!--<af:outputText value="#{row.bindings.JobTitle.inputValue}"
+                             id="ot2"/>-->
+              <af:commandLink text="#{row.bindings.JobTitle.inputValue}" id="cl1" action="carrersPortal">
+              <af:setActionListener from="#{row.PositionId}"
+                                      to="#{pageFlowScope.id}"/>
+              </af:commandLink>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl11" layout="vertical"
+                                 styleClass="carrerDate">
+              <af:outputText value="#{row.bindings.CreateDate.inputValue}"
+                             id="ot3"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl12" layout="vertical"
+                                 styleClass="carrerBody">
+              <af:outputText value="#{row.bindings.JobResp.inputValue}"
+                             id="ot4"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl13" layout="vertical"
+                                 styleClass="carrerBody">
+              <af:outputText value="#{row.bindings.JobReq.inputValue}"
+                             id="ot5"/>
+            </af:panelGroupLayout>
+            <af:breadCrumbs id="bc1" styleClass="carrerOpenText">
+              <!--<af:outputText value="#{row.bindings.Statusdecl.inputValue}"
+                             id="ot6"/>-->
+            </af:breadCrumbs>
+            <!--<af:commandButton text="Edit" id="cb1">
+                    <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                  </af:commandButton>-->
+            <af:popup id="p1">
+              <af:dialog id="d2">
+                <af:panelFormLayout id="pfl1" styleClass="career-det">
+                  <af:inputText value="#{bindings.PositionId.inputValue}"
+                                label="#{bindings.PositionId.hints.label}"
+                                required="#{bindings.PositionId.hints.mandatory}"
+                                columns="#{bindings.PositionId.hints.displayWidth}"
+                                maximumLength="#{bindings.PositionId.hints.precision}"
+                                shortDesc="#{bindings.PositionId.hints.tooltip}"
+                                id="it10">
+                    <f:validator binding="#{bindings.PositionId.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.Status.inputValue}"
+                                label="#{bindings.Status.hints.label}"
+                                required="#{bindings.Status.hints.mandatory}"
+                                columns="#{bindings.Status.hints.displayWidth}"
+                                maximumLength="#{bindings.Status.hints.precision}"
+                                shortDesc="#{bindings.Status.hints.tooltip}"
+                                id="it8">
+                    <f:validator binding="#{bindings.Status.validator}"/>
+                  </af:inputText>
+                  <af:inputDate value="#{bindings.CreateDate.inputValue}"
+                                label="#{bindings.CreateDate.hints.label}"
+                                required="#{bindings.CreateDate.hints.mandatory}"
+                                shortDesc="#{bindings.CreateDate.hints.tooltip}"
+                                id="id4">
+                    <f:validator binding="#{bindings.CreateDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.CreateDate.format}"/>
+                  </af:inputDate>
+                  <af:inputDate value="#{bindings.CloseDate.inputValue}"
+                                label="#{bindings.CloseDate.hints.label}"
+                                required="#{bindings.CloseDate.hints.mandatory}"
+                                shortDesc="#{bindings.CloseDate.hints.tooltip}"
+                                id="id3">
+                    <f:validator binding="#{bindings.CloseDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
+                  </af:inputDate>
+                  <af:inputText value="#{bindings.JobTitle.inputValue}"
+                                label="#{bindings.JobTitle.hints.label}"
+                                required="#{bindings.JobTitle.hints.mandatory}"
+                                columns="#{bindings.JobTitle.hints.displayWidth}"
+                                maximumLength="#{bindings.JobTitle.hints.precision}"
+                                shortDesc="#{bindings.JobTitle.hints.tooltip}"
+                                id="it7">
+                    <f:validator binding="#{bindings.JobTitle.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.JobResp.inputValue}"
+                                label="#{bindings.JobResp.hints.label}"
+                                required="#{bindings.JobResp.hints.mandatory}"
+                                columns="#{bindings.JobResp.hints.displayWidth}"
+                                maximumLength="#{bindings.JobResp.hints.precision}"
+                                shortDesc="#{bindings.JobResp.hints.tooltip}"
+                                id="it11">
+                    <f:validator binding="#{bindings.JobResp.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.JobReq.inputValue}"
+                                label="#{bindings.JobReq.hints.label}"
+                                required="#{bindings.JobReq.hints.mandatory}"
+                                columns="#{bindings.JobReq.hints.displayWidth}"
+                                maximumLength="#{bindings.JobReq.hints.precision}"
+                                shortDesc="#{bindings.JobReq.hints.tooltip}"
+                                id="it9">
+                    <f:validator binding="#{bindings.JobReq.validator}"/>
+                  </af:inputText>
+                </af:panelFormLayout>
+              </af:dialog>
+            </af:popup>
+          </af:panelGroupLayout>
+        </af:listItem>
+      </af:listView>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:carrersListBean-->
+</jsp:root>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="newsSubscrAdminPageDef"
+                Package="com.pp.newsletter.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CategoriesView1" RangeSize="25"
+              DataControl="newsLetterAMDataControl"
+              id="CategoriesView1Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="CategoriesView1Iterator" ListOperMode="multiSelect"
+          ListIter="CategoriesView1Iterator" id="CategoriesView1">
+      <AttrNames>
+        <Item Value="CategoriesName"/>
+      </AttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="CategoriesName"/>
+      </ListDisplayAttrNames>
+    </list>
+    <tree IterBinding="CategoriesView1Iterator" id="CategoriesView11">
+      <nodeDefinition DefName="com.pp.newsletter.model.views.CategoriesView"
+                      Name="CategoriesView110">
+        <AttrNames>
+          <Item Value="CategoriesId"/>
+          <Item Value="CategoriesName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CategoriesView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="CategoriesView1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.pp.evts.ae.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/EventsjsffPages/HomeEventsView.jsff"
+          usageId="com_pp_evts_ae_view_HomeEventsViewPageDef"/>
+    <page path="/EventsjsffPages/EventListView.jsff"
+          usageId="com_pp_evts_ae_view_EventListViewPageDef"/>
+    <page path="/WEB-INF/EventTaskFlow/EventListDetTFDef.xml#EventListDetTFDef@ret_view_events"
+          usageId="com_pp_evts_ae_view_EventListDetTFDef_EventListDetTFDef_ret_view_eventsPageDef"/>
+    <page path="/EventsjsffPages/EventDetailsView.jsff"
+          usageId="com_pp_evts_ae_view_EventDetailsViewPageDef"/>
+    <page path="/Events.jspx" usageId="com_pp_evts_ae_view_EventsPageDef"/>
+    <page path="/EventsjsffPagesAR/HomeEventsARView.jsff"
+          usageId="com_pp_evts_ae_view_HomeEventsARViewPageDef"/>
+    <page path="/EventsjsffPagesAR/EventListARView.jsff"
+          usageId="com_pp_evts_ae_view_EventListARViewPageDef"/>
+    <page path="/WEB-INF/EventTaskFlowAR/EventListDetARTFDef.xml#EventListDetARTFDef@ret_view_events_ar"
+          usageId="com_pp_evts_ae_view_EventListDetARTFDef_EventListDetARTFDef_ret_view_events_arPageDef"/>
+    <page path="/EventsjsffPagesAR/EventDetailsARView.jsff"
+          usageId="com_pp_evts_ae_view_EventDetailsARViewPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_pp_evts_ae_view_HomeEventsViewPageDef"
+          path="EventsjsffPages.HomeEventsViewPageDef"/>
+    <page id="com_pp_evts_ae_view_EventListViewPageDef"
+          path="EventsjsffPages.EventListViewPageDef"/>
+    <page id="com_pp_evts_ae_view_EventListDetTFDef_EventListDetTFDef_ret_view_eventsPageDef"
+          path="EventTaskFlow.EventListDetTFDef_EventListDetTFDef_ret_view_eventsPageDef"/>
+    <page id="com_pp_evts_ae_view_EventDetailsViewPageDef"
+          path="EventsjsffPages.EventDetailsViewPageDef"/>
+    <page id="com_pp_evts_ae_view_EventsPageDef"
+          path="com.pp.evts.ae.view.pageDefs.EventsPageDef"/>
+    <page id="com_pp_evts_ae_view_HomeEventsARViewPageDef"
+          path="EventsjsffPagesAR.HomeEventsARViewPageDef"/>
+    <page id="com_pp_evts_ae_view_EventListARViewPageDef"
+          path="EventsjsffPagesAR.EventListARViewPageDef"/>
+    <page id="com_pp_evts_ae_view_EventListDetARTFDef_EventListDetARTFDef_ret_view_events_arPageDef"
+          path="EventTaskFlowAR.EventListDetARTFDef_EventListDetARTFDef_ret_view_events_arPageDef"/>
+    <page id="com_pp_evts_ae_view_EventDetailsARViewPageDef"
+          path="EventsjsffPagesAR.EventDetailsARViewPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="PortalEvtsAMDataControl"
+                     Package="com.pp.evts.ae.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="PortalEvtsAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

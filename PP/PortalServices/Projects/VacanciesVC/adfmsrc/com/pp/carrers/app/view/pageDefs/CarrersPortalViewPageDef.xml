@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="CarrersPortalViewPageDef"
+                Package="com.pp.carrers.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PpCarrersDefView1" RangeSize="25"
+              DataControl="ppCarrersServiceDataControl"
+              id="PpCarrersDefView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="PpCarrersDefView1Iterator" id="JobTitle">
+      <AttrNames>
+        <Item Value="JobTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PpCarrersDefView1Iterator" id="JobResp">
+      <AttrNames>
+        <Item Value="JobResp"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PpCarrersDefView1Iterator" id="JobReq">
+      <AttrNames>
+        <Item Value="JobReq"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

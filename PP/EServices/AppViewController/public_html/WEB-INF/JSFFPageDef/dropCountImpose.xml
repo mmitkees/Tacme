@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="dropCountImpose">
+    <default-activity id="__1">servDescTFDef</default-activity>
+    <data-control-scope id="__18">
+      <isolated/>
+    </data-control-scope>
+    <input-parameter-definition id="__64">
+      <name id="__63">key</name>
+      <value>#{pageFlowScope.key}</value>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__65">
+      <name id="__66">locale</name>
+      <value>#{pageFlowScope.locale}</value>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__75">
+      <name id="__74">eservice</name>
+      <value>#{pageFlowScope.eservice}</value>
+    </input-parameter-definition>
+    <managed-bean id="__16">
+      <managed-bean-name id="__15">AppServiceDropCourt</managed-bean-name>
+      <managed-bean-class id="__17">com.app.view.beans.AppService</managed-bean-class>
+      <managed-bean-scope id="__14">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__42">
+      <managed-bean-name id="__43">CustomValidator</managed-bean-name>
+      <managed-bean-class id="__44">com.app.view.beans.CustomValidators</managed-bean-class>
+      <managed-bean-scope id="__41">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__59">
+      <managed-bean-name id="__61">AppServiceBean</managed-bean-name>
+      <managed-bean-class id="__60">com.app.view.beans.AppService</managed-bean-class>
+      <managed-bean-scope id="__62">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="DCIPDue">
+      <page>/WEB-INF/JSFF Pages/DCIPDue.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome id="__2">
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__8">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SuccessMsgView">
+      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+    </view>
+    <view id="NotPartyView">
+      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+    </view>
+    <router id="router1">
+      <case>
+        <expression>#{empty sessionScope.login}</expression>
+        <outcome id="__58">login</outcome>
+      </case>
+      <default-outcome>go</default-outcome>
+    </router>
+    <task-flow-call id="eserviceLoginTFDef">
+      <task-flow-reference>
+        <document>/WEB-INF/JSFFPageDef/eserviceLoginTFDef.xml</document>
+        <id>eserviceLoginTFDef</id>
+      </task-flow-reference>
+      <input-parameter id="__88">
+        <name>locale</name>
+        <value>#{pageFlowScope.locale}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="servDescTFDef">
+      <task-flow-reference>
+        <document>/WEB-INF/JSFFPageDef/servDescTFDef.xml</document>
+        <id>servDescTFDef</id>
+      </task-flow-reference>
+      <input-parameter id="__67">
+        <name>key</name>
+        <value>#{pageFlowScope.key}</value>
+      </input-parameter>
+      <input-parameter id="__68">
+        <name>locale</name>
+        <value>#{pageFlowScope.locale}</value>
+      </input-parameter>
+      <input-parameter id="__91">
+        <name>eservice</name>
+        <value>#{pageFlowScope.eservice}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="EditProfileTFDef">
+      <task-flow-reference>
+        <document>/WEB-INF/JSFFPageDef/EditProfileTFDef.xml</document>
+        <id>EditProfileTFDef</id>
+      </task-flow-reference>
+      <input-parameter id="__86">
+        <name>eservice</name>
+        <value>#{pageFlowScope.eservice}</value>
+      </input-parameter>
+      <input-parameter id="__87">
+        <name>locale</name>
+        <value>#{pageFlowScope.locale}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="ChgPwrdTFDef">
+      <task-flow-reference>
+        <document>/WEB-INF/JSFFPageDef/ChgPwrdTFDef.xml</document>
+        <id>ChgPwrdTFDef</id>
+      </task-flow-reference>
+      <input-parameter id="__85">
+        <name>eservice</name>
+        <value>#{pageFlowScope.eservice}</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">DCIPDue</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__7">exit1</from-outcome>
+        <to-activity-id id="__6">taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__20">
+        <from-outcome id="__21">N</from-outcome>
+        <to-activity-id id="__19">NotPartyView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__22">
+        <from-outcome id="__24">Y</from-outcome>
+        <to-activity-id id="__23">SuccessMsgView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__39">
+        <from-outcome id="__40">aftrl</from-outcome>
+        <to-activity-id id="__38">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__77">
+        <from-outcome id="__78">logout</from-outcome>
+        <to-activity-id id="__76">eserviceLoginTFDef</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__80">
+        <from-outcome id="__81">chgpwrd</from-outcome>
+        <to-activity-id id="__79">ChgPwrdTFDef</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__83">
+        <from-outcome id="__84">editprofile</from-outcome>
+        <to-activity-id id="__82">EditProfileTFDef</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id id="__10">CreateInsert</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome id="__11">CreateInsert</from-outcome>
+        <to-activity-id id="__13">DCIPDue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id id="__26">SuccessMsgView</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome id="__29">exitsh</from-outcome>
+        <to-activity-id id="__28">taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id id="__31">NotPartyView</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome id="__34">exit</from-outcome>
+        <to-activity-id id="__33">taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__35">
+        <from-outcome id="__37">renter</from-outcome>
+        <to-activity-id id="__36">DCIPDue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__45">
+      <from-activity-id id="__46">router1</from-activity-id>
+      <control-flow-case id="__51">
+        <from-outcome id="__52">go</from-outcome>
+        <to-activity-id id="__50">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__49">
+        <from-outcome id="__48">login</from-outcome>
+        <to-activity-id id="__47">eserviceLoginTFDef</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__53">
+      <from-activity-id id="__54">eserviceLoginTFDef</from-activity-id>
+      <control-flow-case id="__57">
+        <from-outcome id="__55">mainpage</from-outcome>
+        <to-activity-id id="__56">CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__69">
+      <from-activity-id id="__70">servDescTFDef</from-activity-id>
+      <control-flow-case id="__73">
+        <from-outcome id="__72">service</from-outcome>
+        <to-activity-id id="__71">router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

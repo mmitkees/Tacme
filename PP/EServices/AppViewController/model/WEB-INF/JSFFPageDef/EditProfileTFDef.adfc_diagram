@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">EditProfileView</property>
+      <property
+         name="page">/WEB-INF/JSFF Pages/EditProfileView.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EditProfileView&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">145.29883</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">249.0</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall5">
+      <property
+         name="taskFlowId">eserviceLoginTFDef</property>
+      <property
+         name="activityId">eserviceLoginTFDef</property>
+      <property
+         name="documentReference">/WEB-INF/JSFFPageDef/eserviceLoginTFDef.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>eserviceLoginTFDef&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">197.79883</property>
+      <property
+         name="x">505.89746</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View2"
+      to="TaskFlowCall5">
+      <property
+         name="fromOutcome">lo</property>
+      <property
+         name="sdm:polyPoints">R50,290.0,144.94824,464.89746,197.44824,L50</property>
+   </ControlFlowCase>
+</SDM>

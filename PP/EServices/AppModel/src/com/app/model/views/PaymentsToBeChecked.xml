@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PaymentsToBeChecked"
+  Version="11.1.1.66.73"
+  InheritPersonalization="true"
+  SelectList="ReqRequests.REQ_ID, 
+       ReqRequests.REQ_NAME, 
+       ReqRequests.STATUS, 
+       TransactionDetails.INVOICE_ID, 
+       TransactionDetails.TRANSACTION_STATUS, 
+       TransactionDetails.STATUS_DETAILS, 
+       ReqRequests.STATUS_DETAILS AS STATUS_DETAILS1"
+  FromList="REQ_REQUESTS ReqRequests, TRANSACTION_DETAILS TransactionDetails"
+  Where="ReqRequests.REQ_ID = TransactionDetails.REQ_ID(+)and ReqRequests.STATUS like '%Under Payment Process%'"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.app.model.views.PaymentsToBeChecked_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="ReqRequests"
+    Entity="com.app.model.entities.ReqRequests"/>
+ <EntityUsage
+    Name="TransactionDetails"
+    Entity="com.app.model.entities.TransactionDetails"
+    Association="com.app.model.Assoc.ReqTransactionAssoc"
+    AssociationEnd="com.app.model.Assoc.ReqTransactionAssoc.TransactionDetails"
+    SourceUsage="com.app.model.views.PaymentsToBeChecked.ReqRequests"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.app.model.entities.ReqRequests.ReqId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.app.model.entities.TransactionDetails.ReqId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage> 
+  <ViewAttribute
+    Name="ReqId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ReqId"
+    EntityUsage="ReqRequests"
+    AliasName="REQ_ID"/>
+  <ViewAttribute
+    Name="ReqName"
+    PrecisionRule="true"
+    EntityAttrName="ReqName"
+    EntityUsage="ReqRequests"
+    AliasName="REQ_NAME"/>
+  <ViewAttribute
+    Name="Status"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="ReqRequests"
+    AliasName="STATUS"/>
+  <ViewAttribute
+    Name="InvoiceId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InvoiceId"
+    EntityUsage="TransactionDetails"
+    AliasName="INVOICE_ID"/>
+  <ViewAttribute
+    Name="TransactionStatus"
+    PrecisionRule="true"
+    EntityAttrName="TransactionStatus"
+    EntityUsage="TransactionDetails"
+    AliasName="TRANSACTION_STATUS"/>
+  <ViewAttribute
+    Name="StatusDetails"
+    PrecisionRule="true"
+    EntityAttrName="StatusDetails"
+    EntityUsage="TransactionDetails"
+    AliasName="STATUS_DETAILS"/>
+  <ViewAttribute
+    Name="StatusDetails1"
+    PrecisionRule="true"
+    EntityAttrName="StatusDetails"
+    EntityUsage="ReqRequests"
+    AliasName="STATUS_DETAILS1"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.app.model.AppModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

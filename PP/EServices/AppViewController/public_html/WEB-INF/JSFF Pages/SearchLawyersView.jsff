@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html">
+  <af:subform id="s1" defaultCommand="">
+    <af:panelGroupLayout id="pgl5" layout="scroll">
+      <af:panelGroupLayout id="pgl6" layout="vertical"
+                           styleClass="eServicesHeading">
+        <af:outputText value="#{appviewcontrollerbundle.p_search_lawyers}"
+                       id="ot1"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl7" layout="vertical"
+                           styleClass="eServicesFormData">
+       
+          <af:query id="qryId1" headerText="Search" disclosed="true" 
+                modeChangeVisible="false" saveQueryMode="hidden" 
+                                styleClass="eservice-search service AFQueryHideAddFields layers-search"
+                    value="#{bindings.PrcLawyersVwViewCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.PrcLawyersVwViewCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.PrcLawyersVwViewCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.PrcLawyersVwViewCriteriaQuery.processQueryOperation}"
+                    resultComponentId="::pc1:resId1"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl1">
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+          <af:table value="#{bindings.PrcLawyersVwView1.collectionModel}"
+                    rendered="true" var="row"   styleClass="AFStretchWidth taBhaed service-status-tble"
+                    rows="#{bindings.PrcLawyersVwView1.rangeSize}"
+                    emptyText="#{bindings.PrcLawyersVwView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.PrcLawyersVwView1.rangeSize}"
+                    rowBandingInterval="0" id="resId1">
+            <af:column sortProperty="#{bindings.PrcLawyersVwView1.hints.FullNameN.name}"
+                       sortable="false"
+                       headerText="#{bindings.PrcLawyersVwView1.hints.FullNameN.label}"
+                       id="resId1c1">
+              <af:outputText value="#{row.FullNameN}" id="ot3"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.PrcLawyersVwView1.hints.CityDesc.name}"
+                       sortable="false"
+                       headerText="#{bindings.PrcLawyersVwView1.hints.CityDesc.label}"
+                       id="resId1c2">
+              <af:outputText value="#{row.CityDesc}" id="ot2"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.PrcLawyersVwView1.hints.OfficeAddress.name}"
+                       sortable="false"
+                       headerText="#{bindings.PrcLawyersVwView1.hints.OfficeAddress.label}"
+                       id="resId1c3">
+              <af:outputText value="#{row.OfficeAddress}" id="ot5"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.PrcLawyersVwView1.hints.PhoneNo.name}"
+                       sortable="false"
+                       headerText="#{bindings.PrcLawyersVwView1.hints.PhoneNo.label}"
+                       id="resId1c4">
+              <af:outputText value="#{row.PhoneNo}" id="ot4"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.PrcLawyersVwView1.hints.OfficeAddress.name}"
+                       sortable="false"
+                       headerText="#{bindings.PrcLawyersVwView1.hints.OfficeAddress.label}"
+                       id="resId1c5">
+              <af:outputText value="#{row.OfficeAddress}" id="ot6"/>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:subform>
+</jsp:root>

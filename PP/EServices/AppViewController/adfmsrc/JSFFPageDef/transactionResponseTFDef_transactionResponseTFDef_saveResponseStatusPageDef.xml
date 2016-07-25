@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="transactionResponseTFDef_transactionResponseTFDef_saveResponseStatusPageDef"
+                Package="JSFFPageDef" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="saveResponseStatus" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="saveResponseStatus"
+                  IsViewObjectMethod="false"
+                  DataControl="PPAppServicesDataControl"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  ReturnName="data.PPAppServicesDataControl.methodResults.saveResponseStatus_PPAppServicesDataControl_dataProvider_saveResponseStatus_result">
+      <NamedData NDName="invoiceNo" NDValue="#{pageFlowScope.invoiceNo}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="transMessage" NDValue="#{pageFlowScope.statusMessage}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

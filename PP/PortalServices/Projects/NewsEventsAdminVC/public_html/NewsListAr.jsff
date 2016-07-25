@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+    <f:facet name="menus"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t2">
+        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                          text="Save"
+                          id="cb1" styleClass="btn-action-toolbar"/>
+        <af:commandButton text="Add" id="cb2" action="addar"
+                          styleClass="btn-action-toolbar"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="statusbar"/>
+    <af:table value="#{bindings.NewsDetailsArView1.collectionModel}" var="row"
+              rows="#{bindings.NewsDetailsArView1.rangeSize}"
+              emptyText="#{bindings.NewsDetailsArView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.NewsDetailsArView1.rangeSize}"
+              rowBandingInterval="0"
+              filterModel="#{bindings.NewsDetailsArView1Query.queryDescriptor}"
+              queryListener="#{bindings.NewsDetailsArView1Query.processQuery}"
+              filterVisible="true" varStatus="vs"
+              selectedRowKeys="#{bindings.NewsDetailsArView1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.NewsDetailsArView1.collectionModel.makeCurrent}"
+              rowSelection="single" id="t1" styleClass="taBhaed AFStretchWidth"
+              inlineStyle="height:auto !important;" columnStretching="last">
+      <af:column sortProperty="#{bindings.NewsDetailsArView1.hints.NewsDate.name}"
+                 filterable="true" sortable="true" headerText="Date" id="c2"
+                 width="120">
+        <f:facet name="filter">
+          <af:inputDate value="#{vs.filterCriteria.NewsDate}" id="id2"/>
+        </f:facet>
+        <af:inputDate value="#{row.bindings.NewsDate.inputValue}"
+                      required="#{bindings.NewsDetailsArView1.hints.NewsDate.mandatory}"
+                      shortDesc="#{bindings.NewsDetailsArView1.hints.NewsDate.tooltip}"
+                      id="id1" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.NewsDate.validator}"/>
+          <af:convertDateTime pattern="#{bindings.NewsDetailsArView1.hints.NewsDate.format}"/>
+        </af:inputDate>
+      </af:column>
+      <af:column sortProperty="#{bindings.NewsDetailsArView1.hints.NewsSubj.name}"
+                 filterable="true" sortable="true" headerText="Subject" id="c1"
+                 width="140">
+        <af:inputText value="#{row.bindings.NewsSubj.inputValue}"
+                      required="#{bindings.NewsDetailsArView1.hints.NewsSubj.mandatory}"
+                      columns="#{bindings.NewsDetailsArView1.hints.NewsSubj.displayWidth}"
+                      maximumLength="#{bindings.NewsDetailsArView1.hints.NewsSubj.precision}"
+                      shortDesc="#{bindings.NewsDetailsArView1.hints.NewsSubj.tooltip}"
+                      id="it3" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.NewsSubj.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.NewsDetailsArView1.hints.NewsDesc.name}"
+                 filterable="true" sortable="true" headerText="Descriptions"
+                 id="c4" width="160">
+        <af:inputText value="#{row.bindings.NewsDesc.inputValue}"
+                      required="#{bindings.NewsDetailsArView1.hints.NewsDesc.mandatory}"
+                      columns="#{bindings.NewsDetailsArView1.hints.NewsDesc.displayWidth}"
+                      maximumLength="#{bindings.NewsDetailsArView1.hints.NewsDesc.precision}"
+                      shortDesc="#{bindings.NewsDetailsArView1.hints.NewsDesc.tooltip}"
+                      id="it1" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.NewsDesc.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.NewsDetailsArView1.hints.NewsDetails.name}"
+                 filterable="true" sortable="true" headerText="Details" id="c3"
+                 width="160">
+        <af:inputText value="#{row.bindings.NewsDetails.inputValue}"
+                      required="#{bindings.NewsDetailsArView1.hints.NewsDetails.mandatory}"
+                      columns="#{bindings.NewsDetailsArView1.hints.NewsDetails.displayWidth}"
+                      maximumLength="#{bindings.NewsDetailsArView1.hints.NewsDetails.precision}"
+                      shortDesc="#{bindings.NewsDetailsArView1.hints.NewsDetails.tooltip}"
+                      id="it2" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.NewsDetails.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column id="c5" align="center">
+        <af:selectBooleanCheckbox value="#{row.bindings.FeatureFlag.inputValue}"
+                                  shortDesc="#{bindings.NewsDetailsArView1.hints.FeatureFlag.tooltip}"
+                                  id="sbc1" simple="true" immediate="true"/>
+      </af:column>
+    </af:table>
+  </af:panelCollection>
+</jsp:root>

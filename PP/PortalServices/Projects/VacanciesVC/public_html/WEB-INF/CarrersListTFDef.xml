@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2"
+             id="__10">
+  <task-flow-definition id="CarrersListTFDef">
+    <default-activity id="__9">executePPCarrersview</default-activity>
+    <data-control-scope id="__11">
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__8">
+      <name id="__7">locale</name>
+      <value id="__21">#{pageFlowScope.locale}</value>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__4">
+      <managed-bean-name id="__2">carrersListBean</managed-bean-name>
+      <managed-bean-class id="__5">carrersListBean</managed-bean-class>
+      <managed-bean-scope id="__3">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__19">
+      <managed-bean-name id="__17">carrersPortalBean</managed-bean-name>
+      <managed-bean-class id="__20">carrersPortal</managed-bean-class>
+      <managed-bean-scope id="__18">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="CarrersList">
+      <page id="__22">/CarrersList.jsff</page>
+    </view>
+    <view id="CarrersPortalView">
+      <page id="__23">/CarrersPortalView.jsff</page>
+    </view>
+    <method-call id="carrersExec">
+      <method id="__39">#{bindings.carrersExec.execute}</method>
+      <outcome id="__6">
+        <fixed-outcome id="__40">carrersExec</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="CarrersListView">
+      <page id="__41">/CarrersListView.jsff</page>
+    </view>
+    <method-call id="executePPCarrersview">
+      <method id="__42">#{bindings.executePPCarrersview.execute}</method>
+      <outcome id="__1">
+        <fixed-outcome id="__43">executePPCarrersview</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="successMsg">
+      <page id="__47">/successMsg.jsff</page>
+    </view>
+    <view id="carrersUploadCVView">
+      <page id="__31">/jsffViews/carrersUploadCVView.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method id="__61">#{bindings.CreateInsert.execute}</method>
+      <outcome id="__32">
+        <fixed-outcome id="__60">CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">carrersExec</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome id="__15">carrersExec</from-outcome>
+        <to-activity-id id="__14">carrersUploadCVView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id id="__27">CarrersListView</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome id="__29">carrersPortal</from-outcome>
+        <to-activity-id id="__30">CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__24">
+      <from-activity-id id="__25">executePPCarrersview</from-activity-id>
+      <control-flow-case id="__37">
+        <from-outcome id="__36">executePPCarrersview</from-outcome>
+        <to-activity-id id="__38">CarrersListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__48">
+      <from-activity-id id="__49">successMsg</from-activity-id>
+      <control-flow-case id="__50">
+        <from-outcome id="__52">backSuccess</from-outcome>
+        <to-activity-id id="__51">CarrersListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__33">
+      <from-activity-id id="__34">carrersUploadCVView</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome id="__53">back</from-outcome>
+        <to-activity-id id="__54">CarrersListView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__55">
+        <from-outcome id="__56">Y</from-outcome>
+        <to-activity-id id="__57">successMsg</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__44">
+      <from-activity-id id="__45">CreateInsert</from-activity-id>
+      <control-flow-case id="__46">
+        <from-outcome id="__58">CreateInsert</from-outcome>
+        <to-activity-id id="__59">carrersUploadCVView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

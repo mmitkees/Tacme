@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="ExhumationPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqExhumationView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqExhumationView1Iterator"/>
+    <iterator Binds="ReqAttachmentsView24" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsView24Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqExhumationView1Iterator" id="Caseno">
+      <AttrNames>
+        <Item Value="Caseno"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqExhumationView1Iterator" StaticList="false"
+          Uses="LOV_Caseyear" id="Caseyear" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqExhumationView1Iterator" id="Reason">
+      <AttrNames>
+        <Item Value="Reason"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ReqAttachmentsView24Iterator" id="ReqAttachmentsView24">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsView240">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsView24Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="ReqExhumationView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="Prosecutionname" DTSupportsMRU="true"/>
+    <list IterBinding="ReqExhumationView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_ar" id="Relationcase" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="recdeopchrgPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqRecvDepositChargesView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqRecvDepositChargesView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqRecvDepositChargesView1Iterator"
+                     id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqRecvDepositChargesView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqRecvDepositChargesView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="Prosecutionname" DTSupportsMRU="false"/>
+    <list IterBinding="ReqRecvDepositChargesView1Iterator" StaticList="false"
+          Uses="LOV_Relationcase_en" id="Relationcase" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqRecvDepositChargesView1Iterator"
+                     id="RestraintType">
+      <AttrNames>
+        <Item Value="RestraintType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqRecvDepositChargesView1Iterator"
+                     id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqRecvDepositChargesView1Iterator" StaticList="false"
+          Uses="LOV_RestraintType_ar" id="RestraintType1" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

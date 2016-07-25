@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="newsSubscriptionviewPageDef"
+                Package="com.pp.newsletter.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CategoriesView1" RangeSize="25"
+              DataControl="newsLetterAMDataControl"
+              id="CategoriesView1Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="CategoriesView1Iterator" ListOperMode="multiSelect"
+          ListIter="CategoriesView1Iterator" id="CategoriesView1">
+      <AttrNames>
+        <Item Value="CategoriesId"/>
+      </AttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="CategoriesName"/>
+      </ListDisplayAttrNames>
+    </list> 
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="newsLetterAMDataControl"/>
+    <methodAction id="newssubscribe"
+                  InstanceName="newsLetterAMDataControl.dataProvider"
+                  DataControl="newsLetterAMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="newssubscribe" IsViewObjectMethod="false"
+                  ReturnName="data.newsLetterAMDataControl.methodResults.newssubscribe_newsLetterAMDataControl_dataProvider_newssubscribe_result">
+      <NamedData NDName="m_name"
+                 NDValue="#{pageFlowScope.newsSubscribeBean.b_name}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="m_email"
+                 NDValue="#{pageFlowScope.newsSubscribeBean.b_email}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="m_s" NDValue="#{pageFlowScope.newsSubscribeBean.l}"
+                 NDType="java.util.List"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

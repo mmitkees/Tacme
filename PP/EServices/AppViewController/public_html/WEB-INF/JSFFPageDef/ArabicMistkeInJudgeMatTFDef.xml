@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ArabicMistkeInJudgeMatTFDef">
+    <default-activity id="__1">CreateInsert</default-activity>
+    <managed-bean id="__10">
+      <managed-bean-name id="__8">AppServiceMijm</managed-bean-name>
+      <managed-bean-class id="__9">com.app.view.beans.AppService</managed-bean-class>
+      <managed-bean-scope id="__11">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__14">
+      <managed-bean-name id="__13">CustomValidator</managed-bean-name>
+      <managed-bean-class id="__15">com.app.view.beans.CustomValidators</managed-bean-class>
+      <managed-bean-scope id="__12">request</managed-bean-scope>
+    </managed-bean>
+    <view id="ArabicTestMistView">
+      <page>/ArabicTestMistView.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__2">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="MistInJudgeMatV1.1">
+      <page>/WEB-INF/JSFF Pages/MistInJudgeMatV1.1.jsff</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">CreateInsert</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome id="__6">CreateInsert</from-outcome>
+        <to-activity-id id="__5">MistInJudgeMatV1.1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:cust="http://xmlns.oracle.com/adf/faces/customizable" xmlns:f="http://java.sun.com/jsf/core" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:pe="http://xmlns.oracle.com/adf/pageeditor">
+<af:panelGroupLayout id="pt_pgl21" layout="horizontal" valign="top">
+            <af:panelGroupLayout id="pt_pgl25" layout="vertical" valign="top">
+               <af:panelGroupLayout id="pt_pgl26" layout="vertical"
+                                    styleClass="homefeaturedNewHeadingPanel">
+                  <af:outputText value="Featured news" id="pt_ot3"/>
+               </af:panelGroupLayout>
+               <af:panelGroupLayout id="pt_pgl27" layout="vertical"
+                                    styleClass="homefeaturedNewBodyPanel"
+                                    valign="top">
+                  <af:iterator id="iter1"
+                               value="#{bindings.NewsDetailsFeaturedView1.collectionModel}"
+                               var="row" varStatus="vs" rows="3">
+                     <af:panelGroupLayout id="pt_pgl36"
+                                          styleClass="featuredEvent"
+                                          layout="vertical" valign="top">
+                        <af:outputText value="#{row.NewsDate}"
+                                       styleClass="featuredEventDate"
+                                       id="pt_ot7"/>
+                        <af:outputText value="#{row.NewsSubj}"
+                                       styleClass="featuredEventName"
+                                       id="pt_ot8"/>
+                     </af:panelGroupLayout>
+                  </af:iterator>
+                  <!--<af:panelGroupLayout id="pt_pgl35" layout="vertical" styleClass="featuredEvent">
+                        <af:outputText value="11/30/2014" styleClass="featuredEventDate" id="pt_ot9"/>
+                        <af:outputText value="Ficing elit, sed do eiusmod tempor incididunt ut labore et" styleClass="featuredEventName" id="pt_ot10"/>
+                     </af:panelGroupLayout>-->
+                  <!--<af:panelGroupLayout id="pt_pgl34" layout="vertical" styleClass="featuredEvent">
+                        <af:outputText value="11/30/2014" styleClass="featuredEventDate" id="pt_ot11"/>
+                        <af:outputText value="Dicing elit, seg elit, sed dd do eiusmod tempor incididunt ut" styleClass="featuredEventName" id="pt_ot12"/>
+                     </af:panelGroupLayout>-->
+                  <!--<af:panelGroupLayout id="pt_pgl37" layout="vertical" styleClass="readMore">
+                        <af:outputText value="Read all News >" styleClass="readMore" id="pt_ot13"/>
+                     </af:panelGroupLayout>-->
+                  <af:commandImageLink text="Read All News" id="cil1"
+                                       action="listen" rendered="false"/>
+               </af:panelGroupLayout>
+            </af:panelGroupLayout>
+         </af:panelGroupLayout>
+</jsp:root>

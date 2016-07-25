@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl2" layout="vertical">
+    <af:panelGroupLayout id="pgl5" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="Latest News" id="ot1"/>
+      <af:commandButton text="Add" id="cb1" action="add" rendered="false"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl4" layout="vertical">
+      <af:iterator id="i1" value="#{bindings.NewsDetailsView1.collectionModel}"
+                   var="row" varStatus="vs">
+        <af:panelGroupLayout id="pgl6" layout="vertical" styleClass="news_box">
+          <af:panelGroupLayout id="pgl1" layout="vertical"
+                               styleClass="news-images">
+            <af:image id="i2"
+                      source="#{row.NewsUCMPath}"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl7" layout="vertical"
+                               styleClass="completnews-details">
+            <af:panelGroupLayout id="pgl3" layout="vertical"
+                                 styleClass="newstitle">
+              <af:outputText value="#{row.NewsSubj}" id="ot2"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl9" layout="vertical"
+                                 styleClass="newsdate">
+              <af:commandLink text="#{row.NewsDate}" id="cl1" action="go">
+                <af:setActionListener from="#{row.NewsId}"
+                                      to="#{pageFlowScope.key}"/>
+              </af:commandLink>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl10" layout="vertical"
+                                 styleClass="newsBodyText">
+              <af:outputText value="#{row.NewsDesc}" id="ot3"/>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:iterator>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl8" styleClass="backtohome" layout="vertical">
+      <af:commandLink text="Back" id="cl2"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

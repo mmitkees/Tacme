@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl2" layout="scroll">
+    <af:panelGroupLayout id="pgl4" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="Latest Events" id="ot1"/>
+      <af:commandButton text="Add Events" id="cb1" rendered="false"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl19" layout="vertical"
+                         styleClass="eventBox AFStretchWidth">
+      <af:iterator id="lei1" value="#{bindings.EventDetArView1.collectionModel}"
+                   var="row" varStatus="vs" rows="25">
+        <af:panelGroupLayout id="pgl3" layout="vertical" styleClass="eventOne">
+          <af:panelGroupLayout id="pgl7" layout="vertical"
+                               styleClass="eventOneImage">
+            <af:image id="i1" source="#{row.EventUCMPath}"
+                      styleClass="AFStretchWidth"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl10" layout="vertical"
+                               styleClass="event_title">
+            <af:outputText value="#{row.EventSubj}" id="ot3"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl1" layout="vertical"
+                               styleClass="event-date">
+            <af:toolbar id="t1">
+              <af:commandImageLink text="#{row.EventTime}" id="cil6"
+                                   icon="/images/clock.png"/>
+              <af:spacer width="10" height="10" id="s3"/>
+              <af:commandImageLink text="#{row.EvenDate}" id="cil5"
+                                   icon="/images/calender.png"/>
+            </af:toolbar>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl15" layout="vertical"
+                               styleClass="event-description">
+            <af:outputText value="#{row.EventDesc}" id="ot2"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl16" layout="vertical" halign="center">
+            <af:commandButton text="View Detail" id="cb2"
+                              styleClass="btn-viewDetail" action="details">
+              <af:setActionListener from="#{row.EventId}"
+                                    to="#{pageFlowScope.eventkey}"/>
+            </af:commandButton>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:iterator>
+      <af:iterator id="wlei1"
+                   value="#{bindings.EventDetArView1.collectionModel}" var="row"
+                   varStatus="vs" rows="2" first="3" rendered="false">
+        <af:panelGroupLayout id="wpgl3" layout="vertical" styleClass="eventOne">
+          <af:panelGroupLayout id="pgl8" layout="vertical"
+                               styleClass="eventOneImage">
+            <af:image id="wi1" source="#{row.EventUCMPath}"
+                      styleClass="AFStretchWidth"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl11" styleClass="event_title"
+                               layout="vertical">
+            <af:outputText value="#{row.EventSubj}" id="wot3"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="wpgl1" layout="vertical"
+                               styleClass="event-date">
+            <af:toolbar id="t2">
+              <af:commandImageLink text="#{row.EventTime}" id="cil3"
+                                   icon="/images/clock.png"/>
+              <af:spacer width="10" height="10" id="s4"/>
+              <af:commandImageLink text="#{row.EvenDate}" id="cil4"
+                                   icon="/images/calender.png"/>
+            </af:toolbar>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl14" layout="vertical"
+                               styleClass="event-description">
+            <af:outputText value="#{row.EventDesc}" id="wot2"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl17" layout="vertical" halign="center">
+            <af:commandButton text="View Detail" id="cb3"
+                              styleClass="btn-viewDetail" action="details">
+              <af:setActionListener from="#{row.EventId}"
+                                    to="#{pageFlowScope.eventkey}"/>
+            </af:commandButton>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:iterator>
+      <af:iterator id="xlei1"
+                   value="#{bindings.EventDetArView1.collectionModel}" var="row"
+                   varStatus="vs" rows="2" first="4" rendered="false">
+        <af:panelGroupLayout id="xpgl3" layout="vertical" styleClass="eventOne">
+          <af:panelGroupLayout id="pgl9" layout="vertical"
+                               styleClass="eventOneImage">
+            <af:image id="xi1" source="#{row.EventUCMPath}"
+                      styleClass="AFStretchWidth"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl12" layout="vertical"
+                               styleClass="event_title">
+            <af:outputText value="#{row.EventSubj}" id="xot3"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="xpgl1" layout="vertical"
+                               styleClass="event-date">
+            <af:toolbar id="t3">
+              <af:commandImageLink text="#{row.EventTime}" id="cil1"
+                                   icon="/images/clock.png"/>
+              <af:spacer width="10" height="10" id="s5"/>
+              <af:commandImageLink text="#{row.EvenDate}" id="cil2"
+                                   icon="/images/calender.png"/>
+            </af:toolbar>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl13" layout="vertical"
+                               styleClass="event-description">
+            <af:outputText value="#{row.EventDesc}" id="xot2"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl18" layout="vertical" halign="center">
+            <af:commandButton text="View Detail" id="cb4"
+                              styleClass="btn-viewDetail" action="details">
+              <af:setActionListener from="#{row.EventId}"
+                                    to="#{pageFlowScope.eventkey}"/>
+            </af:commandButton>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:iterator>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl6" layout="vertical" styleClass="backtohome">
+      <af:outputText value="Back" id="ot6"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

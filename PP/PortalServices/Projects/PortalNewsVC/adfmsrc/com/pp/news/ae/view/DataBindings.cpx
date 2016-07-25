@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.pp.news.ae.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/homejsffPages/HomeNews.jsff"
+          usageId="com_pp_news_ae_view_HomeNewsPageDef"/>
+    <page path="/homejsffPages/HomeNewsAR.jsff"
+          usageId="com_pp_news_ae_view_HomeNewsARPageDef"/>
+    <page path="/HomeNews.jspx" usageId="com_pp_news_ae_view_HomeNewsPageDef1"/>
+    <page path="/ListJsffPages/NewsList_en.jsff"
+          usageId="com_pp_news_ae_view_NewsList_enPageDef"/>
+    <page path="/NewsList_ar.jsff"
+          usageId="com_pp_news_ae_view_NewsList_arPageDef"/>
+    <page path="/WEB-INF/NewsTaskFlows/NewsDetTFDef.xml#NewsDetTFDef@ret_view_newsquerry"
+          usageId="com_pp_news_ae_view_NewsDetTFDef_NewsDetTFDef_ret_view_newsquerryPageDef"/>
+    <page path="/WEB-INF/NewsTaskFlows/NewsDetTFDef.xml#NewsDetTFDef@ret_view_newsquerry_ar"
+          usageId="com_pp_news_ae_view_NewsDetTFDef_NewsDetTFDef_ret_view_newsquerry_arPageDef"/>
+    <page path="/ListJsffPages/NewsDet_en.jsff"
+          usageId="com_pp_news_ae_view_NewsDet_enPageDef"/>
+    <page path="/ListJsffPages/NewsDet_ar.jsff"
+          usageId="com_pp_news_ae_view_NewsDet_arPageDef"/>
+    <page path="/ListNews.jspx" usageId="com_pp_news_ae_view_ListNewsPageDef"/>
+    <page path="/AdminJsffPages/NewsENView.jsff"
+          usageId="com_pp_news_ae_view_NewsENViewPageDef"/>
+    <page path="/AdminNews.jspx"
+          usageId="com_pp_news_ae_view_AdminNewsPageDef"/>
+    <page path="/WEB-INF/NewsTaskFlows/NewsAdminTFDef.xml#NewsAdminTFDef@CreateInsert"
+          usageId="com_pp_news_ae_view_NewsAdminTFDef_NewsAdminTFDef_CreateInsertPageDef"/>
+    <page path="/homejsffPages/FeaturedNewsEn.jsff"
+          usageId="com_pp_news_ae_view_FeaturedNewsEnPageDef"/>
+    <page path="/homejsffPages/FeaturedNewsAr.jsff"
+          usageId="com_pp_news_ae_view_FeaturedNewsArPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_pp_news_ae_view_HomeNewsPageDef"
+          path="homejsffPages.HomeNewsPageDef"/>
+    <page id="com_pp_news_ae_view_HomeNewsARPageDef"
+          path="homejsffPages.HomeNewsARPageDef"/>
+    <page id="com_pp_news_ae_view_HomeNewsPageDef1"
+          path="com.pp.news.ae.view.pageDefs.HomeNewsPageDef"/>
+    <page id="com_pp_news_ae_view_NewsList_enPageDef"
+          path="ListJsffPages.NewsList_enPageDef"/>
+    <page id="com_pp_news_ae_view_NewsList_arPageDef"
+          path="com.pp.news.ae.view.pageDefs.NewsList_arPageDef"/>
+    <page id="com_pp_news_ae_view_NewsDetTFDef_NewsDetTFDef_ret_view_newsquerryPageDef"
+          path="NewsTaskFlows.NewsDetTFDef_NewsDetTFDef_ret_view_newsquerryPageDef"/>
+    <page id="com_pp_news_ae_view_NewsDetTFDef_NewsDetTFDef_ret_view_newsquerry_arPageDef"
+          path="NewsTaskFlows.NewsDetTFDef_NewsDetTFDef_ret_view_newsquerry_arPageDef"/>
+    <page id="com_pp_news_ae_view_NewsDet_enPageDef"
+          path="ListJsffPages.NewsDet_enPageDef"/>
+    <page id="com_pp_news_ae_view_NewsDet_arPageDef"
+          path="ListJsffPages.NewsDet_arPageDef"/>
+    <page id="com_pp_news_ae_view_ListNewsPageDef"
+          path="com.pp.news.ae.view.pageDefs.ListNewsPageDef"/>
+    <page id="com_pp_news_ae_view_NewsENViewPageDef"
+          path="AdminJsffPages.NewsENViewPageDef"/>
+    <page id="com_pp_news_ae_view_AdminNewsPageDef"
+          path="com.pp.news.ae.view.pageDefs.AdminNewsPageDef"/>
+    <page id="com_pp_news_ae_view_NewsAdminTFDef_NewsAdminTFDef_CreateInsertPageDef"
+          path="NewsTaskFlows.NewsAdminTFDef_NewsAdminTFDef_CreateInsertPageDef"/>
+    <page id="com_pp_news_ae_view_FeaturedNewsEnPageDef"
+          path="homejsffPages.FeaturedNewsEnPageDef"/>
+    <page id="com_pp_news_ae_view_FeaturedNewsArPageDef"
+          path="homejsffPages.FeaturedNewsArPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="PortalNewsServiceDataControl"
+                     Package="com.pp.news.ae.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="PortalNewsServiceLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

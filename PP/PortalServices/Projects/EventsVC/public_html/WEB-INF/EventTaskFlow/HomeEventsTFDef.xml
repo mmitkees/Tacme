@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="HomeEventsTFDef">
+    <default-activity id="__1">LangSwitching</default-activity>
+    <data-control-scope id="__12">
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__14">
+      <name id="__13">locale</name>
+      <value>#{pageFlowScope.locale}</value>
+      <required/>
+    </input-parameter-definition>
+    <view id="HomeEventsView">
+      <page>/EventsjsffPages/HomeEventsView.jsff</page>
+    </view>
+    <router id="LangSwitching">
+      <case>
+        <expression>#{pageFlowScope.locale eq 'en'}</expression>
+        <outcome id="__10">goen</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.locale eq 'ar'}</expression>
+        <outcome id="__11">goar</outcome>
+      </case>
+      <default-outcome>goar</default-outcome>
+    </router>
+    <task-flow-call id="HomeEventsARTFDef">
+      <task-flow-reference>
+        <document>/WEB-INF/EventTaskFlowAR/HomeEventsARTFDef.xml</document>
+        <id>HomeEventsARTFDef</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">LangSwitching</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">goen</from-outcome>
+        <to-activity-id id="__5">HomeEventsView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome id="__9">goar</from-outcome>
+        <to-activity-id id="__7">HomeEventsARTFDef</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

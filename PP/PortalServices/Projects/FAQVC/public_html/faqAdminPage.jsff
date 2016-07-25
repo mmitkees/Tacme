@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelCollection id="pc1">
+    <f:facet name="menus"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t2">
+        <af:commandToolbarButton actionListener="#{bindings.Rollback.execute}"
+                                 text="Rollback"
+                                 disabled="#{!bindings.Rollback.enabled}"
+                                 immediate="true" id="ctb3">
+          <af:resetActionListener/>
+        </af:commandToolbarButton>
+        <af:commandToolbarButton actionListener="#{bindings.Commit.execute}"
+                                 text="Commit"
+                                 disabled="#{!bindings.Commit.enabled}"
+                                 id="ctb2"/>
+        <af:commandToolbarButton actionListener="#{bindings.CreateInsert.execute}"
+                                 text="CreateInsert"
+                                 disabled="#{!bindings.CreateInsert.enabled}"
+                                 id="ctb1"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="statusbar"/>
+    <af:table value="#{bindings.FaqView1.collectionModel}" var="row"
+              rows="#{bindings.FaqView1.rangeSize}"
+              emptyText="#{bindings.FaqView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.FaqView1.rangeSize}" rowBandingInterval="0"
+              selectedRowKeys="#{bindings.FaqView1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.FaqView1.collectionModel.makeCurrent}"
+              rowSelection="single" id="t1" partialTriggers="cl1 ::ctb1">
+      <af:column sortProperty="#{bindings.FaqView1.hints.FaqId.name}"
+                 sortable="false"
+                 headerText="#{bindings.FaqView1.hints.FaqId.label}" id="c1">
+        <af:inputText value="#{row.bindings.FaqId.inputValue}"
+                      label="#{bindings.FaqView1.hints.FaqId.label}"
+                      required="#{bindings.FaqView1.hints.FaqId.mandatory}"
+                      columns="#{bindings.FaqView1.hints.FaqId.displayWidth}"
+                      maximumLength="#{bindings.FaqView1.hints.FaqId.precision}"
+                      shortDesc="#{bindings.FaqView1.hints.FaqId.tooltip}"
+                      id="it6">
+          <f:validator binding="#{row.bindings.FaqId.validator}"/>
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.FaqView1.hints.FaqId.format}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FaqView1.hints.Question.name}"
+                 sortable="false"
+                 headerText="#{bindings.FaqView1.hints.Question.label}" id="c3">
+        <af:inputText value="#{row.bindings.Question.inputValue}"
+                      label="#{bindings.FaqView1.hints.Question.label}"
+                      required="#{bindings.FaqView1.hints.Question.mandatory}"
+                      columns="#{bindings.FaqView1.hints.Question.displayWidth}"
+                      maximumLength="#{bindings.FaqView1.hints.Question.precision}"
+                      shortDesc="#{bindings.FaqView1.hints.Question.tooltip}"
+                      id="it4">
+          <f:validator binding="#{row.bindings.Question.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FaqView1.hints.Answer.name}"
+                 sortable="false"
+                 headerText="#{bindings.FaqView1.hints.Answer.label}" id="c7">
+        <af:inputText value="#{row.bindings.Answer.inputValue}"
+                      label="#{bindings.FaqView1.hints.Answer.label}"
+                      required="#{bindings.FaqView1.hints.Answer.mandatory}"
+                      columns="#{bindings.FaqView1.hints.Answer.displayWidth}"
+                      maximumLength="#{bindings.FaqView1.hints.Answer.precision}"
+                      shortDesc="#{bindings.FaqView1.hints.Answer.tooltip}"
+                      id="it3">
+          <f:validator binding="#{row.bindings.Answer.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FaqView1.hints.Locale.name}"
+                 sortable="false"
+                 headerText="#{bindings.FaqView1.hints.Locale.label}" id="c4">
+        <af:inputText value="#{row.bindings.Locale.inputValue}"
+                      label="#{bindings.FaqView1.hints.Locale.label}"
+                      required="#{bindings.FaqView1.hints.Locale.mandatory}"
+                      columns="#{bindings.FaqView1.hints.Locale.displayWidth}"
+                      maximumLength="#{bindings.FaqView1.hints.Locale.precision}"
+                      shortDesc="#{bindings.FaqView1.hints.Locale.tooltip}"
+                      id="it5">
+          <f:validator binding="#{row.bindings.Locale.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FaqView1.hints.CreatedBy.name}"
+                 sortable="false"
+                 headerText="#{bindings.FaqView1.hints.CreatedBy.label}"
+                 id="c5">
+        <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
+                      label="#{bindings.FaqView1.hints.CreatedBy.label}"
+                      required="#{bindings.FaqView1.hints.CreatedBy.mandatory}"
+                      columns="#{bindings.FaqView1.hints.CreatedBy.displayWidth}"
+                      maximumLength="#{bindings.FaqView1.hints.CreatedBy.precision}"
+                      shortDesc="#{bindings.FaqView1.hints.CreatedBy.tooltip}"
+                      id="it2">
+          <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FaqView1.hints.CreationDate.name}"
+                 sortable="false"
+                 headerText="#{bindings.FaqView1.hints.CreationDate.label}"
+                 id="c2">
+        <af:inputDate value="#{row.bindings.CreationDate.inputValue}"
+                      label="#{bindings.FaqView1.hints.CreationDate.label}"
+                      required="#{bindings.FaqView1.hints.CreationDate.mandatory}"
+                      shortDesc="#{bindings.FaqView1.hints.CreationDate.tooltip}"
+                      id="id1">
+          <f:validator binding="#{row.bindings.CreationDate.validator}"/>
+          <af:convertDateTime pattern="#{bindings.FaqView1.hints.CreationDate.format}"/>
+        </af:inputDate>
+      </af:column>
+      <af:column sortProperty="#{bindings.FaqView1.hints.Enabled.name}"
+                 sortable="false"
+                 headerText="#{bindings.FaqView1.hints.Enabled.label}" id="c6">
+        <af:inputText value="#{row.bindings.Enabled.inputValue}"
+                      label="#{bindings.FaqView1.hints.Enabled.label}"
+                      required="#{bindings.FaqView1.hints.Enabled.mandatory}"
+                      columns="#{bindings.FaqView1.hints.Enabled.displayWidth}"
+                      maximumLength="#{bindings.FaqView1.hints.Enabled.precision}"
+                      shortDesc="#{bindings.FaqView1.hints.Enabled.tooltip}"
+                      id="it1">
+          <f:validator binding="#{row.bindings.Enabled.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column id="c8">
+        <af:commandLink actionListener="#{bindings.Delete.execute}"
+                        text="Delete" disabled="#{!bindings.Delete.enabled}"
+                        id="cl1"/>
+      </af:column>
+    </af:table>
+  </af:panelCollection>
+</jsp:root>

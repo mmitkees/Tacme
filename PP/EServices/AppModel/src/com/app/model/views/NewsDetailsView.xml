@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NewsDetailsView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="NewsDetails.NEWS_ID, 
+       NewsDetails.NEWS_DATE, 
+       NewsDetails.NEWS_SUBJ, 
+       NewsDetails.NEWS_DESC, 
+       NewsDetails.NEWS_DETAILS, 
+       NewsDetails.NEWS_IMG, 
+       NewsDetails.ROWID"
+  FromList="NEWS_DETAILS NewsDetails"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="NewsDetails"
+    Entity="com.app.model.entities.NewsDetails"/>
+  <ViewAttribute
+    Name="NewsId"
+    PrecisionRule="true"
+    EntityAttrName="NewsId"
+    EntityUsage="NewsDetails"
+    AliasName="NEWS_ID"/>
+  <ViewAttribute
+    Name="NewsDate"
+    PrecisionRule="true"
+    EntityAttrName="NewsDate"
+    EntityUsage="NewsDetails"
+    AliasName="NEWS_DATE"/>
+  <ViewAttribute
+    Name="NewsSubj"
+    PrecisionRule="true"
+    EntityAttrName="NewsSubj"
+    EntityUsage="NewsDetails"
+    AliasName="NEWS_SUBJ"/>
+  <ViewAttribute
+    Name="NewsDesc"
+    PrecisionRule="true"
+    EntityAttrName="NewsDesc"
+    EntityUsage="NewsDetails"
+    AliasName="NEWS_DESC"/>
+  <ViewAttribute
+    Name="NewsDetails1"
+    PrecisionRule="true"
+    EntityAttrName="NewsDetails"
+    EntityUsage="NewsDetails"
+    AliasName="NEWS_DETAILS"/>
+  <ViewAttribute
+    Name="NewsImg"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="NewsImg"
+    EntityUsage="NewsDetails"
+    AliasName="NEWS_IMG"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="NewsDetails"
+    AliasName="ROWID"/>
+</ViewObject>

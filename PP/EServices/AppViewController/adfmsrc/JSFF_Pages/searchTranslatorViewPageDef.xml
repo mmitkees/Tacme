@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="searchTranslatorViewPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PrcTranslatorsVwView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="PrcTranslatorsVwView1Iterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="initTranslators"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  DataControl="PPAppServicesDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="initTranslators" IsViewObjectMethod="false"/>
+    <tree IterBinding="PrcTranslatorsVwView1Iterator"
+          id="PrcTranslatorsVwView1">
+      <nodeDefinition DefName="com.app.model.views.PrcTranslatorsVwView"
+                      Name="PrcTranslatorsVwView10">
+        <AttrNames>
+          <Item Value="FullNameN"/>
+          <Item Value="CityDesc"/>
+          <Item Value="PhoneNo"/>
+          <Item Value="Fax"/>
+          <Item Value="OfficeAddress"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="srchtranslators" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="srchtranslators"
+                  IsViewObjectMethod="false"
+                  DataControl="PPAppServicesDataControl"
+                  InstanceName="PPAppServicesDataControl.dataProvider">
+      <NamedData NDName="name" NDValue="#{srchTranslator.name}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="city" NDValue="#{srchTranslator.city}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="address" NDValue="#{srchTranslator.address}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="NewsDetViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NewsDetailsDefView1" RangeSize="10"
+              DataControl="PortalNewsServiceDataControl"
+              id="NewsDetailsDefView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="NewsDetailsDefView1Iterator" id="NewsDetailsView1">
+      <nodeDefinition DefName="com.pp.news.ae.model.views.NewsDetailsView"
+                      Name="NewsDetailsView10">
+        <AttrNames>
+          <Item Value="NewsId"/>
+          <Item Value="NewsDate"/>
+          <Item Value="NewsDesc"/>
+          <Item Value="NewsDetails1"/>
+          <Item Value="NewsImg"/>
+          <Item Value="NewsPath"/>
+          <Item Value="NewsSubj"/>
+          <Item Value="RowID"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="NewsDetailsDefView1Iterator" id="NewsDate">
+      <AttrNames>
+        <Item Value="NewsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsDetailsDefView1Iterator" id="NewsSubj">
+      <AttrNames>
+        <Item Value="NewsSubj"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsDetailsDefView1Iterator" id="NewsDesc">
+      <AttrNames>
+        <Item Value="NewsDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsDetailsDefView1Iterator" id="NewsDetails1">
+      <AttrNames>
+        <Item Value="NewsDetails1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsDetailsDefView1Iterator" id="NewsUCMPath">
+      <AttrNames>
+        <Item Value="NewsUCMPath"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

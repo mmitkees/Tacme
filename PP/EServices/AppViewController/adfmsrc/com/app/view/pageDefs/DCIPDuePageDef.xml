@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="DCIPDuePageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqDciPrescriptionView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqDciPrescriptionView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqDciPrescriptionView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqDciPrescriptionView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="true"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="ReqDciPrescriptionView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_ar" id="RelationCase" DTSupportsMRU="true"/>
+    <list IterBinding="ReqDciPrescriptionView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqDciPrescriptionView1Iterator"
+                     id="JudgementDate">
+      <AttrNames>
+        <Item Value="JudgementDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl4" layout="vertical">
+    <af:panelGroupLayout id="pgl7" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="تفاصيل الخبر" id="ot1"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl1" layout="vertical"
+                         styleClass="NewsUpdate">
+      <af:panelLabelAndMessage label="آخر تحديث:" id="plam1"
+                               styleClass="News_lastUpdate">
+        <af:commandImageLink text="09 : 21 GST" id="cil1"
+                             icon="/Images/clock.png"
+                             styleClass="newsDateAndTime"/>
+        <f:facet name="end">
+          <af:commandImageLink text="#{bindings.NewsDate.inputValue}" id="cil2"
+                               icon="/Images/calender.png"
+                               styleClass="newsDateAndTime"/>
+        </f:facet>
+      </af:panelLabelAndMessage>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout layout="vertical" id="pgl3">
+      <af:panelGroupLayout id="pgl9" layout="vertical" styleClass="news_img">
+        <af:image id="i1"
+                  source="#{bindings.NewsUCMPath.inputValue}"
+                  styleClass="AFStretchWidth"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl10" layout="vertical"
+                           styleClass="news_description">
+        <af:panelGroupLayout id="pgl2" layout="vertical"
+                             styleClass="detail_news">
+          <af:outputText value="#{bindings.NewsSubj.inputValue}" id="ot3"/>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl11" layout="vertical"
+                             styleClass="detail_news">
+          <af:outputText value="#{bindings.NewsDesc.inputValue}" id="ot4"/>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl8" layout="vertical" styleClass="detail_news">
+      <af:outputText value="#{bindings.NewsDetails1.inputValue}" id="ot5"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl6" layout="vertical" styleClass="backtohome">
+      <af:commandLink text="إلى الوراء" id="cl1" action="backnl"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

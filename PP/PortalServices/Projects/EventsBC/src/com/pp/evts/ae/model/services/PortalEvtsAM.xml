@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PortalEvtsAM"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  ClearCacheOnRollback="true"
+  ComponentClass="com.pp.evts.ae.model.services.PortalEvtsAMImpl"
+  DefClass="com.pp.evts.ae.model.services.PortalEvtsAMDefImpl"
+  ComponentInterface="com.pp.evts.ae.model.services.common.PortalEvtsAM"
+  ClientProxyName="com.pp.evts.ae.model.services.client.PortalEvtsAMClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isDefCodegen" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="EventDetArView1"
+    ViewObjectName="com.pp.evts.ae.model.views.EventDetArView"/>
+  <ViewUsage
+    Name="EventDetLineArView1"
+    ViewObjectName="com.pp.evts.ae.model.views.EventDetLineArView"/>
+  <ViewUsage
+    Name="EventDetLineView1"
+    ViewObjectName="com.pp.evts.ae.model.views.EventDetLineView"/>
+  <ViewUsage
+    Name="EventDetView1"
+    ViewObjectName="com.pp.evts.ae.model.views.EventDetView"/>
+  <ViewUsage
+    Name="EventDetLineArView2"
+    ViewObjectName="com.pp.evts.ae.model.views.EventDetLineArView"/>
+  <ViewUsage
+    Name="EventDetLineView2"
+    ViewObjectName="com.pp.evts.ae.model.views.EventDetLineView"/>
+  <ViewUsage
+    Name="EventDetDefView1"
+    ViewObjectName="com.pp.evts.ae.model.views.EventDetDefView"/>
+  <ViewUsage
+    Name="EventDetLineView3"
+    ViewObjectName="com.pp.evts.ae.model.views.EventDetLineView"/>
+  <ViewUsage
+    Name="EventDetDefArView1"
+    ViewObjectName="com.pp.evts.ae.model.views.EventDetDefArView"/>
+  <ViewUsage
+    Name="EventDetLineArView3"
+    ViewObjectName="com.pp.evts.ae.model.views.EventDetLineArView"/>
+  <ViewLinkUsage
+    Name="EventsLineArToDet1"
+    ViewLinkObjectName="com.pp.evts.ae.model.views.viewLinks.EventsLineArToDet"
+    SrcViewUsageName="com.pp.evts.ae.model.services.PortalEvtsAM.EventDetArView1"
+    DstViewUsageName="com.pp.evts.ae.model.services.PortalEvtsAM.EventDetLineArView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EventsLineToDet1"
+    ViewLinkObjectName="com.pp.evts.ae.model.views.viewLinks.EventsLineToDet"
+    SrcViewUsageName="com.pp.evts.ae.model.services.PortalEvtsAM.EventDetView1"
+    DstViewUsageName="com.pp.evts.ae.model.services.PortalEvtsAM.EventDetLineView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EventsLineToDetDef1"
+    ViewLinkObjectName="com.pp.evts.ae.model.views.viewLinks.EventsLineToDetDef"
+    SrcViewUsageName="com.pp.evts.ae.model.services.PortalEvtsAM.EventDetDefView1"
+    DstViewUsageName="com.pp.evts.ae.model.services.PortalEvtsAM.EventDetLineView3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EventsLineARToDetDef1"
+    ViewLinkObjectName="com.pp.evts.ae.model.views.viewLinks.EventsLineARToDetDef"
+    SrcViewUsageName="com.pp.evts.ae.model.services.PortalEvtsAM.EventDetDefArView1"
+    DstViewUsageName="com.pp.evts.ae.model.services.PortalEvtsAM.EventDetLineArView3"
+    Reversed="false"/>
+  <ClientInterface>
+    <Method
+      Name="ret_view_events">
+      <Return
+        Type="java.lang.String"/>
+      <Parameter
+        Name="rkey"
+        Type="int"/>
+    </Method>
+    <Method
+      Name="ret_view_events_ar">
+      <Return
+        Type="java.lang.String"/>
+      <Parameter
+        Name="rkey"
+        Type="int"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="serviceDescTF_serviceDescTF_SetCurrentRowWithKeyPageDef"
+                Package="com.app.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ReqSerDescVO1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqSerDescVO1Iterator"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

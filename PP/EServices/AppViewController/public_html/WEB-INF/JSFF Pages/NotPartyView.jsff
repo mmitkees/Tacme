@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1" inlineStyle="background-color:#f4f2ec;">
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelStretchLayout id="psl2" topHeight="49px">
+        <f:facet name="bottom"/>
+        <f:facet name="center">
+          <af:panelGroupLayout layout="scroll"
+                               xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                               id="pgl1">
+            <af:panelGroupLayout id="pgl3" layout="vertical">
+              <af:outputText value="#{appviewcontrollerbundle.p_notparty}"
+                             id="ot1"
+                             inlineStyle="color:Black; font-size:large; font-weight:bold;"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl2" layout="vertical">
+              <af:panelFormLayout id="pfl1" styleClass="serviceButton" rows="1">
+                <af:commandButton text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_home']}"
+                                  id="cb1"
+                                  action="#{pageFlowScope.eservice}" styleClass="btn-action"
+                                  rendered="false"/>
+                <af:goButton text="#{appviewcontrollerbundle.p_home}" id="gb1"
+                             destination="#{pageFlowScope.eservice}"
+                             styleClass="proceed-btn"/>
+                <af:commandButton text="#{appviewcontrollerbundle.p_renter}"
+                                  id="cb2"
+                                  action="renter" styleClass="btn-action"/>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="start"/>
+        <f:facet name="end"/>
+        <f:facet name="top"/>
+      </af:panelStretchLayout>
+    </f:facet>
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+  </af:panelStretchLayout>
+</jsp:root>

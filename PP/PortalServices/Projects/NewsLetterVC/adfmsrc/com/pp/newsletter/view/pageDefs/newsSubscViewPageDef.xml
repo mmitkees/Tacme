@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="newsSubscViewPageDef"
+                Package="com.pp.newsletter.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NewsletterSubscriptionView1" RangeSize="25"
+              DataControl="newsLetterAMDataControl"
+              id="NewsletterSubscriptionView1Iterator"/>
+    <iterator Binds="NewsletterSubscategoriesView2" RangeSize="25"
+              DataControl="newsLetterAMDataControl"
+              id="NewsletterSubscategoriesView2Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="NewsletterSubscriptionView1Iterator"
+                     id="NsName">
+      <AttrNames>
+        <Item Value="NsName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsletterSubscriptionView1Iterator"
+                     id="NsEmail">
+      <AttrNames>
+        <Item Value="NsEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="NewsletterSubscategoriesView2Iterator"
+          id="NewsletterSubscategoriesView2">
+      <nodeDefinition DefName="com.pp.newsletter.model.views.NewsletterSubscategoriesView"
+                      Name="NewsletterSubscategoriesView20">
+        <AttrNames>
+          <Item Value="NsId"/>
+          <Item Value="NsCategid"/>
+          <Item Value="NsCategories"/>
+          <Item Value="NsSelect"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="NewsletterSubscategoriesView2Iterator" id="NsSelect"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="NsSelect"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <methodAction id="executeCategories"
+                  InstanceName="newsLetterAMDataControl.dataProvider"
+                  DataControl="newsLetterAMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="executeCategories" IsViewObjectMethod="false">
+      <NamedData NDName="email"
+                 NDValue="#{pageFlowScope.newsSubscribeBean.b_email}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <action id="Commit" DataControl="newsLetterAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <methodAction id="checkCateg"
+                  InstanceName="newsLetterAMDataControl.dataProvider"
+                  DataControl="newsLetterAMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="checkCateg" IsViewObjectMethod="false"
+                  ReturnName="data.newsLetterAMDataControl.methodResults.checkCateg_newsLetterAMDataControl_dataProvider_checkCateg_result"/>
+  </bindings>
+</pageDefinition>

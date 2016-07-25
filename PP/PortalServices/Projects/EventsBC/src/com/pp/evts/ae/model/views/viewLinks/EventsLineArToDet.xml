@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EventsLineArToDet"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.pp.evts.ae.model.views.viewLinks.EventsLineArToDet_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="EventDetArView"
+    Cardinality="1"
+    Owner="com.pp.evts.ae.model.views.EventDetArView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EventDetArView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.pp.evts.ae.model.views.EventDetArView.EventId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="EventDetLineArView"
+    Cardinality="-1"
+    Owner="com.pp.evts.ae.model.views.EventDetLineArView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EventDetLineArView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.pp.evts.ae.model.views.EventDetLineArView.EventId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.pp.evts.ae.model.EventsBCBundle"/>
+  </ResourceBundle>
+</ViewLink>

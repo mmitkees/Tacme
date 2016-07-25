@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="FeaturedNewsTFDef">
+    <default-activity id="__1">router1</default-activity>
+    <data-control-scope id="__16">
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__18">
+      <name id="__17">locale</name>
+      <value>#{pageFlowScope.locale}</value>
+      <required/>
+    </input-parameter-definition>
+    <view id="FeaturedNews">
+      <page id="__2">/homejsffPages/FeaturedNewsEn.jsff</page>
+    </view>
+    <view id="FeaturedNewsAr">
+      <page id="__12">/homejsffPages/FeaturedNewsAr.jsff</page>
+    </view>
+    <router id="router1">
+      <case id="__13">
+        <expression id="__14">#{pageFlowScope.locale eq 'en'}</expression>
+        <outcome id="__11">goen</outcome>
+      </case>
+      <default-outcome id="__15">goar</default-outcome>
+    </router>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">router1</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__7">goen</from-outcome>
+        <to-activity-id id="__6">FeaturedNews</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome id="__10">goar</from-outcome>
+        <to-activity-id id="__8">FeaturedNewsAr</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

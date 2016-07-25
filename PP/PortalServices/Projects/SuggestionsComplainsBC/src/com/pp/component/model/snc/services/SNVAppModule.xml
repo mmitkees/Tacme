@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SNVAppModule"
+  Version="11.1.1.66.73"
+  InheritPersonalization="true"
+  ClearCacheOnRollback="true"
+  ComponentClass="com.pp.component.model.snc.services.SNVAppModuleImpl"
+  ComponentInterface="com.pp.component.model.snc.services.common.SNVAppModule"
+  ClientProxyName="com.pp.component.model.snc.services.client.SNVAppModuleClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="ComplainsSuggestionsView1"
+    ViewObjectName="com.pp.component.model.snc.views.ComplainsSuggestionsView"/>
+  <ViewUsage
+    Name="type1"
+    ViewObjectName="com.pp.component.model.snc.views.type"/>
+  <ViewUsage
+    Name="typeVO1"
+    ViewObjectName="com.pp.component.model.snc.views.typeVO"/>
+  <ClientInterface>
+    <Method
+      Name="isDuplicate">
+      <Return
+        Type="boolean"/>
+      <Parameter
+        Name="cid"
+        Type="int"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

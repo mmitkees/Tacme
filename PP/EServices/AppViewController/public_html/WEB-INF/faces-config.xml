@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<faces-config version="1.2" xmlns="http://java.sun.com/xml/ns/javaee">
+   <application>
+      <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
+     <!-- <view-handler>com.app.view.beans.LocaleSettingViewHandler</view-handler>
+      <resource-bundle>
+         <base-name>com.app.view.bundle.DatabaseResourceBundle</base-name>
+         <var>bnd</var>
+      </resource-bundle>
+      <locale-config>
+         <default-locale>en</default-locale>
+         <supported-locale>en</supported-locale>
+         <supported-locale>ar</supported-locale>
+      </locale-config> -->
+    <resource-bundle>
+      <base-name>com.app.view.AppViewControllerBundle</base-name>
+      <var>appviewcontrollerbundle</var>
+    </resource-bundle>
+  </application>
+  <!-- <managed-bean>
+      <managed-bean-name>localeBean</managed-bean-name>
+      <managed-bean-class>com.app.view.beans.LocaleBean</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+   </managed-bean> -->
+   
+  <!--lifecycle>
+    <phase-listener>com.app.view.utils.PhaseListenerImpl</phase-listener>
+  </lifecycle-->
+ <!-- <managed-bean>
+      <managed-bean-name>localeBean</managed-bean-name>
+      <managed-bean-class>com.app.view.beans.LocaleBean</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+   </managed-bean> -->
+</faces-config>

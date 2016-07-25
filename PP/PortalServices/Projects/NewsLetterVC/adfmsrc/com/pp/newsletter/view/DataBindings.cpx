@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.pp.newsletter.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/newsSubscriptionview.jsff"
+          usageId="com_pp_newsletter_view_newsSubscriptionviewPageDef"/>
+    <page path="/Subscription.jspx"
+          usageId="com_pp_newsletter_view_SubscriptionPageDef"/>
+    <page path="/newsSubscrAdmin.jsff"
+          usageId="com_pp_newsletter_view_newsSubscrAdminPageDef"/>
+    <page path="/NewsSubscriptionAdmin.jspx"
+          usageId="com_pp_newsletter_view_NewsSubscriptionAdminPageDef"/>
+    <page path="/newsSubscView.jsff"
+          usageId="com_pp_newsletter_view_newsSubscViewPageDef"/>
+    <page path="/WEB-INF/newsSubscriptionTFDef.xml#newsSubscriptionTFDef@CreateInsert"
+          usageId="com_pp_newsletter_view_newsSubscriptionTFDef_newsSubscriptionTFDef_CreateInsertPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_pp_newsletter_view_newsSubscriptionviewPageDef"
+          path="com.pp.newsletter.view.pageDefs.newsSubscriptionviewPageDef"/>
+    <page id="com_pp_newsletter_view_SubscriptionPageDef"
+          path="com.pp.newsletter.view.pageDefs.SubscriptionPageDef"/>
+    <page id="com_pp_newsletter_view_newsSubscrAdminPageDef"
+          path="com.pp.newsletter.view.pageDefs.newsSubscrAdminPageDef"/>
+    <page id="com_pp_newsletter_view_NewsSubscriptionAdminPageDef"
+          path="com.pp.newsletter.view.pageDefs.NewsSubscriptionAdminPageDef"/>
+    <page id="com_pp_newsletter_view_newsSubscViewPageDef"
+          path="com.pp.newsletter.view.pageDefs.newsSubscViewPageDef"/>
+    <page id="com_pp_newsletter_view_newsSubscriptionTFDef_newsSubscriptionTFDef_CreateInsertPageDef"
+          path="com.pp.newsletter.view.pageDefs.newsSubscriptionTFDef_newsSubscriptionTFDef_CreateInsertPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="newsLetterAMDataControl"
+                     Package="com.pp.newsletter.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="newsLetterAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

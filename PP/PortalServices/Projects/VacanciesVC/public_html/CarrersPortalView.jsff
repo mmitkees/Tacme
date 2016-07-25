@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <!--oracle-jdev-comment:preferred-managed-bean-name:carrersPortalBean-->
+    <c:set var="vacanciesvcBundle"
+         value="#{adfBundle['com.pp.carrers.VacanciesVCBundle']}"/>
+  <af:panelGroupLayout id="pgl2" layout="scroll">
+    <af:panelGroupLayout id="pgl3" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="#{vacanciesvcBundle.p_caoverview}" id="ot5"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl4" layout="vertical">
+      <af:panelGroupLayout id="pgl5" layout="vertical" styleClass="career-details">
+        <af:panelGroupLayout id="pgl10" layout="vertical">
+          <af:panelGroupLayout id="pgl11" layout="vertical">
+            <af:outputText value="#{vacanciesvcBundle.p_cajobtitle}" id="ot4"
+                           styleClass="careersParaHeadings"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl12" layout="vertical">
+            <af:outputText value="#{bindings.JobTitle.inputValue}" id="ot3"
+                           styleClass="careersBodyText"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl13" layout="vertical">
+          <af:panelGroupLayout id="pgl14" layout="vertical">
+            <af:outputText value="#{vacanciesvcBundle.p_cajobresp}" id="ot6"
+                           styleClass="careersParaHeadings"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl15" layout="vertical">
+            <af:outputText value="#{bindings.JobResp.inputValue}" id="ot2"
+                           styleClass="careersBodyText"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl16" layout="vertical">
+          <af:panelGroupLayout id="pgl17" layout="vertical">
+            <af:outputText value="#{vacanciesvcBundle.p_cajobreq}" id="ot7"
+                           styleClass="careersParaHeadings"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl18" layout="vertical">
+            <af:outputText value="#{bindings.JobReq.inputValue}" id="ot1"
+                           styleClass="careersBodyText"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl19" layout="vertical">
+          <af:panelLabelAndMessage label="#{vacanciesvcBundle.p_uploadfile}" id="plam1"
+                                   styleClass="careerPage">            
+            <af:inputFile id="if1"
+                          value="#{pageFlowScope.carrersPortalBean.upFilePopup}"
+                          />
+          </af:panelLabelAndMessage>          
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl6" layout="vertical">
+        <af:panelFormLayout id="pfl2" rows="1" maxColumns="3">
+          <af:commandButton text="#{vacanciesvcBundle.p_caapnow}" id="cb2"
+                            action="#{pageFlowScope.carrersPortalBean.apply_action}"
+                            styleClass="btn-action"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl9" layout="vertical">
+        <af:commandImageLink text="#{vacanciesvcBundle.p_sdsrvbck}" id="cil1" styleClass="bck"
+                             action="back"/>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

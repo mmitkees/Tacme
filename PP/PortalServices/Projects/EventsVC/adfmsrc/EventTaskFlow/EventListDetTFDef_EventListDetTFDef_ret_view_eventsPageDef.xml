@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="EventListDetTFDef_EventListDetTFDef_ret_view_eventsPageDef"
+                Package="EventTaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="ret_view_events" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="ret_view_events"
+                  IsViewObjectMethod="false"
+                  DataControl="PortalEvtsAMDataControl"
+                  InstanceName="PortalEvtsAMDataControl.dataProvider"
+                  ReturnName="data.PortalEvtsAMDataControl.methodResults.ret_view_events_PortalEvtsAMDataControl_dataProvider_ret_view_events_result">
+      <NamedData NDName="rkey" NDValue="#{pageFlowScope.eventkey}"
+                 NDType="int"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

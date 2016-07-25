@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">HomeEventsView</property>
+      <property
+         name="page">/EventsjsffPages/HomeEventsView.jsff</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>HomeEventsView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">148.59766</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">303.0</property>
+   </View>
+   <Router
+      id="Router3">
+      <property
+         name="activityId">LangSwitching</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>LangSwitching&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">197.29883</property>
+      <property
+         name="x">101.0</property>
+   </Router>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="Router3"
+      to="View2">
+      <property
+         name="fromOutcome">goen</property>
+      <property
+         name="sdm:polyPoints">R46,142.0,193.44824,262.0,148.24707,L50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall5">
+      <property
+         name="taskFlowId">HomeEventsARTFDef</property>
+      <property
+         name="activityId">HomeEventsARTFDef</property>
+      <property
+         name="documentReference">/WEB-INF/EventTaskFlowAR/HomeEventsARTFDef.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>HomeEventsARTFDef&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">284.09766</property>
+      <property
+         name="x">323.55762</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="Router3"
+      to="TaskFlowCall5">
+      <property
+         name="fromOutcome">goar</property>
+      <property
+         name="sdm:polyPoints">R54,142.0,200.44824,282.55762,283.74707,L50</property>
+   </ControlFlowCase>
+</SDM>

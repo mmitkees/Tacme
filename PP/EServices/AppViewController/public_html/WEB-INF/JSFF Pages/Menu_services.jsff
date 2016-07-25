@@ -1,0 +1,327 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html">
+   <!--<af:panelGroupLayout id="pgl1" layout="scroll"
+                       inlineStyle="background-color:rgb(255,253,245);">
+      -->
+   <!--<af:panelFormLayout id="pfl5" maxColumns="2" rows="2"
+                            styleClass="AFStretchWidth">
+          <af:panelFormLayout id="pfl2"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth"
+                            >
+                           
+            <af:commandLink text="1.Mistake In Judgement Material" id="cl2"
+                            action="mijm"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2px; margin:3px;"/>
+          
+          </af:panelFormLayout>
+        <af:panelFormLayout id="pfl3"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="2.Disburse Interpreter Fees" id="cl3" action="dif"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px;  Margin:3px"/>
+          </af:panelFormLayout>
+            <af:panelFormLayout id="pfl1"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="3.Deposit Money" id="cl1" action="dem"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"/>
+          </af:panelFormLayout>
+        <af:panelFormLayout id="pfl4"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="4.Disburse Expert Fees" id="cl4" action="def"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"/>
+          </af:panelFormLayout>
+            <af:panelFormLayout id="pfl6"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="5.Decision of Appeal" id="cl5" action="dm"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"/>
+          </af:panelFormLayout>
+        <af:panelFormLayout id="pfl7"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="6.Ending a custody againt Juvenille" id="cl6" action="ecaj"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"/>
+          </af:panelFormLayout>
+            <af:panelFormLayout id="pfl8"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="7.Appeal" id="cl7" action="appeal"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"/>
+          </af:panelFormLayout>
+ 
+         
+           
+          <af:panelFormLayout id="pfl11"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="11.Paying fine imposed by court" id="cl11"
+                            action="payfineimpc"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl12"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="12.Payment of Lawyers Fees" id="cl12"
+                            action="paylawfee"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"/>
+          </af:panelFormLayout>
+         
+            
+          
+           
+           
+         
+          
+         
+          <af:panelFormLayout id="pfl21"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="21.Adjourn a Session or Fix New Date" id="cl21"
+                            action="asnd"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl23"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="22.Drop Court Imposed Penalty Due to Presciption" id="cl25"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"
+                            action="Dci"/>
+          </af:panelFormLayout>
+           
+           <af:panelFormLayout id="pfl24"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="23.Exhumation" id="cl45"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"
+                            action="exhu"/>
+          </af:panelFormLayout><af:panelFormLayout id="pfl25"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="24.Expiration of Penal Case " id="cl46"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"
+                            action="eop1"/>
+                            </af:panelFormLayout><af:panelFormLayout id="pfl27"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="24.Fine Difference Reimbursement " id="cl48"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"
+                            action="eop1"/>
+                             </af:panelFormLayout>
+       
+                            <af:panelFormLayout id="pfl29"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="26.Opening of Memorandums " id="cl50"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"
+                            action="opofmem"/>
+                            
+                            
+                            
+          </af:panelFormLayout>
+         
+         
+         
+                   
+          
+         
+          <af:panelFormLayout id="pfl33"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="45.Stop Searching/Cancellation of Arrest Warrant" id="cl27"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"
+                            action="scwrnt"/>
+          </af:panelFormLayout>
+      
+       
+       
+      
+          
+     
+   
+   
+    <af:panelFormLayout id="pfD_l4745"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="استشكالفيالتنفيذ" id="FF_62436"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"
+                            action="Ser1"/>
+                            </af:panelFormLayout>
+                               </af:panelFormLayout>
+        <af:panelFormLayout id="dcpfl2"
+                            inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0"
+                            styleClass="AFStretchWidth">
+          <af:commandLink text="Drop Court Imposed Penalty Due to Prescription"
+                          id="dccl2" action="Dci"
+                          inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2px; margin:3px;"/>
+        </af:panelFormLayout>
+    
+    
+        </af:panelFormLayout>-->
+   <!--
+    
+    
+</af:panelGroupLayout>-->
+   <af:panelGroupLayout id="pgl1" layout="vertical"
+                        inlineStyle="margin:0px 10px !important;">
+      <af:menuBar id="mb1">
+         <af:commandLink text="Sign Out" id="cl1" action="signout"/>
+      </af:menuBar>
+   </af:panelGroupLayout>
+   <af:panelAccordion id="pa1" styleClass="eServiceList"
+                      inlineStyle="margin:10px;">
+      <af:showDetailItem text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Exe_Services']}"
+                         id="sdi1" inflexibleHeight="100" rendered="true">
+         <af:panelFormLayout id="pfl2" styleClass="eServiceListForm"
+                             >
+            <af:commandLink id="cl2" action="asnd"
+                            text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Ad_Ses_Fix_Date']}"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Cor_Mis_Mater']}"
+                            id="cmcl2" action="mijm"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Drop_court_Due_Pres']}"
+                            id="dccl2" action="Dci"                            
+                            rendered="true"/>
+            <af:commandLink id="eacl2" action="ecaj"
+                            text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_End_Cus_Juv']}"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Exp_Pnl_Case']}" id="eocl2"
+                            action="eop1" rendered="true"/>
+                            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Med_Tre_Rel']}" id="mtrl2"
+                            action="mdtrmnt" />
+            <!--<af:commandLink text="International Arrest Warrant " id="iacl2"
+                            action="iaw" rendered="false"/>-->
+            <!--<af:commandLink text="Objection to Execution of Judgement"
+                            id="otcl2" rendered="true"/>-->
+                            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Sub_Obj']}"
+                            id="cso6" action="so"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Post_Freedom_Con']}"
+                            id="d_23" action="Postpone" rendered="true"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_waiver_enclosure']}"
+                            id="cl24" action="we" rendered="true"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Reh']}" id="cl29" action="rehabil"
+                            rendered="true"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Int_Arr_War']}"
+                            id="iawwcl2" action="iaw"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Stp_Arrst_Wrnt']}"
+                            id="sscl2" action="scwrnt" rendered="true"/>
+         </af:panelFormLayout>
+         <!--<af:panelFormLayout id="intw2" styleClass="AFStretchWidth"
+                             rendered="true">
+            <af:commandLink text="International Arrest Warrant " id="iantl2"
+                            action="iaw"/>
+         </af:panelFormLayout>-->
+      </af:showDetailItem>
+      <af:showDetailItem text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Fin_Services']}"
+                         id="sdi2" rendered="true">
+         <af:panelFormLayout id="pfl5" styleClass="eServiceListForm">
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Dep_Mon_Cus']}"
+                            id="dmcl2" action="dem"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Dis_Int_Fees']}"
+                            id="difcl2" action="dif"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Dis_Exp_Fees']}"
+                            id="defcl2" action="def"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Fine_Ret_Req']}"
+                            id="cl97" action="frreq"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Pay_Fine_Imp_Cort']}"
+                            id="pffcl2" action="payinscrt"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Pay_Law_Fee']}"
+                            id="pocl2" action="paylawfee"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Paymt_Fine_impose']}"
+                            id="c_l53" action="payfineimpc"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Ret_Bail_Amt']}" id="cl28" action="rba"
+                            />
+            <!--<af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Fine_Ret_Req']} Fine Retrival Request" id="cl9"
+                            action="frreq" rendered="false"/>-->
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Fine_Dif_Rei']}" id="cl48"                            
+                            action="fdreim"/>
+         </af:panelFormLayout>
+      </af:showDetailItem>
+      <af:showDetailItem id="sdii2" rendered="true"
+                         text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Gen_Ser']}">
+         <af:panelFormLayout id="pfl14" styleClass="eServiceListForm">
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Met_Pro_Prose']}"
+                            id="crc4" action="mtp"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Rec_Cor']}"
+                            id="cl14" action="rcorpse"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Law_Pro_Req']}"
+                            id="clpr4" action="*lpr"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Ref_Inmat']}"
+                            id="cl16" action="Referralinmate"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Ex_Ser']}" id="cl45"                            
+                            action="exhu"/>
+                            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_To_Whom_Cer']}"
+                            action="wic" id="clw13" rendered="true"/>
+                             <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Vist_Pro_Deta']}" id="ce15" action="vpd"
+                            rendered="true"/>
+            <af:commandLink text="Provide Financial/Personal Bail"
+                            action="profinbail" id="cl13" rendered="false"/>
+            <af:commandLink text="Exchange of Bail" id="cl15" action="exchbill"
+                            rendered="false"/>
+            <af:commandLink text="Review" id="cl17" action="Review"
+                            rendered="false"/>
+            <af:commandLink text="Case Copy" id="cl18" action="CaseCopy1"
+                            rendered="false"/>
+            <af:commandLink text="Copy of Judgment" id="cl19" action="copy"
+                            rendered="false"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Ad_Ses_Fix_Date']}"
+                            id="cil2" action="asnd" rendered="false"/>
+            <af:commandLink text="Copy of Non-Suit Order" id="cl20" action="cno"
+                            rendered="false"/>
+         </af:panelFormLayout>
+      </af:showDetailItem>
+      <af:showDetailItem text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Re_Appeal']}"
+                         id="sdi7">
+         <af:panelFormLayout id="pfil17" styleClass="eServiceListForm">
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Review']}"
+                            id="cil17" action="Review"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Dec_Appl']}"
+                            id="cl5" action="dm"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Req_Appl_Cas']}"
+                            id="c_ra" action="apcse"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Sub_Obj']}"
+                            id="cl26" action="so"/>
+         </af:panelFormLayout>
+      </af:showDetailItem>
+      <af:showDetailItem id="sdi4"
+                         text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Infor_Ser']}">
+         <af:panelFormLayout id="pfD_l4744" styleClass="eServiceListForm">
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_caseinfo']}"
+                            id="FF_62433" action="Caseinfo"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Sub_Sms_Ser']}"
+                            id="cl22" action="ss"/>
+         </af:panelFormLayout>
+         <!--<af:panelFormLayout id="pfl38"
+                              inlineStyle="background-color:rgb(255,239,214); height:30px; width:320px; border:1px solid #cbba81;  border-radius:10.0px; margin:2px 15px 5px 0" styleClass="AFStretchWidth">
+            <af:commandLink text="Receiving of Deposits, Impoundment, Documents, or Passports" id="cl32"
+                            inlineStyle="color:rgb(16,16,16); font-size:17px; font-family:'Times New Roman', 'Arial Black', times, Serif; height:50px; padding:2.0px; Margin:3px"
+                            action="recdocimp"/>
+          </af:panelFormLayout>-->
+      </af:showDetailItem>
+      <af:showDetailItem id="sdi5" rendered="true"
+                         text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:Pet_Appl_Ser']}">
+         <af:panelFormLayout id="pfl8" styleClass="eServiceListForm">
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Appl']}"
+                            id="cl7" action="appeal"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Op_Mem']}" id="cl400"
+                            action="opmem"/>
+         </af:panelFormLayout>
+      </af:showDetailItem>
+      <af:showDetailItem id="sdi6"
+                         text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Pho_Copy_Ser']}">
+         <af:panelFormLayout id="pfil18" styleClass="eServiceListForm">
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Case_Copy']}"
+                            id="cil18" action="CaseCopy1"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Copy_Jud']}"
+                            id="cil19" action="copy"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Copy_Non_Order']}"
+                            id="cil20" action="cno"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Photo_Case_Drop_Dec']}"
+                            id="d_l532" action="pcopy"/>
+         </af:panelFormLayout>
+      </af:showDetailItem>
+      <af:showDetailItem text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Spon_Dep']}"
+                         id="sdi8">
+         <af:panelFormLayout id="pfl10" styleClass="eServiceListForm">
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Coll_Doc']}"
+                            id="cl10" action="colldoc"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Exc_Bail']}"
+                            id="cil15" action="exchbill"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Pro_Fine_Bail']}"
+                            id="cil13" action="profinbail"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Pass_Ren']}" id="cl51" action="ppre"
+                            rendered="true"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Rec_Pass']}" id="cl31"
+                            action="rpprt" rendered="true"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Rec_Dep_char']}" id="d_623"
+                            action="recdep" rendered="true"/>
+         </af:panelFormLayout>
+      </af:showDetailItem>
+   </af:panelAccordion>
+</jsp:root>

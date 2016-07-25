@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="Event_DetPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EventDetDefView1" RangeSize="10"
+              DataControl="PortalEvtsAMDataControl"
+              id="EventDetDefView1Iterator"/>
+    <iterator Binds="EventDetLineView3" RangeSize="10"
+              DataControl="PortalEvtsAMDataControl"
+              id="EventDetLineView3Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EventDetDefView1Iterator" id="EventId">
+      <AttrNames>
+        <Item Value="EventId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetDefView1Iterator" id="EvenDate">
+      <AttrNames>
+        <Item Value="EvenDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetDefView1Iterator" id="EventTime">
+      <AttrNames>
+        <Item Value="EventTime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetDefView1Iterator" id="EventSubj">
+      <AttrNames>
+        <Item Value="EventSubj"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetDefView1Iterator" id="EventDesc">
+      <AttrNames>
+        <Item Value="EventDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetDefView1Iterator" id="EventImg">
+      <AttrNames>
+        <Item Value="EventImg"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetDefView1Iterator" id="EventDetails">
+      <AttrNames>
+        <Item Value="EventDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetLineView3Iterator" id="EventType">
+      <AttrNames>
+        <Item Value="EventType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetLineView3Iterator" id="EventDate">
+      <AttrNames>
+        <Item Value="EventDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetLineView3Iterator" id="EventIndustry">
+      <AttrNames>
+        <Item Value="EventIndustry"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetLineView3Iterator"
+                     id="EventAttendees">
+      <AttrNames>
+        <Item Value="EventAttendees"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetLineView3Iterator" id="EventOrg">
+      <AttrNames>
+        <Item Value="EventOrg"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetDefView1Iterator" id="EventUCMPath">
+      <AttrNames>
+        <Item Value="EventUCMPath"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

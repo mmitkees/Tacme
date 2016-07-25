@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="FeaturedNewsArPageDef"
+                Package="homejsffPages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NewsDetailsFeaturedArView1" RangeSize="10"
+              DataControl="PortalNewsServiceDataControl"
+              id="NewsDetailsFeaturedArView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="NewsDetailsFeaturedArView1Iterator"
+          id="NewsDetailsFeaturedArView1">
+      <nodeDefinition DefName="com.pp.news.ae.model.views.NewsDetailsFeaturedArView"
+                      Name="NewsDetailsFeaturedArView10">
+        <AttrNames>
+          <Item Value="NewsId"/>
+          <Item Value="FeatureFlag"/>
+          <Item Value="NewsDate"/>
+          <Item Value="NewsDesc"/>
+          <Item Value="NewsDetails"/>
+          <Item Value="NewsImg"/>
+          <Item Value="NewsPath"/>
+          <Item Value="NewsSubj"/>
+          <Item Value="NewsUcmId"/>
+          <Item Value="RowID"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

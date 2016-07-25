@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="ChgPwrdViewPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EditProfile1" RangeSize="25"
+              DataControl="PPAppServicesDataControl" id="EditProfile1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EditProfile1Iterator" id="Password">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="change_pwrd"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  DataControl="PPAppServicesDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="change_pwrd" IsViewObjectMethod="false"
+                  ReturnName="data.PPAppServicesDataControl.methodResults.change_pwrd_PPAppServicesDataControl_dataProvider_change_pwrd_result">
+      <NamedData NDName="c_pwrd"
+                 NDValue="#{pageFlowScope.AppServicesCP.oldpwrd}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="n_pwrd"
+                 NDValue="#{pageFlowScope.AppServicesCP.nb_pwrd}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="co_pwrd"
+                 NDValue="#{pageFlowScope.AppServicesCP.cob_pwrd}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

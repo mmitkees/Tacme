@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="AdjSessionNewDtePageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqAdjSfndView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAdjSfndView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqAdjSfndView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqAdjSfndView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqAdjSfndView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqAdjSfndView1Iterator" id="PostponeReason">
+      <AttrNames>
+        <Item Value="PostponeReason"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqAdjSfndView1Iterator" id="SessionDate">
+      <AttrNames>
+        <Item Value="SessionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <listOfValues StaticList="false" Uses="LOV_RelationCase_en"
+                  IterBinding="ReqAdjSfndView1Iterator" id="RelationCase"/>
+    <list IterBinding="ReqAdjSfndView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelationCase1" DTSupportsMRU="true"/>
+    <methodAction id="executeSMSproc"
+                  InstanceName="SMSPrjServiceDataControl.dataProvider"
+                  DataControl="SMSPrjServiceDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="executeSMSproc" IsViewObjectMethod="false"
+                  ReturnName="data.SMSPrjServiceDataControl.methodResults.executeSMSproc_SMSPrjServiceDataControl_dataProvider_executeSMSproc_result">
+      <NamedData NDName="p_mobno" NDValue="#{sessionScope.mobile}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="p_subj" NDValue="#{AppServiceAdj.message}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

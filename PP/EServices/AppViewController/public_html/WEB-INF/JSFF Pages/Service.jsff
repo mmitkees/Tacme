@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+  <af:menuBar id="mb1">
+      <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Click_here_for_E-Services']}" id="cl1"
+                      action="#{pageFlowScope.eservice}"
+                      partialSubmit="true" rendered="false"/>
+      <af:spacer width="10" height="10" id="s1"/>
+      <af:outputText value="#{appviewcontrollerbundle.p_Welcome} : #{sessionScope.name} " id="ot3"/>
+      <af:spacer width="10" height="10" id="s2"/>
+      <af:commandLink text="#{appviewcontrollerbundle.p_Logout}" id="cl2" action="logout"
+                      actionListener="#{AppServiceAdj.logOutAction}"/>
+      <af:spacer width="10" height="10" id="s3"/>
+      <af:commandLink text="#{appviewcontrollerbundle.p_Change_password}" id="cl3" action="chgpwrd"/>
+      <af:spacer width="10" height="10" id="s4"/>
+      <af:commandLink text="#{appviewcontrollerbundle.p_Edit_Profile}" id="cl4" action="editprofile"/>
+    </af:menuBar>    
+    <af:panelGroupLayout id="pgl3" styleClass="eServicesHeading"
+                         layout="vertical">
+      <af:outputText value="#{appviewcontrollerbundle.p_prs_appeal}" id="ot7"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl6" layout="vertical">
+      <af:panelFormLayout id="pfl1" maxColumns="2" rows="1"
+                          styleClass="service">
+        <af:panelFormLayout id="pfl3">
+          <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_case_no}*"
+                                   id="plam1">
+            <af:inputText value="#{bindings.CaseNo.inputValue}"
+                          required="#{bindings.CaseNo.hints.mandatory}"
+                          maximumLength="#{bindings.CaseNo.hints.precision}"
+                          shortDesc="#{bindings.CaseNo.hints.tooltip}" id="it1"                          
+                          autoSubmit="true"
+                          disabled="#{AppServicesService1.DFlag eq 'Y'}"
+                          simple="true" immediate="true"
+                          validator="#{customValidator.caseNoValidator}">
+              <f:validator binding="#{bindings.CaseNo.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.CaseNo.format}"/>
+            </af:inputText>
+            <af:panelGroupLayout id="pgl2"
+                                     rendered="#{AppServicesService1.cn eq 'Y'}"
+                                     binding="#{AppServicesService1.cnopg}"
+                                     layout="vertical" partialTriggers="it1">
+                  <af:outputText value="#{appviewcontrollerbundle.p_cno_invalid}"
+                                 id="ot6"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_case_year}*"
+                                   id="plam3">
+            <af:selectOneChoice value="#{bindings.CaseYear.inputValue}"
+                                required="#{bindings.CaseYear.hints.mandatory}"
+                                shortDesc="#{bindings.CaseYear.hints.tooltip}"
+                                id="soc1" autoSubmit="true"
+                                disabled="#{AppServicesService1.DFlag eq 'Y'}"
+                                immediate="true" simple="true">
+              <f:selectItems value="#{bindings.CaseYear.items}" id="si1"/>
+            </af:selectOneChoice>
+            <af:panelGroupLayout id="pg_l3"
+                                     rendered="#{AppServicesService1.cy eq 'Y'}"
+                                     partialTriggers="soc1" layout="vertical">
+                  <af:outputText value="#{appviewcontrollerbundle.p_cyr_invalid}"
+                                 id="ot"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+          </af:panelLabelAndMessage>
+        </af:panelFormLayout>
+        <af:panelFormLayout id="pfl4">
+          <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_prosection_name}*"
+                                   id="plam2">
+            <af:selectOneChoice value="#{bindings.Prosecutionname.inputValue}"
+                                required="#{bindings.Prosecutionname.hints.mandatory}"
+                                shortDesc="#{bindings.Prosecutionname.hints.tooltip}"
+                                id="soc2" autoSubmit="true"
+                                disabled="#{AppServicesService1.DFlag eq 'Y'}"
+                                immediate="true" simple="true">
+              <f:selectItems value="#{bindings.Prosecutionname.items}"
+                             id="si2"/>
+            </af:selectOneChoice>
+            <af:panelGroupLayout id="pg"
+                                     rendered="#{AppServicesService1.pc eq 'Y' ? true : false}"
+                                     partialTriggers="soc2" layout="vertical">
+                  <af:outputText id="ot8"
+                                 value="#{appviewcontrollerbundle.p_pnme_invalid}"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_relation_case}*"
+                                   id="plam4">
+            <af:selectOneChoice value="#{bindings.Relationcase.inputValue}"
+                                required="#{bindings.Relationcase.hints.mandatory}"
+                                shortDesc="#{bindings.Relationcase.hints.tooltip}"
+                                id="soc3" autoSubmit="true"
+                                disabled="#{AppServicesService1.DFlag eq 'Y'}"
+                                immediate="true" simple="true">
+              <f:selectItems value="#{bindings.Relationcase.items}" id="si3"/>
+            </af:selectOneChoice>
+            <af:panelGroupLayout id="pgl8"
+                                     rendered="#{AppServicesService1.rc eq 'Y'}"
+                                     partialTriggers="soc3" layout="vertical">
+                  <af:outputText value="#{appviewcontrollerbundle.p_rcase_invalid}"
+                                 id="ot9"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+          </af:panelLabelAndMessage>
+        </af:panelFormLayout>
+      </af:panelFormLayout>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl7" layout="vertical">
+    
+      <af:panelFormLayout id="pfl6" styleClass="service">
+        <af:panelFormLayout id="pfl5">
+          <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_uploadfile}" id="plam5">
+            <af:inputFile id="if1"
+                          binding="#{AppServicesService1.upFileBind}"                                                    
+                          disabled="#{AppServicesService1.DFlag eq 'Y'}"
+                          simple="true" immediate="true" autoHeightRows="-1"
+                          maximumFiles="5"
+                          value="#{AppServicesService1.uploadedfile}"/>
+          </af:panelLabelAndMessage>
+        </af:panelFormLayout>
+      </af:panelFormLayout>
+  <af:outputText value="#{appviewcontrollerbundle.p_frmtsattach}" id="afot2"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl5" layout="vertical">
+      <!--<af:table value="#{bindings.ReqAttachmentsView35.collectionModel}"
+                var="row" rows="#{bindings.ReqAttachmentsView35.rangeSize}"
+                emptyText="#{bindings.ReqAttachmentsView35.viewable ? 'No data to display.' : 'Access Denied.'}"
+                fetchSize="#{bindings.ReqAttachmentsView35.rangeSize}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.ReqAttachmentsView35.collectionModel.selectedRow}"
+                selectionListener="#{bindings.ReqAttachmentsView35.collectionModel.makeCurrent}"
+                rowSelection="single" id="t1"
+                styleClass="taBhaed AFStretchWidth"
+                partialTriggers="cb3 :::if1 :::cb4 ::cb4"
+                inlineStyle="height: auto !important;" columnStretching="last">
+        <af:column sortProperty="#{bindings.ReqAttachmentsView35.hints.DisplayName.name}"
+                   sortable="false" headerText="Attachment Name" id="c2"
+                   width="110">
+          <af:outputText value="#{row.DisplayName}" id="ot6"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqAttachmentsView35.hints.AttachSize.name}"
+                   sortable="false" headerText="Size" id="c1" width="110">
+          <af:outputText value="#{row.AttachSize}" id="ot3"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqAttachmentsView35.hints.AttachDate.name}"
+                   sortable="false" headerText="Attached Date" id="c3"
+                   width="110">
+          <af:outputText value="#{row.AttachDate}" id="ot5">
+            <af:convertDateTime pattern="#{bindings.ReqAttachmentsView35.hints.AttachDate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqAttachmentsView35.hints.AttachByPersonId.name}"
+                   sortable="false" headerText="Attached By" id="c5"
+                   width="110">
+          <af:outputText value="#{row.AttachByPersonId}" id="ot4"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqAttachmentsView35.hints.Name.name}"
+                   sortable="false" headerText="Name" id="c4" width="109">
+          <af:outputText value="#{row.Name}" id="ot1"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqAttachmentsView35.hints.ContentType.name}"
+                   sortable="false" headerText="Content Type" id="c6"
+                   width="62">
+          <af:outputText value="#{row.ContentType}" id="ot2"/>
+        </af:column>
+        <af:column id="c7" width="72">
+          <af:commandButton actionListener="#{bindings.Delete.execute}"
+                            text="Delete"
+                            disabled="#{AppServicesService1.DFlag eq'Y'}"
+                            id="cb3"/>
+        </af:column>
+      </af:table>-->
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl4" layout="vertical">
+      <af:panelFormLayout id="pfl2" rows="1" styleClass="serviceButton">
+        <af:commandButton text="#{appviewcontrollerbundle.p_submit}"
+                          id="cb2"
+                          action="#{AppServicesService1.Service1_action}"
+                          disabled="#{AppServicesService1.DFlag eq 'Y'}"
+                          styleClass="btn-action"/>
+        <af:commandButton text="#{appviewcontrollerbundle.p_clear}"
+                          id="cb1"
+                          action="#{AppServicesService1.ClearService1_action}"
+                          disabled="#{AppServicesService1.DFlag eq 'Y'}"
+                          styleClass="btn-secondary"/>
+        <af:commandButton actionListener="#{bindings.Delete.execute}"
+                          text="Delete" disabled="#{!bindings.Delete.enabled}"
+                          id="cb4" styleClass="btn-secondary" rendered="false"/>
+      </af:panelFormLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

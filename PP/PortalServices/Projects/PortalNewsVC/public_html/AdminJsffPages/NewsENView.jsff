@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1">
+    <af:inputText value="#{bindings.NewsId.inputValue}"
+                  label="#{bindings.NewsId.hints.label}"
+                  required="#{bindings.NewsId.hints.mandatory}"
+                  columns="#{bindings.NewsId.hints.displayWidth}"
+                  maximumLength="#{bindings.NewsId.hints.precision}"
+                  shortDesc="#{bindings.NewsId.hints.tooltip}" id="it1"
+                  disabled="true">
+      <f:validator binding="#{bindings.NewsId.validator}"/>
+      <af:convertNumber groupingUsed="false"
+                        pattern="#{bindings.NewsId.format}"/>
+    </af:inputText>
+    <af:inputDate value="#{bindings.NewsDate.inputValue}"
+                  label="#{bindings.NewsDate.hints.label}"
+                  required="#{bindings.NewsDate.hints.mandatory}"
+                  shortDesc="#{bindings.NewsDate.hints.tooltip}" id="id1">
+      <f:validator binding="#{bindings.NewsDate.validator}"/>
+      <af:convertDateTime pattern="#{bindings.NewsDate.format}"/>
+    </af:inputDate>
+    <af:inputText value="#{bindings.NewsSubj.inputValue}"
+                  label="#{bindings.NewsSubj.hints.label}"
+                  required="#{bindings.NewsSubj.hints.mandatory}"
+                  columns="#{bindings.NewsSubj.hints.displayWidth}"
+                  maximumLength="#{bindings.NewsSubj.hints.precision}"
+                  shortDesc="#{bindings.NewsSubj.hints.tooltip}" id="it3">
+      <f:validator binding="#{bindings.NewsSubj.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.NewsDesc.inputValue}"
+                  label="#{bindings.NewsDesc.hints.label}"
+                  required="#{bindings.NewsDesc.hints.mandatory}"
+                  columns="#{bindings.NewsDesc.hints.displayWidth}"
+                  maximumLength="#{bindings.NewsDesc.hints.precision}"
+                  shortDesc="#{bindings.NewsDesc.hints.tooltip}" id="it4">
+      <f:validator binding="#{bindings.NewsDesc.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.NewsDetails1.inputValue}"
+                  label="#{bindings.NewsDetails1.hints.label}"
+                  required="#{bindings.NewsDetails1.hints.mandatory}"
+                  columns="#{bindings.NewsDetails1.hints.displayWidth}"
+                  maximumLength="#{bindings.NewsDetails1.hints.precision}"
+                  shortDesc="#{bindings.NewsDetails1.hints.tooltip}" id="it2">
+      <f:validator binding="#{bindings.NewsDetails1.validator}"/>
+    </af:inputText>
+    <af:inputFile label="Upload Image" id="if1"
+                  valueChangeListener="#{publishNews.UploadNews}"
+                  autoSubmit="true"/>
+    <af:commandButton actionListener="#{bindings.Commit.execute}" text="Publish" id="cb1"/>
+  </af:panelFormLayout>
+</jsp:root>

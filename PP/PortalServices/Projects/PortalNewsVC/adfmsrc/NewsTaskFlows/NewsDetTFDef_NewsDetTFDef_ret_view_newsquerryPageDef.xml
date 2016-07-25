@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="NewsDetTFDef_NewsDetTFDef_ret_view_newsquerryPageDef"
+                Package="NewsTaskFlows" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="ret_view_newsquerry" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="ret_view_newsquerry"
+                  IsViewObjectMethod="false"
+                  DataControl="PortalNewsServiceDataControl"
+                  InstanceName="PortalNewsServiceDataControl.dataProvider"
+                  ReturnName="data.PortalNewsServiceDataControl.methodResults.ret_view_newsquerry_PortalNewsServiceDataControl_dataProvider_ret_view_newsquerry_result">
+      <NamedData NDName="rkey" NDValue="#{pageFlowScope.key}" NDType="int"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

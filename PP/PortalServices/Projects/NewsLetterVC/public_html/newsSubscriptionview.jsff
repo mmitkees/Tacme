@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <!--oracle-jdev-comment:preferred-managed-bean-name:newsSubscribeBean-->
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+    <af:panelGroupLayout id="pgl2" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="Newsletter Subscription View" id="ot1"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl3" layout="vertical"
+                         styleClass="eServicesFormData">
+      <af:panelGroupLayout id="pgl4" layout="vertical">
+        <af:panelFormLayout id="pfl4" rows="1" maxColumns="2"
+                            styleClass="service">
+          <af:panelFormLayout id="pfl1">
+            <af:panelLabelAndMessage label="Name" id="plam1">
+              <af:inputText id="it1"
+                            value="#{pageFlowScope.newsSubscribeBean.b_name}"
+                            simple="true" immediate="true"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="EMail" id="plam2">
+              <af:inputText id="em1"
+                            value="#{pageFlowScope.newsSubscribeBean.b_email}"
+                            validator="#{customValidator.emailValidator}"
+                            autoSubmit="true" immediate="true" simple="true"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.CategoriesView1.label}" id="plam3">
+              <af:selectManyListbox value="#{bindings.CategoriesView1.inputValue}"
+                                    id="sml2" simple="true">
+                <f:selectItems value="#{bindings.CategoriesView1.items}"
+                               id="si2"/>
+              </af:selectManyListbox>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl6" layout="vertical">
+        <af:panelFormLayout id="pfl2" maxColumns="2" rows="1">
+          <af:commandButton text="Subscribe" id="cb1"
+                            action="#{pageFlowScope.newsSubscribeBean.subscribe_action}"
+                            styleClass="btn-action"/>
+          <af:commandButton text="Add another record" id="cb2"
+                            action="#{pageFlowScope.newsSubscribeBean.add_action}"
+                            styleClass="btn-action"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

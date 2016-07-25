@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="servDescTFDef_servDescTFDef_setServicesPageDef"
+                Package="JSFFPageDef" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="setServices" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setServices"
+                  IsViewObjectMethod="false"
+                  DataControl="PPAppServicesDataControl"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  ReturnName="data.PPAppServicesDataControl.methodResults.setServices_PPAppServicesDataControl_dataProvider_setServices_result">
+      <NamedData NDName="lang" NDValue="#{pageFlowScope.locale}"
+                 NDType="java.util.Locale"/>
+      <NamedData NDName="sid" NDValue="#{pageFlowScope.key}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

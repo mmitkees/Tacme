@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="Pg1PageDef"
+                Package="JSFF_Pages.MistInJudgeMatV1">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqCorrMistJudgMatView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqCorrMistJudgMatView1Iterator"/>
+    <iterator Binds="ReqMistakeInJudgementView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqMistakeInJudgementView1Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="ReqCorrMistJudgMatView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="true"/>
+    <list IterBinding="ReqCorrMistJudgMatView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecName" DTSupportsMRU="true"/>
+    <list IterBinding="ReqCorrMistJudgMatView1Iterator" StaticList="false"
+          Uses="LOV_RelCase_en" id="RelCase" DTSupportsMRU="true"/>
+    <action id="Rollback" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqMistakeInJudgementView1Iterator"
+                     id="CaseNo1">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqMistakeInJudgementView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear1" DTSupportsMRU="true"/>
+    <list IterBinding="ReqMistakeInJudgementView1Iterator" StaticList="false"
+          Uses="LOV_ProsecName" id="ProsecName1" DTSupportsMRU="true"/>
+    <list IterBinding="ReqMistakeInJudgementView1Iterator" StaticList="false"
+          Uses="LOV_RelCase" id="RelCase1" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqMistakeInJudgementView1Iterator"
+                     id="CorrectedPhrase1">
+      <AttrNames>
+        <Item Value="CorrectedPhrase"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqCorrMistJudgMatView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

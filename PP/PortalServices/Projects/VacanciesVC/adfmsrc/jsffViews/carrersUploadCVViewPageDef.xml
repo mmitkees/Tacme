@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="carrersUploadCVViewPageDef"
+                Package="jsffViews">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VacanciesAdminView1" RangeSize="25"
+              DataControl="ppCarrersServiceDataControl"
+              id="VacanciesAdminView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="VacanciesAdminView1Iterator" id="VadminName">
+      <AttrNames>
+        <Item Value="VadminName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VacanciesAdminView1Iterator"
+                     id="VadminMobileNumber">
+      <AttrNames>
+        <Item Value="VadminMobileNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VacanciesAdminView1Iterator" id="VadminEmail">
+      <AttrNames>
+        <Item Value="VadminEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VacanciesAdminView1Iterator" StaticList="false"
+          Uses="LOV_VadminNationality_ar" id="VadminNationality"
+          DTSupportsMRU="false"/>
+    <action id="Commit" DataControl="ppCarrersServiceDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReqAttachmentsView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery>
+    <![CDATA[SELECT ReqAttachments.ID, 
+       ReqAttachments.DISPLAY_NAME, 
+       ReqAttachments.ATTACH_SIZE, 
+       ReqAttachments.ATTACH_DATE, 
+       ReqAttachments.ATTACH_BY_PERSON_ID, 
+       (select (FIRST_NAME||' '||LAST_NAME) "NAME" from pu_publicuser where id = ATTACH_BY_PERSON_ID) "Name",
+       ReqAttachments.CONTENT_TYPE, 
+       ReqAttachments.REQ_ID
+FROM REQ_ATTACHMENTS ReqAttachments]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="ReqAttachments"
+    Entity="com.app.model.entities.ReqAttachments"/>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="ReqAttachments"
+    AliasName="ID"/>
+  <ViewAttribute
+    Name="DisplayName"
+    PrecisionRule="true"
+    EntityAttrName="DisplayName"
+    EntityUsage="ReqAttachments"
+    AliasName="DISPLAY_NAME"/>
+  <ViewAttribute
+    Name="AttachSize"
+    PrecisionRule="true"
+    EntityAttrName="AttachSize"
+    EntityUsage="ReqAttachments"
+    AliasName="ATTACH_SIZE"/>
+  <ViewAttribute
+    Name="AttachDate"
+    PrecisionRule="true"
+    EntityAttrName="AttachDate"
+    EntityUsage="ReqAttachments"
+    AliasName="ATTACH_DATE"/>
+  <ViewAttribute
+    Name="AttachByPersonId"
+    PrecisionRule="true"
+    EntityAttrName="AttachByPersonId"
+    EntityUsage="ReqAttachments"
+    AliasName="ATTACH_BY_PERSON_ID"/>
+  <ViewAttribute
+    Name="Name"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="201"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName='"Name"'
+    Expression='"Name"'
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="201"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ContentType"
+    PrecisionRule="true"
+    EntityAttrName="ContentType"
+    EntityUsage="ReqAttachments"
+    AliasName="CONTENT_TYPE"/>
+  <ViewAttribute
+    Name="ReqId"
+    PrecisionRule="true"
+    EntityAttrName="ReqId"
+    EntityUsage="ReqAttachments"
+    AliasName="REQ_ID"/>
+  <ViewAttribute
+    Name="AttachDownloadUrl"
+    PrecisionRule="true"
+    EntityAttrName="AttachDownloadUrl"
+    EntityUsage="ReqAttachments"
+    AliasName="ATTACH_DOWNLOAD_URL"/>
+</ViewObject>

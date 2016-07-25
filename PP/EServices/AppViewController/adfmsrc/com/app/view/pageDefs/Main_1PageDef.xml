@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="Main_1PageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <taskFlow id="VisitProvDetTFDef1"
+              taskFlowId="/WEB-INF/JSFFPageDef/VisitProvDetTFDef.xml#VisitProvDetTFDef"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="key" value="5"/>
+        <parameter id="locale" value="en"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

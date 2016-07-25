@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="vacanciesvcBundle"
+         value="#{adfBundle['com.pp.carrers.VacanciesVCBundle']}"/>
+         <af:subform id="sf1">
+  <af:panelGroupLayout id="pgl2" layout="scroll">
+    <af:panelGroupLayout id="pgl8" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="#{vacanciesvcBundle.p_carrers}" id="ot7"/>
+    </af:panelGroupLayout>
+      <af:messages id="m6" globalOnly="true"/>
+    <af:panelGroupLayout id="pgl1"
+                         styleClass="service eServicesFormData  vac-upload"
+                         layout="vertical">
+                           <af:outputText value="#{vacanciesvcBundle.UPLOAD_CV_FOR_POSITION_}"
+                                          id="ot1"/>
+        <af:panelFormLayout id="pfl1">
+          <af:panelFormLayout id="pfl2">
+            <af:panelLabelAndMessage label="#{vacanciesvcBundle.p_Name}"
+                                     id="plam2">
+              <af:inputText value="#{bindings.VadminName.inputValue}"
+                            simple="true"
+                            required="#{bindings.VadminName.hints.mandatory}"
+                            columns="#{bindings.VadminName.hints.displayWidth}"
+                            maximumLength="#{bindings.VadminName.hints.precision}"
+                            shortDesc="#{bindings.VadminName.hints.tooltip}"
+                            id="it2" showRequired="true">
+                <f:validator binding="#{bindings.VadminName.validator}"/>
+              </af:inputText>
+              <af:message id="m1" for="it2" styleClass="af_message_error"/>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl4">
+            <f:facet name="footer"/>
+            <af:panelFormLayout id="pfl7">
+              <f:facet name="footer"/>
+              <af:panelLabelAndMessage label="#{vacanciesvcBundle.p_Mobile}"
+                                       id="plam5">
+                <af:inputText value="#{bindings.VadminMobileNumber.inputValue}"
+                              simple="true"
+                              required="#{bindings.VadminMobileNumber.hints.mandatory}"
+                              columns="#{bindings.VadminMobileNumber.hints.displayWidth}"
+                              maximumLength="#{bindings.VadminMobileNumber.hints.precision}"
+                              shortDesc="#{bindings.VadminMobileNumber.hints.tooltip}"
+                              id="phn1" showRequired="true"
+                              validator="#{pageFlowScope.carrersPortalBean.phonenoValidator}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.VadminMobileNumber.validator}"/>
+                </af:inputText>
+                <af:message id="m2" for="phn1" styleClass="af_message_error"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl5">
+            <f:facet name="footer"/>
+            <af:panelFormLayout id="pfl8">
+              <f:facet name="footer"/>
+              <af:panelLabelAndMessage label="#{vacanciesvcBundle.p_email}"
+                                       id="plam3">
+                <af:inputText value="#{bindings.VadminEmail.inputValue}"
+                              simple="true"
+                              required="#{bindings.VadminEmail.hints.mandatory}"
+                              columns="#{bindings.VadminEmail.hints.displayWidth}"
+                              maximumLength="#{bindings.VadminEmail.hints.precision}"
+                              shortDesc="#{bindings.VadminEmail.hints.tooltip}"
+                              id="em1" showRequired="true"
+                              validator="#{pageFlowScope.carrersPortalBean.eMailValidator}"
+                              autoSubmit="true">
+                  <f:validator binding="#{bindings.VadminEmail.validator}"/>
+                </af:inputText>
+                <af:message id="m3" for="em1" styleClass="af_message_error"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl6">
+            <f:facet name="footer"/>
+            <af:panelFormLayout id="pfl9">
+              <f:facet name="footer"/>
+              <af:panelLabelAndMessage label="#{vacanciesvcBundle.p_Nationality }"
+                                       id="plam4">
+                <af:selectOneChoice value="#{bindings.VadminNationality.inputValue}"
+                                    simple="true"
+                                    required="#{bindings.VadminNationality.hints.mandatory}"
+                                    shortDesc="#{bindings.VadminNationality.hints.tooltip}"
+                                    id="soc1" showRequired="true">
+                  <f:selectItems value="#{bindings.VadminNationality.items}"
+                                 id="si1"/>
+                </af:selectOneChoice>
+                <af:message id="m4" for="soc1" styleClass="af_message_error"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl3">
+            <af:panelLabelAndMessage label="#{vacanciesvcBundle.p_uploadfile}"
+                                     id="plam1" styleClass="careerPage">
+              <af:inputFile id="if1" required="true"
+                            value="#{pageFlowScope.carrersPortalBean.upFilePopup}"
+                           />
+                            <af:message id="m5" for="if1" styleClass="af_message_error"/>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelFormLayout>
+      <af:commandButton text="#{vacanciesvcBundle.p_caapnow}" id="cb2"
+                        action="#{pageFlowScope.carrersPortalBean.vacanciesApplyAction}"
+                        styleClass="btn-action"/>
+      </af:panelGroupLayout>
+  </af:panelGroupLayout></af:subform>
+</jsp:root>

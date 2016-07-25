@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="SearchLawViewPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SrchLawROVO1" RangeSize="25"
+              DataControl="PPAppServicesDataControl" id="SrchLawROVO1Iterator"/>
+    <iterator Binds="NewSearchLawROVO1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="NewSearchLawROVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SrchLawROVO1Iterator" id="SrchLawROVO1">
+      <nodeDefinition DefName="com.app.model.views.SrchLawROVO"
+                      Name="SrchLawROVO10">
+        <AttrNames>
+          <Item Value="ArticleNameEn"/>
+          <Item Value="CategoryNameEn"/>
+          <Item Value="EmiratesNameEn"/>
+          <Item Value="SerWithinNameEn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="NewSearchLawROVO1Iterator" StaticList="false"
+          Uses="LOV_Languagecategory" id="Languagecategory"
+          DTSupportsMRU="false"/>
+    <list IterBinding="NewSearchLawROVO1Iterator" StaticList="false"
+          Uses="LOV_Searchwithin" id="Searchwithin" DTSupportsMRU="false"/>
+    <list IterBinding="NewSearchLawROVO1Iterator" StaticList="false"
+          Uses="LOV_Emirates" id="Emirates" DTSupportsMRU="false"/>
+    <list IterBinding="NewSearchLawROVO1Iterator" StaticList="false"
+          Uses="LOV_Article" id="Article" DTSupportsMRU="false"/>
+    <methodAction id="srchLaw" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="srchLaw" IsViewObjectMethod="false"
+                  DataControl="PPAppServicesDataControl"
+                  InstanceName="PPAppServicesDataControl.dataProvider">
+      <NamedData NDName="langcat"
+                 NDValue="#{bindings.Languagecategory.inputValue}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="srchwithin"
+                 NDValue="#{bindings.Searchwithin.inputValue}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="article" NDValue="#{bindings.Article.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

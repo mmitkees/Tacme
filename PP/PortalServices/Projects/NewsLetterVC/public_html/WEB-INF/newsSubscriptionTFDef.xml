@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2"
+             id="__12">
+  <task-flow-definition id="newsSubscriptionTFDef">
+    <default-activity id="__1">newsSubscView</default-activity>
+    <data-control-scope id="__10">
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__23">
+      <name id="__22">locale</name>
+      <value>#{pageFlowScope.locale}</value>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__2">
+      <managed-bean-name id="__3">newsSubscribeBean</managed-bean-name>
+      <managed-bean-class id="__5">newsSubscribeBean</managed-bean-class>
+      <managed-bean-scope id="__4">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__9">
+      <managed-bean-name id="__8">customValidator</managed-bean-name>
+      <managed-bean-class id="__7">customValidator</managed-bean-class>
+      <managed-bean-scope id="__6">request</managed-bean-scope>
+    </managed-bean>
+    <view id="newsSubscriptionview">
+      <page id="__11">/newsSubscriptionview.jsff</page>
+    </view>
+    <view id="newsSubscView">
+      <page id="__13">/newsSubscView.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method id="__15">#{bindings.CreateInsert.execute}</method>
+      <outcome id="__14">
+        <fixed-outcome id="__16">CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="subscSuccess">
+      <page id="__24">/subscSuccess.jsff</page>
+    </view>
+    <control-flow-rule id="__17">
+      <from-activity-id id="__18">CreateInsert</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome id="__20">CreateInsert</from-outcome>
+        <to-activity-id id="__19">newsSubscView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id id="__26">newsSubscView</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome id="__29">Y</from-outcome>
+        <to-activity-id id="__27">subscSuccess</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

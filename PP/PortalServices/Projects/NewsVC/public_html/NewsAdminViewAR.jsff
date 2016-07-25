@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl9" layout="scroll">
+    <af:panelGroupLayout id="pgl10" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="News Administration Page - AR" id="ot7"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl8" layout="vertical">
+      <af:panelGroupLayout id="pgl11" layout="vertical">
+        <af:panelFormLayout id="pfl2" styleClass="service">
+          <af:panelFormLayout id="pfl1">
+            <af:panelLabelAndMessage label="News ID" id="plam1">
+              <af:inputText value="#{bindings.NewsId.inputValue}"
+                            required="#{bindings.NewsId.hints.mandatory}"
+                            maximumLength="#{bindings.NewsId.hints.precision}"
+                            shortDesc="#{bindings.NewsId.hints.tooltip}"
+                            id="it1" autoSubmit="true"
+                            binding="#{NewsAdminBean.b_nid}" simple="true"
+                            immediate="true">
+                <f:validator binding="#{bindings.NewsId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.NewsId.format}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl2" partialTriggers="plam1 it1"
+                                   layout="vertical">
+                <af:outputText value="Please enter valid news id" id="ot1"
+                               rendered="#{NewsAdminBean.vid eq 'Y'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Date" id="plam2">
+              <af:inputDate value="#{bindings.NewsDate.inputValue}"
+                            required="#{bindings.NewsDate.hints.mandatory}"
+                            shortDesc="#{bindings.NewsDate.hints.tooltip}"
+                            id="id1" binding="#{NewsAdminBean.b_ndate}"
+                            simple="true" immediate="true">
+                <f:validator binding="#{bindings.NewsDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.NewsDate.format}"/>
+              </af:inputDate>
+              <af:panelGroupLayout id="pgl3" layout="vertical">
+                <af:outputText value="Please enter valid date" id="ot2"
+                               rendered="#{NewsAdminBean.vdate eq 'Y'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Subject" id="plam3">
+              <af:inputText value="#{bindings.NewsSubj.inputValue}"
+                            required="#{bindings.NewsSubj.hints.mandatory}"
+                            maximumLength="#{bindings.NewsSubj.hints.precision}"
+                            shortDesc="#{bindings.NewsSubj.hints.tooltip}"
+                            id="it2" autoSubmit="true"
+                            binding="#{NewsAdminBean.b_nsubj}" simple="true"
+                            immediate="true">
+                <f:validator binding="#{bindings.NewsSubj.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl4" partialTriggers="it2 plam3"
+                                   layout="vertical">
+                <af:outputText value="Please enter valid subject" id="ot3"
+                               rendered="#{NewsAdminBean.vsubj eq 'Y'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Descriptions" id="plam4">
+              <af:inputText value="#{bindings.NewsDesc.inputValue}"
+                            required="#{bindings.NewsDesc.hints.mandatory}"
+                            maximumLength="#{bindings.NewsDesc.hints.precision}"
+                            shortDesc="#{bindings.NewsDesc.hints.tooltip}"
+                            id="it4" autoSubmit="true"
+                            binding="#{NewsAdminBean.b_ndesc}" simple="true"
+                            immediate="true">
+                <f:validator binding="#{bindings.NewsDesc.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl5" partialTriggers="plam4 it4"
+                                   layout="vertical">
+                <af:outputText value="Please enter valid descriptions" id="ot4"
+                               rendered="#{NewsAdminBean.vdesc eq 'Y'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Details" id="plam5">
+              <af:inputText value="#{bindings.NewsDetails.inputValue}"
+                            required="#{bindings.NewsDetails.hints.mandatory}"
+                            maximumLength="#{bindings.NewsDetails.hints.precision}"
+                            shortDesc="#{bindings.NewsDetails.hints.tooltip}"
+                            id="it3" autoSubmit="true"
+                            binding="#{NewsAdminBean.b_ndet}" simple="true"
+                            immediate="true">
+                <f:validator binding="#{bindings.NewsDetails.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl6" partialTriggers="plam5 it3"
+                                   layout="vertical">
+                <af:outputText value="Please enter valid details" id="ot5"
+                               rendered="#{NewsAdminBean.vdesc eq 'Y'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="UploadFile" id="plam6">
+              <af:inputFile id="if1" value="#{NewsAdminBean.uploadFile}"
+                            simple="true" immediate="true"/>
+              <af:panelGroupLayout id="pgl7" layout="vertical">
+                <af:outputText value="Please select valid file format" id="ot6"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:selectBooleanCheckbox
+                                      label="Featured News" id="sbc1"
+                                      value="#{NewsAdminBean.feature_flag}"
+                                      disabled="#{NewsAdminBean.b_dis eq 'Y'}"/>
+          </af:panelFormLayout>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl12" layout="vertical">
+        <af:panelFormLayout id="pfl3" rows="1" maxColumns="3">
+          <af:commandButton text="Publish" id="cb1"
+                            action="#{NewsAdminBean.publish_action_ar}"
+                            styleClass="btn-action"/>
+          <af:commandButton text="Clear" id="cb2"
+                            action="#{NewsAdminBean.clear_ar_action}"
+                            styleClass="btn-secondary"/>
+          <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                            text="Add Another record"
+                            disabled="#{!bindings.CreateInsert.enabled}"
+                            id="cb3" styleClass="btn-action"/>
+        </af:panelFormLayout>
+        <af:commandButton text="Back" id="cb4" action="backar"/>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

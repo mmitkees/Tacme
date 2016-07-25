@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" id="__99" version="1.2">
+  <task-flow-definition id="CarrersTFDef">
+    <default-activity id="__38">executePPCarrersview</default-activity>
+    <data-control-scope id="__11">
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__32">
+      <name id="__31">locale</name>
+      <value id="__95">#{pageFlowScope.locale}</value>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__4">
+      <managed-bean-name id="__3">carrersBean</managed-bean-name>
+      <managed-bean-class id="__2">carrers_bean</managed-bean-class>
+      <managed-bean-scope id="__5">request</managed-bean-scope>
+    </managed-bean>
+    <view id="AddCarrers">
+      <page id="__96">/AddCarrers.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method id="__92">#{bindings.CreateInsert.execute}</method>
+      <outcome id="__6">
+        <fixed-outcome id="__97">CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="CarrersAdminView">
+      <page id="__98">/CarrersAdminView.jsff</page>
+    </view>
+    <method-call id="Rollback">
+      <method id="__93">#{bindings.Rollback.execute}</method>
+      <outcome id="__22">
+        <fixed-outcome id="__90">Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="executePPCarrersview">
+      <method id="__77">#{bindings.executePPCarrersview.execute}</method>
+      <outcome id="__1">
+        <fixed-outcome id="__75">executePPCarrersview</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">CreateInsert</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__9">CreateInsert</from-outcome>
+        <to-activity-id id="__91">AddCarrers</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">CarrersAdminView</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome id="__16">add</from-outcome>
+        <to-activity-id id="__15">CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id id="__18">AddCarrers</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome id="__21">backen</from-outcome>
+        <to-activity-id id="__19">Rollback</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__28">
+        <from-outcome id="__30">success</from-outcome>
+        <to-activity-id id="__29">CarrersAdminView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__23">
+      <from-activity-id id="__24">Rollback</from-activity-id>
+      <control-flow-case id="__25">
+        <from-outcome id="__27">Rollback</from-outcome>
+        <to-activity-id id="__26">CarrersAdminView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__33">
+      <from-activity-id id="__34">executePPCarrersview</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome id="__37">executePPCarrersview</from-outcome>
+        <to-activity-id id="__36">CarrersAdminView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

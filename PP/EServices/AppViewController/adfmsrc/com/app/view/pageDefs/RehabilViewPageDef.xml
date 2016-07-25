@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="RehabilViewPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqRehabilView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqRehabilView1Iterator"/>
+    <iterator Binds="ReqAttachmentsViewR" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsViewRIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqRehabilView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqRehabilView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <tree IterBinding="ReqAttachmentsViewRIterator" id="ReqAttachmentsViewR">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsViewR0">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsViewRIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="ReqRehabilView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName1" DTSupportsMRU="true"/>
+    <list IterBinding="ReqRehabilView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_ar" id="RelationCase1" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqRehabilView1Iterator" id="JudgmentDate">
+      <AttrNames>
+        <Item Value="JudgmentDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

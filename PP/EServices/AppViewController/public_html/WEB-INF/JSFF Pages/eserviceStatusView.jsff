@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:panelGroupLayout id="pgl3">
+      <af:query id="qryId1"
+               
+                disclosed="true" modeChangeVisible="false"
+                saveQueryMode="hidden"
+                value="#{bindings.ReqRequestsStatusViewCriteriaQuery.queryDescriptor}"
+                model="#{bindings.ReqRequestsStatusViewCriteriaQuery.queryModel}"
+                styleClass="eservice-search service AFQueryHideAddFields eservices-status-search"
+                queryListener="#{bindings.ReqRequestsStatusViewCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.ReqRequestsStatusViewCriteriaQuery.processQueryOperation}"
+                resultComponentId="::pc2:resId1" headerText=""
+               />
+    </af:panelGroupLayout>
+      <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.ReqRequestsStatusView1.collectionModel}"
+                  var="row" rows="#{bindings.ReqRequestsStatusView11.rangeSize}"
+                  emptyText="#{bindings.ReqRequestsStatusView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.ReqRequestsStatusView11.rangeSize}"
+                  rowBandingInterval="0"
+                  filterModel="#{bindings.ReqRequestsStatusViewCriteriaQuery.queryDescriptor}"
+                  queryListener="#{bindings.ReqRequestsStatusViewCriteriaQuery.processQuery}"
+                  filterVisible="true" varStatus="vs"
+                  selectedRowKeys="#{bindings.ReqRequestsStatusView11.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.ReqRequestsStatusView11.collectionModel.makeCurrent}"
+                  rowSelection="single" id="resId1"
+                  styleClass="AFStretchWidth taBhaed service-status-tble">
+          <af:column sortProperty="#{bindings.ReqRequestsStatusView11.hints.ReqId.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ReqRequestsStatusView11.hints.ReqId.label}"
+                     id="resId1c1" width="120">
+            <af:outputText value="#{row.ReqId}" id="ot21">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.ReqRequestsStatusView11.hints.ReqId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.ReqRequestsStatusView11.hints.Engname.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ReqRequestsStatusView11.hints.Engname.label}"
+                     id="resId1c3" rendered="#{pageFlowScope.locale eq 'en'}"
+                     width="200">
+            <af:outputText value="#{row.Engname}" id="ot26"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ReqRequestsStatusView11.hints.Arabicname.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ReqRequestsStatusView11.hints.Arabicname.label}"
+                     id="resId1c4" rendered="#{pageFlowScope.locale eq 'ar'}"
+                     width="200">
+            <af:outputText value="#{row.Arabicname}" id="ot25"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ReqRequestsStatusView11.hints.Status.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ReqRequestsStatusView11.hints.Status.label}"
+                     id="resId1c6" width="150">
+            <af:outputText value="#{row.Status}" id="ot19"
+                           rendered="#{row.Status != 'Pending Payment'}"/>
+            <af:commandLink text="#{pageFlowScope.locale eq 'en'?'PAY NOW':'ادفع الان'}"
+                            id="cl1"
+                            rendered="#{row.Status eq 'Pending Payment'}"
+                            action="#{backingBeanScope.epayment.paymentURL}">
+              <af:setPropertyListener from="#{row.ServiceId}"
+                                      to="#{pageFlowScope.key}" type="action"/>
+            </af:commandLink>
+          </af:column>
+          <af:column sortProperty="#{bindings.ReqRequestsStatusView11.hints.CreatedDate.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ReqRequestsStatusView11.hints.CreatedDate.label}"
+                     id="resId1c7" width="120">
+            <f:facet name="filter">
+              <af:inputDate value="#{vs.filterCriteria.CreatedDate}" id="id1"/>
+            </f:facet>
+            <af:outputText value="#{row.CreatedDate}" id="ot23">
+              <af:convertDateTime pattern="#{bindings.ReqRequestsStatusView11.hints.CreatedDate.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.ReqRequestsStatusView11.hints.StatusDetails.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ReqRequestsStatusView11.hints.StatusDetails.label}"
+                     id="resId1c8" width="150">
+            <af:outputText value="#{row.StatusDetails}" id="ot14"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ReqRequestsStatusView11.hints.ProsEnName.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ReqRequestsStatusView11.hints.ProsEnName.label}"
+                     id="resId1c9" rendered="#{pageFlowScope.locale eq 'en'}"
+                     width="200">
+            <af:outputText value="#{row.ProsEnName}" id="ot18"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ReqRequestsStatusView11.hints.ProsArName.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ReqRequestsStatusView11.hints.ProsArName.label}"
+                     id="resId1c10" rendered="#{pageFlowScope.locale eq 'ar'}"
+                     width="200">
+            <af:outputText value="#{row.ProsArName}" id="ot20"/>
+          </af:column>
+          <af:column id="c17"
+                     headerText="#{pageFlowScope.locale eq 'en'?'Attachments':'المرفقات'}"
+                     width="150">
+            <af:commandLink id="cl2"
+                            text="#{pageFlowScope.locale eq 'en'?'Download':'تحميل'} "
+                            actionListener="#{eserviceStatus.downloadAttachment}">
+              <!--<af:showPopupBehavior popupId=":::p1" triggerType="action"/>-->
+            </af:commandLink>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+   
+  </af:panelGroupLayout>
+  <af:panelCollection id="pc1" styleClass="AFStretchWidth" rendered="false">
+    <f:facet name="menus"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t2">
+        <af:commandButton text="#{appviewcontrollerbundle.p_clrfilter}" id="cb1"
+                          action="#{eserviceStatus.filter_action}"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="statusbar"/>
+    <af:table value="#{bindings.ReqRequestsStatusView1.collectionModel}"
+              var="row" rows="#{bindings.ReqRequestsStatusView1.rangeSize}"
+              emptyText="#{bindings.ReqRequestsStatusView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.ReqRequestsStatusView1.rangeSize}"
+              rowBandingInterval="0"
+              filterModel="#{bindings.ReqRequestsStatusView1Query.queryDescriptor}"
+              queryListener="#{bindings.ReqRequestsStatusView1Query.processQuery}"
+              filterVisible="true" varStatus="vs"
+              selectedRowKeys="#{bindings.ReqRequestsStatusView1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.ReqRequestsStatusView1.collectionModel.makeCurrent}"
+              rowSelection="single" id="t1"
+              styleClass="taBhaed service-status-tble"
+              binding="#{eserviceStatus.empTable}">
+      <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.ReqId.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{appviewcontrollerbundle.p_estusrid}"
+                 id="c8">
+        <af:outputText value="#{row.ReqId}" id="ot10">
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.ReqRequestsStatusView1.hints.ReqId.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.CaseInfoId.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{appviewcontrollerbundle.p_caseid}"
+                 id="c12">
+        <af:outputText value="#{row.CaseInfoId}" id="ot2">
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.ReqRequestsStatusView1.hints.CaseInfoId.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.ReqName.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{appviewcontrollerbundle.p_estreqnme}"
+                 id="c4" rendered="#{pageFlowScope.locale eq 'en'}">
+        <af:outputText value="#{row.Engname}" id="ot6"/>
+      </af:column>
+      <af:column id="c16"
+                 headerText="#{appviewcontrollerbundle.p_estreqnme}"
+                 rendered="#{pageFlowScope.locale eq 'ar'}">
+        <af:outputText value="#{row.bindings.Arabicname.inputValue}" id="ot13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.Status.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{appviewcontrollerbundle.p_estatus}"
+                 id="c3">
+        <af:outputText value="#{row.Status}" rendered="#{row.Status != 'Pending Payment'}" id="ot9"/>
+        <af:commandLink text="#{row.Status}" id="cl4"
+                        rendered="#{row.Status eq 'Pending Payment'}"
+                        action="#{backingBeanScope.epayment.paymentURL}">
+          <af:setPropertyListener from="#{row.ServiceId}"
+                                  to="#{pageFlowScope.key}" type="action"/>
+        </af:commandLink>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.PublicUserId.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{bindings.ReqRequestsStatusView1.hints.PublicUserId.label}"
+                 id="c9" rendered="false">
+        <af:outputText value="#{row.PublicUserId}" id="ot11">
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.ReqRequestsStatusView1.hints.PublicUserId.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.StatusDetails.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{appviewcontrollerbundle.p_estdet}"
+                 id="c6">
+        <af:outputText value="#{row.StatusDetails}" id="ot1"/>
+      </af:column>
+      <af:column headerText="#{appviewcontrollerbundle.p_prosection_name}"
+                 id="c13" filterable="true" sortable="true"
+                 rendered="#{pageFlowScope.locale eq 'en'}">
+        <af:inputText value="#{row.bindings.ProsEnName.inputValue}"
+                      label="#{bindings.ReqRequestsStatusView1.hints.ProsEnName.label}"
+                      required="#{bindings.ReqRequestsStatusView1.hints.ProsEnName.mandatory}"
+                      columns="#{bindings.ReqRequestsStatusView1.hints.ProsEnName.displayWidth}"
+                      maximumLength="#{bindings.ReqRequestsStatusView1.hints.ProsEnName.precision}"
+                      shortDesc="#{bindings.ReqRequestsStatusView1.hints.ProsEnName.tooltip}"
+                      id="it1" readOnly="true">
+          <f:validator binding="#{row.bindings.ProsEnName.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column headerText="#{appviewcontrollerbundle.p_prosection_name}"
+                 id="c14" filterable="true" sortable="true"
+                 rendered="#{pageFlowScope.locale eq 'ar'}">
+        <af:inputText value="#{row.bindings.ProsArName.inputValue}"
+                      label="#{bindings.ReqRequestsStatusView1.hints.ProsArName.label}"
+                      required="#{bindings.ReqRequestsStatusView1.hints.ProsArName.mandatory}"
+                      columns="#{bindings.ReqRequestsStatusView1.hints.ProsArName.displayWidth}"
+                      maximumLength="#{bindings.ReqRequestsStatusView1.hints.ProsArName.precision}"
+                      shortDesc="#{bindings.ReqRequestsStatusView1.hints.ProsArName.tooltip}"
+                      id="it2" readOnly="true">
+          <f:validator binding="#{row.bindings.ProsArName.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column id="c21"
+                 headerText="#{appviewcontrollerbundle.p_attchmntdwnld}">
+        <af:commandLink id="cl3" text="Download Attachments"
+                        actionListener="#{eserviceStatus.downloadAttachment}">
+          <!--<af:showPopupBehavior popupId=":::p1" triggerType="action"/>-->
+        </af:commandLink>
+      </af:column>
+      <af:column id="c15" headerText="Hidden Column" rendered="false">
+        <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.ReqClass.name}"
+                   filterable="true" sortable="true"
+                   headerText="#{bindings.ReqRequestsStatusView1.hints.ReqClass.label}"
+                   id="c7">
+          <af:outputText value="#{row.ReqClass}" id="ot4"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.CreatedDate.name}"
+                   filterable="true" sortable="true"
+                   headerText="#{bindings.ReqRequestsStatusView1.hints.CreatedDate.label}"
+                   id="c2">
+          <f:facet name="filter">
+            <!--<af:inputDate value="#{vs.filterCriteria.CreatedDate}" id="id1"/>-->
+          </f:facet>
+          <af:outputText value="#{row.CreatedDate}" id="ot3">
+            <af:convertDateTime pattern="#{bindings.ReqRequestsStatusView1.hints.CreatedDate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.ModifiedDate.name}"
+                   filterable="true" sortable="true"
+                   headerText="#{bindings.ReqRequestsStatusView1.hints.ModifiedDate.label}"
+                   id="c10">
+          <f:facet name="filter">
+            <!--<af:inputDate value="#{vs.filterCriteria.ModifiedDate}" id="id2"/>-->
+          </f:facet>
+          <af:outputText value="#{row.ModifiedDate}" id="ot7">
+            <af:convertDateTime pattern="#{bindings.ReqRequestsStatusView1.hints.ModifiedDate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.PublicUserId.name}"
+                   filterable="true" sortable="true"
+                   headerText="#{bindings.ReqRequestsStatusView1.hints.PublicUserId.label}"
+                   id="column1" rendered="false">
+          <af:outputText value="#{row.PublicUserId}" id="outputText1">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.ReqRequestsStatusView1.hints.PublicUserId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.ServiceId.name}"
+                   filterable="true" sortable="true"
+                   headerText="#{bindings.ReqRequestsStatusView1.hints.ServiceId.label}"
+                   id="column2">
+          <af:outputText value="#{row.ServiceId}" id="outputText2">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.ReqRequestsStatusView1.hints.ServiceId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.ProsecId.name}"
+                   filterable="true" sortable="true"
+                   headerText="#{bindings.ReqRequestsStatusView1.hints.ProsecId.label}"
+                   id="column3">
+          <af:outputText value="#{row.ProsecId}" id="outputText3">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.ReqRequestsStatusView1.hints.ProsecId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.RefNo.name}"
+                   filterable="true" sortable="true"
+                   headerText="#{bindings.ReqRequestsStatusView1.hints.RefNo.label}"
+                   id="column4">
+          <af:outputText value="#{row.RefNo}" id="outputText4"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.StatusDetails.name}"
+                   filterable="true" sortable="true"
+                   headerText="#{bindings.ReqRequestsStatusView1.hints.StatusDetails.label}"
+                   id="column5">
+          <af:outputText value="#{row.StatusDetails}" id="outputText5"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.ServiceId.name}"
+                   filterable="true" sortable="true"
+                   headerText="#{bindings.ReqRequestsStatusView1.hints.ServiceId.label}"
+                   id="c5">
+          <af:outputText value="#{row.ServiceId}" id="ot8">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.ReqRequestsStatusView1.hints.ServiceId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.ProsecId.name}"
+                   filterable="true" sortable="true"
+                   headerText="#{bindings.ReqRequestsStatusView1.hints.ProsecId.label}"
+                   id="c11">
+          <af:outputText value="#{row.ProsecId}" id="ot12">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.ReqRequestsStatusView1.hints.ProsecId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ReqRequestsStatusView1.hints.RefNo.name}"
+                   filterable="true" sortable="true"
+                   headerText="#{bindings.ReqRequestsStatusView1.hints.RefNo.label}"
+                   id="c1">
+          <af:outputText value="#{row.RefNo}" id="ot5"/>
+        </af:column>
+      </af:column>
+    </af:table>
+  </af:panelCollection>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:eserviceStatus-->
+  <af:popup id="p1" binding="#{eserviceStatus.downloadUrlPopup}">
+    <af:dialog id="d1">
+      <af:table value="#{bindings.downloadUrl1.collectionModel}" var="row"
+                rows="#{bindings.downloadUrl1.rangeSize}"
+                emptyText="#{bindings.downloadUrl1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                fetchSize="#{bindings.downloadUrl1.rangeSize}"
+                rowBandingInterval="0" id="t3">
+        <af:column sortProperty="#{bindings.downloadUrl1.hints.DisplayName.name}"
+                   sortable="false" headerText="#{pageFlowScope.locale eq 'en'?'Attachments':'المرفقات'}" id="c19">
+          <af:outputText value="#{row.DisplayName}" id="ot16"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.downloadUrl1.hints.AttachDate.name}"
+                   sortable="false" headerText="#{pageFlowScope.locale eq 'en'?'Attachments Date':'تاريخ المرفقات'}" id="c18">
+          <af:outputText value="#{row.AttachDate}" id="ot15">
+            <af:convertDateTime pattern="#{bindings.downloadUrl1.hints.AttachDate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.downloadUrl1.hints.AttachDownloadUrl.name}" headerText="#{pageFlowScope.locale eq 'en'?'Download':'تحميل'}"
+                   sortable="false"  id="c20">
+          <af:goLink id="ot17"   
+          text="#{pageFlowScope.locale eq 'en'?'Download':'تحميل'}"
+                     destination="#{row.AttachDownloadUrl}"/>
+        </af:column>
+      </af:table>
+    </af:dialog>
+  </af:popup>
+</jsp:root>

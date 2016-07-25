@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="faqPagePageDef"
+                Package="com.pp.component.vc.faq.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="faqWithLocale1" RangeSize="25"
+              DataControl="faqAppModuleDataControl"
+              id="faqWithLocale1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="faqWithLocale1Iterator" id="faqWithLocale1">
+      <nodeDefinition DefName="com.pp.component.model.faq.views.faqWithLocale"
+                      Name="faqWithLocale10">
+        <AttrNames>
+          <Item Value="Question"/>
+          <Item Value="Answer"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

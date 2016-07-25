@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="SrchCnclWrntViewPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqSrchCnclAwrntView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqSrchCnclAwrntView1Iterator"/>
+    <iterator Binds="ReqAttachmentsViewSCA" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsViewSCAIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqSrchCnclAwrntView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqSrchCnclAwrntView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <tree IterBinding="ReqAttachmentsViewSCAIterator"
+          id="ReqAttachmentsViewSCA">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsViewSCA0">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsViewSCAIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="ReqSrchCnclAwrntView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="true"/>
+    <list IterBinding="ReqSrchCnclAwrntView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelationCase" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

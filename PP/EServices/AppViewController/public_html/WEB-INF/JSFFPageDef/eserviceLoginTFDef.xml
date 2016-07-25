@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="eserviceLoginTFDef">
+    <default-activity id="__1">Login</default-activity>
+    <input-parameter-definition id="__49">
+      <name id="__48">locale</name>
+      <value>#{pageFlowScope.locale}</value>
+    </input-parameter-definition>
+    <managed-bean id="__7">
+      <managed-bean-name id="__8">AppServiceBean</managed-bean-name>
+      <managed-bean-class id="__10">com.app.view.beans.AppService</managed-bean-class>
+      <managed-bean-scope id="__9">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__18">
+      <managed-bean-name id="__15">NewUser</managed-bean-name>
+      <managed-bean-class id="__17">com.app.view.beans.NewUser</managed-bean-class>
+      <managed-bean-scope id="__16">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__34">
+      <managed-bean-name id="__33">customValidator</managed-bean-name>
+      <managed-bean-class id="__36">com.app.view.beans.CustomValidators</managed-bean-class>
+      <managed-bean-scope id="__35">request</managed-bean-scope>
+    </managed-bean>
+    <view id="Login">
+      <page>/WEB-INF/JSFF Pages/Login.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome id="__2">
+        <name>mainpage</name>
+      </outcome>
+    </task-flow-return>
+    <view id="ForgetPassword">
+      <page>/WEB-INF/JSFF Pages/ForegetPassword.jsff</page>
+    </view>
+    <view id="NewUser">
+      <page>/WEB-INF/JSFF Pages/NewUser.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__19">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="regSuccess">
+      <page>/WEB-INF/JSFF Pages/regSuccess.jsff</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">Login</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__11">mainpage</from-outcome>
+        <to-activity-id id="__5">taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome id="__14">newuser</from-outcome>
+        <to-activity-id id="__12">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__25">
+        <from-outcome id="__27">forgetPassword</from-outcome>
+        <to-activity-id id="__26">ForgetPassword</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id id="__21">CreateInsert</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome id="__22">CreateInsert</from-outcome>
+        <to-activity-id id="__24">NewUser</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id id="__29">NewUser</from-activity-id>
+      <control-flow-case id="__37">
+        <from-outcome id="__39">reset</from-outcome>
+        <to-activity-id id="__38">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__42">
+        <from-outcome id="__44">reg</from-outcome>
+        <to-activity-id id="__43">regSuccess</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__45">
+        <from-outcome id="__47">userlogin</from-outcome>
+        <to-activity-id id="__46">Login</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id id="__31">regSuccess</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome id="__40">login</from-outcome>
+        <to-activity-id id="__41">Login</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

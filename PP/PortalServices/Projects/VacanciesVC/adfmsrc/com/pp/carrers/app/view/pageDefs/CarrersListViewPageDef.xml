@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="CarrersListViewPageDef"
+                Package="com.pp.carrers.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PpCarrersView1" RangeSize="25"
+              DataControl="ppCarrersServiceDataControl"
+              id="PpCarrersView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="PpCarrersView1Iterator" id="PpCarrersView1">
+      <nodeDefinition DefName="com.pp.carrers.app.model.views.PpCarrersView"
+                      Name="PpCarrersView10">
+        <AttrNames>
+          <Item Value="PositionId"/>
+          <Item Value="Status"/>
+          <Item Value="CreateDate"/>
+          <Item Value="CloseDate"/>
+          <Item Value="JobTitle"/>
+          <Item Value="JobResp"/>
+          <Item Value="JobReq"/>
+          <Item Value="CarrersUcmId"/>
+          <Item Value="Statusdecl"/>
+          <Item Value="CloseCB"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="carrersCriteria"
+                  InstanceName="ppCarrersServiceDataControl.dataProvider"
+                  DataControl="ppCarrersServiceDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="carrersCriteria" IsViewObjectMethod="false"
+                  ReturnName="data.ppCarrersServiceDataControl.methodResults.carrersCriteria_ppCarrersServiceDataControl_dataProvider_carrersCriteria_result">
+      <NamedData NDName="cc_pid" NDValue="#{carrersListBean.clb_posid}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="cc_pjobtitle" NDValue="#{carrersListBean.clb_jobtitle}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="cc_pjobreq" NDValue="#{carrersListBean.clb_jobreq}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="carrersSearch"
+                  InstanceName="ppCarrersServiceDataControl.dataProvider"
+                  DataControl="ppCarrersServiceDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="carrersSearch" IsViewObjectMethod="false"
+                  ReturnName="data.ppCarrersServiceDataControl.methodResults.carrersSearch_ppCarrersServiceDataControl_dataProvider_carrersSearch_result">
+      <NamedData NDName="am_search" NDValue="#{carrersListBean.b_search}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

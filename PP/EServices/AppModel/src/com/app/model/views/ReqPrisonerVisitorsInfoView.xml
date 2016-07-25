@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReqPrisonerVisitorsInfoView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="ReqPrisonerVisitorsInfo.VR_ID, 
+       ReqPrisonerVisitorsInfo.VR_NAME, 
+       ReqPrisonerVisitorsInfo.VR_EMAIL, 
+       ReqPrisonerVisitorsInfo.VR_PHONE, 
+       ReqPrisonerVisitorsInfo.VR_RELATION, 
+       ReqPrisonerVisitorsInfo.VR_STATUS, 
+       ReqPrisonerVisitorsInfo.PV_REQ_ID"
+  FromList="REQ_PRISONER_VISITORS_INFO ReqPrisonerVisitorsInfo"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="RelationCaseStatic1"
+    ViewObjectName="com.app.model.views.RelationCaseStatic"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RelationCaseARStatic1"
+    ViewObjectName="com.app.model.views.RelationCaseARStatic"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_RelationCase_en"
+    ListVOName="RelationCaseStatic1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_RelationCase_en_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="VrRelation"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RelationCase_ar"
+    ListVOName="RelationCaseARStatic1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_RelationCase_ar_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="VrRelation"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ReqPrisonerVisitorsInfo"
+    Entity="com.app.model.PPEntities.ReqPrisonerVisitorsInfo"/>
+  <ViewAttribute
+    Name="VrId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VrId"
+    EntityUsage="ReqPrisonerVisitorsInfo"
+    AliasName="VR_ID"/>
+  <ViewAttribute
+    Name="VrName"
+    PrecisionRule="true"
+    EntityAttrName="VrName"
+    EntityUsage="ReqPrisonerVisitorsInfo"
+    AliasName="VR_NAME"/>
+  <ViewAttribute
+    Name="VrEmail"
+    PrecisionRule="true"
+    EntityAttrName="VrEmail"
+    EntityUsage="ReqPrisonerVisitorsInfo"
+    AliasName="VR_EMAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <TOOLTIP
+          ResId="com.app.model.views.ReqPrisonerVisitorsInfoView.VrEmail_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VrPhone"
+    PrecisionRule="true"
+    EntityAttrName="VrPhone"
+    EntityUsage="ReqPrisonerVisitorsInfo"
+    AliasName="VR_PHONE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.app.model.views.ReqPrisonerVisitorsInfoView.VrPhone_LABEL"/>
+        <TOOLTIP
+          ResId="com.app.model.views.ReqPrisonerVisitorsInfoView.VrPhone_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VrRelation"
+    PrecisionRule="true"
+    EntityAttrName="VrRelation"
+    EntityUsage="ReqPrisonerVisitorsInfo"
+    AliasName="VR_RELATION"
+    LOVName="LOV_RelationCase_en"
+    LOVFinder="LOVSwitcherRel">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VrStatus"
+    PrecisionRule="true"
+    EntityAttrName="VrStatus"
+    EntityUsage="ReqPrisonerVisitorsInfo"
+    AliasName="VR_STATUS"/>
+  <ViewAttribute
+    Name="PvReqId"
+    PrecisionRule="true"
+    EntityAttrName="PvReqId"
+    EntityUsage="ReqPrisonerVisitorsInfo"
+    AliasName="PV_REQ_ID"/>
+  <ViewAttribute
+    Name="Language"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[adf.context.expressionEvaluator.evaluate('#{pageFlowScope.locale}')]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LOVSwitcherRel"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if (Language=='ar'){
+return 'LOV_RelationCase_ar';
+}else{
+return 'LOV_RelationCase_en';
+}]]></TransientExpression>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.app.model.AppModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

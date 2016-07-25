@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="RecDocimpPprtViewPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqAttachmentsViewRDIPD" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsViewRDIPDIterator"/>
+    <iterator Binds="ReqRecDepImpDocPprtView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqRecDepImpDocPprtView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ReqAttachmentsViewRDIPDIterator"
+          id="ReqAttachmentsViewRDIPD">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsViewRDIPD0">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsViewRDIPDIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqRecDepImpDocPprtView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqRecDepImpDocPprtView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqRecDepImpDocPprtView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="false"/>
+    <list IterBinding="ReqRecDepImpDocPprtView1Iterator" StaticList="false"
+          Uses="LOV_Relationcase_en" id="RelationCase" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqRecDepImpDocPprtView1Iterator"
+                     id="RestrType">
+      <AttrNames>
+        <Item Value="RestrType"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

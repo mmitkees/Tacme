@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EventDetLineArView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="EventDetLineAr.EVENT_ID, 
+       EventDetLineAr.EVENT_TYPE, 
+       EventDetLineAr.EVENT_DATE, 
+       EventDetLineAr.EVENT_INDUSTRY, 
+       EventDetLineAr.EVENT_ATTENDEES, 
+       EventDetLineAr.EVENT_ORG, 
+       EventDetLineAr.ROWID"
+  FromList="EVENT_DET_LINE_AR EventDetLineAr"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="EventDetLineAr"
+    Entity="com.pp.evts.ae.model.entities.EventDetLineAr"/>
+  <ViewAttribute
+    Name="EventId"
+    PrecisionRule="true"
+    EntityAttrName="EventId"
+    EntityUsage="EventDetLineAr"
+    AliasName="EVENT_ID"/>
+  <ViewAttribute
+    Name="EventType"
+    PrecisionRule="true"
+    EntityAttrName="EventType"
+    EntityUsage="EventDetLineAr"
+    AliasName="EVENT_TYPE"/>
+  <ViewAttribute
+    Name="EventDate"
+    PrecisionRule="true"
+    EntityAttrName="EventDate"
+    EntityUsage="EventDetLineAr"
+    AliasName="EVENT_DATE"/>
+  <ViewAttribute
+    Name="EventIndustry"
+    PrecisionRule="true"
+    EntityAttrName="EventIndustry"
+    EntityUsage="EventDetLineAr"
+    AliasName="EVENT_INDUSTRY"/>
+  <ViewAttribute
+    Name="EventAttendees"
+    PrecisionRule="true"
+    EntityAttrName="EventAttendees"
+    EntityUsage="EventDetLineAr"
+    AliasName="EVENT_ATTENDEES"/>
+  <ViewAttribute
+    Name="EventOrg"
+    PrecisionRule="true"
+    EntityAttrName="EventOrg"
+    EntityUsage="EventDetLineAr"
+    AliasName="EVENT_ORG"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="EventDetLineAr"
+    AliasName="ROWID"/>
+</ViewObject>

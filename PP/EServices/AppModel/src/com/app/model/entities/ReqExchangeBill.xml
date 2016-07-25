@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReqExchangeBill"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="REQ_EXCHANGE_BILL"
+  AliasName="ReqExchangeBill"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="ReqId"
+    IsNotNull="true"
+    ColumnName="REQ_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="REQ_EXCHANGE_BILL"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CaseNo"
+    Precision="5"
+    Scale="0"
+    ColumnName="CASE_NO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="REQ_EXCHANGE_BILL"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="CaseNo_Rule_0"
+      ResId="com.app.model.entities.ReqExchangeBill.CaseNo_Rule_0"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
+  <Attribute
+    Name="Caseyear"
+    Precision="4"
+    Scale="0"
+    ColumnName="CASEYEAR"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="REQ_EXCHANGE_BILL"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="Caseyear_Rule_0"
+      ResId="com.app.model.entities.ReqExchangeBill.Caseyear_Rule_0"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
+  <Attribute
+    Name="Prosecutionname"
+    Precision="30"
+    ColumnName="PROSECUTIONNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="REQ_EXCHANGE_BILL"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="Prosecutionname_Rule_0"
+      ResId="com.app.model.entities.ReqExchangeBill.Prosecutionname_Rule_0"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
+  <Attribute
+    Name="RelationWithCase"
+    Precision="30"
+    ColumnName="RELATION_WITH_CASE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="REQ_EXCHANGE_BILL"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="RelationWithCase_Rule_0"
+      ResId="com.app.model.entities.ReqExchangeBill.RelationWithCase_Rule_0"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
+  <Attribute
+    Name="Accusedname"
+    Precision="30"
+    ColumnName="ACCUSEDNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="REQ_EXCHANGE_BILL"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="Accusedname_Rule_0"
+      ResId="com.app.model.entities.ReqExchangeBill.Accusedname_Rule_0"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+  </Attribute>
+  <Key
+    Name="ReqExchangeBillAccusednameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="REQ_EXCHANGE_BILL_ACCUSEDNAME_"/>
+      <Attr Name="_checkCondition" Value='"ACCUSEDNAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.app.model.entities.ReqExchangeBill.Accusedname"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ReqExchangeBillCaseNoCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="REQ_EXCHANGE_BILL_CASE_NO_CHEC"/>
+      <Attr Name="_checkCondition" Value='"CASE_NO" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.app.model.entities.ReqExchangeBill.CaseNo"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ReqExchangeBillCaseyearCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="REQ_EXCHANGE_BILL_CASEYEAR_CHE"/>
+      <Attr Name="_checkCondition" Value='"CASEYEAR" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.app.model.entities.ReqExchangeBill.Caseyear"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ReqExchangeBillProsecutionnameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="REQ_EXCHANGE_BILL_PROSECUTIONN"/>
+      <Attr Name="_checkCondition" Value='"PROSECUTIONNAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.app.model.entities.ReqExchangeBill.Prosecutionname"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ReqExchangeBillRelationWithCaseCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="REQ_EXCHANGE_BILL_RELATION_WIT"/>
+      <Attr Name="_checkCondition" Value='"RELATION_WITH_CASE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.app.model.entities.ReqExchangeBill.RelationWithCase"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007119">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007119"/>
+      <Attr Name="_checkCondition" Value='"REQ_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.app.model.entities.ReqExchangeBill.ReqId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007120"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007120"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.app.model.entities.ReqExchangeBill.ReqId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.app.model.AppModelBundle"/>
+  </ResourceBundle>
+</Entity>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="EventListARViewPageDef"
+                Package="EventsjsffPagesAR">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EventDetArView1" RangeSize="10"
+              DataControl="PortalEvtsAMDataControl"
+              id="EventDetArView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EventDetArView1Iterator" id="EventDetArView1">
+      <nodeDefinition DefName="com.pp.evts.ae.model.views.EventDetArView"
+                      Name="EventDetArView10">
+        <AttrNames>
+          <Item Value="EventId"/>
+          <Item Value="EvenDate"/>
+          <Item Value="EventDesc"/>
+          <Item Value="EventDetails"/>
+          <Item Value="EventImg"/>
+          <Item Value="EventPath"/>
+          <Item Value="EventSubj"/>
+          <Item Value="EventTime"/>
+          <Item Value="RowID"/>
+          <Item Value="EventUcmId"/>
+          <Item Value="EventUCMPath"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

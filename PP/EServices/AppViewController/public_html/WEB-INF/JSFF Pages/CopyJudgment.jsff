@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:f="http://java.sun.com/jsf/core">
+   <c:set var="appviewcontrollerBundle"
+          value="#{adfBundle['com.app.view.AppViewControllerBundle']}"/>
+   <af:panelGroupLayout id="pgl1" layout="scroll">
+      <af:panelGroupLayout id="pgl14" layout="vertical">
+         <af:menuBar id="mb1">
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Click_here_for_E-Services']}"
+                            id="cl1" action="#{pageFlowScope.eservice}"
+                            rendered="false"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:outputText id="cl2"
+                           value="#{appviewcontrollerbundle.p_Welcome} : #{sessionScope.name}"/>
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:commandLink text="#{appviewcontrollerbundle.p_Logout}" id="cl3"
+                            action="logout"
+                            actionListener="#{AppServicesCJ.logOutAction}"/>
+            <af:spacer width="10" height="10" id="s3"/>
+            <af:commandLink text="#{appviewcontrollerbundle.p_Change_password}"
+                            id="cl4" action="chgpwrd"/>
+            <af:spacer width="10" height="10" id="s4"/>
+            <af:commandLink text="#{appviewcontrollerbundle.p_Edit_Profile}"
+                            id="cl5" action="editprofile"/>
+         </af:menuBar>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl13" styleClass="eServicesHeading"
+                           layout="vertical">
+         <af:outputText id="ot2"
+                        value="#{appviewcontrollerBundle.P_COPY_OF_JUDGMENT}"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl12" layout="vertical"
+                           styleClass="eServicesFormData">
+         <af:panelGroupLayout id="pl9" layout="vertical">
+            <af:outputText value="#{appviewcontrollerbundle.p_caseinfo}"
+                           id="ot4" styleClass="casEinfo_hEad"/>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl11" layout="vertical">
+            <af:panelGroupLayout id="pgl10" layout="vertical">
+               <af:panelFormLayout id="pfl1" maxColumns="2" rows="1"
+                                   styleClass="service">
+                  <af:panelFormLayout id="pfl3">
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_case_no}*"
+                                              id="plam1" partialTriggers="it1">
+                        <af:inputText value="#{bindings.CaseNo.inputValue}"
+                                      required="#{bindings.CaseNo.hints.mandatory}"
+                                      columns="#{bindings.CaseNo.hints.displayWidth}"
+                                      disabled="#{AppServicesCJ.DFlag eq 'Y'}"
+                                      maximumLength="#{bindings.CaseNo.hints.precision}"
+                                      shortDesc="#{bindings.CaseNo.hints.tooltip}"
+                                      id="it1" autoSubmit="true"
+                                      validator="#{customValidator.caseNoValidator}"
+                                      valueChangeListener="#{AppServicesCJ.CaseNoCheckVCL}"
+                                      simple="true" immediate="true">
+                           <f:validator binding="#{bindings.CaseNo.validator}"/>
+                           <af:convertNumber groupingUsed="false"
+                                             pattern="#{bindings.CaseNo.format}"/>
+                        </af:inputText>
+                        <af:panelGroupLayout id="pgl2"
+                                             rendered="#{AppServicesCJ.cn eq 'Y'}"
+                                             partialTriggers="it1"
+                                             binding="#{AppServicesCJ.cnopg}"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_cno_invalid}"
+                                          id="ot6"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_prosection_name}*"
+                                              id="plam3" partialTriggers="soc1">
+                        <af:selectOneChoice value="#{bindings.ProsecutionName.inputValue}"
+                                            required="#{bindings.ProsecutionName.hints.mandatory}"
+                                            disabled="#{AppServicesCJ.DFlag eq 'Y'}"
+                                            shortDesc="#{bindings.ProsecutionName.hints.tooltip}"
+                                            id="soc1"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--النيابة المختصة-->' : '&lt;--Prosecution name-->'}"
+                                            autoSubmit="true"
+                                            valueChangeListener="#{AppServicesCJ.ProsNameCheckVCL}"
+                                            simple="true" immediate="true">
+                           <f:selectItems value="#{bindings.ProsecutionName.items}"
+                                          id="si1"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="pgl6"
+                                             rendered="#{AppServicesCJ.pc eq 'Y' ? true : false}"
+                                             partialTriggers="soc1"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_pnme_invalid}"
+                                          id="ot8"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+                  <af:panelFormLayout id="pfl2">
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_case_year}*"
+                                              id="plam2" partialTriggers="soc3">
+                        <af:selectOneChoice value="#{bindings.CaseYear.inputValue}"
+                                            required="#{bindings.CaseYear.hints.mandatory}"
+                                            disabled="#{AppServicesCJ.DFlag eq 'Y'}"
+                                            shortDesc="#{bindings.CaseYear.hints.tooltip}"
+                                            id="soc3"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--سنة القضية-->' : '&lt;--Case year-->'}"
+                                            autoSubmit="true"
+                                            valueChangeListener="#{AppServicesCJ.CaseYearCheckVCL}"
+                                            simple="true" immediate="true">
+                           <f:selectItems value="#{bindings.CaseYear.items}"
+                                          id="si2"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="pgl3"
+                                             rendered="#{AppServicesCJ.cy eq 'Y'}"
+                                             partialTriggers="soc3"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_cyr_invalid}"
+                                          id="ot7"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_relation_case}*"
+                                              id="plam4" partialTriggers="soc2">
+                        <af:selectOneChoice value="#{bindings.RelationCase.inputValue}"
+                                            required="#{bindings.RelationCase.hints.mandatory}"
+                                            disabled="#{AppServicesCJ.DFlag eq 'Y'}"
+                                            shortDesc="#{bindings.RelationCase.hints.tooltip}"
+                                            id="soc2"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--العلاقة بالقضية-->' : '&lt;--Relation case-->'}"
+                                            autoSubmit="true"
+                                            valueChangeListener="#{AppServicesCJ.RelationCaseCheckVCL}"
+                                            simple="true" immediate="true">
+                           <f:selectItems value="#{bindings.RelationCase.items}"
+                                          id="si3"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="pgl8"
+                                             rendered="#{AppServicesCJ.rc eq 'Y'}"
+                                             partialTriggers="soc2"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_rcase_invalid}"
+                                          id="ot9"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+               </af:panelFormLayout>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl7" layout="vertical"
+                                 styleClass="AFStretchWidth">
+               
+               <af:panelFormLayout id="pfl6" styleClass="service" rows="1"
+                                   maxColumns="1">
+                  <af:panelFormLayout id="pfl5">
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_uploadfile}"
+                                              id="plam5">
+                        <af:inputFile id="if1"
+                                      value="#{AppServicesCJ.uploadedfile}"
+                                      disabled="#{AppServicesCJ.DFlag eq 'Y'}"
+                                      maximumFiles="5" autoHeightRows="-1"
+                                      binding="#{AppServicesCJ.upFileBind}"
+                                      simple="true" immediate="true"/>
+                     </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+               </af:panelFormLayout>
+           <af:outputText value="#{appviewcontrollerbundle.p_frmtsattach}"
+                              id="afot2"/>
+            </af:panelGroupLayout>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl4" layout="vertical">
+            <af:panelFormLayout id="pfl4" rows="1" styleClass="serviceButton">
+               <af:commandButton text="#{appviewcontrollerbundle.p_submit}"
+                                 id="cb2"
+                                 action="#{AppServicesCJ.copy_judge_action}"
+                                 disabled="#{AppServicesCJ.DFlag eq 'Y' ? true : false}"
+                                 styleClass="btn-action"/>
+               <af:commandButton text="#{appviewcontrollerbundle.p_clear}"
+                                 id="cb3"
+                                 disabled="#{AppServiceCJ.DFlag eq 'Y'? true : false}"
+                                 actionListener="#{bindings.Rollback.execute}"
+                                 immediate="true" action="aftrl"
+                                 styleClass="btn-secondary">
+                  <af:resetActionListener/>
+               </af:commandButton>
+            </af:panelFormLayout>
+         </af:panelGroupLayout>
+      </af:panelGroupLayout>
+   </af:panelGroupLayout>
+</jsp:root>

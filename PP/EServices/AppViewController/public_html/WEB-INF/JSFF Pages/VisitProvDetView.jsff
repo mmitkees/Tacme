@@ -1,0 +1,424 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html">
+          <af:subform id="s5">
+          <af:panelGroupLayout id="pgl2" layout="scroll">
+      <af:panelGroupLayout id="pgl12" layout="vertical">
+         <af:menuBar id="mb1">
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Click_here_for_E-Services']}"
+                            id="cl1" action="#{pageFlowScope.eservice}"
+                            rendered="false"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:outputText id="cl2"
+                           value="#{appviewcontrollerbundle.p_Welcome} #{sessionScope.name}"/>
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:commandLink text="#{appviewcontrollerbundle.p_Logout}"
+                            id="cl3" action="logout"
+                            actionListener="#{backingBeanScope.AppServicesVPD.logOutAction}"/>
+            <af:spacer width="10" height="10" id="s3"/>
+            <af:commandLink text="#{appviewcontrollerbundle.p_Change_password}"
+                            id="cl4" action="chgpwrd"/>
+            <af:spacer width="10" height="10" id="s4"/>
+            <af:commandLink text="#{appviewcontrollerbundle.p_Edit_Profile}"
+                            id="cl5" action="editprofile"/>
+         </af:menuBar>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl9" layout="vertical"
+                           styleClass="eServicesHeading">
+         <af:outputText value="#{appviewcontrollerbundle.P_Vist_Pro_Deta}"
+                        id="ot2"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl10" layout="vertical" rendered="false">
+         <h:outputText value="Case Information " id="ot3"
+                       styleClass="casEinFormation"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl8" layout="vertical"
+                           styleClass="eServicesFormData">
+         <af:panelGroupLayout id="pgl11" layout="vertical">
+            <af:outputText value="#{appviewcontrollerbundle.p_caseinfo}"
+                           id="ot4" styleClass="casEinfo_hEad"/>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl3" layout="vertical">
+            <af:panelGroupLayout id="pgl7" layout="vertical" styleClass="add-visitor-wrap">
+               <af:panelFormLayout id="pfl1" maxColumns="2" rows="1"
+                                   styleClass="service">
+                  <af:panelFormLayout id="pfl2">
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_case_no}"
+                                              id="plam1" partialTriggers="it1">
+                        <af:inputText value="#{bindings.CaseNo.inputValue}"
+                                      required="#{bindings.CaseNo.hints.mandatory}"
+                                      maximumLength="#{bindings.CaseNo.hints.precision}"
+                                      shortDesc="#{bindings.CaseNo.hints.tooltip}"
+                                      id="it1" autoSubmit="true"
+                                      disabled="#{backingBeanScope.AppServicesVPD.DFlag eq 'Y'}"
+                                      validator="#{CustomValidator.caseNoValidator}"
+                                      valueChangeListener="#{backingBeanScope.AppServicesVPD.CaseNoCheckVCL}"
+                                      simple="true" immediate="true">
+                           <f:validator binding="#{bindings.CaseNo.validator}"/>
+                           <af:convertNumber groupingUsed="false"
+                                             pattern="#{bindings.CaseNo.format}"/>
+                        </af:inputText>
+                        <af:panelGroupLayout id="iwpgl2"
+                                             rendered="#{backingBeanScope.AppServicesVPD.cn eq 'Y'}"
+                                             binding="#{backingBeanScope.AppServicesVPD.cnopg}"
+                                             partialTriggers="it1"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_cno_invalid}"
+                                          id="iwot6"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_prosection_name}"
+                                              id="plam5" partialTriggers="soc1">
+                        <af:selectOneChoice value="#{bindings.ProsecutionName.inputValue}"
+                                            required="#{bindings.ProsecutionName.hints.mandatory}"
+                                            shortDesc="#{bindings.ProsecutionName.hints.tooltip}"
+                                            id="soc1"
+                                            disabled="#{backingBeanScope.AppServicesVPD.DFlag eq 'Y'}"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--النيابة المختصة-->' : '&lt;--Prosecution name-->'}"
+                                            autoSubmit="true"
+                                            valueChangeListener="#{backingBeanScope.AppServicesVPD.ProsNameCheckVCL}"
+                                            simple="true" immediate="true">
+                           <f:selectItems value="#{bindings.ProsecutionName.items}"
+                                          id="si1"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="iwpgl6"
+                                             rendered="#{backingBeanScope.AppServicesVPD.pc eq 'Y' ? true : false}"
+                                             partialTriggers="soc1"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_pnme_invalid}"
+                                          id="iwot8"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_vdate}"
+                                              id="plam4" partialTriggers="it2">
+                        <af:inputDate value="#{bindings.VisitDate.inputValue}"
+                                      required="#{bindings.VisitDate.hints.mandatory}"
+                                      autoSubmit="true"
+                                      columns="#{bindings.VisitDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.VisitDate.hints.tooltip}"
+                                      id="it2" simple="true">
+                           <f:validator binding="#{bindings.VisitDate.validator}"/>
+                           <af:convertDateTime pattern="dd/MM/yyyy"
+                                               type="date"/>
+                        </af:inputDate>
+                        <af:panelGroupLayout id="vdpgl6"
+                                             rendered="#{backingBeanScope.AppServicesVPD.vd eq 'Y' ? true : false}"
+                                             partialTriggers="it2"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_invvdate}"
+                                          id="vdot8"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                        <!--<af:panelGroupLayout id="iwg20"
+                                             rendered="#{backingBeanScope.AppServicesVPD.an eq 'Y'}"
+                                             partialTriggers="it2"
+                                             layout="vertical">
+                           <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_error_name']}"
+                                          id="iwo11"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>-->
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_prname}"
+                                              id="plam8">
+                        <af:inputText value="#{bindings.PrName.inputValue}"
+                                      simple="true"
+                                      required="#{bindings.PrName.hints.mandatory}"
+                                      columns="#{bindings.PrName.hints.displayWidth}"
+                                      maximumLength="#{bindings.PrName.hints.precision}"
+                                      shortDesc="#{bindings.PrName.hints.tooltip}"
+                                      id="it4">
+                           <f:validator binding="#{bindings.PrName.validator}"/>
+                        </af:inputText>
+                        <af:panelGroupLayout id="pnpgl6"
+                                             rendered="#{backingBeanScope.AppServicesVPD.prn eq 'Y' ? true : false}"
+                                             partialTriggers="it4"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_invprname}"
+                                          id="pnot8"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_prison}"
+                                              id="plam10">
+                        <af:inputText value="#{bindings.PrPrisonId.inputValue}"
+                                      simple="true"
+                                      required="#{bindings.PrPrisonId.hints.mandatory}"
+                                      columns="#{bindings.PrPrisonId.hints.displayWidth}"
+                                      maximumLength="#{bindings.PrPrisonId.hints.precision}"
+                                      shortDesc="#{bindings.PrPrisonId.hints.tooltip}"
+                                      id="it5" autoSubmit="true">
+                           <f:validator binding="#{bindings.PrPrisonId.validator}"/>
+                        </af:inputText>
+                     </af:panelLabelAndMessage>
+                     <af:panelGroupLayout id="pgl6" layout="vertical"
+                                          partialTriggers="plam10 it5">
+                        <af:outputText value="#{appviewcontrollerbundle.p_invprison }"
+                                       id="ot11"
+                                       styleClass="eServicesFormDataMessage"
+                                       rendered="#{backingBeanScope.AppServicesVPD.prid eq 'Y'}"/>
+                     </af:panelGroupLayout>
+                  </af:panelFormLayout>
+                  <af:panelFormLayout id="pfl3">
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_case_year}"
+                                              id="plam2" partialTriggers="soc2">
+                        <af:selectOneChoice value="#{bindings.CaseYear.inputValue}"
+                                            required="#{bindings.CaseYear.hints.mandatory}"
+                                            shortDesc="#{bindings.CaseYear.hints.tooltip}"
+                                            id="soc2"
+                                            disabled="#{backingBeanScope.AppServicesVPD.DFlag eq 'Y'}"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--سنة القضية-->' : '&lt;--Case year-->'}"
+                                            autoSubmit="true"
+                                            valueChangeListener="#{backingBeanScope.AppServicesVPD.CaseYearCheckVCL}"
+                                            simple="true" immediate="true">
+                           <f:selectItems value="#{bindings.CaseYear.items}"
+                                          id="si3"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="iwpgl3"
+                                             rendered="#{backingBeanScope.AppServicesVPD.cy eq 'Y'}"
+                                             partialTriggers="soc2"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_cyr_invalid}"
+                                          id="iwot7"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_relation_case}"
+                                              id="plam3" partialTriggers="soc3">
+                        <af:selectOneChoice value="#{bindings.RelationCase.inputValue}"
+                                            required="#{bindings.RelationCase.hints.mandatory}"
+                                            shortDesc="#{bindings.RelationCase.hints.tooltip}"
+                                            id="soc3"
+                                            disabled="#{backingBeanScope.AppServicesVPD.DFlag eq 'Y'}"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--العلاقة بالقضية-->' : '&lt;--Relation case-->'}"
+                                            valueChangeListener="#{backingBeanScope.AppServicesVPD.RelationCaseCheckVCL}"
+                                            autoSubmit="true" simple="true"
+                                            immediate="true">
+                           <f:selectItems value="#{bindings.RelationCase.items}"
+                                          id="si2"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="iwpg20"
+                                             rendered="#{backingBeanScope.AppServicesVPD.rc eq 'Y'}"
+                                             partialTriggers="soc3"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_rcase_invalid}"
+                                          id="iwot11"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_vpurpose}"
+                                              id="plam6" partialTriggers="it2">
+                        <af:inputText value="#{bindings.VisitPurpose.inputValue}"
+                                      simple="true"
+                                      required="#{bindings.VisitPurpose.hints.mandatory}"
+                                      columns="#{bindings.VisitPurpose.hints.displayWidth}"
+                                      maximumLength="#{bindings.VisitPurpose.hints.precision}"
+                                      shortDesc="#{bindings.VisitPurpose.hints.tooltip}"
+                                      id="it3">
+                           <f:validator binding="#{bindings.VisitPurpose.validator}"/>
+                        </af:inputText>
+                        <af:panelGroupLayout id="iwg0"
+                                             rendered="#{backingBeanScope.AppServicesVPD.vp eq 'Y'}"
+                                             partialTriggers="it3"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_error_name}"
+                                          id="io11"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Nationality}"
+                                              id="plam9">
+                        <af:inputText value="#{bindings.PrNationality.inputValue}"
+                                      simple="true"
+                                      required="#{bindings.PrNationality.hints.mandatory}"
+                                      columns="#{bindings.PrNationality.hints.displayWidth}"
+                                      maximumLength="#{bindings.PrNationality.hints.precision}"
+                                      shortDesc="#{bindings.PrNationality.hints.tooltip}"
+                                      id="it6">
+                           <f:validator binding="#{bindings.PrNationality.validator}"/>
+                        </af:inputText>
+                        <af:panelGroupLayout id="ing0"
+                                             rendered="#{backingBeanScope.AppServicesVPD.in eq 'Y'}"
+                                             partialTriggers="it2"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_inv_nat}"
+                                          id="in11"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+               </af:panelFormLayout>
+               <af:commandButton
+                                 text="#{appviewcontrollerbundle.p_addvisitor}"
+                                 disabled="#{!bindings.CreateInsert.enabled}"
+                                 id="cb1"
+                                 styleClass="btn-action add-visitor-btn"
+                                 actionListener="#{bindings.CreateInsert.execute}"/>
+               <!--<af:listView id="lv1"
+                            value="#{bindings.ReqPrisonerVisitorsInfoView1.collectionModel}"
+                            var="row" selection="single"
+                            styleClass="service add-visitor-wrap"
+                            varStatus="vs">
+                  <f:facet name="groupHeaderStamp"/>
+                  <af:listItem id="li1">
+                     <af:panelGroupLayout id="pgl5" layout="horizontal">
+                        <af:panelLabelAndMessage label="Name" id="plam11">
+                           <af:inputText value="#{row.VrName}" id="ot10"
+                                         autoSubmit="true"/>
+                           <af:panelGroupLayout id="vrng0"
+                                                rendered="#{empty row.VrName}"
+                                                partialTriggers="ot10 plam11"
+                                                layout="vertical">
+                              <af:outputText value="Please select visitor name"
+                                             id="vrn11"
+                                             styleClass="eServicesFormDataMessage"
+                                             rendered="#{backingBeanScope.AppServicesVPD.visitInfo eq 'vn'}"/>
+                           </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="EMail" id="plam12">
+                           <af:inputText value="#{row.VrEmail}" id="em1" autoSubmit="true"
+                                         validator="#{CustomValidator.eMailValidator}"/>
+                            <af:panelGroupLayout id="vrng10"
+                                                rendered="#{empty row.VrEmail}"
+                                                partialTriggers="em1 plam12"
+                                                layout="vertical">
+                              <af:outputText value="Please select visitor email"
+                                             id="vrn12"
+                                             styleClass="eServicesFormDataMessage"
+                                             rendered="#{backingBeanScope.AppServicesVPD.vremail eq 'Y'}"/>
+                           </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="Phone" id="plam13">
+                           <af:inputText value="#{row.VrPhone}" id="ot9"/>
+                           <af:panelGroupLayout id="vrng11"
+                                                rendered="#{empty row.VrPhone}"
+                                                partialTriggers="ot9 plam13"
+                                                layout="vertical">
+                              <af:outputText value="Please select visitor phone number"
+                                             id="vrn13"
+                                             styleClass="eServicesFormDataMessage"
+                                             rendered="#{backingBeanScope.AppServicesVPD.vrphone eq 'Y'}"/>
+                           </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="Relation" id="plam14">
+                           <af:inputText value="#{row.VrRelation}" id="ot1"/>
+                           <af:panelGroupLayout id="vrng12"
+                                                rendered="#{empty row.VrRelation}"
+                                                partialTriggers="ot1 plam14"
+                                                layout="vertical">
+                              <af:outputText value="Please select relation"
+                                             id="vrn14"
+                                             styleClass="eServicesFormDataMessage"
+                                             rendered="#{backingBeanScope.AppServicesVPD.vrrelation eq 'Y'}"/>
+                           </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                     </af:panelGroupLayout>
+                     <af:commandButton
+                                       text="Delete"
+                                       disabled="#{!bindings.Delete1.enabled}"
+                                       id="cb4"
+                                       action="#{backingBeanScope.AppServicesVPD.deleteRow}"
+                                       styleClass="delete-btn small"/>
+                  </af:listItem>
+               </af:listView>-->
+               <af:iterator id="i1"
+                            value="#{bindings.ReqPrisonerVisitorsInfoView1.collectionModel}"
+                            var="row" varStatus="vs">
+                            <af:panelGroupLayout id="pgl5" layout="horizontal"
+                                                 styleClass="service">
+                        <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Name}" id="plam11">
+                           <af:inputText value="#{row.VrName}" id="ot10"
+                                         autoSubmit="true"/>
+                           <af:panelGroupLayout id="vrng0"
+                                                rendered="#{empty row.VrName}"
+                                                partialTriggers="ot10 plam11"
+                                                layout="vertical">
+                              <af:outputText value="#{appviewcontrollerbundle.p_invvistname}"
+                                             id="vrn11"
+                                             styleClass="eServicesFormDataMessage"
+                                             rendered="#{backingBeanScope.AppServicesVPD.visitInfo eq 'vn'}"/>
+                           </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Email}" id="plam12">
+                           <af:inputText value="#{row.VrEmail}" id="em1" autoSubmit="true"
+                                         validator="#{CustomValidator.eMailValidator}"/>
+                            <af:panelGroupLayout id="vrng10"
+                                                rendered="#{empty row.VrEmail}"
+                                                partialTriggers="em1 plam12"
+                                                layout="vertical">
+                              <af:outputText value="#{appviewcontrollerbundle.p_error_email}"
+                                             id="vrn12"
+                                             styleClass="eServicesFormDataMessage"
+                                             rendered="#{backingBeanScope.AppServicesVPD.vremail eq 'Y'}"/>
+                           </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Phone_Num}" id="plam13">
+                           <af:inputText value="#{row.VrPhone}" id="ot9"/>
+                           <af:panelGroupLayout id="vrng11"
+                                                rendered="#{empty row.VrPhone}"
+                                                partialTriggers="ot9 plam13"
+                                                layout="vertical">
+                              <af:outputText value="#{appviewcontrollerbundle.p_invvistphnname}"
+                                             id="vrn13"
+                                             styleClass="eServicesFormDataMessage"
+                                             rendered="#{backingBeanScope.AppServicesVPD.vrphone eq 'Y'}"/>
+                           </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_relation}" id="plam14">
+                           <af:inputText value="#{row.VrRelation}" id="ot1"/>
+                           <af:panelGroupLayout id="vrng12"
+                                                rendered="#{empty row.VrRelation}"
+                                                partialTriggers="ot1 plam14"
+                                                layout="vertical">
+                              <af:outputText value="#{appviewcontrollerbundle.p_invrelation}"
+                                             id="vrn14"
+                                             styleClass="eServicesFormDataMessage"
+                                             rendered="#{backingBeanScope.AppServicesVPD.vrrelation eq 'Y'}"/>
+                           </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                     </af:panelGroupLayout>
+                     <af:commandButton
+                                       text="#{appviewcontrollerbundle.p_delete}"
+                                       disabled="#{!bindings.Delete1.enabled}"
+                                       id="cb4"
+                                       action="#{backingBeanScope.AppServicesVPD.deleteRow}"
+                                       styleClass="delete-btn small"/>
+                            </af:iterator>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl4" layout="vertical"
+                                 styleClass="AFStretchWidth">
+               <af:panelFormLayout id="pfl6" styleClass="service">
+                  <af:panelFormLayout id="pfl5">
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_uploadfile}"
+                                              id="plam7">
+                        <af:inputFile id="if1"
+                                      disabled="#{backingBeanScope.AppServicesVPD.DFlag eq 'Y'}"
+                                      value="#{backingBeanScope.AppServicesVPD.uploadedfile}"
+                                      maximumFiles="5"
+                                      binding="#{backingBeanScope.AppServicesVPD.upFileBind}"
+                                      simple="true" immediate="true"/>
+                     </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+               </af:panelFormLayout>
+            </af:panelGroupLayout>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl1" layout="vertical">
+            <af:panelFormLayout id="pfl4" rows="1" styleClass="serviceButton">
+               <af:commandButton text="#{appviewcontrollerbundle.p_submit}"
+                                 id="cb2"
+                                 disabled="#{backingBeanScope.AppServicesVPD.DFlag eq 'Y'}"
+                                 action="#{backingBeanScope.AppServicesVPD.visit_prov_det_action}"
+                                 styleClass="btn-action"/>
+               <af:commandButton text="#{appviewcontrollerbundle.p_clear}"
+                                 id="cb3" action="aftrl"
+                                 disabled="#{backingBeanScope.AppServicesVPD.DFlag eq 'Y'}"
+                                 styleClass="btn-secondary"/>
+            </af:panelFormLayout>
+         </af:panelGroupLayout>
+      </af:panelGroupLayout>
+   </af:panelGroupLayout>
+   </af:subform>
+</jsp:root>

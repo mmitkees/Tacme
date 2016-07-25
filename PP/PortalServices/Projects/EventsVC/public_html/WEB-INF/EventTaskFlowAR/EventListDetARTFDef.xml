@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="EventListDetARTFDef">
+    <default-activity id="__1">EventListARView</default-activity>
+    <data-control-scope id="__18">
+      <shared/>
+    </data-control-scope>
+    <view id="EventListARView">
+      <page>/EventsjsffPagesAR/EventListARView.jsff</page>
+    </view>
+    <method-call id="ret_view_events_ar">
+      <method>#{bindings.ret_view_events_ar.execute}</method>
+      <outcome id="__2">
+        <fixed-outcome>ret_view_events_ar</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="EventDetailsARView">
+      <page>/EventsjsffPagesAR/EventDetailsARView.jsff</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">EventListARView</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__7">details</from-outcome>
+        <to-activity-id id="__5">ret_view_events_ar</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">ret_view_events_ar</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome id="__12">ret_view_events_ar</from-outcome>
+        <to-activity-id id="__10">EventDetailsARView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id id="__14">EventDetailsARView</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome id="__17">eventback</from-outcome>
+        <to-activity-id id="__15">EventListARView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

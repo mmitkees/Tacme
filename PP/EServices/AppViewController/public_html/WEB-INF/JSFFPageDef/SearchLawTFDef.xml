@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="SearchLawTFDef">
+    <default-activity id="__1">CreateInsert</default-activity>
+    <data-control-scope id="__12">
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__30">
+      <name id="__29">locale</name>
+      <value>#{pageFlowScope.locale}</value>
+    </input-parameter-definition>
+    <managed-bean id="__2">
+      <managed-bean-name id="__5">srchLawBean</managed-bean-name>
+      <managed-bean-class id="__4">com.app.view.beans.srchLaw</managed-bean-class>
+      <managed-bean-scope id="__3">request</managed-bean-scope>
+    </managed-bean>
+    <view id="SearchLawView">
+      <page>/WEB-INF/JSFF Pages/SearchLawView.jsff</page>
+    </view>
+    <router id="router1">
+      <case>
+        <expression>#{pageFlowScope.locale eq 'en'}</expression>
+        <outcome id="__13">gotoEnglish</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.locale eq 'ar'}</expression>
+        <outcome id="__19">gotoArabic</outcome>
+      </case>
+      <default-outcome>gotoArabic</default-outcome>
+    </router>
+    <view id="SearchLawViewAR">
+      <page>/WEB-INF/JSFF Pages/SearchLawViewAR.jsff</page>
+    </view>
+    <method-call id="initSrchLawROVO">
+      <method>#{bindings.initSrchLawROVO.execute}</method>
+      <outcome id="__6">
+        <fixed-outcome>initSrchLawROVO</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="initSrchLawROVOAR">
+      <method>#{bindings.initSrchLawROVOAR.execute}</method>
+      <outcome id="__23">
+        <fixed-outcome>initSrchLawROVOAR</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="srchLawview">
+      <page>/WEB-INF/JSFF Pages/srchLawview.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__31">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__14">
+      <from-activity-id id="__15">router1</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome id="__18">gotoArabic</from-outcome>
+        <to-activity-id id="__16">initSrchLawROVOAR</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__20">
+        <from-outcome id="__22">gotoEnglish</from-outcome>
+        <to-activity-id id="__21">initSrchLawROVO</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">initSrchLawROVO</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__10">initSrchLawROVO</from-outcome>
+        <to-activity-id id="__11">SearchLawView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__24">
+      <from-activity-id id="__25">initSrchLawROVOAR</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome id="__28">initSrchLawROVOAR</from-outcome>
+        <to-activity-id id="__27">SearchLawViewAR</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__32">
+      <from-activity-id id="__33">CreateInsert</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome id="__35">CreateInsert</from-outcome>
+        <to-activity-id id="__36">srchLawview</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

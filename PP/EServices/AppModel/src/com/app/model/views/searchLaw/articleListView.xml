@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="articleListView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.app.model.views.searchLaw.articleListView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="icode"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="stext"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[select  SUBSTR(description,1,decode(INSTR(description,'-')-1,-1,LENGTH(description),INSTR(description,'-')-1)), TO_CHAR (id)
+				  from PRC_ARTICLE_VW	where SUBSTR(code,1,3) = :icode
+				  or ID IN ( SELECT ARTICLE_LKP FROM PRC_CHARGE_TYPES WHERE ARTICLE_TEXT LIKE :stext) order by code]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="SubstrDescription1DecodeInstrDescription11LengthDescriptionInstrDescription1"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="SUBSTR(DESCRIPTION,1,DECODE(INSTR(DESCRIPTION,'-')-1,-1,LENGTH(DESCRIPTION),INSTR(DESCRIPTION,'-')-1))"
+    Expression="SUBSTR(DESCRIPTION,1,DECODE(INSTR(DESCRIPTION,'-')-1,-1,LENGTH(DESCRIPTION),INSTR(DESCRIPTION,'-')-1))"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToCharId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="40"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TO_CHAR(ID)"
+    Expression="TO_CHAR(ID)"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.app.model.AppModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="CarrersListTFDef_CarrersListTFDef_carrersExecPageDef"
+                Package="com.pp.carrers.app.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="carrersExec" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="carrersExec"
+                  IsViewObjectMethod="false"
+                  DataControl="ppCarrersServiceDataControl"
+                  InstanceName="ppCarrersServiceDataControl.dataProvider">
+      <NamedData NDName="pid" NDValue="#{pageFlowScope.id}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

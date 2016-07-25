@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="newslettervcBundle"
+         value="#{adfBundle['com.pp.newsletter.AppViewControllerBundle']}"/>
+  <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="service newsLetter-service">
+    <af:panelGroupLayout id="pgl9" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="#{newslettervcBundle.page_NewsLetter}"
+                     id="ot2"/>
+    </af:panelGroupLayout>
+    <af:panelFormLayout id="pfl1"
+                        
+                        partialTriggers="cb1">
+      <af:inputText id="it7"
+                    label="#{newslettervcBundle.p_Email}"
+                    value="#{pageFlowScope.newsSubscribeBean.b_email}"/>
+      <af:inputText value="#{bindings.NsName.inputValue}"
+                    label="#{newslettervcBundle.p_Name}"
+                    required="#{bindings.NsName.hints.mandatory}"
+                    columns="#{bindings.NsName.hints.displayWidth}"
+                    visible="#{pageFlowScope.newsSubscribeBean.show eq 'Y'}"
+                    maximumLength="#{bindings.NsName.hints.precision}"
+                    shortDesc="#{bindings.NsName.hints.tooltip}" id="it1">
+        <f:validator binding="#{bindings.NsName.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.NsEmail.inputValue}" label="Email"
+                    required="#{bindings.NsEmail.hints.mandatory}"
+                    visible="#{pageFlowScope.newsSubscribeBean.show eq 'Y'}"
+                    columns="#{bindings.NsEmail.hints.displayWidth}"
+                    maximumLength="#{bindings.NsEmail.hints.precision}"
+                    shortDesc="#{bindings.NsEmail.hints.tooltip}" id="it2"
+                    rendered="false">
+        <f:validator binding="#{bindings.NsEmail.validator}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+    <af:panelGroupLayout id="pgl5"
+                         visible="#{pageFlowScope.newsSubscribeBean.show eq 'Y'}"
+                         partialTriggers="cb1">
+      <af:outputText value="#{newslettervcBundle.p_categsubsc}" id="ot3" styleClass="subsection-title"/>
+      <af:listView id="lv1"
+                   value="#{bindings.NewsletterSubscategoriesView2.collectionModel}"
+                   var="row" varStatus="vs" selection="single">
+        <f:facet name="groupHeaderStamp"/>
+        <af:listItem id="li1">
+          <af:panelGroupLayout layout="horizontal">
+            <af:panelLabelAndMessage id="plam1">
+              <af:outputText value="#{row.NsCategories}" id="ot1"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage id="plam3">
+              <af:selectBooleanCheckbox value="#{row.bindings.NsSelect.inputValue}"
+                                        shortDesc="#{bindings.NsSelect.hints.tooltip}"
+                                        id="sbc2"/>
+            </af:panelLabelAndMessage>
+          </af:panelGroupLayout>
+        </af:listItem>
+      </af:listView>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl4" partialTriggers="cb1">
+      <af:commandButton text="#{newslettervcBundle.p_shcateg}" id="cb1"
+                        action="#{pageFlowScope.newsSubscribeBean.showCategories}"
+                        partialSubmit="false" styleClass="btn-action"
+                        rendered="#{pageFlowScope.newsSubscribeBean.show eq 'N'}"
+                        binding="#{pageFlowScope.newsSubscribeBean.showCategBind}"/>
+      <af:commandButton text="#{newslettervcBundle.SUBSCRIBE}" id="cb2"
+                        partialTriggers="cb1" styleClass="btn-action"
+                        rendered="#{pageFlowScope.newsSubscribeBean.show eq 'Y'}"
+                        binding="#{pageFlowScope.newsSubscribeBean.subscBind}"
+                        visible="false"
+                        action="#{pageFlowScope.newsSubscribeBean.commitAction}"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:newsSubscribeBean-->
+</jsp:root>

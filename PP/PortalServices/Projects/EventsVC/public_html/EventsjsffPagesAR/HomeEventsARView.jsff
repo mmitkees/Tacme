@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl5" layout="scroll" styleClass="upcomming-events">
+    <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="title">
+      <af:outputText value="الأحداث القادمة" id="ot4"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout layout="vertical" id="pgl6">
+      <af:iterator value="#{bindings.EventDetArView1.collectionModel}" var="row"
+                   varStatus="vs" id="i1" rows="3">
+        <af:panelGroupLayout id="pgl2" layout="vertical"
+                             styleClass="each-event">
+          <af:panelGroupLayout id="pgl3" layout="vertical"
+                               styleClass="eachEvent-date">
+            <af:outputText value="#{row.EvenDate}" id="ot1"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl4" layout="vertical"
+                               styleClass="eachEvent-name">
+            <af:outputText value="#{row.EventSubj}" id="ot2"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:iterator>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

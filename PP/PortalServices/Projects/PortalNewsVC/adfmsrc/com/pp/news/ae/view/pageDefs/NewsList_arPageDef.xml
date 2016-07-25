@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="NewsList_arPageDef"
+                Package="com.pp.news.ae.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NewsDetailsArView1" RangeSize="10"
+              DataControl="PortalNewsServiceDataControl"
+              id="NewsDetailsArView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="NewsDetailsArView1Iterator" id="NewsDetailsArView1">
+      <nodeDefinition DefName="com.pp.news.ae.model.views.NewsDetailsArView"
+                      Name="NewsDetailsArView10">
+        <AttrNames>
+          <Item Value="NewsId"/>
+          <Item Value="NewsDate"/>
+          <Item Value="NewsDesc"/>
+          <Item Value="NewsDetails"/>
+          <Item Value="NewsImg"/>
+          <Item Value="NewsPath"/>
+          <Item Value="NewsSubj"/>
+          <Item Value="RowID"/>
+          <Item Value="NewsUCMPath"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

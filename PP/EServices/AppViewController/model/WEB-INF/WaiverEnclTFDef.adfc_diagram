@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <TaskFlowReturn
+      id="TaskFlowReturn2">
+      <property
+         name="activityId">taskFlowReturn1</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskFlowReturn1&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  taskFlowReturn1&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">282.83887</property>
+      <property
+         name="x">397.5</property>
+   </TaskFlowReturn>
+   <View
+      id="View4">
+      <property
+         name="activityId">WaiverEnclView</property>
+      <property
+         name="page">/WaiverEnclView.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>WaiverEnclView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">376.09766</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">247.34473</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View4"
+      to="TaskFlowReturn2">
+      <property
+         name="fromOutcome">exit</property>
+      <property
+         name="sdm:polyPoints">R50,288.34473,375.74707,356.5,282.48828,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall7">
+      <property
+         name="activityId">CreateInsert1</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CreateInsert1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">433.1494</property>
+      <property
+         name="x">78.35156</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="MethodCall7"
+      to="View4">
+      <property
+         name="fromOutcome">CreateInsert</property>
+      <property
+         name="sdm:polyPoints">R50,119.35156,432.79883,206.34473,375.74707,L50</property>
+   </ControlFlowCase>
+</SDM>

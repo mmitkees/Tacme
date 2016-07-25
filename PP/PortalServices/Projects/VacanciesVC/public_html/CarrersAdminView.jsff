@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+    <f:facet name="menus"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t2">
+        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                          text="#{vacanciesvcBundle.p_save}" id="cb1" styleClass="btn-action-toolbar"/>
+        <af:commandButton text="#{vacanciesvcBundle.p_add}" id="cb2" action="add"
+                          styleClass="btn-action-toolbar"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="statusbar"/>
+    <af:table value="#{bindings.PpCarrersView1.collectionModel}" var="row"
+              rows="#{bindings.PpCarrersView1.rangeSize}"
+              emptyText="#{bindings.PpCarrersView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.PpCarrersView1.rangeSize}"
+              rowBandingInterval="0"
+              filterModel="#{bindings.PpCarrersView1Query.queryDescriptor}"
+              queryListener="#{bindings.PpCarrersView1Query.processQuery}"
+              filterVisible="true" varStatus="vs"
+              selectedRowKeys="#{bindings.PpCarrersView1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.PpCarrersView1.collectionModel.makeCurrent}"
+              rowSelection="single" id="t1" columnStretching="last"
+              styleClass="taBhaed AFStretchWidth"
+              inlineStyle="height:auto !important;">
+      <af:column sortProperty="#{bindings.PpCarrersView1.hints.PositionId.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{vacanciesvcBundle.p_positionid}"
+                 id="c3" width="120">
+        <af:inputText value="#{row.bindings.PositionId.inputValue}"
+                      required="#{bindings.PpCarrersView1.hints.PositionId.mandatory}"
+                      columns="#{bindings.PpCarrersView1.hints.PositionId.displayWidth}"
+                      maximumLength="#{bindings.PpCarrersView1.hints.PositionId.precision}"
+                      shortDesc="#{bindings.PpCarrersView1.hints.PositionId.tooltip}"
+                      id="it1" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.PositionId.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.PpCarrersView1.hints.CreateDate.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{vacanciesvcBundle.p_createdate}"
+                 id="c6" width="120">
+        <f:facet name="filter">
+          <af:inputDate value="#{vs.filterCriteria.CreateDate}" id="id2"/>
+        </f:facet>
+        <af:inputDate value="#{row.bindings.CreateDate.inputValue}"
+                      required="#{bindings.PpCarrersView1.hints.CreateDate.mandatory}"
+                      shortDesc="#{bindings.PpCarrersView1.hints.CreateDate.tooltip}"
+                      id="id4" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.CreateDate.validator}"/>
+          <af:convertDateTime pattern="#{bindings.PpCarrersView1.hints.CreateDate.format}"/>
+        </af:inputDate>
+      </af:column>
+      <af:column sortProperty="#{bindings.PpCarrersView1.hints.CloseDate.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{vacanciesvcBundle.p_closedate}"
+                 id="c2" partialTriggers="sbc1" width="120">
+        <f:facet name="filter">
+          <af:inputDate value="#{vs.filterCriteria.CloseDate}" id="id1"/>
+        </f:facet>
+        <af:inputDate value="#{row.bindings.CloseDate.inputValue}"
+                      required="#{bindings.PpCarrersView1.hints.CloseDate.mandatory}"
+                      shortDesc="#{bindings.PpCarrersView1.hints.CloseDate.tooltip}"
+                      id="id3" partialTriggers="sbc1" simple="true"
+                      immediate="true">
+          <f:validator binding="#{row.bindings.CloseDate.validator}"/>
+          <af:convertDateTime pattern="#{bindings.PpCarrersView1.hints.CloseDate.format}"/>
+        </af:inputDate>
+      </af:column>
+      <af:column sortProperty="#{bindings.PpCarrersView1.hints.JobTitle.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{vacanciesvcBundle.p_jobtitle}"
+                 id="c4" width="130">
+        <af:inputText value="#{row.bindings.JobTitle.inputValue}"
+                      required="#{bindings.PpCarrersView1.hints.JobTitle.mandatory}"
+                      columns="#{bindings.PpCarrersView1.hints.JobTitle.displayWidth}"
+                      maximumLength="#{bindings.PpCarrersView1.hints.JobTitle.precision}"
+                      shortDesc="#{bindings.PpCarrersView1.hints.JobTitle.tooltip}"
+                      id="it4" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.JobTitle.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.PpCarrersView1.hints.JobResp.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{vacanciesvcBundle.p_Responsibility}"
+                 id="c1" width="140">
+        <af:inputText value="#{row.bindings.JobResp.inputValue}"
+                      required="#{bindings.PpCarrersView1.hints.JobResp.mandatory}"
+                      columns="#{bindings.PpCarrersView1.hints.JobResp.displayWidth}"
+                      maximumLength="#{bindings.PpCarrersView1.hints.JobResp.precision}"
+                      shortDesc="#{bindings.PpCarrersView1.hints.JobResp.tooltip}"
+                      id="it2" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.JobResp.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.PpCarrersView1.hints.JobReq.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{vacanciesvcBundle.p_Requirement}"
+                 id="c8" width="140">
+        <af:inputText value="#{row.bindings.JobReq.inputValue}"
+                      required="#{bindings.PpCarrersView1.hints.JobReq.mandatory}"
+                      columns="#{bindings.PpCarrersView1.hints.JobReq.displayWidth}"
+                      maximumLength="#{bindings.PpCarrersView1.hints.JobReq.precision}"
+                      shortDesc="#{bindings.PpCarrersView1.hints.JobReq.tooltip}"
+                      id="it3" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.JobReq.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.PpCarrersView1.hints.Status.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{vacanciesvcBundle.p_Status}" id="c7"
+                 width="120">
+        <af:selectOneChoice value="#{row.bindings.Status.inputValue}"
+                            required="#{bindings.PpCarrersView1.hints.Status.mandatory}"
+                            shortDesc="#{bindings.PpCarrersView1.hints.Status.tooltip}"
+                            id="soc1" simple="true" immediate="true">
+          <f:selectItems value="#{row.bindings.Status.items}" id="si1"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column sortProperty="#{bindings.PpCarrersView1.hints.CloseCB.name}"
+                 filterable="true" sortable="true"
+                 headerText="#{vacanciesvcBundle.p_Closed}" id="c5"
+                 align="center">
+        <af:selectBooleanCheckbox value="#{row.bindings.CloseCB.inputValue}"
+                                  shortDesc="#{bindings.PpCarrersView1.hints.CloseCB.tooltip}"
+                                  id="sbc1"
+                                  valueChangeListener="#{carrersBean.checkBoxVCL}"
+                                  autoSubmit="true" simple="true"
+                                  immediate="true"/>
+      </af:column>
+    </af:table>
+  </af:panelCollection>
+</jsp:root>

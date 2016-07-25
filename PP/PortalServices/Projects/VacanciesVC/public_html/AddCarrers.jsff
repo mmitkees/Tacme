@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl8" layout="scroll">
+    <af:panelGroupLayout id="pgl9" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="#{vacanciesvcBundle.p_Add Carrers}" id="ot7"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl10" layout="vertical">
+      <af:panelGroupLayout id="pgl7" layout="vertical">
+        <af:panelFormLayout id="pfl2" styleClass="service">
+          <af:panelFormLayout id="pfl1">
+            <af:panelLabelAndMessage label="#{vacanciesvcBundle.p_positionid}" id="plam1">
+              <af:inputText value="#{bindings.PositionId.inputValue}"
+                            required="#{bindings.PositionId.hints.mandatory}"
+                            maximumLength="#{bindings.PositionId.hints.precision}"
+                            shortDesc="#{bindings.PositionId.hints.tooltip}"
+                            id="it1" disabled="true" autoSubmit="true"
+                            binding="#{carrersBean.b_pid}" simple="true"
+                            immediate="true">
+                <f:validator binding="#{bindings.PositionId.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl1" partialTriggers="it1"
+                                   layout="vertical">
+                <af:outputText value="#{vacanciesvcBundle.p_Please enter the position id}" id="ot1"
+                               rendered="#{carrersBean.pid eq 'n'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{vacanciesvcBundle.p_createdate}" id="plam2">
+              <af:inputDate value="#{bindings.CreateDate.inputValue}"
+                            required="#{bindings.CreateDate.hints.mandatory}"
+                            shortDesc="#{bindings.CreateDate.hints.tooltip}"
+                            id="id2" disabled="true"
+                            binding="#{carrersBean.b_cdate}" autoSubmit="true"
+                            simple="true" immediate="true">
+                <f:validator binding="#{bindings.CreateDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CreateDate.format}"/>
+              </af:inputDate>
+              <af:panelGroupLayout id="pgl2" partialTriggers="id2"
+                                   layout="vertical">
+                <af:outputText id="ot2"
+                               rendered="#{carrersBean.cdate eq 'N'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{vacanciesvcBundle.p_closedate}" id="plam3">
+              <af:inputDate value="#{bindings.CloseDate.inputValue}"
+                            required="#{bindings.CloseDate.hints.mandatory}"
+                            shortDesc="#{bindings.CloseDate.hints.tooltip}"
+                            id="id1" autoSubmit="true" immediate="true"
+                            simple="true">
+                <f:validator binding="#{bindings.CloseDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
+              </af:inputDate>
+              <af:panelGroupLayout id="pgl12" layout="vertical">
+                <af:outputText value="#{vacanciesvcBundle.p_pclosedate}" id="ot8"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.JobTitle.hints.label}" id="plam4">
+              <af:inputText value="#{bindings.JobTitle.inputValue}"
+                            required="#{bindings.JobTitle.hints.mandatory}"
+                            columns="40"
+                            maximumLength="#{bindings.JobTitle.hints.precision}"
+                            shortDesc="#{bindings.JobTitle.hints.tooltip}"
+                            id="it5" rows="2" binding="#{carrersBean.b_jtitle}"
+                            autoSubmit="true" simple="true" immediate="true"
+                            label="#{vacanciesvcBundle.p_jobtitle}">
+                <f:validator binding="#{bindings.JobTitle.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl3" partialTriggers="it5"
+                                   layout="vertical">
+                <af:outputText value="#{vacanciesvcBundle.p_pjobtitle}" id="ot3"
+                               rendered="#{carrersBean.jtitle eq 'N'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.JobResp.hints.label}" id="plam5">
+              <af:inputText value="#{bindings.JobResp.inputValue}"
+                            required="#{bindings.JobResp.hints.mandatory}"
+                            columns="40"
+                            maximumLength="#{bindings.JobResp.hints.precision}"
+                            shortDesc="#{bindings.JobResp.hints.tooltip}"
+                            id="it3" rows="10" binding="#{carrersBean.b_jresp}"
+                            autoSubmit="true" immediate="true" simple="true"
+                            label="#{vacanciesvcBundle.p_jobresponsibility}">
+                <f:validator binding="#{bindings.JobResp.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl4" partialTriggers="it3"
+                                   layout="vertical">
+                <af:outputText value="#{vacanciesvcBundle.p_pjobresponsibility}"
+                               id="ot4" rendered="#{carrersBean.jresp eq 'N'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.JobReq.hints.label}" id="plam6">
+              <af:inputText value="#{bindings.JobReq.inputValue}"
+                            required="#{bindings.JobReq.hints.mandatory}"
+                            maximumLength="#{bindings.JobReq.hints.precision}"
+                            shortDesc="#{bindings.JobReq.hints.tooltip}"
+                            id="it4" rows="20" binding="#{carrersBean.b_jreq}"
+                            autoSubmit="true" columns="40" immediate="true"
+                            simple="true"
+                            label="#{vacanciesvcBundle.p_jobrequirement}">
+                <f:validator binding="#{bindings.JobReq.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl5" partialTriggers="it4"
+                                   layout="vertical">
+                <af:outputText value="#{vacanciesvcBundle.p_pjobrequirement}" id="ot5"
+                               rendered="#{carrersBean.jreq eq 'N'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Status.label}" id="plam7">
+              <af:selectOneChoice value="#{bindings.Status.inputValue}"
+                                  required="#{bindings.Status.hints.mandatory}"
+                                  shortDesc="#{bindings.Status.hints.tooltip}"
+                                  id="soc1" binding="#{carrersBean.b_jsts}"
+                                  autoSubmit="true" simple="true"
+                                  immediate="true"
+                                  label="#{vacanciesvcBundle.p_Status}">
+                <f:selectItems value="#{bindings.Status.items}" id="si1"/>
+              </af:selectOneChoice>
+              <af:panelGroupLayout id="pgl6" partialTriggers="soc1"
+                                   layout="vertical">
+                <af:outputText value="#{vacanciesvcBundle.p_pstatus}" id="ot6"
+                               rendered="#{carrersBean.sts eq 'N'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl11" layout="vertical">
+        <af:panelFormLayout id="pfl3" maxColumns="3" rows="1">
+          <af:commandButton text="#{vacanciesvcBundle.p_publish}"
+                            disabled="#{!bindings.Commit.enabled}" id="cb1"
+                            action="#{carrersBean.publish_action}"
+                            styleClass="btn-action"/>
+          <af:commandButton text="#{vacanciesvcBundle.p_sdsrvbck }" id="cb2" action="backen"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+    <af:panelGroupLayout id="pgl15" layout="vertical">
+      <af:menuBar id="mb1">
+        <af:commandLink text="Click here for E-Services" id="cl1"/>
+      </af:menuBar>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl2" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="Service Expiration of Penal Case" id="ot6"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl3" layout="vertical"
+                         styleClass="eServicesFormData">
+      <af:panelGroupLayout id="pgl14" layout="vertical">
+        <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_caseinfo']} " id="ot8"
+                       styleClass="casEinfo_hEad"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl9" layout="vertical">
+        <af:panelGroupLayout id="pgl8" layout="vertical">
+          <af:panelFormLayout id="pfl1" maxColumns="2" rows="1"
+                              styleClass="service">
+            <af:panelFormLayout id="pfl2">
+              <af:panelLabelAndMessage label="#{bindings.CaseNo.hints.label}"
+                                       id="plam1">
+                <af:inputText value="#{bindings.CaseNo.inputValue}"
+                              required="#{bindings.CaseNo.hints.mandatory}"
+                              columns="#{bindings.CaseNo.hints.displayWidth}"
+                              maximumLength="#{bindings.CaseNo.hints.precision}"
+                              shortDesc="#{bindings.CaseNo.hints.tooltip}"
+                              id="it1" autoSubmit="true" showRequired="true"
+                              immediate="true" simple="true">
+                  <f:validator binding="#{bindings.CaseNo.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.CaseNo.format}"/>
+                </af:inputText>
+                <af:panelGroupLayout id="pgl4" layout="vertical"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.ProsecutionName.label}"
+                                       id="plam3">
+                <af:selectOneChoice value="#{bindings.ProsecutionName.inputValue}"
+                                    required="#{bindings.ProsecutionName.hints.mandatory}"
+                                    shortDesc="#{bindings.ProsecutionName.hints.tooltip}"
+                                    id="soc2" autoSubmit="true"
+                                    showRequired="true" immediate="true"
+                                    simple="true">
+                  <f:selectItems value="#{bindings.ProsecutionName.items}"
+                                 id="si2"/>
+                </af:selectOneChoice>
+                <af:panelGroupLayout id="pgl6" layout="vertical"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl3">
+              <af:panelLabelAndMessage label="#{bindings.CaseYear.label}"
+                                       id="plam2">
+                <af:selectOneChoice value="#{bindings.CaseYear.inputValue}"
+                                    required="#{bindings.CaseYear.hints.mandatory}"
+                                    shortDesc="#{bindings.CaseYear.hints.tooltip}"
+                                    id="soc1" autoSubmit="true"
+                                    showRequired="true" immediate="true"
+                                    simple="true">
+                  <f:selectItems value="#{bindings.CaseYear.items}" id="si1"/>
+                </af:selectOneChoice>
+                <af:panelGroupLayout id="pgl5" layout="vertical"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.Relationcase.label}"
+                                       id="plam4">
+                <af:selectOneChoice value="#{bindings.Relationcase.inputValue}"
+                                    required="#{bindings.Relationcase.hints.mandatory}"
+                                    shortDesc="#{bindings.Relationcase.hints.tooltip}"
+                                    id="soc3" autoSubmit="true"
+                                    showRequired="true" immediate="true"
+                                    simple="true">
+                  <f:selectItems value="#{bindings.Relationcase.items}"
+                                 id="si3"/>
+                </af:selectOneChoice>
+                <af:panelGroupLayout id="pgl7" layout="vertical"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl11" layout="vertical">
+          <af:panelFormLayout id="pfl6" rows="1" maxColumns="1"
+                              styleClass="service">
+            <af:panelFormLayout id="pfl5">
+              <af:panelLabelAndMessage label="Attachments" id="plam5">
+                <af:inputFile label="Upload Files" id="if1" autoSubmit="true"
+                              simple="true" immediate="true"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl12" layout="vertical">
+          <af:table value="#{bindings.ReqAttachmentsView25.collectionModel}"
+                    var="row" rows="#{bindings.ReqAttachmentsView25.rangeSize}"
+                    emptyText="#{bindings.ReqAttachmentsView25.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.ReqAttachmentsView25.rangeSize}"
+                    rowBandingInterval="0" id="t1" styleClass="AFStretchWidth"
+                    partialTriggers=":: cb1"
+                    inlineStyle="height:auto !important;">
+            <af:column sortProperty="#{bindings.ReqAttachmentsView25.hints.DisplayName.name}"
+                       sortable="false" headerText="AttachmentsName" id="c5">
+              <af:outputText value="#{row.DisplayName}" id="ot5"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ReqAttachmentsView25.hints.AttachSize.name}"
+                       sortable="false" headerText="Size" id="c2">
+              <af:outputText value="#{row.AttachSize}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ReqAttachmentsView25.hints.AttachDate.name}"
+                       sortable="false" headerText="AttachedDate" id="c3">
+              <af:outputText value="#{row.AttachDate}" id="ot4">
+                <af:convertDateTime pattern="#{bindings.ReqAttachmentsView25.hints.AttachDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ReqAttachmentsView25.hints.AttachByPersonId.name}"
+                       sortable="false" headerText="AttachedBy" id="c4">
+              <af:outputText value="#{row.AttachByPersonId}" id="ot2"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ReqAttachmentsView25.hints.ContentType.name}"
+                       sortable="false" headerText="ContentType" id="c1">
+              <af:outputText value="#{row.ContentType}" id="ot3"/>
+            </af:column>
+            <af:column id="c6">
+              <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                text="Delete"
+                                disabled="#{!bindings.Delete.enabled}"
+                                id="cb1"/>
+            </af:column>
+          </af:table>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl13" layout="vertical">
+        <af:panelFormLayout id="pfl4" rows="1" styleClass="serviceButton">
+          <af:commandButton text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_submit']}" id="cb2"
+                            styleClass="btn-action "/>
+          <af:commandButton text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_clear']}" id="cb3"
+                            styleClass="btn-secondary"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

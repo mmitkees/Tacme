@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="eserviceStatusViewPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqRequestsStatusView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqRequestsStatusView1Iterator"/>
+    <searchRegion Binds="ReqRequestsStatusView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ReqRequestsStatusView1Query"/>
+    <iterator Binds="downloadUrl1" RangeSize="25"
+              DataControl="PPAppServicesDataControl" id="downloadUrl1Iterator"/>
+    <searchRegion Criteria="ReqRequestsStatusViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ReqRequestsStatusView1Iterator"
+                  id="ReqRequestsStatusViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ReqRequestsStatusView1Iterator"
+          id="ReqRequestsStatusView1">
+      <nodeDefinition DefName="com.app.model.views.ReqRequestsStatusView"
+                      Name="ReqRequestsStatusView10">
+        <AttrNames>
+          <Item Value="ReqId"/>
+          <Item Value="ReqName"/>
+          <Item Value="ReqClass"/>
+          <Item Value="Status"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="ModifiedDate"/>
+          <Item Value="PublicUserId"/>
+          <Item Value="ServiceId"/>
+          <Item Value="ProsecId"/>
+          <Item Value="RefNo"/>
+          <Item Value="StatusDetails"/>
+          <Item Value="CaseInfoId"/>
+          <Item Value="ProsEnName"/>
+          <Item Value="ProsArName"/>
+          <Item Value="Reqnamear"/>
+          <Item Value="Arabicname"/>
+          <Item Value="Engname"/>          
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <tree IterBinding="downloadUrl1Iterator" id="downloadUrl1">
+      <nodeDefinition DefName="com.app.model.views.downloadUrl"
+                      Name="downloadUrl10">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachDownloadUrl"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ReqRequestsStatusView1Iterator"
+          id="ReqRequestsStatusView11">
+      <nodeDefinition DefName="com.app.model.views.ReqRequestsStatusView"
+                      Name="ReqRequestsStatusView110">
+        <AttrNames>
+          <Item Value="ReqId"/>
+          <Item Value="ReqName"/>
+          <Item Value="Engname"/>
+          <Item Value="Arabicname"/>
+          <Item Value="Reqnamear"/>
+          <Item Value="Status"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="StatusDetails"/>
+          <Item Value="ProsEnName"/>
+          <Item Value="ProsArName"/>
+          <Item Value="CaseInfoId"/>
+          <Item Value="ModifiedDate"/>
+          <Item Value="ProsecId"/>
+          <Item Value="PublicUserId"/>
+          <Item Value="RefNo"/>
+          <Item Value="ReqClass"/>
+          <Item Value="ServiceId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+    <f:facet name="menus"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t2">
+        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                          text="Save"
+                          id="cb1" styleClass="btn-action-toolbar"/>
+        <af:commandButton text="Add" id="cb2" action="addar"
+                          styleClass="btn-action-toolbar"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="statusbar"/>
+    <af:table value="#{bindings.EventDetArView1.collectionModel}" var="row"
+              rows="#{bindings.EventDetArView1.rangeSize}"
+              emptyText="#{bindings.EventDetArView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.EventDetArView1.rangeSize}"
+              rowBandingInterval="0"
+              filterModel="#{bindings.EventDetArView1Query.queryDescriptor}"
+              queryListener="#{bindings.EventDetArView1Query.processQuery}"
+              filterVisible="true" varStatus="vs"
+              selectedRowKeys="#{bindings.EventDetArView1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.EventDetArView1.collectionModel.makeCurrent}"
+              rowSelection="single" id="t1" styleClass="taBhaed AFStretchWidth"
+              inlineStyle="height:auto !important;" columnStretching="last">
+      <af:column sortProperty="#{bindings.EventDetArView1.hints.EvenDate.name}"
+                 filterable="true" sortable="true" headerText="Date" id="c1"
+                 width="120">
+        <f:facet name="filter">
+          <af:inputDate value="#{vs.filterCriteria.EvenDate}" id="id2"/>
+        </f:facet>
+        <af:inputDate value="#{row.bindings.EvenDate.inputValue}"
+                      required="#{bindings.EventDetArView1.hints.EvenDate.mandatory}"
+                      shortDesc="#{bindings.EventDetArView1.hints.EvenDate.tooltip}"
+                      id="id1" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.EvenDate.validator}"/>
+          <af:convertDateTime pattern="#{bindings.EventDetArView1.hints.EvenDate.format}"/>
+        </af:inputDate>
+      </af:column>
+      <af:column sortProperty="#{bindings.EventDetArView1.hints.EventTime.name}"
+                 filterable="true" sortable="true" headerText="Time" id="c3"
+                 width="120">
+        <af:inputText value="#{row.bindings.EventTime.inputValue}"
+                      required="#{bindings.EventDetArView1.hints.EventTime.mandatory}"
+                      columns="#{bindings.EventDetArView1.hints.EventTime.displayWidth}"
+                      maximumLength="#{bindings.EventDetArView1.hints.EventTime.precision}"
+                      shortDesc="#{bindings.EventDetArView1.hints.EventTime.tooltip}"
+                      id="it4" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.EventTime.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.EventDetArView1.hints.EventSubj.name}"
+                 filterable="true" sortable="true" headerText="Subject" id="c2"
+                 width="140">
+        <af:inputText value="#{row.bindings.EventSubj.inputValue}"
+                      required="#{bindings.EventDetArView1.hints.EventSubj.mandatory}"
+                      columns="#{bindings.EventDetArView1.hints.EventSubj.displayWidth}"
+                      maximumLength="#{bindings.EventDetArView1.hints.EventSubj.precision}"
+                      shortDesc="#{bindings.EventDetArView1.hints.EventSubj.tooltip}"
+                      id="it2" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.EventSubj.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.EventDetArView1.hints.EventDesc.name}"
+                 filterable="true" sortable="true" headerText="Descirptions"
+                 id="c5" width="160">
+        <af:inputText value="#{row.bindings.EventDesc.inputValue}"
+                      required="#{bindings.EventDetArView1.hints.EventDesc.mandatory}"
+                      columns="#{bindings.EventDetArView1.hints.EventDesc.displayWidth}"
+                      maximumLength="#{bindings.EventDetArView1.hints.EventDesc.precision}"
+                      shortDesc="#{bindings.EventDetArView1.hints.EventDesc.tooltip}"
+                      id="it3" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.EventDesc.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.EventDetArView1.hints.EventDetails.name}"
+                 filterable="true" sortable="true" headerText="Details" id="c4"
+                 width="160">
+        <af:inputText value="#{row.bindings.EventDetails.inputValue}"
+                      required="#{bindings.EventDetArView1.hints.EventDetails.mandatory}"
+                      columns="#{bindings.EventDetArView1.hints.EventDetails.displayWidth}"
+                      maximumLength="#{bindings.EventDetArView1.hints.EventDetails.precision}"
+                      shortDesc="#{bindings.EventDetArView1.hints.EventDetails.tooltip}"
+                      id="it1" simple="true" immediate="true">
+          <f:validator binding="#{row.bindings.EventDetails.validator}"/>
+        </af:inputText>
+      </af:column>
+    </af:table>
+  </af:panelCollection>
+</jsp:root>

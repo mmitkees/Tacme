@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="CarrersListTFDef_CarrersListTFDef_executePPCarrersviewPageDef"
+                Package="com.pp.carrers.app.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="executePPCarrersview" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="executePPCarrersview"
+                  IsViewObjectMethod="false"
+                  DataControl="ppCarrersServiceDataControl"
+                  InstanceName="ppCarrersServiceDataControl.dataProvider"
+                  ReturnName="data.ppCarrersServiceDataControl.methodResults.executePPCarrersview_ppCarrersServiceDataControl_dataProvider_executePPCarrersview_result">
+      <NamedData NDName="lang" NDValue="#{pageFlowScope.locale}"
+                 NDType="java.util.Locale"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

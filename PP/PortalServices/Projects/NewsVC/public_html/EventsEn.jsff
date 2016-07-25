@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl9" layout="scroll">
+    <af:panelGroupLayout id="pgl2" styleClass="eServicesHeading"
+                         layout="vertical">
+      <af:outputText value="Events Administration Page - EN" id="ot1"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl11" layout="vertical">
+      <af:panelGroupLayout id="pgl10" layout="vertical">
+        <af:panelFormLayout id="pfl3" styleClass="service">
+          <af:panelFormLayout id="pfl1">
+            <af:panelLabelAndMessage label="Event ID" id="plam1">
+              <af:inputText value="#{bindings.EventId.inputValue}"
+                            required="#{bindings.EventId.hints.mandatory}"
+                            maximumLength="#{bindings.EventId.hints.precision}"
+                            shortDesc="#{bindings.EventId.hints.tooltip}"
+                            id="it5" autoSubmit="true"
+                            binding="#{EventsAdmin.b_eid}" simple="true"
+                            immediate="true">
+                <f:validator binding="#{bindings.EventId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.EventId.format}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl3" partialTriggers="plam1 it5"
+                                   rendered="#{EventsAdmin.vid eq 'N'}"
+                                   layout="vertical">
+                <af:outputText value="Please enter event id" id="ot2"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Date" id="plam2">
+              <af:inputDate value="#{bindings.EvenDate.inputValue}"
+                            required="#{bindings.EvenDate.hints.mandatory}"
+                            shortDesc="#{bindings.EvenDate.hints.tooltip}"
+                            id="id1" autoSubmit="true"
+                            binding="#{EventsAdmin.b_edate}" simple="true"
+                            immediate="true">
+                <f:validator binding="#{bindings.EvenDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.EvenDate.format}"/>
+              </af:inputDate>
+              <af:panelGroupLayout id="pgl4" partialTriggers="id1 plam2"
+                                   layout="vertical">
+                <af:outputText value="Please enter event date" id="ot3"
+                               rendered="#{EventsAdmin.vdate eq 'N'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Time" id="plam3"
+                                     partialTriggers="cb3">
+              <af:inputText value="#{bindings.EventTime.inputValue}"
+                            required="#{bindings.EventTime.hints.mandatory}"
+                            maximumLength="#{bindings.EventTime.hints.precision}"
+                            shortDesc="#{bindings.EventTime.hints.tooltip}"
+                            id="it3" binding="#{EventsAdmin.b_etime}"
+                            autoSubmit="true" simple="true" immediate="true">
+                <f:validator binding="#{bindings.EventTime.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl5" partialTriggers="it3 plam3"
+                                   layout="vertical">
+                <af:outputText value="Please enter valid event time" id="ot5"
+                               rendered="#{EventsAdmin.vtime eq 'N'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Subject" id="plam4">
+              <af:inputText value="#{bindings.EventSubj.inputValue}"
+                            required="#{bindings.EventSubj.hints.mandatory}"
+                            maximumLength="#{bindings.EventSubj.hints.precision}"
+                            autoSubmit="true"
+                            shortDesc="#{bindings.EventSubj.hints.tooltip}"
+                            id="it1" binding="#{EventsAdmin.b_esubj}"
+                            simple="true" immediate="true">
+                <f:validator binding="#{bindings.EventSubj.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl6" partialTriggers="it1 plam4"
+                                   layout="vertical">
+                <af:outputText value="Please enter valid subject" id="ot6"
+                               rendered="#{EventsAdmin.vsubj eq 'N'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Descriptions" id="plam5">
+              <af:inputText value="#{bindings.EventDesc.inputValue}"
+                            required="#{bindings.EventDesc.hints.mandatory}"
+                            maximumLength="#{bindings.EventDesc.hints.precision}"
+                            autoSubmit="true"
+                            shortDesc="#{bindings.EventDesc.hints.tooltip}"
+                            id="it2" binding="#{EventsAdmin.b_edesc}"
+                            simple="true" immediate="true">
+                <f:validator binding="#{bindings.EventDesc.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl7" partialTriggers="it2 plam5"
+                                   layout="vertical">
+                <af:outputText value="Please enter valid descriptions" id="ot7"
+                               rendered="#{EventsAdmin.vdesc eq 'N'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Details" id="plam6">
+              <af:inputText value="#{bindings.EventDetails.inputValue}"
+                            required="#{bindings.EventDetails.hints.mandatory}"
+                            maximumLength="#{bindings.EventDetails.hints.precision}"
+                            autoSubmit="true"
+                            shortDesc="#{bindings.EventDetails.hints.tooltip}"
+                            id="it4" binding="#{EventsAdmin.b_edet}"
+                            simple="true" immediate="true">
+                <f:validator binding="#{bindings.EventDetails.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl8" partialTriggers="it4 plam6"
+                                   layout="vertical">
+                <af:outputText value="Please enter valid detail" id="ot8"
+                               rendered="#{EventsAdmin.vdet eq 'N'}"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="UploadFile" id="plam7">
+              <af:inputFile id="if1" value="#{EventsAdmin.uploadFile}"
+                            simple="true" immediate="true"/>
+              <af:panelGroupLayout id="pgl1" layout="vertical" rendered="false">
+                <af:outputText value="Please select valid file format" id="ot4"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl12" layout="vertical">
+        <af:panelFormLayout id="pfl2" rows="1" maxColumns="3">
+          <af:commandButton text="Publish" id="cb3"
+                            action="#{EventsAdmin.event_publish_en_action}"
+                            styleClass="btn-action"/>
+          <af:commandButton text="clear" id="cb2"
+                            action="#{EventsAdmin.clear_en_action}"
+                            styleClass="btn-secondary"/>
+          <af:commandButton text="Add another event" id="cb1"
+                            actionListener="#{bindings.CreateInsert.execute}"
+                            disabled="#{!bindings.CreateInsert.enabled}"
+                            styleClass="btn-action"/>
+        </af:panelFormLayout>
+        <af:commandButton text="Back" id="cb4" action="backen"/>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:EventsAdmin-->
+</jsp:root>

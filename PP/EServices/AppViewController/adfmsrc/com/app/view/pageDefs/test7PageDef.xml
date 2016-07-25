@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="test7PageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="SearchLawTFDef1"
+              taskFlowId="/WEB-INF/JSFFPageDef/SearchLawTFDef.xml#SearchLawTFDef"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="searchTranslatorTFDef1"
+              taskFlowId="/WEB-INF/JSFFPageDef/searchTranslatorTFDef.xml#searchTranslatorTFDef"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="eserviceStatusTFDef1"
+              taskFlowId="/WEB-INF/JSFFPageDef/eserviceStatusTFDef.xml#eserviceStatusTFDef"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="locale" value="en"/>
+        <parameter id="returnUrl" value="asda"/>
+        <parameter id="SecetKey" value="sdas"/>
+        <parameter id="pmrredurl" value="dsada"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

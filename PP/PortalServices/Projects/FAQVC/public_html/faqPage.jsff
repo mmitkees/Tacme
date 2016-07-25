@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:h="http://java.sun.com/jsf/html">
+  <af:panelGroupLayout id="faqMain" styleClass="faqMain">
+    <af:panelGroupLayout id="faqHeader" styleClass="faqHeader">
+      <af:outputText value="FAQs" id="ot1"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="faqBody" styleClass="faqBody"/>
+    <af:listView value="#{bindings.faqWithLocale1.collectionModel}" var="item"
+                 emptyText="#{bindings.faqWithLocale1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                 fetchSize="#{bindings.faqWithLocale1.rangeSize}" id="lv1">
+      <af:listItem id="li1">
+        <af:panelGroupLayout id="faqItem" styleClass="faqItem">
+          <af:panelGroupLayout id="faqQ" styleClass="faqQ">
+            <af:outputText value="#{item.Question}" id="ot2" styleClass="faqA-text"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="faqA" styleClass="faqA">
+            <af:outputText value="#{item.Answer}" id="ot3" styleClass="faqA-text"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:listItem>
+    </af:listView>
+  </af:panelGroupLayout>
+</jsp:root>

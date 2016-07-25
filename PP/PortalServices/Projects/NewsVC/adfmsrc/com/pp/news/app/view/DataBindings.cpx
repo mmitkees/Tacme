@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.pp.news.app.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/NewsAdminView.jsff"
+          usageId="com_pp_news_app_view_NewsAdminViewPageDef"/>
+    <page path="/News.jspx" usageId="com_pp_news_app_view_NewsPageDef"/>
+    <page path="/WEB-INF/NewsAdminTaskFlow/NewsAdminTFDef.xml#NewsAdminTFDef@CreateInsert"
+          usageId="com_pp_news_app_view_NewsAdminTFDef_NewsAdminTFDef_CreateInsertPageDef"/>
+    <page path="/NewsAdminViewAR.jsff"
+          usageId="com_pp_news_app_view_NewsAdminViewARPageDef"/>
+    <page path="/WEB-INF/NewsAdminTaskFlow/NewsAdminTFDef.xml#NewsAdminTFDef@CreateInsert1"
+          usageId="com_pp_news_app_view_NewsAdminTFDef_NewsAdminTFDef_CreateInsert1PageDef"/>
+    <page path="/WEB-INF/EventsTaskFlow/EventsAdminTFDef.xml#EventsAdminTFDef@CreateInsert"
+          usageId="com_pp_news_app_view_EventsAdminTFDef_EventsAdminTFDef_CreateInsertPageDef"/>
+    <page path="/EventsEn.jsff" usageId="com_pp_news_app_view_EventsEnPageDef"/>
+    <page path="/Events.jspx" usageId="com_pp_news_app_view_EventsPageDef"/>
+    <page path="/eventsAr.jsff" usageId="com_pp_news_app_view_eventsArPageDef"/>
+    <page path="/WEB-INF/EventsTaskFlow/EventsAdminTFDef.xml#EventsAdminTFDef@CreateInsert1"
+          usageId="com_pp_news_app_view_EventsAdminTFDef_EventsAdminTFDef_CreateInsert1PageDef"/>
+    <page path="/NewsList.jsff" usageId="com_pp_news_app_view_NewsListPageDef"/>
+    <page path="/NewsListAr.jsff"
+          usageId="com_pp_news_app_view_NewsListArPageDef"/>
+    <page path="/WEB-INF/NewsAdminTaskFlow/NewsAdminTFDef.xml#NewsAdminTFDef@Rollback"
+          usageId="com_pp_news_app_view_NewsAdminTFDef_NewsAdminTFDef_RollbackPageDef"/>
+    <page path="/EventsListEn.jsff"
+          usageId="com_pp_news_app_view_EventsListEnPageDef"/>
+    <page path="/WEB-INF/EventsTaskFlow/EventsAdminTFDef.xml#EventsAdminTFDef@Rollback"
+          usageId="com_pp_news_app_view_EventsAdminTFDef_EventsAdminTFDef_RollbackPageDef"/>
+    <page path="/EventsListAr.jsff"
+          usageId="com_pp_news_app_view_EventsListArPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_pp_news_app_view_NewsAdminViewPageDef"
+          path="com.pp.news.app.view.pageDefs.NewsAdminViewPageDef"/>
+    <page id="com_pp_news_app_view_NewsPageDef"
+          path="com.pp.news.app.view.pageDefs.NewsPageDef"/>
+    <page id="com_pp_news_app_view_NewsAdminTFDef_NewsAdminTFDef_CreateInsertPageDef"
+          path="NewsAdminTaskFlow.NewsAdminTFDef_NewsAdminTFDef_CreateInsertPageDef"/>
+    <page id="com_pp_news_app_view_NewsAdminViewARPageDef"
+          path="com.pp.news.app.view.pageDefs.NewsAdminViewARPageDef"/>
+    <page id="com_pp_news_app_view_NewsAdminTFDef_NewsAdminTFDef_CreateInsert1PageDef"
+          path="NewsAdminTaskFlow.NewsAdminTFDef_NewsAdminTFDef_CreateInsert1PageDef"/>
+    <page id="com_pp_news_app_view_EventsAdminTFDef_EventsAdminTFDef_CreateInsertPageDef"
+          path="EventsTaskFlow.EventsAdminTFDef_EventsAdminTFDef_CreateInsertPageDef"/>
+    <page id="com_pp_news_app_view_EventsEnPageDef"
+          path="com.pp.news.app.view.pageDefs.EventsEnPageDef"/>
+    <page id="com_pp_news_app_view_EventsPageDef"
+          path="com.pp.news.app.view.pageDefs.EventsPageDef"/>
+    <page id="com_pp_news_app_view_eventsArPageDef"
+          path="com.pp.news.app.view.pageDefs.eventsArPageDef"/>
+    <page id="com_pp_news_app_view_EventsAdminTFDef_EventsAdminTFDef_CreateInsert1PageDef"
+          path="EventsTaskFlow.EventsAdminTFDef_EventsAdminTFDef_CreateInsert1PageDef"/>
+    <page id="com_pp_news_app_view_NewsListPageDef"
+          path="com.pp.news.app.view.pageDefs.NewsListPageDef"/>
+    <page id="com_pp_news_app_view_NewsListArPageDef"
+          path="com.pp.news.app.view.pageDefs.NewsListArPageDef"/>
+    <page id="com_pp_news_app_view_NewsAdminTFDef_NewsAdminTFDef_RollbackPageDef"
+          path="NewsAdminTaskFlow.NewsAdminTFDef_NewsAdminTFDef_RollbackPageDef"/>
+    <page id="com_pp_news_app_view_EventsListEnPageDef"
+          path="com.pp.news.app.view.pageDefs.EventsListEnPageDef"/>
+    <page id="com_pp_news_app_view_EventsAdminTFDef_EventsAdminTFDef_RollbackPageDef"
+          path="EventsTaskFlow.EventsAdminTFDef_EventsAdminTFDef_RollbackPageDef"/>
+    <page id="com_pp_news_app_view_EventsListArPageDef"
+          path="com.pp.news.app.view.pageDefs.EventsListArPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="NewsAppModuleServiceDataControl"
+                     Package="com.pp.news.app.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="NewsAppModuleServiceLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

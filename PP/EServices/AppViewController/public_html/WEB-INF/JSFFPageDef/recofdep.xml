@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="recofdep">
+    <default-activity id="__1">servDescTFDef</default-activity>
+    <data-control-scope id="__43">
+      <isolated/>
+    </data-control-scope>
+    <input-parameter-definition id="__59">
+      <name id="__60">key</name>
+      <value>#{pageFlowScope.key}</value>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__62">
+      <name id="__61">locale</name>
+      <value>#{pageFlowScope.locale}</value>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__74">
+      <name id="__73">eservice</name>
+      <value>#{pageFlowScope.eservice}</value>
+    </input-parameter-definition>
+    <managed-bean id="__14">
+      <managed-bean-name id="__16">AppservicesRecvofDep</managed-bean-name>
+      <managed-bean-class id="__15">com.app.view.beans.AppService</managed-bean-class>
+      <managed-bean-scope id="__17">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__44">
+      <managed-bean-name id="__39">CustomValidator</managed-bean-name>
+      <managed-bean-class id="__37">com.app.view.beans.CustomValidators</managed-bean-class>
+      <managed-bean-scope id="__38">request</managed-bean-scope>
+    </managed-bean>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__2">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="recdeopchrg">
+      <page>/WEB-INF/JSFF Pages/recdeopchrg.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome id="__3">
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <view id="SuccessMsgView">
+      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+    </view>
+    <view id="NotPartyView">
+      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+    </view>
+    <router id="router1">
+      <case>
+        <expression>#{empty sessionScope.login}</expression>
+        <outcome id="__58">login</outcome>
+      </case>
+      <default-outcome>go</default-outcome>
+    </router>
+    <task-flow-call id="eserviceLoginTFDef">
+      <task-flow-reference>
+        <document>/WEB-INF/JSFFPageDef/eserviceLoginTFDef.xml</document>
+        <id>eserviceLoginTFDef</id>
+      </task-flow-reference>
+      <input-parameter id="__84">
+        <name>locale</name>
+        <value>#{pageFlowScope.locale}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="servDescTFDef">
+      <task-flow-reference>
+        <document>/WEB-INF/JSFFPageDef/servDescTFDef.xml</document>
+        <id>servDescTFDef</id>
+      </task-flow-reference>
+      <input-parameter id="__68">
+        <name>key</name>
+        <value>#{pageFlowScope.key}</value>
+      </input-parameter>
+      <input-parameter id="__69">
+        <name>locale</name>
+        <value>#{pageFlowScope.locale}</value>
+      </input-parameter>
+      <input-parameter id="__81">
+        <name>eservice</name>
+        <value>#{pageFlowScope.eservice}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="ChgPwrdTFDef">
+      <task-flow-reference>
+        <document>/WEB-INF/JSFFPageDef/ChgPwrdTFDef.xml</document>
+        <id>ChgPwrdTFDef</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="EditProfileTFDef">
+      <task-flow-reference>
+        <document>/WEB-INF/JSFFPageDef/EditProfileTFDef.xml</document>
+        <id>EditProfileTFDef</id>
+      </task-flow-reference>
+      <input-parameter id="__82">
+        <name>eservice</name>
+        <value>#{pageFlowScope.eservice}</value>
+      </input-parameter>
+      <input-parameter id="__83">
+        <name>locale</name>
+        <value>#{pageFlowScope.locale}</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__4">
+      <from-activity-id id="__5">CreateInsert</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__8">CreateInsert</from-outcome>
+        <to-activity-id id="__7">recdeopchrg</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id id="__10">recdeopchrg</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome id="__13">exit1</from-outcome>
+        <to-activity-id id="__11">taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome id="__20">N</from-outcome>
+        <to-activity-id id="__19">NotPartyView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__26">
+        <from-outcome id="__28">Y</from-outcome>
+        <to-activity-id id="__27">SuccessMsgView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__35">
+        <from-outcome id="__36">aftrl</from-outcome>
+        <to-activity-id id="__34">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__70">
+        <from-outcome id="__72">logout</from-outcome>
+        <to-activity-id id="__71">eserviceLoginTFDef</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__75">
+        <from-outcome id="__77">chgpwrd</from-outcome>
+        <to-activity-id id="__76">ChgPwrdTFDef</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__78">
+        <from-outcome id="__80">editprf</from-outcome>
+        <to-activity-id id="__79">EditProfileTFDef</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id id="__22">NotPartyView</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome id="__25">renter</from-outcome>
+        <to-activity-id id="__24">recdeopchrg</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__41">
+        <from-outcome id="__42">exit</from-outcome>
+        <to-activity-id id="__40">taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id id="__30">SuccessMsgView</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome id="__33">exitsh</from-outcome>
+        <to-activity-id id="__31">taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__45">
+      <from-activity-id id="__46">router1</from-activity-id>
+      <control-flow-case id="__48">
+        <from-outcome id="__49">go</from-outcome>
+        <to-activity-id id="__47">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__51">
+        <from-outcome id="__52">login</from-outcome>
+        <to-activity-id id="__50">eserviceLoginTFDef</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__53">
+      <from-activity-id id="__54">eserviceLoginTFDef</from-activity-id>
+      <control-flow-case id="__56">
+        <from-outcome id="__55">mainpage</from-outcome>
+        <to-activity-id id="__57">CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__63">
+      <from-activity-id id="__64">servDescTFDef</from-activity-id>
+      <control-flow-case id="__65">
+        <from-outcome id="__67">service</from-outcome>
+        <to-activity-id id="__66">router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

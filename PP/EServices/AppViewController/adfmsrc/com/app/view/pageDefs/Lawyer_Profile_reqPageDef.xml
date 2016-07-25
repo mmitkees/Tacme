@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="Lawyer_Profile_reqPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqLawyerProfileReqView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqLawyerProfileReqView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqLawyerProfileReqView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqLawyerProfileReqView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqLawyerProfileReqView1Iterator"
+                     id="ContractNumber">
+      <AttrNames>
+        <Item Value="ContractNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqLawyerProfileReqView1Iterator"
+                     id="DefendentName">
+      <AttrNames>
+        <Item Value="DefendentName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="ReqLawyerProfileReqView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName1" DTSupportsMRU="true"/>
+    <list IterBinding="ReqLawyerProfileReqView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelationCase1" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

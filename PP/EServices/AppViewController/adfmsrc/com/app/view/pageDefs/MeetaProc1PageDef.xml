@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="MeetaProc1PageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqMeetProCheifView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqMeetProCheifView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqMeetProCheifView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqMeetProCheifView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqMeetProCheifView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="Prosecutionname" DTSupportsMRU="false"/>
+    <list IterBinding="ReqMeetProCheifView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="Relationcase" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqMeetProCheifView1Iterator"
+                     id="RequestSubject">
+      <AttrNames>
+        <Item Value="RequestSubject"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqMeetProCheifView1Iterator"
+                     id="InterviewDate">
+      <AttrNames>
+        <Item Value="InterviewDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqMeetProCheifView1Iterator"
+                     id="InterviewTime">
+      <AttrNames>
+        <Item Value="InterviewTime"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqMeetProCheifView1Iterator" StaticList="false"
+          Uses="LOV_PersonToMeet_en" id="PersonToMeet" DTSupportsMRU="false"/>
+  </bindings>
+</pageDefinition>

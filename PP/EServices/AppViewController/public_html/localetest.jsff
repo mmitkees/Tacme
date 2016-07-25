@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="appviewcontrollerBundle"
+         value="#{adfBundle['com.app.view.AppViewControllerBundle']}"/>
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:panelGridLayout id="pgl2">
+      <af:gridRow marginTop="5px" height="auto" id="gr4">
+        <af:gridCell marginStart="5px" width="50%" id="gc8">
+          <af:outputText value="#{appviewcontrollerBundle.TEST_STRING1}" id="ot1"/>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc2">
+          <af:outputText value="#{appviewcontrollerBundle.TEST_STRING2}" id="ot2"/>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="5px" height="auto" id="gr2">
+        <af:gridCell marginStart="5px" width="50%" id="gc10">
+          <af:outputText value="#{appviewcontrollerBundle.TEXT_MESSAGE}" id="ot3"/>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc3">
+          <af:outputText value="#{appviewcontrollerBundle.COMPANY_TACME}" id="ot4"/>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="5px" height="auto" id="gr5">
+        <af:gridCell marginStart="5px" width="50%" id="gc5">
+          <af:outputText value="#{appviewcontrollerBundle.TEST_MESSAGE}" id="ot5"/>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc6">
+          <af:outputText value="#{appviewcontrollerBundle.SOME_ENGLISH_TEST}" id="ot6"/>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="5px" height="auto" id="gr1">
+        <af:gridCell marginStart="5px" width="50%" id="gc4">
+          <af:outputText value="#{appviewcontrollerBundle.ALPHA_NUMERIC}" id="ot7"/>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc9">
+          <af:outputText value="#{appviewcontrollerBundle.PROJECT_MANAGEMENT}" id="ot8"/>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr3">
+        <af:gridCell marginStart="5px" width="50%" id="gc7">
+          <af:outputText value="#{appviewcontrollerBundle.DUBAI_PPPROJECT}" id="ot9"/>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc1">
+          <af:outputText value="#{appviewcontrollerBundle.SOME_VALUE}" id="ot10"/>
+        </af:gridCell>
+      </af:gridRow>
+    </af:panelGridLayout>
+    <af:panelGroupLayout id="pgl3" layout="horizontal">
+      <af:commandButton text="English" id="cb1"
+                        action="#{testLocaleBean.showInEnglish}">
+        <af:setActionListener from="#{'en'}"
+                                        to="#{sessionScope.locale}"/>
+      </af:commandButton>
+      <af:spacer width="10" height="10" id="s1"/>
+      <af:commandButton text="Arabicl" id="cb2">
+        <af:setActionListener from="#{'ar'}"
+                                        to="#{sessionScope.locale}"/>
+      </af:commandButton>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

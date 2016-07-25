@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html">
+   <af:panelGroupLayout id="pgl1" layout="scroll">
+      <af:menuBar id="mb1">
+         <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Click_here_for_E-Services']}" id="cl1"
+                         action="#{pageFlowScope.eservice}" rendered="false"/>
+         <af:spacer width="10" height="10" id="s1"/>
+         <af:outputText id="cl2"
+                        value="#{appviewcontrollerbundle.p_Welcome}: #{sessionScope.name}"/>
+         <af:spacer width="10" height="10" id="s2"/>
+         <af:commandLink text="#{appviewcontrollerbundle.p_Logout}" id="cl3" action="logout"
+                         actionListener="#{Appservices_pportrenewal.logOutAction}"/>
+         <af:spacer width="10" height="10" id="s3"/>
+         <af:commandLink text="#{appviewcontrollerbundle.p_Change_password}" id="cl4" action="chgpwrd"/>
+         <af:spacer width="10" height="10" id="s4"/>
+         <af:commandLink text="#{appviewcontrollerbundle.p_Edit_Profile}" id="cl5" action="editprf"/>
+      </af:menuBar>
+      <af:panelGroupLayout id="pgl12" layout="vertical"
+                           styleClass="eServicesHeading">
+         <af:outputText value="#{appviewcontrollerbundle.P_Pass_Ren}"
+                        id="ot1"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl11" styleClass="eServicesFormData"
+                           layout="vertical">
+         <af:panelGroupLayout id="cil9" layout="vertical">
+            <af:outputText value="#{appviewcontrollerbundle.p_caseinfo}"
+                           id="ot4" styleClass="casEinfo_hEad"/>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl10" layout="vertical">
+            <af:panelGroupLayout id="pgl9" layout="vertical">
+               <af:panelFormLayout id="pfl1" maxColumns="2" rows="1"
+                                   styleClass="service">
+                  <af:panelFormLayout id="pfl2">
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_case_no}*"
+                                              id="plam1" partialTriggers="it1">
+                        <af:inputText value="#{bindings.CaseNo.inputValue}"
+                                      required="#{bindings.CaseNo.hints.mandatory}"
+                                      columns="#{bindings.CaseNo.hints.displayWidth}"
+                                      maximumLength="#{bindings.CaseNo.hints.precision}"
+                                      shortDesc="#{bindings.CaseNo.hints.tooltip}"
+                                      simple="true" id="it1" immediate="true"
+                                      autoSubmit="true"
+                                      validator="#{CustomValidator.caseNoValidator}"
+                                      valueChangeListener="#{Appservices_pportrenewal.CaseNoCheckVCL}">
+                           <f:validator binding="#{bindings.CaseNo.validator}"/>
+                           <af:convertNumber groupingUsed="false"
+                                             pattern="#{bindings.CaseNo.format}"/>
+                        </af:inputText>
+                        <af:panelGroupLayout id="pgl2" layout="vertical"
+                                             rendered="#{Appservices_pportrenewal.cn eq 'Y'}"
+                                             partialTriggers="it1"
+                                             binding="#{Appservices_pportrenewal.cnopg}">
+                           <af:outputText value="#{appviewcontrollerbundle.p_cno_invalid}"
+                                          id="ot6"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_prosection_name}*"
+                                              id="plam3" partialTriggers="soc2">
+                        <af:selectOneChoice value="#{bindings.Prosecutionname.inputValue}"
+                                            required="#{bindings.Prosecutionname.hints.mandatory}"
+                                            shortDesc="#{bindings.Prosecutionname.hints.tooltip}"
+                                            simple="true" id="soc2"
+                                            immediate="true"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--النيابة المختصة-->' : '&lt;--Prosecution name-->'}"
+                                            autoSubmit="true"
+                                            valueChangeListener="#{Appservices_pportrenewal.ProsNameCheckVCL}">
+                           <f:selectItems value="#{bindings.Prosecutionname.items}"
+                                          id="si2"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="pgl6" layout="vertical"
+                                             rendered="#{Appservices_pportrenewal.pc eq 'Y' ? true : false}"
+                                             partialTriggers="soc2">
+                           <af:outputText value="#{appviewcontrollerbundle.p_pnme_invalid}"
+                                          id="ot8"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_pasnum}*"
+                                              id="plam5" partialTriggers="it2">
+                        <af:inputText value="#{bindings.PassportNo.inputValue}"
+                                      simple="true" autoSubmit="true"
+                                      required="#{bindings.PassportNo.hints.mandatory}"
+                                      columns="#{bindings.PassportNo.hints.displayWidth}"
+                                      maximumLength="#{bindings.PassportNo.hints.precision}"
+                                      shortDesc="#{bindings.PassportNo.hints.tooltip}"
+                                      id="it2">
+                           <f:validator binding="#{bindings.PassportNo.validator}"/>
+                        </af:inputText>
+                        <af:panelGroupLayout id="pgid" layout="vertical"
+                                             rendered="#{Appservices_pportrenewal.pno eq 'Y'}"
+                                             partialTriggers="it2">
+                           <af:outputText value="#{appviewcontrollerbundle.p_invpasnum}"
+                                          id="otid"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                       <af:panelLabelAndMessage label=" #{appviewcontrollerbundle.p_pasisdte}*" id="plam7">
+                        <af:inputDate value="#{bindings.PassportIssueDate.inputValue}"
+                                      required="#{bindings.PassportIssueDate.hints.mandatory}"
+                                      shortDesc="#{bindings.PassportIssueDate.hints.tooltip}"
+                                      id="id1" simple="true" autoSubmit="true"
+                                      maxValue="#{Appservices_pportrenewal.currentDate}"> 
+                           <f:validator binding="#{bindings.PassportIssueDate.validator}"/>
+                           <af:convertDateTime pattern="dd-MM-yyyy"/>
+                        </af:inputDate>
+                        <af:panelGroupLayout id="pgid1" layout="vertical"
+                                             rendered="#{Appservices_pportrenewal.pid eq 'Y'}"
+                                             partialTriggers="id1">
+                           <af:outputText value="#{appviewcontrollerbundle.p_invpasisdte}"
+                                          id="otid1"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     
+                  </af:panelFormLayout>
+                  <af:panelFormLayout id="pfl3">
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_case_year}*"
+                                              id="plam2" partialTriggers="soc1">
+                        <af:selectOneChoice value="#{bindings.CaseYear.inputValue}"
+                                            required="#{bindings.CaseYear.hints.mandatory}"
+                                            shortDesc="#{bindings.CaseYear.hints.tooltip}"
+                                            simple="true" id="soc1"
+                                            immediate="true" autoSubmit="true"
+                                            valueChangeListener="#{Appservices_pportrenewal.CaseYearCheckVCL}"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--سنة القضية-->' : '&lt;--Case year-->'}">
+                           <f:selectItems value="#{bindings.CaseYear.items}"
+                                          id="si1"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="pgl3" layout="vertical"
+                                             rendered="#{Appservices_pportrenewal.cy eq 'Y'}"
+                                             partialTriggers="soc1">
+                           <af:outputText value="#{appviewcontrollerbundle.p_cyr_invalid}"
+                                          id="ot7"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_relation_case}*"
+                                              id="plam4" partialTriggers="soc3">
+                        <af:selectOneChoice value="#{bindings.Relationcase.inputValue}"
+                                            required="#{bindings.Relationcase.hints.mandatory}"
+                                            shortDesc="#{bindings.Relationcase.hints.tooltip}"
+                                            simple="true" id="soc3"
+                                            immediate="true"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--العلاقة بالقضية-->' : '&lt;--Relation case-->'}"
+                                            autoSubmit="true"
+                                            valueChangeListener="#{Appservices_pportrenewal.RelationCaseCheckVCL}">
+                           <f:selectItems value="#{bindings.Relationcase.items}"
+                                          id="si3"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="pgl8" layout="vertical"
+                                             rendered="#{Appservices_pportrenewal.rc eq 'Y'}"
+                                             partialTriggers="soc3">
+                           <af:outputText value="#{appviewcontrollerbundle.p_rcase_invalid}"
+                                          id="ot9"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                       <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_pasexpdte}*" id="plam6">
+                        <af:inputDate value="#{bindings.PassportExpiryDate.inputValue}"
+                                      required="#{bindings.PassportExpiryDate.hints.mandatory}"
+                                      shortDesc="#{bindings.PassportExpiryDate.hints.tooltip}"
+                                      id="id2" simple="true">
+                           <f:validator binding="#{bindings.PassportExpiryDate.validator}"/>
+                           <af:convertDateTime pattern="dd-MM-yyyy"/>
+                        </af:inputDate>
+                        <af:panelGroupLayout id="pged" layout="vertical"
+                                             rendered="#{Appservices_pportrenewal.ed eq 'Y'}"
+                                             partialTriggers="id2">
+                           <af:outputText
+                                          id="oted"
+                                          styleClass="eServicesFormDataMessage"
+                                          value="#{appviewcontrollerbundle.p_invpasexpdte}"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     
+                  </af:panelFormLayout>
+               </af:panelFormLayout>
+               
+            </af:panelGroupLayout>
+            <!--<af:panelGroupLayout id="pgl7" layout="vertical">
+               <af:panelGroupLayout id="pgl5" layout="vertical">
+                  <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_uploadfile']}"
+                                 id="ot10"
+                                 styleClass="eServicesFormDataUpLoad"/>
+               </af:panelGroupLayout>
+               <af:panelGroupLayout id="pgl4" layout="vertical"
+                                    styleClass="AFStretchWidth">
+                  <af:inputFile id="if1" autoHeightRows="-1"
+                                disabled="#{Appservices_pportrenewal.DFlag eq 'Y'}"
+                                maximumFiles="5"
+                                value="#{ Appservices_pportrenewal.uploadedfile}"
+                                rows="5" uploadType="autoIfMultiple"
+                                binding="#{Appservices_pportrenewal.upFileBind}"/>
+               </af:panelGroupLayout>
+            </af:panelGroupLayout>-->
+            
+            <af:panelGroupLayout id="pgl4" layout="vertical">
+            
+          <af:panelFormLayout id="pfl6" rows="1" maxColumns="1"
+                              styleClass="service">
+            <af:panelFormLayout id="pfl5">
+              <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_uploadfile}"
+                                       id="plam8">
+                <af:inputFile id="if1" autoHeightRows="-1"
+                                disabled="#{Appservices_pportrenewal.DFlag eq 'Y'}"
+                                maximumFiles="5"
+                                value="#{ Appservices_pportrenewal.uploadedfile}"
+                                rows="5" uploadType="autoIfMultiple"
+                                binding="#{Appservices_pportrenewal.upFileBind}"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelFormLayout>
+       <af:outputText value="#{appviewcontrollerbundle.p_frmtsattach}" id="afot2"/>
+        </af:panelGroupLayout>
+            
+            
+            
+            
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="panelGroupLayout1" layout="vertical"><af:panelFormLayout id="pfl4" rows="1" maxColumns="2">
+               <af:commandButton text="#{appviewcontrollerbundle.p_submit}"
+                                 id="commandButton1"
+                                 action="#{Appservices_pportrenewal.PPRenewal_action}"
+                                 disabled="#{Appservices_pportrenewal.DFlag eq 'Y'}"
+                                 styleClass="btn-action "/>
+               <af:commandButton text="#{appviewcontrollerbundle.p_clear}"
+                                 id="commandButton2"
+                                 disabled="#{Appservices_pportrenewal.DFlag eq 'Y'}"
+                                 styleClass="btn-secondary" action="aftrl"/>
+            </af:panelFormLayout>
+         </af:panelGroupLayout>
+      </af:panelGroupLayout>
+   </af:panelGroupLayout>
+</jsp:root>

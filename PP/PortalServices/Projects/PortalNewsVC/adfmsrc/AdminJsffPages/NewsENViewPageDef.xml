@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="NewsENViewPageDef"
+                Package="AdminJsffPages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NewsDetailsView1" RangeSize="25"
+              DataControl="PortalNewsServiceDataControl"
+              id="NewsDetailsView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="NewsDetailsView1Iterator" id="NewsId">
+      <AttrNames>
+        <Item Value="NewsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsDetailsView1Iterator" id="NewsDate">
+      <AttrNames>
+        <Item Value="NewsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsDetailsView1Iterator" id="NewsSubj">
+      <AttrNames>
+        <Item Value="NewsSubj"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsDetailsView1Iterator" id="NewsDesc">
+      <AttrNames>
+        <Item Value="NewsDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsDetailsView1Iterator" id="NewsDetails1">
+      <AttrNames>
+        <Item Value="NewsDetails1"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="PortalNewsServiceDataControl"/>
+    <methodAction id="setImagePath"
+                  InstanceName="PortalNewsServiceDataControl.dataProvider"
+                  DataControl="PortalNewsServiceDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setImagePath" IsViewObjectMethod="false">
+      <NamedData NDName="path" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:panelGroupLayout layout="vertical" id="pgl2">
+      <af:panelHeader text="Complains &amp; Suggestions" id="ph1">
+        <af:query id="qryId1" headerText="Search" disclosed="true"
+                  value="#{bindings.ComplainsSuggestionsViewCriteriaQuery.queryDescriptor}"
+                  model="#{bindings.ComplainsSuggestionsViewCriteriaQuery.queryModel}"
+                  queryListener="#{bindings.ComplainsSuggestionsViewCriteriaQuery.processQuery}"
+                  queryOperationListener="#{bindings.ComplainsSuggestionsViewCriteriaQuery.processQueryOperation}"
+                  resultComponentId="::pc1:resId1"/>
+      </af:panelHeader>
+      <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t1">
+            <af:commandToolbarButton text="Export To Excel" id="ctb1">
+              <af:exportCollectionActionListener exportedId="resId1"
+                                                 type="excelHTML"/>
+            </af:commandToolbarButton>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.ComplainsSuggestionsView1.collectionModel}"
+                  var="row"
+                  rows="#{bindings.ComplainsSuggestionsView1.rangeSize}"
+                  emptyText="#{bindings.ComplainsSuggestionsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.ComplainsSuggestionsView1.rangeSize}"
+                  rowBandingInterval="0"
+                  filterModel="#{bindings.ComplainsSuggestionsViewCriteriaQuery.queryDescriptor}"
+                  queryListener="#{bindings.ComplainsSuggestionsViewCriteriaQuery.processQuery}"
+                  filterVisible="true" varStatus="vs"
+                  selectedRowKeys="#{bindings.ComplainsSuggestionsView1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.ComplainsSuggestionsView1.collectionModel.makeCurrent}"
+                  rowSelection="single" id="resId1" styleClass="AFStretchWidth"
+                  columnStretching="column:resId1c4">
+          <af:column sortProperty="#{bindings.ComplainsSuggestionsView1.hints.SenderName.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ComplainsSuggestionsView1.hints.SenderName.label}"
+                     id="resId1c1" width="150">
+            <af:outputText value="#{row.SenderName}" id="ot1"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ComplainsSuggestionsView1.hints.SendDate.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ComplainsSuggestionsView1.hints.SendDate.label}"
+                     id="resId1c2" width="150">
+            <f:facet name="filter">
+              <af:inputDate value="#{vs.filterCriteria.SendDate}" id="id1"/>
+            </f:facet>
+            <af:outputText value="#{row.SendDate}" id="ot3">
+              <af:convertDateTime pattern="#{bindings.ComplainsSuggestionsView1.hints.SendDate.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.ComplainsSuggestionsView1.hints.SenderEmail.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ComplainsSuggestionsView1.hints.SenderEmail.label}"
+                     id="resId1c3" width="150">
+            <af:outputText value="#{row.SenderEmail}" id="ot4"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ComplainsSuggestionsView1.hints.MessageBody.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ComplainsSuggestionsView1.hints.MessageBody.label}"
+                     id="resId1c4">
+            <af:outputText value="#{row.MessageBody}" id="ot2"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ComplainsSuggestionsView1.hints.MessageType.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ComplainsSuggestionsView1.hints.MessageType.label}"
+                     id="resId1c5">
+            <af:outputText value="#{row.MessageType}" id="ot5"/>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="VisitProvDetViewPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqVisitProvDetView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqVisitProvDetView1Iterator"/>
+    <iterator Binds="ReqAttachmentsViewVPD" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsViewVPDIterator"/>
+    <iterator Binds="ReqPrisonerInfoView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqPrisonerInfoView1Iterator"/>
+    <searchRegion Binds="ReqPrisonerVisitorsInfoView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ReqPrisonerVisitorsInfoView1Query"/>
+    <iterator id="ReqPrisonerVisitorsInfoView1Iterator"
+              Binds="ReqPrisonerVisitorsInfoView1"
+              DataControl="PPAppServicesDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqVisitProvDetView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqVisitProvDetView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <tree IterBinding="ReqAttachmentsViewVPDIterator"
+          id="ReqAttachmentsViewVPD">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsViewVPD0">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsViewVPDIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="ReqVisitProvDetView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="true"/>
+    <list IterBinding="ReqVisitProvDetView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_ar" id="RelationCase" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqVisitProvDetView1Iterator" id="VisitDate">
+      <AttrNames>
+        <Item Value="VisitDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqVisitProvDetView1Iterator"
+                     id="VisitPurpose">
+      <AttrNames>
+        <Item Value="VisitPurpose"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqPrisonerInfoView1Iterator" id="PrName">
+      <AttrNames>
+        <Item Value="PrName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqPrisonerInfoView1Iterator"
+                     id="PrNationality">
+      <AttrNames>
+        <Item Value="PrNationality"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqPrisonerInfoView1Iterator" id="PrPrisonId">
+      <AttrNames>
+        <Item Value="PrPrisonId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ReqPrisonerVisitorsInfoView1Iterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+   <methodAction id="getRowDelete"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  DataControl="PPAppServicesDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getRowDelete" IsViewObjectMethod="false">
+      <NamedData NDName="rindex" NDValue="#{vs.index}" NDType="int"/>
+    </methodAction>
+    <action IterBinding="ReqPrisonerVisitorsInfoView1Iterator" id="CreateInsert"
+            InstanceName="PPAppServicesDataControl.ReqPrisonerVisitorsInfoView1"
+            DataControl="PPAppServicesDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="ReqPrisonerVisitorsInfoView1Iterator"
+          id="ReqPrisonerVisitorsInfoView1">
+      <nodeDefinition DefName="com.app.model.views.ReqPrisonerVisitorsInfoView"
+                      Name="ReqPrisonerVisitorsInfoView10">
+        <AttrNames>
+          <Item Value="VrId"/>
+          <Item Value="PvReqId"/>
+          <Item Value="VrEmail"/>
+          <Item Value="VrName"/>
+          <Item Value="VrPhone"/>
+          <Item Value="VrRelation"/>
+          <Item Value="VrStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

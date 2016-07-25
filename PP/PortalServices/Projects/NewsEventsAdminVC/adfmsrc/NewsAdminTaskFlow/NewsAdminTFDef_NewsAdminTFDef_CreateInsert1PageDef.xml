@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="NewsAdminTFDef_NewsAdminTFDef_CreateInsert1PageDef"
+                Package="NewsAdminTaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="NewsDetailsArView1" RangeSize="25"
+              DataControl="NewsAppModuleServiceDataControl"
+              id="NewsDetailsArView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="NewsDetailsArView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

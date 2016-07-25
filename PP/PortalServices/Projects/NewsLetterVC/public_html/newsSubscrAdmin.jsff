@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <!--oracle-jdev-comment:preferred-managed-bean-name:newsSubAdminBean-->
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+    <af:panelBox text="News Letter Admin" id="pb1" styleClass="AFStretchWidth">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl3" layout="vertical"
+                           styleClass="eServicesFormData">
+        <af:panelGroupLayout id="pgl4" layout="vertical">
+          <af:panelFormLayout id="pfl3" maxColumns="2" rows="2">
+          <af:panelLabelAndMessage label="#{appviewcontroller.p_Sub}" id="plam2">
+              <af:inputText id="it1" value="#{newsSubAdminBean.subj}"
+                            simple="true" immediate="true"/>
+            </af:panelLabelAndMessage>
+             <af:panelLabelAndMessage label="#{appviewcontroller.p_nlbdy}" id="plam3">
+              <af:inputText id="it2" value="#{newsSubAdminBean.txt}"
+                            simple="true" immediate="true" rows="3"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontroller.p_nlcateg}"
+                                     id="plam1">
+              <af:selectManyListbox value="#{bindings.CategoriesView1.inputValue}"
+                                    id="sml1" simple="true" immediate="true"
+                                    size="20">
+                <f:selectItems value="#{bindings.CategoriesView1.items}"
+                               id="si1"/>
+              </af:selectManyListbox>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl5" layout="vertical">
+          <af:panelGroupLayout id="pgl7" layout="vertical">
+            <af:outputText value="#{appviewcontroller.p_caupfile}" id="ot2"
+                         styleClass="eServicesFormDataUpLoad"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl8" layout="vertical"
+                               styleClass="AFStretchWidth">
+            <af:inputFile id="if1" maximumFiles="5"
+                          value="#{newsSubAdminBean.uploadFile}"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl6" layout="vertical">
+          <af:panelFormLayout id="pfl1" rows="1" maxColumns="2">
+              <af:commandButton text="#{appviewcontroller.p_send}" id="cb1"
+                            action="#{newsSubAdminBean.send_action}"
+                            styleClass="btn-action"/>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="Adding Categories" id="pb2" styleClass="AFStretchWidth">
+      <f:facet name="toolbar"/>
+      <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t2">
+            <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                              text="CreateInsert"
+                              disabled="#{!bindings.CreateInsert.enabled}"
+                              id="cb2"/>
+            <af:commandButton actionListener="#{bindings.Delete.execute}"
+                              text="Delete"
+                              disabled="#{!bindings.Delete.enabled}" id="cb3"/>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.CategoriesView11.collectionModel}" var="row"
+                  rows="#{bindings.CategoriesView11.rangeSize}"
+                  emptyText="#{bindings.CategoriesView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.CategoriesView11.rangeSize}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.CategoriesView11.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.CategoriesView11.collectionModel.makeCurrent}"
+                  rowSelection="single" id="t1" styleClass="AFStretchWidth"
+                  partialTriggers="::cb2 ::cb3">
+          <af:column sortProperty="#{bindings.CategoriesView11.hints.CategoriesId.name}"
+                     sortable="true"
+                     headerText="#{bindings.CategoriesView11.hints.CategoriesId.label}"
+                     id="c1">
+            <af:inputText value="#{row.bindings.CategoriesId.inputValue}"
+                          label="#{bindings.CategoriesView11.hints.CategoriesId.label}"
+                          required="#{bindings.CategoriesView11.hints.CategoriesId.mandatory}"
+                          columns="#{bindings.CategoriesView11.hints.CategoriesId.displayWidth}"
+                          maximumLength="#{bindings.CategoriesView11.hints.CategoriesId.precision}"
+                          shortDesc="#{bindings.CategoriesView11.hints.CategoriesId.tooltip}"
+                          id="it3">
+              <f:validator binding="#{row.bindings.CategoriesId.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CategoriesView11.hints.CategoriesName.name}"
+                     sortable="true"
+                     headerText="#{bindings.CategoriesView11.hints.CategoriesName.label}"
+                     id="c2">
+            <af:inputText value="#{row.bindings.CategoriesName.inputValue}"
+                          label="#{bindings.CategoriesView11.hints.CategoriesName.label}"
+                          required="#{bindings.CategoriesView11.hints.CategoriesName.mandatory}"
+                          columns="#{bindings.CategoriesView11.hints.CategoriesName.displayWidth}"
+                          maximumLength="#{bindings.CategoriesView11.hints.CategoriesName.precision}"
+                          shortDesc="#{bindings.CategoriesView11.hints.CategoriesName.tooltip}"
+                          id="it4">
+              <f:validator binding="#{row.bindings.CategoriesName.validator}"/>
+            </af:inputText>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </af:panelBox>
+  </af:panelGroupLayout>
+</jsp:root>

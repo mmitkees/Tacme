@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="EditProfileViewPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EditProfile1" RangeSize="25"
+              DataControl="PPAppServicesDataControl" id="EditProfile1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EditProfile1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EditProfile1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EditProfile1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EditProfile1Iterator" id="FamilyName">
+      <AttrNames>
+        <Item Value="FamilyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EditProfile1Iterator" id="Mobile">
+      <AttrNames>
+        <Item Value="Mobile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EditProfile1Iterator" id="Dob">
+      <AttrNames>
+        <Item Value="Dob"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EditProfile1Iterator" id="Education">
+      <AttrNames>
+        <Item Value="Education"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EditProfile1Iterator" id="EmiratesId">
+      <AttrNames>
+        <Item Value="EmiratesId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EditProfile1Iterator" id="EmiratesIdExpiry">
+      <AttrNames>
+        <Item Value="EmiratesIdExpiry"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EditProfile1Iterator" id="UnionNo">
+      <AttrNames>
+        <Item Value="UnionNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EditProfile1Iterator" id="Occupation">
+      <AttrNames>
+        <Item Value="Occupation"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="EditProfile1Iterator" StaticList="false"
+          Uses="LOV_Nationality_en" id="Nationality" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

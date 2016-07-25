@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ContactUsTFDef">
+    <default-activity id="__1">ContactUs</default-activity>
+    <data-control-scope id="__6">
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__12">
+      <name id="__11">locale</name>
+      <value>#{pageFlowScope.locale}</value>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__5">
+      <managed-bean-name id="__3">contactUsBean</managed-bean-name>
+      <managed-bean-class id="__4">com.app.view.beans.contactUs</managed-bean-class>
+      <managed-bean-scope id="__2">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__10">
+      <managed-bean-name id="__7">customValidatorBean</managed-bean-name>
+      <managed-bean-class id="__8">com.app.view.beans.CustomValidators</managed-bean-class>
+      <managed-bean-scope id="__9">request</managed-bean-scope>
+    </managed-bean>
+    <view id="ContactUs">
+      <page>/ContactUs.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

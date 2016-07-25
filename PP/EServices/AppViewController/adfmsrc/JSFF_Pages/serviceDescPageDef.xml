@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="serviceDescPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqSerDescVO1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqSerDescVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ReqSerDescVO1Iterator" id="ReqSerDescVO1">
+      <nodeDefinition DefName="com.app.model.views.ReqSerDescVO"
+                      Name="ReqSerDescVO10">
+        <AttrNames>
+          <Item Value="Conditions"/>
+          <Item Value="Fees"/>
+          <Item Value="Output"/>
+          <Item Value="PeriodOfSer"/>
+          <Item Value="Place"/>
+          <Item Value="PlaceToRecTrans"/>
+          <Item Value="RequiredDoc"/>
+          <Item Value="ServiceDef"/>
+          <Item Value="ServiceId"/>
+          <Item Value="ServiceName"/>
+          <Item Value="SummProcSteps"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

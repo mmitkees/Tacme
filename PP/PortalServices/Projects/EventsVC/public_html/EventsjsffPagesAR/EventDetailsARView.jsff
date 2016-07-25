@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+ <af:panelGroupLayout id="pgl2" layout="scroll">
+  <af:panelGroupLayout id="pgl7" layout="vertical"
+                       styleClass="eServicesHeading">
+   <af:outputText value="Event Details" id="ot2"/>
+  </af:panelGroupLayout>
+  <af:panelGroupLayout id="pgl5" layout="vertical">
+   <af:panelGroupLayout id="pgl3" layout="vertical" styleClass="middle-left">
+    <af:panelGroupLayout id="pgl8" layout="vertical">
+     <af:image source="#{bindings.EventUcmPath.inputValue}" id="i1"
+               styleClass="AFStretchWidth"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl9" layout="vertical" styleClass="right-section">
+     <af:outputText value="#{bindings.EventDetails.inputValue}" id="ot1"/>
+    </af:panelGroupLayout>
+   </af:panelGroupLayout>
+   <af:panelGroupLayout id="pgl4" layout="vertical" styleClass="middle-right">
+    <af:panelGroupLayout id="pgl10" layout="vertical">
+     <af:panelGridLayout id="pgl17">
+      <af:gridRow marginTop="0px" height="auto" id="gr1">
+       <af:gridCell marginStart="0px" width="50%" id="gc2">
+        <af:outputText value="Event Type" id="ot7"
+                       inlineStyle="background-color:transparent;"/>
+       </af:gridCell>
+       <af:gridCell marginStart="0px" marginEnd="0px" width="50%" id="gc5">
+        <af:outputText value="#{bindings.EventType.inputValue}" id="ot8"
+                       inlineStyle="background-color:transparent;"/>
+       </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="0px" height="auto" id="gr4">
+       <af:gridCell marginStart="0px" width="50%" id="gc6">
+        <af:outputText value="Dates" id="ot9"
+                       inlineStyle="background-color:transparent;"/>
+       </af:gridCell>
+       <af:gridCell marginStart="0px" marginEnd="0px" width="50%" id="gc3">
+        <af:outputText value="#{bindings.EventDate.inputValue}" id="ot10"
+                       inlineStyle="background-color:transparent;"/>
+       </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="0px" height="auto" id="gr3">
+       <af:gridCell marginStart="0px" width="50%" id="gc7">
+        <af:outputText value="Industry" id="ot11"
+                       inlineStyle="background-color:transparent;"/>
+       </af:gridCell>
+       <af:gridCell marginStart="0px" marginEnd="0px" width="50%" id="gc1">
+        <af:outputText value="#{bindings.EventIndustry.inputValue}" id="ot12"
+                       inlineStyle="background-color:transparent;"
+                       styleClass="twoLines"/>
+       </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="0px" height="auto" id="gr5">
+       <af:gridCell marginStart="0px" width="50%" id="gc4">
+        <af:outputText value="Attendees" id="ot13"
+                       inlineStyle="background-color:transparent;"/>
+       </af:gridCell>
+       <af:gridCell marginStart="0px" marginEnd="0px" width="50%" id="gc8">
+        <af:outputText value="#{bindings.EventAttendees.inputValue}" id="ot14"
+                       inlineStyle="background-color:transparent;"/>
+       </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="0px" marginBottom="0px" height="auto" id="gr2">
+       <af:gridCell marginStart="0px" width="50%" id="gc10">
+        <af:outputText value="Organized" id="ot15"
+                       inlineStyle="background-color:transparent;"/>
+       </af:gridCell>
+       <af:gridCell marginStart="0px" marginEnd="0px" width="50%" id="gc9">
+        <af:outputText value="#{bindings.EventOrg.inputValue}" id="ot16"
+                       inlineStyle="background-color:transparent;"/>
+       </af:gridCell>
+      </af:gridRow>
+     </af:panelGridLayout>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl11" layout="vertical" styleClass="eventOne">
+     <af:panelGroupLayout id="pgl12" layout="vertical"
+                          styleClass="eventOneImage">
+      <af:image source="/images/events5.png" id="i2"
+                styleClass="AFStretchWidth"/>
+     </af:panelGroupLayout>
+     <af:panelGroupLayout id="pgl13" layout="vertical" styleClass="event_title">
+      <af:outputText id="ot4" value="Duis aute irure dolor in"/>
+     </af:panelGroupLayout>
+     <af:panelGroupLayout id="pgl14" layout="vertical" styleClass="event-date">
+      <af:toolbar id="t1">
+       <af:commandImageLink text="11:50 to 06:30" id="cil1"
+                            icon="/images/clock.png"/>
+       <af:spacer width="10" height="10" id="s1"/>
+       <af:commandImageLink text="11/30/2014" id="cil2"
+                            icon="/images/calender.png"/>
+      </af:toolbar>
+     </af:panelGroupLayout>
+     <af:panelGroupLayout id="pgl15" layout="vertical"
+                          styleClass="event-description">
+      <af:outputText value="Duis aute irure dolor in reprehenderit in
+                                  voluptate velit esse cillum dolore eu fugiat
+                                  nulla pariatur. Excepteur sint occaecat
+                                  cupidatat non proident" id="ot6"/>
+     </af:panelGroupLayout>
+     <af:panelGroupLayout id="pgl16" layout="vertical" halign="center">
+      <af:commandButton text="View Detail" id="cb1"
+                        styleClass="btn-viewDetail"/>
+     </af:panelGroupLayout>
+    </af:panelGroupLayout>
+   </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  <af:panelGroupLayout id="pgl6" layout="vertical" styleClass="backtohome">
+   <af:commandLink text="Back" id="cl2" action="eventback"/>
+  </af:panelGroupLayout>
+ </af:panelGroupLayout>
+</jsp:root>

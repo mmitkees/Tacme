@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:form id="f1">
+    <af:panelGroupLayout id="pgl1" layout="scroll">
+      <af:panelGroupLayout id="pgl2" layout="vertical">
+        <af:panelGroupLayout id="pgl3" layout="vertical">
+          <af:outputText value="Welcome to Public Proseuction Online Services!"
+                         id="ot1"
+                         inlineStyle="background-position:0% 100%; background-repeat:repeat-x; color:#07578f; font-family:tahoma; font-size:16pt; font-weight:bold; padding:0pt; text-decoration:underline;"/>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl5" layout="vertical">
+          <af:spacer width="10" height="16" id="s1"/>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl4" layout="vertical">
+          <af:outputText value="      	Public Prosecution Welcomes all users and clients to their electronic services , which is     	available via the internet and internal electronic systems. Public Prosecution strives to      	develop and enhance all its electronic services to meet the users expectations.     	"
+                         id="ot2" inlineStyle="background-color:#fff;margin:0;padding:3px;font-family: tahoma;
+    font-size: 12px;"/>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:form>
+</jsp:root>

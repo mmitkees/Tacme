@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Created-By: Mohamed Mitkees
+Implementation-Title: PP-SharedLibs
+Extension-Name: pp.shared.lib
+Specification-Version: 2.3.37
+Implementation-Version: 2.3.37
+Implementation-Vendor: tacme

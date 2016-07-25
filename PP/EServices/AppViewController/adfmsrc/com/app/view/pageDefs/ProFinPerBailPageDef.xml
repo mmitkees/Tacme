@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="ProFinPerBailPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqProFinPerBailView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqProFinPerBailView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqProFinPerBailView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqProFinPerBailView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqProFinPerBailView1Iterator"
+                     id="AccusedName">
+      <AttrNames>
+        <Item Value="AccusedName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="ReqProFinPerBailView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="true"/>
+    <list IterBinding="ReqProFinPerBailView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelationCase" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

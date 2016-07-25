@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:panelBox text="#{attrs.uid}" id="pt_pb1" showDisclosure="false"
+                 inlineStyle="height:520px;">
+      <f:facet name="toolbar"/>
+      <af:panelSplitter id="pt_ps1" styleClass="AFStretchWidth"
+                        inlineStyle="height:485px;">
+        <f:facet name="first">
+          <af:panelGroupLayout layout="scroll"
+                               xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                               id="pt_pgl1">
+            <af:outputText value="Welcome, " id="pt_ot1"/>
+            <af:commandButton text="Welcome" id="pt_cb1" 
+            inlineStyle=" background-color:rgb(155,0,0);border-radius:6px;color:White;display:inline-block;font-size:13px;font-weight:bold;height:40px;width:160px;"/>
+            <af:commandButton text="E-Services" id="pt_cb2"
+            inlineStyle="background-color:#b28b37;box-shadow:0 1px 0 0 #52472b inset;border-radius:6px;color:White;display:inline-block;font-size:13px;font-weight:bold;height:40px;width:160px;">
+            </af:commandButton>
+            <af:commandButton text="Request Status" id="pt_cb3"
+            inlineStyle="background-color:#b28b37;box-shadow:0 1px 0 0 #52472b inset;border-radius:6px;color:White;display:inline-block;font-size:13px;font-weight:bold;height:40px;width:160px;"/>
+            <af:commandButton text="Edit Profile" id="pt_cb4"
+            inlineStyle="background-color:#b28b37;box-shadow:0 1px 0 0 #52472b inset;border-radius:6px;color:White;display:inline-block;font-size:13px;font-weight:bold;height:40px;width:160px;"/>
+            <af:commandButton text="Change Password" id="pt_cb5"
+            inlineStyle="background-color:#b28b37;box-shadow:0 1px 0 0 #52472b inset;border-radius:6px;color:White;display:inline-block;font-size:13px;font-weight:bold;height:40px;width:160px;"/>
+            <af:commandButton text="Submit Feedback" id="pt_cb6"
+            inlineStyle="background-color:#b28b37;box-shadow:0 1px 0 0 #52472b inset;border-radius:6px;color:White;display:inline-block;font-size:13px;font-weight:bold;height:40px;width:160px;"/>
+            <af:commandButton text="Logout" id="pt_cb7"
+            inlineStyle="background-color:#b28b37;box-shadow:0 1px 0 0 #52472b inset;border-radius:6px;color:White;display:inline-block;font-size:13px;font-weight:bold;height:40px;width:160px;"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+          <af:facetRef facetName="Center"/>
+        </f:facet>
+      </af:panelSplitter>
+    </af:panelBox>
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>ADFPageTemplate</display-name>
+        <facet>
+          <description>Center</description>
+          <facet-name>Center</facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>Tittle</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+        <attribute>
+          <attribute-name>uid</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+      </component>
+    </af:xmlContent>
+  </af:pageTemplateDef>
+</jsp:root>
