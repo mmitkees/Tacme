@@ -7,8 +7,12 @@
       <value>#{pageFlowScope.invoiceNo}</value>
     </input-parameter-definition>
     <input-parameter-definition id="__19">
-      <name id="__20">statusMessage</name>
-      <value>#{pageFlowScope.statusMessage}</value>
+      <name id="__20">StatusCode</name>
+      <value>#{pageFlowScope.StatusCode}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__6">
+      <name id="__7">transMessage</name>
+      <value>#{pageFlowScope.transMessage}</value>
     </input-parameter-definition>
     <managed-bean id="__3">
       <managed-bean-name id="__5">eDhirhamResponse</managed-bean-name>

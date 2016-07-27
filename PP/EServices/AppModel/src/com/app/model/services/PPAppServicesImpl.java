@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
 import oracle.adf.share.ADFContext;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewCriteria;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.ApplicationModuleImpl;
@@ -2071,7 +2072,10 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
             chgpwrdview.setNamedWhereClauseParam("b_id",
                                                  ADFContext.getCurrent().getSessionScope().get("uid"));
             //            chgpwrdview.setNamedWhereClauseParam("b_id", 161);
-            System.out.println ("Obtianed ID :: "+ADFContext.getCurrent().getSessionScope().get("uid")+" :Estimated count "+chgpwrdview.getEstimatedRowCount());
+            System.out.println("Obtianed ID :: " +
+                               ADFContext.getCurrent().getSessionScope().get("uid") +
+                               " :Estimated count " +
+                               chgpwrdview.getEstimatedRowCount());
             chgpwrdview.setNamedWhereClauseParam("b_pwrd", c_pwrd);
             chgpwrdview.executeQuery();
             if (chgpwrdview.getEstimatedRowCount() != 0) {
@@ -2402,8 +2406,8 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
         slvo.setNamedWhereClauseParam("b_addr", address);
         slvo.executeQuery();*/
         ViewObjectImpl slvo = this.getPrcLawyersVwView1();
-//        ViewCriteria slrvc = slvo.getViewCriteria("PrcLawyersVwViewCriteria");
-//        slvo.applyViewCriteria(slrvc);
+        //        ViewCriteria slrvc = slvo.getViewCriteria("PrcLawyersVwViewCriteria");
+        //        slvo.applyViewCriteria(slrvc);
         slvo.setNamedWhereClauseParam("b_name", name);
         slvo.setNamedWhereClauseParam("b_city", city);
         slvo.setNamedWhereClauseParam("b_addr", address);
@@ -2424,40 +2428,40 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
         //        slvo.setNamedWhereClauseParam("b_addr", address);
         //        slvo.executeQuery();
         ViewObjectImpl slvo = this.getPrcExpertsVwView1();
-//        ViewCriteria slrvc = slvo.getViewCriteria("PrcExpertsVwViewCriteria");
-//        slvo.applyViewCriteria(slrvc);
+        //        ViewCriteria slrvc = slvo.getViewCriteria("PrcExpertsVwViewCriteria");
+        //        slvo.applyViewCriteria(slrvc);
         slvo.setNamedWhereClauseParam("b_name", name);
         slvo.setNamedWhereClauseParam("b_city", exprttype);
         slvo.setNamedWhereClauseParam("b_addr", address);
         slvo.executeQuery();
     }
-    
+
     /**
      * search cases - Prasad K T
      * created on - 25/03/2016
      */
-//    public void srchCases(Integer amcaseno,Integer amcaseyear,BigDecimal amprosname){
-//        try{
-//        if (amcaseno != null && amcaseyear != null && amprosname != null){
-//        ViewObjectImpl caseSearchView = this.getsearchCaseView1();
-//        caseSearchView.setNamedWhereClauseParam("b_caseno", amcaseno);
-//        caseSearchView.setNamedWhereClauseParam("b_caseyear", amcaseyear);
-//        caseSearchView.setNamedWhereClauseParam("b_locid", amprosname);
-//        caseSearchView.executeQuery();  
-//        System.err.println("<-----Estimated row count---->"+caseSearchView.getEstimatedRowCount());;
-//        }
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//    }
-    
+    //    public void srchCases(Integer amcaseno,Integer amcaseyear,BigDecimal amprosname){
+    //        try{
+    //        if (amcaseno != null && amcaseyear != null && amprosname != null){
+    //        ViewObjectImpl caseSearchView = this.getsearchCaseView1();
+    //        caseSearchView.setNamedWhereClauseParam("b_caseno", amcaseno);
+    //        caseSearchView.setNamedWhereClauseParam("b_caseyear", amcaseyear);
+    //        caseSearchView.setNamedWhereClauseParam("b_locid", amprosname);
+    //        caseSearchView.executeQuery();
+    //        System.err.println("<-----Estimated row count---->"+caseSearchView.getEstimatedRowCount());;
+    //        }
+    //        }catch(Exception e){
+    //            e.printStackTrace();
+    //        }
+    //    }
+
     /**
      * search cases - Prasad K T
      * created on - 16/04/2016
      */
-    public void clearsrchCases(){        
-        ViewObjectImpl caseSearchView = this.getCaseSearchROVO1();        
-        caseSearchView.executeEmptyRowSet();                
+    public void clearsrchCases() {
+        ViewObjectImpl caseSearchView = this.getCaseSearchROVO1();
+        caseSearchView.executeEmptyRowSet();
     }
 
     /**
@@ -2474,9 +2478,9 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
         //        slvo.setNamedWhereClauseParam("b_addr", address);
         //        slvo.executeQuery();
         ViewObjectImpl slvo = this.getPrcTranslatorsVwView1();
-//        ViewCriteria slrvc =
-//            slvo.getViewCriteria("PrcTranslatorsVwViewCriteria");
-//        slvo.applyViewCriteria(slrvc);
+        //        ViewCriteria slrvc =
+        //            slvo.getViewCriteria("PrcTranslatorsVwViewCriteria");
+        //        slvo.applyViewCriteria(slrvc);
         slvo.setNamedWhereClauseParam("b_name", name);
         slvo.setNamedWhereClauseParam("b_city", city);
         slvo.setNamedWhereClauseParam("b_addr", address);
@@ -2547,20 +2551,21 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
         serchDescEnview.executeQuery();
         return res;
     }
-    
+
     /*
      *  Set the services descriptions from the moj services table
      */
-    public String setServices (Locale lang,String sid){
-        String langs = lang.toString();        
-//        String langs = "en";        
-        if (langs.equals("ar")){
-        ViewObject mojServicesArabView = this.getMojServicesView1();        
-        mojServicesArabView.setNamedWhereClauseParam("p_ln", langs);
-        mojServicesArabView.setNamedWhereClauseParam("p_sid", sid);
-        mojServicesArabView.executeQuery();
+
+    public String setServices(Locale lang, String sid) {
+        String langs = lang.toString();
+        //        String langs = "en";
+        if (langs.equals("ar")) {
+            ViewObject mojServicesArabView = this.getMojServicesView1();
+            mojServicesArabView.setNamedWhereClauseParam("p_ln", langs);
+            mojServicesArabView.setNamedWhereClauseParam("p_sid", sid);
+            mojServicesArabView.executeQuery();
         }
-        if (langs.equals("en")){                                  
+        if (langs.equals("en")) {
             ViewObject mojServicesEngView = this.getMojServicesEnView1();
             mojServicesEngView.setNamedWhereClauseParam("sid", sid);
             mojServicesEngView.setNamedWhereClauseParam("p_ln", langs);
@@ -2578,14 +2583,6 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
         serchDescArview.setNamedWhereClauseParam("p_sid", sid);
         serchDescArview.executeQuery();
         return res;
-    }
-
-    /**
-     * Container's getter for SMSPrjService1.
-     * @return SMSPrjService1
-     */
-    public ApplicationModuleImpl getSMSPrjService1() {
-        return (ApplicationModuleImpl)findApplicationModule("SMSPrjService1");
     }
 
 
@@ -2860,16 +2857,17 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
                 descLawView.setNamedWhereClauseParam("lawId", lawId);
                 descLawView.setNamedWhereClauseParam("articleId", articleBig);
                 descLawView.setNamedWhereClauseParam("srchtext", liktxt);
-                descLawView.executeQuery();                
+                descLawView.executeQuery();
                 for (int i = 0; i < descLawView.getEstimatedRowCount(); i++) {
-                    Row descLawRow = descLawView.getRowAtRangeIndex(i);                    
-//                    Row descLawRow = descLawView.first();                    
+                    Row descLawRow = descLawView.getRowAtRangeIndex(i);
+                    //                    Row descLawRow = descLawView.first();
                     if (descLawRow != null) {
                         BigDecimal articlelkpbig =
                             (BigDecimal)descLawRow.getAttribute("ArticleLkp");
                         BigDecimal chpterlkpbig =
                             (BigDecimal)descLawRow.getAttribute("ChapterLkp");
-                        System.out.println ("Get the article number :: "+articlelkpbig.toString());
+                        System.out.println("Get the article number :: " +
+                                           articlelkpbig.toString());
                         artLkp = articlelkpbig.toString();
                         artDesc =
                                 (String)descLawRow.getAttribute("ArticleDesc");
@@ -2879,21 +2877,21 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
                         chapDesc =
                                 (String)descLawRow.getAttribute("ChapterDesc");
                         ret[i] =
-                                artLkp + ")" + artDesc + " " + artTxt +
-                                " " + chpLkp + ")" + chapDesc;
+                                artLkp + ")" + artDesc + " " + artTxt + " " + chpLkp +
+                                ")" + chapDesc;
                     }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (int j=0;j<ret.length;j++){
-            if (val == null){
+        for (int j = 0; j < ret.length; j++) {
+            if (val == null) {
                 val = ret[j];
-            }else{
-            val = val+ret[j];
+            } else {
+                val = val + ret[j];
             }
-        }        
+        }
         return val;
     }
 
@@ -3072,19 +3070,42 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
     public ViewObjectImpl getCountryNationalityArabView1() {
         return (ViewObjectImpl)findViewObject("CountryNationalityArabView1");
     }
-    
-    public String saveResponseStatus(String invoiceNo,String transMessage){
-        System.out.println ("Invoice no :: "+invoiceNo+" transaction message :: "+transMessage);
-        String ret = "notsave";                
-        ViewObject transDetailsView = this.getTransactionDetailsView1();
-        String whereclause = "INVOICE_ID = "+invoiceNo;
-        transDetailsView.setWhereClause(whereclause);
-        transDetailsView.executeQuery();
-        if (transDetailsView.getEstimatedRowCount() != 0){
-            Row transDetailsrow  = transDetailsView.first();
-            transDetailsrow.setAttribute("TransactionStatus", transMessage);
+
+    public String saveResponseStatus(String invoiceNo, String StatusCode,
+                                     String transMessage) {
+        System.out.println("Invoice no :: " + invoiceNo +
+                           " transaction message :: " + transMessage);
+        String ret = "notsave";
+        //        ViewObject transDetailsView = this.getTransactionDetailsView1();
+        //        String whereclause = "INVOICE_ID = "+invoiceNo;
+        //        transDetailsView.setWhereClause(whereclause);
+        //        transDetailsView.executeQuery();
+        //        if (transDetailsView.getEstimatedRowCount() != 0){
+        //            Row transDetailsrow  = transDetailsView.first();
+        //            transDetailsrow.setAttribute("TransactionStatus", StatusCode);
+        //            transDetailsrow.setAttribute("StatusDetails", transMessage);
+        //            ret = "navig";
+        //        }
+        //        this.getDBTransaction().commit();
+        //        return ret;
+
+
+        ViewObject paymentsToBeChecked = this.getPaymentsToBeChecked1();
+
+        String whereclause = "INVOICE_ID = " + invoiceNo;
+        paymentsToBeChecked.setWhereClause(whereclause);
+        paymentsToBeChecked.executeQuery();
+        if (paymentsToBeChecked.getEstimatedRowCount() != 0) {
+            RowSetIterator rsIterator =
+                paymentsToBeChecked.createRowSetIterator(null);
+            rsIterator.reset();
+            Row row = rsIterator.next();
+            row.setAttribute("Status", "Payment Done");
+            row.setAttribute("TransactionStatus", StatusCode);
+            row.setAttribute("StatusDetails", transMessage);
+            row.setAttribute("StatusDetails1", "Payment Done");
             ret = "navig";
-        }      
+        }
         this.getDBTransaction().commit();
         return ret;
     }
@@ -3096,8 +3117,8 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
     public ViewObjectImpl getCaseYearStatic1() {
         return (ViewObjectImpl)findViewObject("CaseYearStatic1");
     }
-    
-    public void getRowDelete(int rindex){        
+
+    public void getRowDelete(int rindex) {
         ViewObject vo = this.getReqPrisonerVisitorsInfoView1();
         Row vr = vo.getRowAtRangeIndex(rindex);
         vr.remove();
@@ -3143,20 +3164,20 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
     public ViewObjectImpl getuserExist1() {
         return (ViewObjectImpl)findViewObject("userExist1");
     }
-    
+
     /**
      *  Check the email is already exists
      */
-    public String emailExist(String email){
+    public String emailExist(String email) {
         String userExist = "notexist";
-        try{        
-        ViewObject userExistView = this.getuserExist1();
-        userExistView.setNamedWhereClauseParam("p_email", email);
-        userExistView.executeQuery();
-        if (userExistView.getEstimatedRowCount() != 0){
-            userExist = "exist";
-        }
-        }catch (Exception e){
+        try {
+            ViewObject userExistView = this.getuserExist1();
+            userExistView.setNamedWhereClauseParam("p_email", email);
+            userExistView.executeQuery();
+            if (userExistView.getEstimatedRowCount() != 0) {
+                userExist = "exist";
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return userExist;
@@ -3326,4 +3347,6 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
     public ViewObjectImpl getCasesViewObj1() {
         return (ViewObjectImpl)findViewObject("CasesViewObj1");
     }
+
+ 
 }

@@ -90,7 +90,7 @@ public class PaymentJob implements Serializable, TimerListener,
                         row.setAttribute("StatusDetails1", "Payment Done");
                     } else {
                         // failed
-                        if (pmrstatus.equalsIgnoreCase("2012") ||
+                        if (pmrstatus.equalsIgnoreCase("2012") ||pmrstatus.equalsIgnoreCase("3000") ||
                             pmrstatus.equalsIgnoreCase("6509")) {
                             row.setAttribute("Status", "Pending Payment");
                             row.setAttribute("TransactionStatus", pmrstatus);

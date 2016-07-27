@@ -57,7 +57,6 @@ public interface PPAppServices extends ApplicationModule {
 
     String setServices(Locale lang, String sid);
 
-    String saveResponseStatus(String invoiceNo, String transMessage);
 
     void getRowDelete(int rindex);
 
@@ -68,4 +67,7 @@ public interface PPAppServices extends ApplicationModule {
 
     void srchCases(Integer amcaseno, Integer amcaseyear,
                    BigDecimal amprosname);
+
+    String saveResponseStatus(String invoiceNo, String StatusCode,
+                              String transMessage);
 }

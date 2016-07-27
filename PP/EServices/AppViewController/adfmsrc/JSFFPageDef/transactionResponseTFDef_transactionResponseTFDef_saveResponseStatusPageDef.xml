@@ -14,7 +14,9 @@
                   ReturnName="data.PPAppServicesDataControl.methodResults.saveResponseStatus_PPAppServicesDataControl_dataProvider_saveResponseStatus_result">
       <NamedData NDName="invoiceNo" NDValue="#{pageFlowScope.invoiceNo}"
                  NDType="java.lang.String"/>
-      <NamedData NDName="transMessage" NDValue="#{pageFlowScope.statusMessage}"
+      <NamedData NDName="StatusCode" NDValue="#{pageFlowScope.StatusCode}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="transMessage" NDValue="#{pageFlowScope.transMessage}"
                  NDType="java.lang.String"/>
     </methodAction>
   </bindings>

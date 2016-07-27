@@ -40,7 +40,7 @@ public class PaymentSchedulerServlet extends HttpServlet {
                       TimerManager tm = (TimerManager)ic.lookup("java:comp/env/tm/TimerManager");
                       Calendar cal = Calendar.getInstance();
                                   cal.add(Calendar.SECOND, 30);
-                      Long duration = 300L;// 300 second --> 5 min
+                      Long duration = 600L;// 300 second --> 5 min
            
                       
                       tm.scheduleAtFixedRate(new PaymentJob(), cal.getTime(), duration*1000);

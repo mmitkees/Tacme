@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 import java.util.Locale;
 import java.util.Map;
 
-import model.services.common.SMSPrjService;
 
 import oracle.jbo.client.remote.ApplicationModuleImpl;
 // ---------------------------------------------------------------------
@@ -78,9 +77,6 @@ public class PPAppServicesClient extends ApplicationModuleImpl implements PPAppS
 //    }
 
 
-    public SMSPrjService getSMSPrjService() {
-        return (SMSPrjService)findApplicationModule("SMSPrjService1");
-    }
 
 
     //    public Map getResourceBundle(String locale) {
@@ -133,9 +129,6 @@ public class PPAppServicesClient extends ApplicationModuleImpl implements PPAppS
 //    }
 
 
-   
-
-
     public String login_db(String un, String pwrd) {
         Object _ret =
             this.riInvokeExportedMethod(this,"login_db",new String [] {"java.lang.String","java.lang.String"},new Object[] {un, pwrd});
@@ -153,7 +146,6 @@ public class PPAppServicesClient extends ApplicationModuleImpl implements PPAppS
         return;
     }
 
-  
 
     public void initSearchExperts() {
         Object _ret =
@@ -258,12 +250,6 @@ public class PPAppServicesClient extends ApplicationModuleImpl implements PPAppS
         return (String)_ret;
     }
 
-    public String saveResponseStatus(String invoiceNo, String transMessage) {
-        Object _ret =
-            this.riInvokeExportedMethod(this,"saveResponseStatus",new String [] {"java.lang.String","java.lang.String"},new Object[] {invoiceNo, transMessage});
-        return (String)_ret;
-    }
-
     public void getRowDelete(int rindex) {
         Object _ret =
             this.riInvokeExportedMethod(this,"getRowDelete",new String [] {"int"},new Object[] {new Integer(rindex)});
@@ -286,5 +272,12 @@ public class PPAppServicesClient extends ApplicationModuleImpl implements PPAppS
         Object _ret =
             this.riInvokeExportedMethod(this,"srchCases",new String [] {"java.lang.Integer","java.lang.Integer","java.math.BigDecimal"},new Object[] {amcaseno, amcaseyear, amprosname});
         return;
+    }
+
+    public String saveResponseStatus(String invoiceNo, String StatusCode,
+                                     String transMessage) {
+        Object _ret =
+            this.riInvokeExportedMethod(this,"saveResponseStatus",new String [] {"java.lang.String","java.lang.String","java.lang.String"},new Object[] {invoiceNo, StatusCode, transMessage});
+        return (String)_ret;
     }
 }

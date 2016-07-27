@@ -8,9 +8,6 @@
     <iterator Binds="ReqRequestsStatusView1" RangeSize="25"
               DataControl="PPAppServicesDataControl"
               id="ReqRequestsStatusView1Iterator"/>
-    <searchRegion Binds="ReqRequestsStatusView1Iterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  id="ReqRequestsStatusView1Query"/>
     <iterator Binds="downloadUrl1" RangeSize="25"
               DataControl="PPAppServicesDataControl" id="downloadUrl1Iterator"/>
     <searchRegion Criteria="ReqRequestsStatusViewCriteria"
@@ -39,8 +36,10 @@
           <Item Value="ProsEnName"/>
           <Item Value="ProsArName"/>
           <Item Value="Reqnamear"/>
-          <Item Value="Arabicname"/>
-          <Item Value="Engname"/>          
+          <Item Value="ServiceNameAr"/>
+          <Item Value="ServiceNameEn"/>
+          <Item Value="StatusAr"/>
+          <Item Value="StatusDetailsAr"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -63,8 +62,6 @@
         <AttrNames>
           <Item Value="ReqId"/>
           <Item Value="ReqName"/>
-          <Item Value="Engname"/>
-          <Item Value="Arabicname"/>
           <Item Value="Reqnamear"/>
           <Item Value="Status"/>
           <Item Value="CreatedDate"/>
@@ -78,6 +75,10 @@
           <Item Value="RefNo"/>
           <Item Value="ReqClass"/>
           <Item Value="ServiceId"/>
+          <Item Value="ServiceNameAr"/>
+          <Item Value="ServiceNameEn"/>
+          <Item Value="StatusAr"/>
+          <Item Value="StatusDetailsAr"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

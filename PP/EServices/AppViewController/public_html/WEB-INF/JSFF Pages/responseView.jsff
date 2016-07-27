@@ -6,12 +6,24 @@
           xmlns:c="http://java.sun.com/jsp/jstl/core">
   <c:set var="appviewcontrollerBundle"
          value="#{adfBundle['com.app.view.AppViewControllerBundle']}"/>
-  <h:outputFormat value="#{appviewcontrollerBundle.TRANS_STATUSPID}" id="ot1"
-                  styleClass="trans-resp-text">
-  <f:param value="#{pageFlowScope.invoiceNo}"/>  
-  <f:param value="#{pageFlowScope.statusMessage}"/>  
-  </h:outputFormat>
-  <h:outputFormat value="#{appviewcontrollerBundle.TRANS_STATUSFR}" id="ot2"
-                  styleClass="trans-resp-text"/>
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:panelGroupLayout id="pgl2">
+      <h:outputFormat value="#{appviewcontrollerBundle.TRANS_STATUSPID}"
+                      id="ot1" styleClass="trans-resp-text">
+        <f:param value="#{pageFlowScope.invoiceNo}"/>
+        <f:param value="#{pageFlowScope.transMessage}"/>
+      </h:outputFormat>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl3">
+      <h:outputFormat value="#{appviewcontrollerBundle.CONFIRMATION_ID} :  "
+                      id="of1" styleClass="trans-resp-text"/>
+     <h:outputFormat value=" #{facesContext.externalContext.requestParameterMap['Response.ConfirmationID']} "
+                      id="of2" styleClass="trans-resp-text"/> </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl4">
+      <h:outputFormat value="#{appviewcontrollerBundle.PLEASE_TAKE_A_NOTE_OF_THE_INVO}" id="ot2"
+                      styleClass="trans-resp-text"
+                      style="color:Red; font-weight:bolder;"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
   
 </jsp:root>
