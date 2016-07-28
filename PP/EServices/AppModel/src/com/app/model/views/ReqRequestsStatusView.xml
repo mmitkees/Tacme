@@ -28,7 +28,7 @@
     </Properties>
   </Variable>
   <SQLQuery>
-    <![CDATA[SELECT ReqRequests.REQ_ID,
+    <![CDATA[SELECT ReqRequests.REQ_ID ,
   ReqRequests.REQ_NAME,
   (SELECT ms .name
   FROM moj_services ms
@@ -65,10 +65,11 @@
   'Payment Failed Submit a new Request', 'فشلت عملية الدفع اعد طلبك من جديد ', 'Payment Done','تم الدفع','Payment not completed successfully  Try To pay again','فشلت عملية الدفع اعد محاولة الدفع مرة اخري ','') STATUS_DETAILS_AR,
   ReqRequests.CASE_INFO_ID,
   epc.PROSECUTION_ENG_NAME "Pros_en_name",
-  epc.PROSECUTION_NAME "Pros_ar_name"
+  epc.PROSECUTION_NAME "Pros_ar_name", 
+  (select  max(cc.INVOICE_ID) from TRANSACTION_DETAILS cc where cc.REQ_ID= ReqRequests.REQ_ID) Invoice_ID
 FROM REQ_REQUESTS ReqRequests,
-  ENV_PROSECUTIONS_CITY epc
-WHERE public_user_id   = :puid
+  ENV_PROSECUTIONS_CITY epc 
+WHERE public_user_id   = :puid 
 AND epc.prosecution_id = ReqRequests.PROSEC_ID]]>
   </SQLQuery>
   <EntityUsage
@@ -331,6 +332,27 @@ AND epc.prosecution_id = ReqRequests.PROSEC_ID]]>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.app.model.views.ReqRequestsStatusView.ProsArName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InvoiceId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="25"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INVOICE_ID"
+    Expression="INVOICE_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.app.model.views.ReqRequestsStatusView.InvoiceId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

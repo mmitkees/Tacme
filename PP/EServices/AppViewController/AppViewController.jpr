@@ -84,6 +84,16 @@
             <url n="sourceOwnerURL" path="../PPApp.jws"/>
             <url n="sourceURL" path="../AppModel/AppModel.jpr"/>
          </hash>
+         <hash>
+            <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
+            <url n="sourceOwnerURL" path="../PP-Eservices.jws"/>
+            <url n="sourceURL" path="../PMRIntegration/PMRIntegration.jpr"/>
+         </hash>
+         <hash>
+            <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
+            <url n="sourceOwnerURL" path="../PP-Eservices.jws"/>
+            <url n="sourceURL" path="../Common/Common.jpr"/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.ide.model.ResourcePaths">
@@ -405,6 +415,14 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Web Service Data Control"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -491,6 +509,14 @@
                <value n="description" v="Commons-codec-1.3.jar"/>
                <value n="id" v="Commons-codec-1.3.jar"/>
                <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../.adf/"/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
+               <value n="id" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
             </hash>
          </list>
       </hash>
@@ -613,6 +639,14 @@
          </hash>
          <hash>
             <value n="id" v="ADF Common Web Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Web Service Data Control"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
