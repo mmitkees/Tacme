@@ -38,7 +38,7 @@
     <managed-bean id="__38">
       <managed-bean-name id="__39">eserviceStatus</managed-bean-name>
       <managed-bean-class id="__41">eserviceStatus</managed-bean-class>
-      <managed-bean-scope id="__40">request</managed-bean-scope>
+      <managed-bean-scope id="__40">pageFlow</managed-bean-scope>
     </managed-bean>
     <router id="router1">
       <case>

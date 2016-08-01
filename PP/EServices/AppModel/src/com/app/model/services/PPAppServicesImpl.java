@@ -3100,11 +3100,39 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
                 paymentsToBeChecked.createRowSetIterator(null);
             rsIterator.reset();
             Row row = rsIterator.next();
-            row.setAttribute("Status", "Payment Done");
-            row.setAttribute("TransactionStatus", StatusCode);
-            row.setAttribute("StatusDetails", transMessage);
-            row.setAttribute("StatusDetails1", "Payment Done");
-            ret = "navig";
+
+            //    String pmrstatus= "0000" ;
+            //   String pmrmsg="Eshta";
+            System.out.println("PMR Status is ----> " + StatusCode);
+            if (StatusCode.equalsIgnoreCase("0000") ||
+                StatusCode.equalsIgnoreCase("6514")) {
+                // success
+                row.setAttribute("Status", "Payment Done");
+                row.setAttribute("TransactionStatus", StatusCode);
+                row.setAttribute("StatusDetails", transMessage);
+                row.setAttribute("StatusDetails1", "Payment Done");
+            } else {
+                // failed
+                if (StatusCode.equalsIgnoreCase("2012") ||
+                    StatusCode.equalsIgnoreCase("3000") ||
+                    StatusCode.equalsIgnoreCase("6509")) {
+                    row.setAttribute("Status", "Pending Payment");
+                    row.setAttribute("TransactionStatus", StatusCode);
+                    row.setAttribute("StatusDetails", transMessage);
+                    row.setAttribute("StatusDetails1",
+                                     "Payment not completed successfully  Try To pay again");
+
+                } else {
+                    row.setAttribute("Status", "Pending Payment");
+                    row.setAttribute("TransactionStatus", StatusCode);
+                    row.setAttribute("StatusDetails", transMessage);
+                    row.setAttribute("StatusDetails1",
+                                     "Payment Failed Submit a new Request");
+                }
+
+
+                ret = "navig";
+            }
         }
         this.getDBTransaction().commit();
         return ret;
@@ -3348,5 +3376,5 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
         return (ViewObjectImpl)findViewObject("CasesViewObj1");
     }
 
- 
+
 }

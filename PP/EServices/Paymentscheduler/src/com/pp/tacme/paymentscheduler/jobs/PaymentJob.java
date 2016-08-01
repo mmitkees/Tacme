@@ -99,7 +99,7 @@ public class PaymentJob implements Serializable, TimerListener,
                                              "Payment not completed successfully  Try To pay again");
 
                         } else {
-                            row.setAttribute("Status", "Payment Failed");
+                            row.setAttribute("Status", "Pending Payment");
                             row.setAttribute("TransactionStatus", pmrstatus);
                             row.setAttribute("StatusDetails", pmrmsg);
                             row.setAttribute("StatusDetails1",

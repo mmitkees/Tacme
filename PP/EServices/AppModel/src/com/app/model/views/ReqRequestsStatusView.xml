@@ -53,7 +53,7 @@
   ) reqNameAr,
   ReqRequests.REQ_CLASS,
   ReqRequests.STATUS,
-  DECODE (ReqRequests.STATUS, 'Pending Payment', 'ادفع الان', 'Payment Failed', 'فشلت عملية الدفع', 'Under Payment Process', 'جاري عملية الدفع', 'SENT','تحت المراجعة', 'Payment Done','تم الدفع','') STATUS_AR,
+  DECODE (ReqRequests.STATUS, 'Pending Payment', 'في انتظار الدفع', 'Payment Failed', 'فشلت عملية الدفع', 'Under Payment Process', 'جاري عملية الدفع', 'SENT','تحت المراجعة', 'Payment Done','تم الدفع','') STATUS_AR,
   ReqRequests.CREATED_DATE,
   ReqRequests.MODIFIED_DATE,
   ReqRequests.PUBLIC_USER_ID,

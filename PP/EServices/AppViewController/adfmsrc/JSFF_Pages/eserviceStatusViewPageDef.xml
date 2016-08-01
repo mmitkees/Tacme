@@ -40,6 +40,7 @@
           <Item Value="ServiceNameEn"/>
           <Item Value="StatusAr"/>
           <Item Value="StatusDetailsAr"/>
+          <Item Value="InvoiceId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -79,6 +80,7 @@
           <Item Value="ServiceNameEn"/>
           <Item Value="StatusAr"/>
           <Item Value="StatusDetailsAr"/>
+          <Item Value="InvoiceId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

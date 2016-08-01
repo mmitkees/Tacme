@@ -1,5 +1,9 @@
 import com.app.view.utils.ADFUtils;
 
+import com.tacme.pmr.beans.PaymentStatusResponse;
+
+import com.tacme.pmr.wrapper.PaymentWrapper;
+
 import java.io.Serializable;
 
 import javax.faces.event.ActionEvent;
@@ -20,6 +24,9 @@ public class eserviceStatus implements Serializable{
     private RichTable empTable;
     private ADFUtils adfUtils = new ADFUtils();
     private RichPopup downloadUrlPopup;
+   private PaymentStatusResponse paymentDetails;
+    private RichPopup paymentPopup;
+    
 
     public eserviceStatus() {
     }
@@ -68,5 +75,32 @@ public class eserviceStatus implements Serializable{
 
     public RichPopup getDownloadUrlPopup() {
         return downloadUrlPopup;
+    }
+
+    public void showPaymentInfoActionListner(ActionEvent actionEvent) {
+        // Add event code here...
+        paymentDetails=null;
+        String CurrentInvoice = (String)ADFUtils.evaluateEL("#{pageFlowScope.CurrentInvoice}");
+        PaymentWrapper payment= new PaymentWrapper();
+        paymentDetails= payment.getAndUpdatePaymentStatus(CurrentInvoice);
+      //  System.out.println(paymentDetails.getTransactionResponseDate());
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            getPaymentPopup().show(hints);
+    }
+
+    public void setPaymentDetails(PaymentStatusResponse res) {
+        this.paymentDetails = res;
+    }
+
+    public PaymentStatusResponse getPaymentDetails() {
+        return paymentDetails;
+    }
+
+    public void setPaymentPopup(RichPopup paymentPopup) {
+        this.paymentPopup = paymentPopup;
+    }
+
+    public RichPopup getPaymentPopup() {
+        return paymentPopup;
     }
 }

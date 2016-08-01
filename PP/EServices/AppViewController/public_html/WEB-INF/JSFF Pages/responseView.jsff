@@ -6,24 +6,37 @@
           xmlns:c="http://java.sun.com/jsp/jstl/core">
   <c:set var="appviewcontrollerBundle"
          value="#{adfBundle['com.app.view.AppViewControllerBundle']}"/>
-  <af:panelGroupLayout id="pgl1" layout="vertical">
-    <af:panelGroupLayout id="pgl2">
-      <h:outputFormat value="#{appviewcontrollerBundle.TRANS_STATUSPID}"
-                      id="ot1" styleClass="trans-resp-text">
-        <f:param value="#{pageFlowScope.invoiceNo}"/>
-        <f:param value="#{pageFlowScope.transMessage}"/>
-      </h:outputFormat>
-    </af:panelGroupLayout>
-    <af:panelGroupLayout id="pgl3">
-      <h:outputFormat value="#{appviewcontrollerBundle.CONFIRMATION_ID} :  "
-                      id="of1" styleClass="trans-resp-text"/>
-     <h:outputFormat value=" #{facesContext.externalContext.requestParameterMap['Response.ConfirmationID']} "
-                      id="of2" styleClass="trans-resp-text"/> </af:panelGroupLayout>
-    <af:panelGroupLayout id="pgl4">
-      <h:outputFormat value="#{appviewcontrollerBundle.PLEASE_TAKE_A_NOTE_OF_THE_INVO}" id="ot2"
-                      styleClass="trans-resp-text"
-                      style="color:Red; font-weight:bolder;"/>
-    </af:panelGroupLayout>
-  </af:panelGroupLayout>
+  <af:panelGroupLayout id="pgl1" layout="vertical" halign="center">
+    <h:outputFormat value="#{appviewcontrollerBundle.PLEASE_TAKE_A_NOTE_OF_THE_INVO}"
+                    id="of1" styleClass="trans-resp-text"
+                    style="color:Red; font-weight:bolder;"/>
+    <af:panelFormLayout id="pfl1">
+      <af:panelLabelAndMessage label="#{appviewcontrollerBundle.INVOICE_ID}"
+                               id="plam1">
+        <af:outputText value="#{pageFlowScope.invoiceNo}" id="ot2"/>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{appviewcontrollerBundle.STATUS}"
+                               id="plam7">
+        <af:outputText value="#{facesContext.externalContext.requestParameterMap['Response.Status']}"
+                       id="ot8"/>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{appviewcontrollerBundle.STATUS_MESSAGE}"
+                               id="plam8">
+        <af:outputText value="#{paymentBundle[facesContext.externalContext.requestParameterMap['Response.Status']]}"
+                       escape="false" id="ot9"/>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{appviewcontrollerBundle.CONFIRMATION_ID}"
+                               id="plam3">
+        <af:outputText value="#{facesContext.externalContext.requestParameterMap['Response.ConfirmationID']}"
+                       id="ot7"></af:outputText>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{appviewcontrollerBundle.PUN}"
+                               id="plam5">
+        <af:outputText value="#{facesContext.externalContext.requestParameterMap['Response.PUN']}"
+                       id="ot5"/>
+      </af:panelLabelAndMessage>
+    
+    </af:panelFormLayout>
   
+  </af:panelGroupLayout>
 </jsp:root>

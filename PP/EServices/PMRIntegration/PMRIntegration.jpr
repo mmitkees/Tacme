@@ -50,18 +50,16 @@
       <string v="oracle.ide.model.ResourcePaths/resourcesContentSet"/>
       <string v="oracle.jdeveloper.offlinedb.model.OfflineDBProjectSettings/offlineDBContentSet"/>
       <string v="oracle.jdeveloper.model.J2eeSettings/webContentSet"/>
-      <string v="oracle.mds.internal.dt.ide.MDSLibraryCustCSProvider/mdsContentSet"/>
       <string v="oracle.bm.commonIde.data.project.ModelerProjectSettings/modelersContentSet"/>
+      <string v="oracle.mds.internal.dt.ide.MDSLibraryCustCSProvider/mdsContentSet"/>
       <string v="oracle.adfdtinternal.model.ide.settings.ADFMSettings/adfmContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
       <string v="oracle.stellent.wcm.jdev.features.settings.ProjectTemplatePathSettings/WCMProjectPathContentSet"/>
       <string v="oracle.stellent.wcm.jdev.features.settings.WorkingDirPathSettings/SiteFilesWorkingDir"/>
    </list>
-   <value n="defaultPackage" v="com.pp.tacme.common.view"/>
-   <hash n="oracle.ide.model.TechnologyScopeConfiguration">
-      <list n="technologyScope">
-         <string v="Java"/>
-      </list>
+   <value n="defaultPackage" v="com.app"/>
+   <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
+      <value n="hasDataControls" v="true"/>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
       <value n="internalEncoding" v="UTF-8"/>
@@ -77,9 +75,127 @@
       </list>
       <value n="webIANAEncoding" v="UTF-8"/>
    </hash>
+   <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
+      <hash n="profileDefinitions">
+         <hash n="PaymentService-Client">
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="true"/>
+            </hash>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="2"/>
+                        </hash>
+                        <hash>
+                           <value n="type" v="7"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Project Output"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="/**.class"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="WEB-INF/temp/**"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="WEB-INF/classes/jsp_servlet/**"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v=".wlsjsps/"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v=".wlLibs/"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**/.svn/"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**/CVS/"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**/.ade_path"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**/.data/**"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**.cdi"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**.contrib"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**.keep"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**.rvi"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v=".jsps/"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v=".tags/"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v=".dtags/"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**/*.jht"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**/*.jjt"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**/*.jxt"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="project-output"/>
+                     <value n="type" v="1"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="jarURL" path="deploy/PaymentService-Client.jar"/>
+            <hash n="libraryDependencies">
+               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
+            </hash>
+            <value n="profileClass" v="oracle.jdeveloper.deploy.jar.ArchiveProfile"/>
+            <value n="profileName" v="PaymentService-Client"/>
+         </hash>
+      </hash>
+      <list n="profileList">
+         <string v="PaymentService-Client"/>
+      </list>
+   </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="PPApp-Common-webapp"/>
-      <value n="j2eeWebContextRoot" v="PPApp-Common-context-root"/>
+      <value n="j2eeWebAppName" v="PP-Eservices-PMRIntegration-webapp"/>
+      <value n="j2eeWebContextRoot" v="PP-Eservices-PMRIntegration-context-root"/>
    </hash>
    <hash n="oracle.jdeveloper.runner.RunConfigurations">
       <hash n="runConfigurationDefinitions">
@@ -95,19 +211,15 @@
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
       <list n="exportedReferences">
          <hash>
-            <value n="id" v="JSP Runtime"/>
+            <value n="id" v="ADF Model Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="JSF 1.2"/>
+            <value n="id" v="ADF Model Generic Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="JSTL 1.2"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF Faces Runtime 11"/>
+            <value n="id" v="Resource Bundle Support"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -115,81 +227,29 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Web Runtime"/>
+            <value n="id" v="JAX-WS Client"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="MDS Runtime"/>
+            <value n="id" v="JAX-WS Web Services"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="MDS Runtime Dependencies"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Commons Beanutils 1.6"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Commons Logging 1.0.4"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Commons Collections 3.1"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF DVT Faces Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF DVT Faces Databinding Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF DVT Faces Databinding MDS Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF Model Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Security"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Tester"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle JDBC"/>
+            <value n="id" v="TopLink"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
       <list n="libraryReferences">
          <hash>
-            <value n="id" v="JSP Runtime"/>
+            <value n="id" v="ADF Model Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="JSF 1.2"/>
+            <value n="id" v="ADF Model Generic Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="JSTL 1.2"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF Faces Runtime 11"/>
+            <value n="id" v="Resource Bundle Support"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -197,108 +257,20 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Web Runtime"/>
+            <value n="id" v="JAX-WS Client"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="MDS Runtime"/>
+            <value n="id" v="JAX-WS Web Services"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="MDS Runtime Dependencies"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Commons Beanutils 1.6"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Commons Logging 1.0.4"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Commons Collections 3.1"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF DVT Faces Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF DVT Faces Databinding Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF DVT Faces Databinding MDS Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF Model Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Security"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Tester"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle JDBC"/>
+            <value n="id" v="TopLink"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="classes/"/>
-   </hash>
-   <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">
-      <list n="tag-libraries">
-         <hash>
-            <hash n="baseLibrary">
-               <value n="name" v="JSF Core"/>
-               <value n="version" v="1.2"/>
-            </hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="name" v="JSF Core"/>
-            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.jsf_1.2.9/glassfish.jsf_1.0.0.0_1-2-15.jar!/META-INF/jsf_core.tld"/>
-            <value n="URI" v="http://java.sun.com/jsf/core"/>
-            <value n="version" v="1.2"/>
-         </hash>
-         <hash>
-            <hash n="baseLibrary">
-               <value n="name" v="JSF HTML"/>
-               <value n="version" v="1.2"/>
-            </hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="name" v="JSF HTML"/>
-            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.jsf_1.2.9/glassfish.jsf_1.0.0.0_1-2-15.jar!/META-INF/html_basic.tld"/>
-            <value n="URI" v="http://java.sun.com/jsf/html"/>
-            <value n="version" v="1.2"/>
-         </hash>
-         <hash>
-            <hash n="baseLibrary">
-               <value n="name" v="ADF Faces Components"/>
-               <value n="version" v="11"/>
-            </hash>
-            <value n="jspVersion" v="1.2"/>
-            <value n="name" v="ADF Faces Components"/>
-            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view_11.1.1/adf-richclient-impl-11.jar!/META-INF/afu.tld"/>
-            <value n="URI" v="http://xmlns.oracle.com/adf/faces/rich"/>
-            <value n="version" v="11"/>
-         </hash>
-      </list>
-   </hash>
-   <hash n="ResourceBundleOptions">
-      <value n="ADFRestricted" v="false"/>
    </hash>
 </jpr:project>

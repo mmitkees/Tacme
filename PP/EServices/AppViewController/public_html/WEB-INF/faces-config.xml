@@ -16,6 +16,10 @@
       <base-name>com.app.view.AppViewControllerBundle</base-name>
       <var>appviewcontrollerbundle</var>
     </resource-bundle>
+    <resource-bundle>
+      <base-name>com.tacme.pmr.bundle.paymentBundle</base-name>
+      <var>paymentBundle</var>
+    </resource-bundle>
   </application>
   <!-- <managed-bean>
       <managed-bean-name>localeBean</managed-bean-name>

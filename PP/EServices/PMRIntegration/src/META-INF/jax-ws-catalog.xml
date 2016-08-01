@@ -1,0 +1,4 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://172.25.1.202/PMRWeb/PaymentRouter/PaymentService.svc?wsdl"
+          uri="../com/tacme/pmr/PaymentService.wsdl"/>
+</catalog>
