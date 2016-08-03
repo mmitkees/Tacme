@@ -25,8 +25,8 @@
       <string v="oracle.jdeveloper.model.PathsConfiguration/ApplicationLevelMavenPOMContentSet"/>
    </list>
    <list n="listOfChildren">
-      <hash><url n="URL" path="AppModel/AppModel.jpr"/></hash>
-      <hash><url n="URL" path="AppViewController/AppViewController.jpr"/></hash>
+      <hash><url n="URL" path="AppModel/PP-Model.jpr"/></hash>
+      <hash><url n="URL" path="AppViewController/PP-ViewController.jpr"/></hash>
       <hash><url n="URL" path="Common/Common.jpr"/></hash>
       <hash><url n="URL" path="Paymentscheduler/Scheduler.jpr"/></hash>
       <hash><url n="URL" path="PMRIntegration/PMRIntegration.jpr"/></hash>

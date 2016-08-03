@@ -63,12 +63,12 @@
          <hash>
             <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
             <url n="sourceOwnerURL" path="../PPApp.jws"/>
-            <url n="sourceURL" path="../AppModel/AppModel.jpr"/>
+            <url n="sourceURL" path="../Common/Common.jpr"/>
          </hash>
          <hash>
             <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
-            <url n="sourceOwnerURL" path="../PPApp.jws"/>
-            <url n="sourceURL" path="../Common/Common.jpr"/>
+            <url n="sourceOwnerURL" path="../PP-Eservices.jws"/>
+            <url n="sourceURL" path="../AppModel/PP-Model.jpr"/>
          </hash>
       </list>
    </hash>
