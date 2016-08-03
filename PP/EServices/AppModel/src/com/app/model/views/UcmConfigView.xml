@@ -29,7 +29,7 @@
     Type="java.lang.String"/>
   <EntityUsage
     Name="UcmConfig"
-    Entity="com.app.model.PPEntities.UcmConfig"/>
+    Entity="com.app.model.entities.UcmConfig"/>
   <ViewAttribute
     Name="UcId"
     IsNotNull="true"

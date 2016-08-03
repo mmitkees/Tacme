@@ -133,7 +133,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqFeeOfMandatoryExpert"
-    Entity="com.app.model.PPEntities.ReqFeeOfMandatoryExpert"
+    Entity="com.app.model.entities.ReqFeeOfMandatoryExpert"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

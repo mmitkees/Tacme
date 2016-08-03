@@ -130,7 +130,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqParpntTxtMsgService"
-    Entity="com.app.model.PPEntities.ReqParpntTxtMsgService"
+    Entity="com.app.model.entities.ReqParpntTxtMsgService"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

@@ -22,7 +22,7 @@
   </DesignTime>
   <EntityUsage
     Name="ReqFinebalanceInstallments"
-    Entity="com.app.model.PPEntities.ReqFinebalanceInstallments"/>
+    Entity="com.app.model.entities.ReqFinebalanceInstallments"/>
   <ViewAttribute
     Name="Id"
     IsNotNull="true"

@@ -130,7 +130,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqAdjournCourtHearing"
-    Entity="com.app.model.PPEntities.ReqAdjournCourtHearing"
+    Entity="com.app.model.entities.ReqAdjournCourtHearing"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

@@ -128,7 +128,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqPrsAppeal"
-    Entity="com.app.model.PPEntities.ReqPrsAppeal"
+    Entity="com.app.model.entities.ReqPrsAppeal"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

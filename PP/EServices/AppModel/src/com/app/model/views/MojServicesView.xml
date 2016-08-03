@@ -46,7 +46,7 @@ WHERE language = :p_ln and id = :p_sid]]>
   </SQLQuery>
   <EntityUsage
     Name="MojServices"
-    Entity="com.app.model.PPEntities.MojServices"/>
+    Entity="com.app.model.entities.MojServices"/>
   <ViewAttribute
     Name="Description"
     PrecisionRule="true"

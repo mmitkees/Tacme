@@ -131,7 +131,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqToGrievance"
-    Entity="com.app.model.PPEntities.ReqToGrievance"/>
+    Entity="com.app.model.entities.ReqToGrievance"/>
   <ViewAttribute
     Name="Caseno"
     PrecisionRule="true"

@@ -128,7 +128,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqRecoveryOfFinebalance"
-    Entity="com.app.model.PPEntities.ReqRecoveryOfFinebalance"
+    Entity="com.app.model.entities.ReqRecoveryOfFinebalance"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

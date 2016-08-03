@@ -87,7 +87,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqMistakeInJudgement"
-    Entity="com.app.model.PPEntities.ReqMistakeInJudgement"/>
+    Entity="com.app.model.entities.ReqMistakeInJudgement"/>
   <ViewAttribute
     Name="ReqId"
     IsNotNull="true"

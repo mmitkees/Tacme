@@ -129,7 +129,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqReceiveingOfDocs"
-    Entity="com.app.model.PPEntities.ReqReceiveingOfDocs"
+    Entity="com.app.model.entities.ReqReceiveingOfDocs"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

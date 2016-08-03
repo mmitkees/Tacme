@@ -130,7 +130,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqCriminalcaseExpriation"
-    Entity="com.app.model.PPEntities.ReqCriminalcaseExpriation"
+    Entity="com.app.model.entities.ReqCriminalcaseExpriation"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

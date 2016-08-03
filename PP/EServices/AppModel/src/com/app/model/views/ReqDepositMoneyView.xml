@@ -130,7 +130,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqDepositAmount"
-    Entity="com.app.model.PPEntities.ReqDepositAmount"
+    Entity="com.app.model.entities.ReqDepositAmount"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

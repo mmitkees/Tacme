@@ -128,7 +128,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqFinancialBail"
-    Entity="com.app.model.PPEntities.ReqFinancialBail"
+    Entity="com.app.model.entities.ReqFinancialBail"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

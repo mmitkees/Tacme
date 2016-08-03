@@ -131,7 +131,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqRenewPassportVisa"
-    Entity="com.app.model.PPEntities.ReqRenewPassportVisa"
+    Entity="com.app.model.entities.ReqRenewPassportVisa"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

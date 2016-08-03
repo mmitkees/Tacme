@@ -129,7 +129,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqFeeOfMandatoryLawyer"
-    Entity="com.app.model.PPEntities.ReqFeeOfMandatoryLawyer"
+    Entity="com.app.model.entities.ReqFeeOfMandatoryLawyer"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

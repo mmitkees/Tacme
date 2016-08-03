@@ -128,7 +128,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqInhabitOfArrest"
-    Entity="com.app.model.PPEntities.ReqInhabitOfArrest"
+    Entity="com.app.model.entities.ReqInhabitOfArrest"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

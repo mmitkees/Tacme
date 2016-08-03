@@ -129,7 +129,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqReimbursingImposedFine"
-    Entity="com.app.model.PPEntities.ReqReimbursingImposedFine"
+    Entity="com.app.model.entities.ReqReimbursingImposedFine"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

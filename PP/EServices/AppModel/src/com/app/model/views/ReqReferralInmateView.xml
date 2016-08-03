@@ -131,7 +131,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqReferalOfInmate"
-    Entity="com.app.model.PPEntities.ReqReferalOfInmate"
+    Entity="com.app.model.entities.ReqReferalOfInmate"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

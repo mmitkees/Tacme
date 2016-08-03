@@ -178,7 +178,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqTowhomeItmayCert"
-    Entity="com.app.model.PPEntities.ReqTowhomeItmayCert"
+    Entity="com.app.model.entities.ReqTowhomeItmayCert"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

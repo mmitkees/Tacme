@@ -130,7 +130,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqAppealInCassation"
-    Entity="com.app.model.PPEntities.ReqAppealInCassation"
+    Entity="com.app.model.entities.ReqAppealInCassation"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

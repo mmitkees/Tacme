@@ -19,7 +19,7 @@
   </DesignTime>
   <EntityUsage
     Name="ReqSubmitAnObjection"
-    Entity="com.app.model.PPEntities.ReqSubmitAnObjection"/>
+    Entity="com.app.model.entities.ReqSubmitAnObjection"/>
   <ViewAttribute
     Name="ReqId"
     IsNotNull="true"

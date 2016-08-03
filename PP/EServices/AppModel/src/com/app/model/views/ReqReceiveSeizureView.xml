@@ -170,7 +170,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqReceiveSeizure"
-    Entity="com.app.model.PPEntities.ReqReceiveSeizure"/>
+    Entity="com.app.model.entities.ReqReceiveSeizure"/>
   <ViewAttribute
     Name="ReqId"
     IsNotNull="true"

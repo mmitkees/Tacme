@@ -128,7 +128,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqRofb"
-    Entity="com.app.model.PPEntities.ReqRofb"
+    Entity="com.app.model.entities.ReqRofb"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

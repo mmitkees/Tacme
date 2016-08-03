@@ -139,7 +139,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqMedTreatRelease"
-    Entity="com.app.model.PPEntities.ReqMedTreatRelease"
+    Entity="com.app.model.entities.ReqMedTreatRelease"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

@@ -129,7 +129,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqRehabilitation"
-    Entity="com.app.model.PPEntities.ReqRehabilitation"/>
+    Entity="com.app.model.entities.ReqRehabilitation"/>
   <ViewAttribute
     Name="CaseNo"
     IsSelected="false"

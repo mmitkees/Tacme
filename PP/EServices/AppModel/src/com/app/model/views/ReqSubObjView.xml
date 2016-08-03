@@ -129,7 +129,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqObjectionOnExecution"
-    Entity="com.app.model.PPEntities.ReqObjectionOnExecution"/>
+    Entity="com.app.model.entities.ReqObjectionOnExecution"/>
   <ViewAttribute
     Name="CaseNo"    
     PrecisionRule="true"

@@ -129,7 +129,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqWaiverEnclosure"
-    Entity="com.app.model.PPEntities.ReqWaiverEnclosure"/>
+    Entity="com.app.model.entities.ReqWaiverEnclosure"/>
   <ViewAttribute
     Name="CaseNo"
     IsSelected="false"

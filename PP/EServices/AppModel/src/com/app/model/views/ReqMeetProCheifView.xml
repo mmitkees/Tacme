@@ -175,7 +175,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqMeetAProsecutor"
-    Entity="com.app.model.PPEntities.ReqMeetAProsecutor"
+    Entity="com.app.model.entities.ReqMeetAProsecutor"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

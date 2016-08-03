@@ -67,7 +67,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqPrisonerVisitorsInfo"
-    Entity="com.app.model.PPEntities.ReqPrisonerVisitorsInfo"/>
+    Entity="com.app.model.entities.ReqPrisonerVisitorsInfo"/>
   <ViewAttribute
     Name="VrId"
     IsNotNull="true"

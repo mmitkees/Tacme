@@ -133,7 +133,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqPostponeTheExecution"
-    Entity="com.app.model.PPEntities.ReqPostponeTheExecution"
+    Entity="com.app.model.entities.ReqPostponeTheExecution"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

@@ -131,7 +131,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqPrisonerVisit"
-    Entity="com.app.model.PPEntities.ReqPrisonerVisit"
+    Entity="com.app.model.entities.ReqPrisonerVisit"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseYear"

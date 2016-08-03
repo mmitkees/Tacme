@@ -177,7 +177,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqMemorandum"
-    Entity="com.app.model.PPEntities.ReqMemorandum"/>
+    Entity="com.app.model.entities.ReqMemorandum"/>
   <ViewAttribute
     Name="CaseNo"
     PrecisionRule="true"

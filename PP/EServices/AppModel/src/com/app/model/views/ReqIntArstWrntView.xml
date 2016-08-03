@@ -130,7 +130,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqIntlArrestWarrant"
-    Entity="com.app.model.PPEntities.ReqIntlArrestWarrant"
+    Entity="com.app.model.entities.ReqIntlArrestWarrant"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

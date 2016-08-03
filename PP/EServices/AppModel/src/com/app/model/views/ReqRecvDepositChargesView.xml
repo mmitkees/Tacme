@@ -178,7 +178,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqReceiveDepositedCharges"
-    Entity="com.app.model.PPEntities.ReqReceiveDepositedCharges"
+    Entity="com.app.model.entities.ReqReceiveDepositedCharges"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

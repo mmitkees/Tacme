@@ -131,7 +131,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqLawyerProfile"
-    Entity="com.app.model.PPEntities.ReqLawyerProfile"
+    Entity="com.app.model.entities.ReqLawyerProfile"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

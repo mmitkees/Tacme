@@ -130,7 +130,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqSeekReconsideration"
-    Entity="com.app.model.PPEntities.ReqSeekReconsideration"
+    Entity="com.app.model.entities.ReqSeekReconsideration"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

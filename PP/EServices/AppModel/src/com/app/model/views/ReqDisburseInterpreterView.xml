@@ -130,7 +130,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqInterpreterFees"
-    Entity="com.app.model.PPEntities.ReqInterpreterFees"
+    Entity="com.app.model.entities.ReqInterpreterFees"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

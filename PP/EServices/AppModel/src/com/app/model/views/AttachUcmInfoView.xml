@@ -18,7 +18,7 @@
   </DesignTime>
   <EntityUsage
     Name="AttachUcmInfo"
-    Entity="com.app.model.PPEntities.AttachUcmInfo"/>
+    Entity="com.app.model.entities.AttachUcmInfo"/>
   <ViewAttribute
     Name="RaId"
     IsNotNull="true"

@@ -141,7 +141,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqPhotocopyOfSentence"
-    Entity="com.app.model.PPEntities.ReqPhotocopyOfSentence"
+    Entity="com.app.model.entities.ReqPhotocopyOfSentence"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"    

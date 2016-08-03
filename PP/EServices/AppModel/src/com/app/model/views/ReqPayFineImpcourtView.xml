@@ -129,7 +129,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqPayFinesByEdirham"
-    Entity="com.app.model.PPEntities.ReqPayFinesByEdirham"
+    Entity="com.app.model.entities.ReqPayFinesByEdirham"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

@@ -104,7 +104,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqPrisonerInfo"
-    Entity="com.app.model.PPEntities.ReqPrisonerInfo"/>
+    Entity="com.app.model.entities.ReqPrisonerInfo"/>
   <ViewAttribute
     Name="PrisonerId"
     IsNotNull="true"

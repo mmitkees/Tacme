@@ -130,7 +130,7 @@
   </ListBinding>
   <EntityUsage
     Name="ReqExchangeTheBail"
-    Entity="com.app.model.PPEntities.ReqExchangeTheBail"
+    Entity="com.app.model.entities.ReqExchangeTheBail"
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"

@@ -9,7 +9,7 @@
    SeparateXMLFiles="true"
    PackageName="com.app.model">
    <DesignTime>
-      <Attr Name="_jprName" Value="../../../../AppModel.jpr"/>
+      <Attr Name="_jprName" Value="../../../../PP-Model.jpr"/>
       <Attr Name="_appModuleNames0"
          Value="com.app.model.services.PPAppServices"/>
       <Attr Name="_jbo.TypeMapEntries" Value="Java"/>
@@ -34,14 +34,6 @@
    <Containee
       Name="entities"
       PackageName="com.app.model.entities"
-      ObjectType="JboPackage">
-      <DesignTime>
-         <Attr Name="_EO" Value="true"/>
-      </DesignTime>
-   </Containee>
-   <Containee
-      Name="PPEntities"
-      PackageName="com.app.model.PPEntities"
       ObjectType="JboPackage">
       <DesignTime>
          <Attr Name="_EO" Value="true"/>
@@ -90,9 +82,5 @@
    <AppContainee
       Name="Model"
       FullName="model.Model"
-      ObjectType="JboProject">
-      <DesignTime>
-         <Attr Name="_SourceName" Value="SMSPrjadfLib.jar"/>
-      </DesignTime>
-   </AppContainee>
+      ObjectType="JboProject"/>
 </JboProject>
