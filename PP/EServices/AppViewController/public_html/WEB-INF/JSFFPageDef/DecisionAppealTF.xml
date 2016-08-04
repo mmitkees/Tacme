@@ -33,7 +33,7 @@
       <managed-bean-scope id="__50">request</managed-bean-scope>
     </managed-bean>
     <view id="Decision_Appeal">
-      <page>/WEB-INF/JSFF Pages/Decision_Appeal.jsff</page>
+      <page>/WEB-INF/jsf_pages/Decision_Appeal.jsff</page>
     </view>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>
@@ -48,10 +48,10 @@
       </outcome>
     </task-flow-return>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <method-call id="Rollback">
       <method>#{bindings.Rollback.execute}</method>
@@ -119,7 +119,7 @@
       </input-parameter>
     </task-flow-call>
     <view id="SubmitNotAllowed">
-      <page>/WEB-INF/JSFF Pages/SubmitNotAllowed.jsff</page>
+      <page>/WEB-INF/jsf_pages/SubmitNotAllowed.jsff</page>
     </view>
     <control-flow-rule id="__3">
       <from-activity-id id="__4">CreateInsert</from-activity-id>

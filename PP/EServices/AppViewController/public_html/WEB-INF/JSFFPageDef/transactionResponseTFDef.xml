@@ -25,7 +25,7 @@
       <managed-bean-scope id="__13">request</managed-bean-scope>
     </managed-bean>
     <view id="responseView">
-      <page>/WEB-INF/JSFF Pages/responseView.jsff</page>
+      <page>/WEB-INF/jsf_pages/responseView.jsff</page>
     </view>
     <method-call id="saveResponseStatus">
       <method>#{bindings.saveResponseStatus.execute}</method>

@@ -30,7 +30,7 @@
       <managed-bean-scope id="__72">request</managed-bean-scope>
     </managed-bean>
     <view id="recofSeizureView">
-      <page>/WEB-INF/JSFF Pages/recofSeizureView.jsff</page>
+      <page>/WEB-INF/jsf_pages/recofSeizureView.jsff</page>
     </view>
     
     <task-flow-call id="servDescTFDef">
@@ -104,10 +104,10 @@
       </outcome>
     </task-flow-return>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <control-flow-rule id="__6">
       <from-activity-id id="__7">servDescTFDef</from-activity-id>

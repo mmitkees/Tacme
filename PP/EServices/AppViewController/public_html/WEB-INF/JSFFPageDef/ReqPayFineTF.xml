@@ -36,7 +36,7 @@
       </outcome>
     </method-call>
     <view id="ReqPayFine">
-      <page>/WEB-INF/JSFF Pages/ReqPayFine.jsff</page>
+      <page>/WEB-INF/jsf_pages/ReqPayFine.jsff</page>
     </view>
     <task-flow-return id="Exit">
       <outcome id="__12">
@@ -51,10 +51,10 @@
       </outcome>
     </method-call>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <router id="router1">
       <case>

@@ -30,7 +30,7 @@
       <managed-bean-scope id="__39">request</managed-bean-scope>
     </managed-bean>
     <view id="SubSMSView">
-      <page>/WEB-INF/JSFF Pages/SubSMSView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SubSMSView.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__3">
@@ -44,10 +44,10 @@
       </outcome>
     </method-call>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <router id="router1">
       <case>

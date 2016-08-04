@@ -3,7 +3,7 @@
   <task-flow-definition id="contactUsAdminTFDef">
     <default-activity id="__1">ContactUsAdmin</default-activity>
     <view id="ContactUsAdmin">
-      <page>/WEB-INF/JSFF Pages/ContactUsAdmin.jsff</page>
+      <page>/WEB-INF/jsf_pages/ContactUsAdmin.jsff</page>
     </view>
     <use-page-fragments/>
   </task-flow-definition>

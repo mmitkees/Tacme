@@ -14,7 +14,7 @@
       </outcome>
     </method-call>
     <view id="searchTranslatorView">
-      <page>/WEB-INF/JSFF Pages/searchTranslatorView.jsff</page>
+      <page>/WEB-INF/jsf_pages/searchTranslatorView.jsff</page>
     </view>
     <control-flow-rule id="__7">
       <from-activity-id id="__8">initTranslators</from-activity-id>

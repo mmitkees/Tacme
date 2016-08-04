@@ -17,7 +17,7 @@
       </outcome>
     </method-call>
     <view id="RecDocimpPprtView">
-      <page>/WEB-INF/JSFF Pages/RecDocimpPprtView.jsff</page>
+      <page>/WEB-INF/jsf_pages/RecDocimpPprtView.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__3">
@@ -25,10 +25,10 @@
       </outcome>
     </task-flow-return>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <method-call id="ClearMethod">
       <method>#{pageFlowScope.AppServiceRDIP.clearrec_dep_in_action}</method>

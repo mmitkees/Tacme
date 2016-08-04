@@ -15,7 +15,7 @@
       <managed-bean-scope id="__3">request</managed-bean-scope>
     </managed-bean>
     <view id="SearchLawView">
-      <page>/WEB-INF/JSFF Pages/SearchLawView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SearchLawView.jsff</page>
     </view>
     <router id="router1">
       <case>
@@ -29,7 +29,7 @@
       <default-outcome>gotoArabic</default-outcome>
     </router>
     <view id="SearchLawViewAR">
-      <page>/WEB-INF/JSFF Pages/SearchLawViewAR.jsff</page>
+      <page>/WEB-INF/jsf_pages/SearchLawViewAR.jsff</page>
     </view>
     <method-call id="initSrchLawROVO">
       <method>#{bindings.initSrchLawROVO.execute}</method>
@@ -44,7 +44,7 @@
       </outcome>
     </method-call>
     <view id="srchLawview">
-      <page>/WEB-INF/JSFF Pages/srchLawview.jsff</page>
+      <page>/WEB-INF/jsf_pages/srchLawview.jsff</page>
     </view>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>

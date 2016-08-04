@@ -33,7 +33,7 @@
       <managed-bean-scope id="__49">request</managed-bean-scope>
     </managed-bean>
     <view id="Disburse_Interpreter_Fees">
-      <page>/WEB-INF/JSFF Pages/Disburse_Interpreter_Fees.jsff</page>
+      <page>/WEB-INF/jsf_pages/Disburse_Interpreter_Fees.jsff</page>
     </view>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>
@@ -48,10 +48,10 @@
       </outcome>
     </task-flow-return>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <method-call id="Rollback">
       <method>#{bindings.Rollback.execute}</method>

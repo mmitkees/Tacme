@@ -9,7 +9,7 @@
       <shared/>
     </data-control-scope>
     <view id="CaseInfo">
-      <page>/WEB-INF/JSFF Pages/CaseInfo.jsff</page>
+      <page>/WEB-INF/jsf_pages/CaseInfo.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__2">

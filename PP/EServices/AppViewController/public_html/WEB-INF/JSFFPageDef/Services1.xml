@@ -36,7 +36,7 @@
       </outcome>
     </method-call>
     <view id="Service">
-      <page>/WEB-INF/JSFF Pages/Service.jsff</page>
+      <page>/WEB-INF/jsf_pages/Service.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__3">
@@ -103,10 +103,10 @@
       </input-parameter>
     </task-flow-call>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <control-flow-rule id="__4">
       <from-activity-id id="__5">CreateInsert</from-activity-id>

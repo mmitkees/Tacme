@@ -41,7 +41,7 @@
       </outcome>
     </method-call>
     <view id="AdjSessionNewDte">
-      <page>/WEB-INF/JSFF Pages/AdjSessionNewDte.jsff</page>
+      <page>/WEB-INF/jsf_pages/AdjSessionNewDte.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__3">
@@ -49,10 +49,10 @@
       </outcome>
     </task-flow-return>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <method-call id="Rollback">
       <method>#{bindings.Rollback.execute}</method>

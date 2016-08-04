@@ -6,7 +6,7 @@
       <shared/>
     </data-control-scope>
     <view id="WelcomeTF">
-      <page>/WEB-INF/JSFF Pages/WelcomeTF.jsff</page>
+      <page>/WEB-INF/jsf_pages/WelcomeTF.jsff</page>
     </view>
     <use-page-fragments/>
   </task-flow-definition>

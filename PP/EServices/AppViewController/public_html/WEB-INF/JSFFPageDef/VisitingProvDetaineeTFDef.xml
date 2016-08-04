@@ -64,7 +64,7 @@
       </task-flow-reference>
     </task-flow-call>
     <view id="VisitProvDetView">
-      <page>/WEB-INF/JSFF Pages/VisitProvDetView.jsff</page>
+      <page>/WEB-INF/jsf_pages/VisitProvDetView.jsff</page>
     </view>
     <method-call id="CreateInsert1">
       <method>#{bindings.CreateInsert.execute}</method>
@@ -91,10 +91,10 @@
       </task-flow-reference>
     </task-flow-call>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <control-flow-rule id="__3">
       <from-activity-id id="__4">servDescTFDef</from-activity-id>

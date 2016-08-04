@@ -50,7 +50,7 @@
       <managed-bean-scope id="__90">backingBean</managed-bean-scope>
     </managed-bean>
     <view id="view1">
-      <page>/WEB-INF/JSFF Pages/CaseCopy1.jsff</page>
+      <page>/WEB-INF/jsf_pages/CaseCopy1.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__2">
@@ -64,10 +64,10 @@
       </outcome>
     </method-call>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <method-call id="Rollback">
       <method>#{bindings.Rollback.execute}</method>

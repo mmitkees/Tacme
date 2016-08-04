@@ -35,7 +35,7 @@
       </outcome>
     </task-flow-return>
     <view id="EoPCase1">
-      <page>/WEB-INF/JSFF Pages/EoPCase1.jsff</page>
+      <page>/WEB-INF/jsf_pages/EoPCase1.jsff</page>
     </view>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>
@@ -44,10 +44,10 @@
       </outcome>
     </method-call>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <router id="router1">
       <case>

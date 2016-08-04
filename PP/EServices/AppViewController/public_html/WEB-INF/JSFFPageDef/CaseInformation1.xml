@@ -36,7 +36,7 @@
       </outcome>
     </method-call>
     <view id="Caseinformation1">
-      <page>/WEB-INF/JSFF Pages/CaseInformation.jsff</page>
+      <page>/WEB-INF/jsf_pages/CaseInformation.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__3">
@@ -44,10 +44,10 @@
       </outcome>
     </task-flow-return>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <router id="router1">
       <case>

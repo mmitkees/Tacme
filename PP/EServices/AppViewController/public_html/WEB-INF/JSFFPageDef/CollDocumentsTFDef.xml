@@ -34,7 +34,7 @@
       <managed-bean-scope id="__45">request</managed-bean-scope>
     </managed-bean>
     <view id="CollDocuments">
-      <page>/WEB-INF/JSFF Pages/CollDocuments.jsff</page>
+      <page>/WEB-INF/jsf_pages/CollDocuments.jsff</page>
     </view>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>
@@ -49,10 +49,10 @@
       </outcome>
     </task-flow-return>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <method-call id="Rollback">
       <method>#{bindings.Rollback.execute}</method>

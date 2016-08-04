@@ -30,7 +30,7 @@
       <managed-bean-scope id="__50">request</managed-bean-scope>
     </managed-bean>
     <view id="WaiverEnclView">
-      <page>/WEB-INF/JSFF Pages/WaiverEnclView.jsff</page>
+      <page>/WEB-INF/jsf_pages/WaiverEnclView.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__12">
@@ -44,10 +44,10 @@
       </outcome>
     </method-call>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <method-call id="Rollback">
       <method>#{bindings.Rollback.execute}</method>

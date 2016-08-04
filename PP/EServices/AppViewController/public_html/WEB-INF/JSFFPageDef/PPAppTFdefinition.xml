@@ -21,10 +21,10 @@
       <managed-bean-scope id="__137">request</managed-bean-scope>
     </managed-bean>
     <view id="Login">
-      <page>/WEB-INF/JSFF Pages/Login.jsff</page>
+      <page>/WEB-INF/jsf_pages/Login.jsff</page>
     </view>
     <view id="NewUser">
-      <page>/WEB-INF/JSFF Pages/NewUser.jsff</page>
+      <page>/WEB-INF/jsf_pages/NewUser.jsff</page>
     </view>
     <method-call id="CreateInsert1">
       <method>#{bindings.CreateInsert.execute}</method>
@@ -33,10 +33,10 @@
       </outcome>
     </method-call>
     <view id="Services">
-      <page>/WEB-INF/JSFF Pages/Services.jsff</page>
+      <page>/WEB-INF/jsf_pages/Services.jsff</page>
     </view>
     <view id="Menu_services">
-      <page>/WEB-INF/JSFF Pages/Menu_services.jsff</page>
+      <page>/WEB-INF/jsf_pages/Menu_services.jsff</page>
     </view>
     <task-flow-call id="ReqPayFineTF">
       <task-flow-reference>
@@ -105,7 +105,7 @@
       </task-flow-reference>
     </task-flow-call>
     <view id="view1">
-      <page>/WEB-INF/JSFF Pages/view1_1.jsff</page>
+      <page>/WEB-INF/jsf_pages/view1_1.jsff</page>
     </view>
     <task-flow-call id="MistInJudgeMat">
       <task-flow-reference>
@@ -315,7 +315,7 @@
       </task-flow-reference>
     </task-flow-call>
     <view id="RegistrationConf">
-      <page>/WEB-INF/JSFF Pages/RegistrationConf.jsff</page>
+      <page>/WEB-INF/jsf_pages/RegistrationConf.jsff</page>
     </view>
     <task-flow-call id="taskFlowCall1">
       <task-flow-reference>

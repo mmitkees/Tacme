@@ -54,7 +54,7 @@
       </task-flow-reference>
     </task-flow-call>
     <view id="eserviceStatusView">
-      <page>/WEB-INF/JSFF Pages/eserviceStatusView.jsff</page>
+      <page>/WEB-INF/jsf_pages/eserviceStatusView.jsff</page>
     </view>
     <method-call id="ePayment">
       <method>#{backingBeanScope.epayment.paymentURL}</method>

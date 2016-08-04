@@ -59,7 +59,7 @@
       </outcome>
     </method-call>
     <view id="CopyNsOrder1">
-      <page>/WEB-INF/JSFF Pages/CopyNsOrder.jsff</page>
+      <page>/WEB-INF/jsf_pages/CopyNsOrder.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__12">
@@ -68,10 +68,10 @@
       </outcome>
     </task-flow-return>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <router id="router1">
       <case>
@@ -145,7 +145,7 @@
       </outcome>
     </method-call>
     <view id="SubmitNotAllowed">
-      <page>/WEB-INF/JSFF Pages/SubmitNotAllowed.jsff</page>
+      <page>/WEB-INF/jsf_pages/SubmitNotAllowed.jsff</page>
     </view>
     <control-flow-rule id="__7">
       <from-activity-id id="__8">CreateInsert</from-activity-id>

@@ -30,7 +30,7 @@
       <managed-bean-scope id="__43">request</managed-bean-scope>
     </managed-bean>
     <view id="VisitProvDetView">
-      <page>/WEB-INF/JSFF Pages/VisitProvDetView.jsff</page>
+      <page>/WEB-INF/jsf_pages/VisitProvDetView.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__7">
@@ -44,10 +44,10 @@
       </outcome>
     </method-call>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <router id="router1">
       <case>
@@ -121,7 +121,7 @@
       </outcome>
     </method-call>
     <view id="VisitProvDet">
-      <page>/WEB-INF/JSFF Pages/VisitProvDet.jsff</page>
+      <page>/WEB-INF/jsf_pages/VisitProvDet.jsff</page>
     </view>
     <control-flow-rule id="__8">
       <from-activity-id id="__9">CreateInsert</from-activity-id>

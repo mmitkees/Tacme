@@ -20,7 +20,7 @@
       <managed-bean-scope id="__12">request</managed-bean-scope>
     </managed-bean>
     <view id="ChgPwrdView">
-      <page>/WEB-INF/JSFF Pages/ChgPwrdView.jsff</page>
+      <page>/WEB-INF/jsf_pages/ChgPwrdView.jsff</page>
     </view>
     <use-page-fragments/>
   </task-flow-definition>

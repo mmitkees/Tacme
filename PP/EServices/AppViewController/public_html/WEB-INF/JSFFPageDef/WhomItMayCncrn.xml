@@ -50,7 +50,7 @@
       <managed-bean-scope id="__89">backingBean</managed-bean-scope>
     </managed-bean>
     <view id="WhomitMayCncrnView">
-      <page>/WEB-INF/JSFF Pages/WhomitMayCncrnView.jsff</page>
+      <page>/WEB-INF/jsf_pages/WhomitMayCncrnView.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__8">
@@ -64,10 +64,10 @@
       </outcome>
     </method-call>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <router id="router1">
       <case>

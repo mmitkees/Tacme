@@ -44,7 +44,7 @@
       <page>/srchDescEn.jsff</page>
     </view>
     <view id="srchDescAr">
-      <page>/WEB-INF/JSFF Pages/srchDescAr.jsff</page>
+      <page>/WEB-INF/jsf_pages/srchDescAr.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__27">

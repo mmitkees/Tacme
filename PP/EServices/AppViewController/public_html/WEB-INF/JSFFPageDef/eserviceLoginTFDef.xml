@@ -22,7 +22,7 @@
       <managed-bean-scope id="__35">request</managed-bean-scope>
     </managed-bean>
     <view id="Login">
-      <page>/WEB-INF/JSFF Pages/Login.jsff</page>
+      <page>/WEB-INF/jsf_pages/Login.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__2">
@@ -30,10 +30,10 @@
       </outcome>
     </task-flow-return>
     <view id="ForgetPassword">
-      <page>/WEB-INF/JSFF Pages/ForegetPassword.jsff</page>
+      <page>/WEB-INF/jsf_pages/ForegetPassword.jsff</page>
     </view>
     <view id="NewUser">
-      <page>/WEB-INF/JSFF Pages/NewUser.jsff</page>
+      <page>/WEB-INF/jsf_pages/NewUser.jsff</page>
     </view>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>
@@ -42,7 +42,7 @@
       </outcome>
     </method-call>
     <view id="regSuccess">
-      <page>/WEB-INF/JSFF Pages/regSuccess.jsff</page>
+      <page>/WEB-INF/jsf_pages/regSuccess.jsff</page>
     </view>
     <control-flow-rule id="__3">
       <from-activity-id id="__4">Login</from-activity-id>

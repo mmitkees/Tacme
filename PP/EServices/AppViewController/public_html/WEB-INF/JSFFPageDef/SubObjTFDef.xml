@@ -31,7 +31,7 @@
       <managed-bean-scope id="__50">request</managed-bean-scope>
     </managed-bean>
     <view id="SubObjView">
-      <page>/WEB-INF/JSFF Pages/SubObjView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SubObjView.jsff</page>
     </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome id="__3">
@@ -45,10 +45,10 @@
       </outcome>
     </method-call>
     <view id="SuccessMsgView">
-      <page>/WEB-INF/JSFF Pages/SuccessMsgView.jsff</page>
+      <page>/WEB-INF/jsf_pages/SuccessMsgView.jsff</page>
     </view>
     <view id="NotPartyView">
-      <page>/WEB-INF/JSFF Pages/NotPartyView.jsff</page>
+      <page>/WEB-INF/jsf_pages/NotPartyView.jsff</page>
     </view>
     <method-call id="Rollback">
       <method>#{bindings.Rollback.execute}</method>
@@ -116,7 +116,7 @@
       </input-parameter>
     </task-flow-call>
     <view id="SubmitNotAllowed">
-      <page>/WEB-INF/JSFF Pages/SubmitNotAllowed.jsff</page>
+      <page>/WEB-INF/jsf_pages/SubmitNotAllowed.jsff</page>
     </view>
     <control-flow-rule id="__9">
       <from-activity-id id="__10">SubObjView</from-activity-id>
