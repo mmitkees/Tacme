@@ -41,7 +41,7 @@
       </outcome>
     </method-call>
     <view id="srchDescEn">
-      <page>/srchDescEn.jsff</page>
+      <page>/WEB-INF/jsf_pages/srchDescEn.jsff</page>
     </view>
     <view id="srchDescAr">
       <page>/WEB-INF/jsf_pages/srchDescAr.jsff</page>

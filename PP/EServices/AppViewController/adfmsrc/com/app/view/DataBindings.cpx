@@ -183,9 +183,9 @@
             usageId="com_app_view_RecPprtTFDef_RecPprtTFDef_CreateInsertPageDef"/>
       <page path="/WEB-INF/jsf_pages/RecPprtView.jsff"
             usageId="com_app_view_RecPprtViewPageDef"/>
-      <page path="/WEB-INF/PPortrenewal.xml#PPortrenewal@CreateInsert"
+      <page path="/WEB-INF/JSFFPageDef/PPortrenewal.xml#PPortrenewal@CreateInsert"
             usageId="com_app_view_PPortrenewal_PPortrenewal_CreateInsertPageDef"/>
-      <page path="/PPRenewal.jsff" usageId="com_app_view_PPRenewalPageDef"/>
+      <page path="/WEB-INF/jsf_pages/PPRenewal.jsff" usageId="com_app_view_PPRenewalPageDef"/>
       <page path="/WEB-INF/JSFFPageDef/RecDocImpPprtTFDef.xml#RecDocImpPprtTFDef@CreateInsert"
             usageId="com_app_view_RecDocImpPprtTFDef_RecDocImpPprtTFDef_CreateInsertPageDef"/>
       <page path="/WEB-INF/jsf_pages/RecDocimpPprtView.jsff"
@@ -198,9 +198,9 @@
             usageId="com_app_view_pCopyDrop_pCopyDrop_CreateInsertPageDef"/>
       <page path="/WEB-INF/jsf_pages/Login.jsff"
             usageId="com_app_view_LoginPageDef"/>
-      <page path="/WEB-INF/IntArstWrntTFDef.xml#IntArstWrntTFDef@CreateInsert"
+      <page path="/WEB-INF/JSFFPageDef/IntArstWrntTFDef.xml#IntArstWrntTFDef@CreateInsert"
             usageId="com_app_view_IntArstWrntTFDef_IntArstWrntTFDef_CreateInsertPageDef"/>
-      <page path="/IntArstWrntView.jsff"
+      <page path="/WEB-INF/jsf_pages/IntArstWrntView.jsff"
             usageId="com_app_view_IntArstWrntViewPageDef"/>
       <page path="/WEB-INF/JSFFPageDef/AppealCaseTFDef.xml#AppealCaseTFDef@CreateInsert"
             usageId="com_app_view_AppealCaseTFDef_AppealCaseTFDef_CreateInsertPageDef"/>
@@ -289,13 +289,13 @@
             usageId="com_app_view_MdicalTrmntTFDef_MdicalTrmntTFDef_CreateInsertPageDef"/>
       <page path="/WEB-INF/jsf_pages/MedicalTrmntView.jsff"
             usageId="com_app_view_MedicalTrmntViewPageDef"/>
-      <page path="/ContactUs.jsff" usageId="com_app_view_ContactUsPageDef"/>
+      <page path="/WEB-INF/jsf_pages/ContactUs.jsff" usageId="com_app_view_ContactUsPageDef"/>
       <page path="/ContactUs.jspx" usageId="com_app_view_ContactUsPageDef1"/>
       <page path="/WEB-INF/JSFFPageDef/servDescTFDef.xml#servDescTFDef@setCurrentsrchDescAR"
             usageId="com_app_view_servDescTFDef_servDescTFDef_setCurrentsrchDescARPageDef"/>
       <page path="/WEB-INF/JSFFPageDef/servDescTFDef.xml#servDescTFDef@setCurrentsrchDescEN"
             usageId="com_app_view_servDescTFDef_servDescTFDef_setCurrentsrchDescENPageDef"/>
-      <page path="/srchDescEn.jsff" usageId="com_app_view_srchDescEnPageDef"/>
+      <page path="/WEB-INF/jsf_pages/srchDescEn.jsff" usageId="com_app_view_srchDescEnPageDef"/>
       <page path="/WEB-INF/jsf_pages/srchDescAr.jsff"
             usageId="com_app_view_srchDescArPageDef"/>
       <page path="/WEB-INF/JSFFPageDef/AdjSessNewDte.xml#AdjSessNewDte@executeSMSproc"

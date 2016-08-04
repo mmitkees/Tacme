@@ -256,7 +256,7 @@
     </task-flow-call>
     <task-flow-call id="PPortrenewal">
       <task-flow-reference>
-        <document>/WEB-INF/PPortrenewal.xml</document>
+        <document>/WEB-INF/JSFFPageDef/PPortrenewal.xml</document>
         <id>PPortrenewal</id>
       </task-flow-reference>
     </task-flow-call>
@@ -304,7 +304,7 @@
     </task-flow-call>
     <task-flow-call id="IntArstWrntTFDef">
       <task-flow-reference>
-        <document>/WEB-INF/IntArstWrntTFDef.xml</document>
+        <document>/WEB-INF/JSFFPageDef/IntArstWrntTFDef.xml</document>
         <id>IntArstWrntTFDef</id>
       </task-flow-reference>
     </task-flow-call>

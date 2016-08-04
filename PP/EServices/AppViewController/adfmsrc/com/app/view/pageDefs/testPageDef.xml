@@ -5,10 +5,15 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="SearchLawyersTFDef1"
-              taskFlowId="/WEB-INF/JSFFPageDef/SearchLawyersTFDef.xml#SearchLawyersTFDef"
+    <taskFlow id="PPortrenewal1"
+              taskFlowId="/WEB-INF/JSFFPageDef/PPortrenewal.xml#PPortrenewal"
               activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="key" value="22"/>
+        <parameter id="locale" value="en"/>
+      </parameters>
+    </taskFlow>
   </executables>
   <bindings/>
 </pageDefinition>

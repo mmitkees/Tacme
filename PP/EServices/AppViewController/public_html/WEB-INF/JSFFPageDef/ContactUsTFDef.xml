@@ -21,7 +21,7 @@
       <managed-bean-scope id="__9">request</managed-bean-scope>
     </managed-bean>
     <view id="ContactUs">
-      <page>/ContactUs.jsff</page>
+      <page>/WEB-INF/jsf_pages/ContactUs.jsff</page>
     </view>
     <use-page-fragments/>
   </task-flow-definition>
