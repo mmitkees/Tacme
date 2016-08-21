@@ -1,4 +1,4 @@
-package view.utils;
+package com.tacme.pp.common.utils;
 
 
 import java.io.IOException;
@@ -117,6 +117,13 @@ public class ADFUtils {
 
         exp.setValue(elContext, val);
     }
+
+    public static void addScriptOnRequest(String script) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            ExtendedRenderKitService erks =
+                Service.getRenderKitService(context, ExtendedRenderKitService.class);
+           erks.addScript(context, script);
+        }
 
     /**
         * Programmatic invocation of a method that an EL evaluates to.
@@ -707,4 +714,16 @@ public class ADFUtils {
           PatternsPublicUtil.hidePopup(popupId);     
         }
       }*/
+
+      //the String passed to the method is the graph component Id,
+      //including the naming container Id if the graph is contained
+      //in a naming container like dialog, table etc …
+      
+      
+      public static void printDVTComponent(String clientId) {
+          //find starting component
+          FacesContext fctx = FacesContext.getCurrentInstance();
+          UIViewRoot root = fctx.getViewRoot();
+          root.invokeOnComponent(fctx, clientId, new DvtContextCallBack());
+      }
 }
