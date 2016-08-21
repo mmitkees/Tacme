@@ -42,7 +42,7 @@
       <property
          name="activityId">Review1</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/view1.jsff</property>
+         name="page">/WEB-INF/jsf_pages/view1.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>Review1&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -50,9 +50,9 @@
       <property
          name="y">91.149414</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">253.5</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -79,7 +79,7 @@
       <property
          name="activityId">SuccessMsgView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/SuccessMsgView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/SuccessMsgView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>SuccessMsgView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -87,16 +87,16 @@
       <property
          name="y">-45.00586</property>
       <property
-         name="x">358.01562</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">358.01562</property>
    </View>
    <View
       id="View8">
       <property
          name="activityId">NotPartyView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/NotPartyView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/NotPartyView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>NotPartyView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -104,9 +104,9 @@
       <property
          name="y">232.09766</property>
       <property
-         name="x">370.3457</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">370.3457</property>
    </View>
    <ControlFlowCase
       islink="true"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="servDescTFDef">
-    <default-activity id="__5">setServices</default-activity>
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__5">setServices</default-activity>
     <input-parameter-definition id="__1">
       <name id="__2">key</name>
       <value>#{pageFlowScope.key}</value>

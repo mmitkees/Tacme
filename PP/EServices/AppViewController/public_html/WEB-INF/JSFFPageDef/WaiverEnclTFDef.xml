@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="WaiverEnclTFDef">
-    <default-activity id="__19">servDescTFDef</default-activity>
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__19">servDescTFDef</default-activity>
     <data-control-scope id="__46">
       <isolated/>
     </data-control-scope>
@@ -28,6 +28,11 @@
       <managed-bean-name id="__47">CustomValidator</managed-bean-name>
       <managed-bean-class id="__49">com.app.view.beans.CustomValidators</managed-bean-class>
       <managed-bean-scope id="__50">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__93">
+      <managed-bean-name id="__95">SuccessRatingBean</managed-bean-name>
+      <managed-bean-class id="__94">com.tacme.pp.beans.common.servicerating.SuccessRatingBean</managed-bean-class>
+      <managed-bean-scope id="__92">pageFlow</managed-bean-scope>
     </managed-bean>
     <view id="WaiverEnclView">
       <page>/WEB-INF/jsf_pages/WaiverEnclView.jsff</page>

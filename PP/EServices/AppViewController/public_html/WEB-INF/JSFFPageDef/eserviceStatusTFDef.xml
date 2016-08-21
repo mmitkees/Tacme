@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="eserviceStatusTFDef">
-    <default-activity id="__1">router1</default-activity>
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">router1</default-activity>
     <input-parameter-definition id="__17">
       <name id="__16">locale</name>
       <value>#{pageFlowScope.locale}</value>

@@ -69,7 +69,6 @@ import java.util.Locale;
 import java.util.Map;
 
 
-
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.share.logging.ADFLogger;
 
@@ -2447,7 +2446,15 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    
+                    
+                    
+                    
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -2525,7 +2532,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Deposit Money in favor of Plaintiff");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -2567,7 +2574,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -2646,7 +2657,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Decision of Appeal");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -2688,7 +2699,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 if (!res.equals(""))
@@ -2767,7 +2782,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Disburse Interpreter Fees");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 UCMBean ubean = new UCMBean();
                 if (file_u != null) {
@@ -2810,7 +2825,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -2885,7 +2904,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Correcting Mistake in Judgment Material");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -2927,7 +2946,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -3006,7 +3029,7 @@ public class AppService implements Serializable {
                     (String)ADFContext.getCurrent().getSessionScope().get("usermail");
                 sentEmail((Number)casinfr.getAttribute("CaseId"),
                           "Ending a custody against a juvenile");
-                return "Y";*/
+                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";*/
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -3048,7 +3071,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 /* FacesMessage Message =
@@ -3123,7 +3150,7 @@ public class AppService implements Serializable {
                 //                uploadfile_appeal();
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"), "Appeal");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -3165,7 +3192,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -3240,7 +3271,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Fine Retreival request");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -3282,7 +3313,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -3355,7 +3390,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Lawyer Profile");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -3397,7 +3432,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -3477,7 +3516,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Exchange of Bill");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -3519,7 +3558,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -3601,7 +3644,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Referral of Inmate");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -3643,7 +3686,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -3722,7 +3769,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Collecting Documents");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -3764,7 +3811,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -3836,7 +3887,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Paying fine imposed by court");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -3878,7 +3929,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -3950,7 +4005,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Payment of Lawyers Fee");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -3992,7 +4047,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -4071,7 +4130,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Provide Financial/Personal Bail");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -4113,7 +4172,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             }
             if (res.equals("N")) {
@@ -4191,7 +4254,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Receiving of Corpse");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -4234,7 +4297,11 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
 
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -4305,7 +4372,7 @@ public class AppService implements Serializable {
                 //                uploadFile_review();
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"), "Review");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -4347,7 +4414,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -4421,7 +4492,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Correcting Mistake in Judgment Material");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -4463,7 +4534,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -4538,7 +4613,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Correcting Mistake in Judgment Material");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -4580,7 +4655,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "NotAllowed";
@@ -4629,7 +4708,7 @@ public class AppService implements Serializable {
             BigDecimal name = new BigDecimal(cpname.toString());
             BigDecimal year = new BigDecimal(cyear.toString());
             String res = this.validatingCase(sid, caseno, name, year);
-          
+
             if (res.equals("ok")) {
                 Row casinfr = caseinfovo.createRow();
                 Row reqr = reqview.createRow();
@@ -4653,7 +4732,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Copy NS order");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -4695,13 +4774,18 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
-                if(!res.equals(""))
+                if (!res.equals(""))
                     return "NotAllowed";
-                else return "N";
-             
+                else
+                    return "N";
+
             }
         }
         if (corrmistr.getAttribute("CaseNo") == null) {
@@ -4838,7 +4922,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Adjourn a Session or Fix New Date");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -4882,7 +4966,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -4964,7 +5052,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Adjourn a Session or Fix New Date");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -5008,7 +5096,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -5171,7 +5263,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -5241,7 +5337,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Exhumation");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -5283,7 +5379,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -5363,7 +5463,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Expiration of Penal Case");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -5405,7 +5505,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -5481,7 +5585,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Fine Difference Reimbursement");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -5523,7 +5627,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -5598,7 +5706,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Meeting a Prosecutor/Chief Prosecutor");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -5640,7 +5748,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -5730,7 +5842,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Opening of Memorandums");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -5772,7 +5884,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -5905,7 +6021,11 @@ public class AppService implements Serializable {
                             (Number)reqr.getAttribute("ReqId");
                         executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                        csid);
-                        return "Y";
+                        ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                     ((Number)reqr.getAttribute("ReqId")).stringValue());
+                        ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                        ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                        return "successRating";
                     }
                 } else {
                     return "N";
@@ -5989,7 +6109,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Payment installment to court");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -6031,7 +6151,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -6117,7 +6241,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Photocopy of Case Dropping Decision");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -6159,7 +6283,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 if (!res.equals(""))
@@ -6234,7 +6362,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Postpone the execution of restricted freedom punishment of convicts");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -6276,7 +6404,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -6351,7 +6483,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Receiving of Deposited Charges");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -6393,7 +6525,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -6437,7 +6573,7 @@ public class AppService implements Serializable {
     //        clcvo.setNamedWhereClauseParam("subj", subj);
     //        clcvo.executeQuery();
     //        if (clcvo.getEstimatedRowCount() != 0) {
-    //            return "Y";
+    //                               ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
     //        } else {
     //            return "N";
     //        }
@@ -6456,7 +6592,7 @@ public class AppService implements Serializable {
     //        clcvo.setNamedWhereClauseParam("year", year);
     //        clcvo.executeQuery();
     //        if (clcvo.getEstimatedRowCount() != 0) {
-    //            return "Y";
+    //                               ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
     //        } else {
     //            return "N";
     //        }
@@ -7474,7 +7610,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Waiver Enclosure");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -7516,7 +7652,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -7683,7 +7823,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Visiting a Provisional Detainee");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -7725,7 +7865,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -7929,7 +8073,7 @@ public class AppService implements Serializable {
                     //                commit_action();
                     //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                     //                          "Providing an objection");
-                    //                return "Y";
+                    //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                     BigDecimal rid =
                         (BigDecimal)corrmistr.getAttribute("ReqId");
                     java.util.List<UploadedFile> file_u =
@@ -7976,7 +8120,11 @@ public class AppService implements Serializable {
                             (Number)reqr.getAttribute("ReqId");
                         executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                        csid);
-                        return "Y";
+                        ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                     ((Number)reqr.getAttribute("ReqId")).stringValue());
+                        ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                        ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                        return "successRating";
                     }
                 }
 
@@ -8071,7 +8219,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Providing an objection");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 System.out.println("Request ID for submit an objection :: " +
                                    provAnObjRow.getAttribute("ReqId"));
                 BigDecimal rid =
@@ -8117,7 +8265,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             }
 
@@ -8296,7 +8448,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Subscribing in SMS Service");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -8338,7 +8490,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -8500,7 +8656,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "To It May Concern Certificate");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -8542,7 +8698,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -8712,7 +8872,7 @@ public class AppService implements Serializable {
                 //                String txt =
                 //                    "Case details " + caseno + " has been sent and waiting for approval";
                 //                au.sendEmail(email, subj, txt);
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -8754,7 +8914,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -8916,7 +9080,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -9144,7 +9312,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Stop Searching/Cancellation of Arrest Warrant");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -9186,7 +9354,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -9317,7 +9489,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Return of Bail Amount");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
@@ -9359,7 +9531,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -9558,7 +9734,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -9728,7 +9908,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Receiving of Passport");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 //                UCMBean ubean = new UCMBean();
                 //                Number foldern = (Number)reqr.getAttribute("ReqId");
                 //
@@ -9774,7 +9954,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -9928,7 +10112,11 @@ public class AppService implements Serializable {
                 String subj = "Case details "+caseno+" has been sent and waiting for approval";
                 String txt = "Case details "+caseno+" has been sent and waiting for approval";
                 au.sendEmail(email, subj, txt);*/
-            return "Y";
+            ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                         ((Number)reqr.getAttribute("ReqId")).stringValue());
+            ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                            ((Number)reqr.getAttribute("ServiceId")).stringValue());
+            return "successRating";
         } else {
             return "N";
         }
@@ -10100,7 +10288,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "International arrest warrant");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
 
                 if (this.intPhotoUpload != null) {
                     if (intPhotoUpload.getFilename().endsWith("gif") ||
@@ -10167,7 +10355,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -10371,7 +10563,7 @@ public class AppService implements Serializable {
                 //                commit_action();
                 //                sentEmail((Number)casinfr.getAttribute("CaseId"),
                 //                          "Request for appeal in cassation\n");
-                //                return "Y";
+                //                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";
                 java.util.List<UploadedFile> file_u = this.getUploadedfile();
                 if (file_u != null) {
                     for (int i = 0; i < file_u.size(); i++) {
@@ -10422,7 +10614,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";
@@ -10874,7 +11070,7 @@ public class AppService implements Serializable {
                 commit_action();
                 sentEmail((Number)casinfr.getAttribute("CaseId"),
                           "Medical Treatment Release");
-                return "Y";*/
+                                   ADFUtils.setEL("#{pageFlowScope.ReqId}", (String)reqr.getAttribute("ReqId"));                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",  ((Number)reqr.getAttribute("ServiceId")).stringValue());                     return "successRating";*/
                 if (file_u != null) {
                     String validateFile = validateFileUpload(file_u);
                     if (validateFile.equals("N")) {
@@ -10915,7 +11111,11 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    return "Y";
+                    ADFUtils.setEL("#{pageFlowScope.ReqId}",
+                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                    ADFUtils.setEL("#{pageFlowScope.ServiceId}",
+                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                    return "successRating";
                 }
             } else {
                 return "N";

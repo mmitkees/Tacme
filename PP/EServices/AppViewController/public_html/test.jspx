@@ -7,8 +7,48 @@
   <f:view>
     <af:document id="d1">
       <af:messages id="m1"/>
+      <af:resource type="css"
+                   source="http://demoserver.tacme.net:12127/css/customStyle.css"/>
+      <af:resource type="css"
+                   source="http://demoserver.tacme.net:12127/css/slider.css"/>
+      <af:resource type="css"
+                   source="http://demoserver.tacme.net:12127/css/responsive.css"/>
+      <af:resource type="css"
+                   source="http://demoserver.tacme.net:12127/css/font-awesome.min.css"/>
+      <af:resource type="css"
+                   source="http://demoserver.tacme.net:12127/css/accessibility.css"/>
+      <af:resource type="css"
+                   source="http://demoserver.tacme.net:12127/css/jquery.bxslider.css"/>
+      <af:resource type="css"
+                   source="http://demoserver.tacme.net:12127/fancybox/jquery.fancybox.css"/>
+      <af:resource type="css" source="http://jquerymodal.com/jquery.modal.css"/>
+      <af:resource type="javascript"
+                   source="http://demoserver.tacme.net:12127/js/jquery-1.7.1.min.js"/>
+      <af:resource type="javascript"
+                   source="http://demoserver.tacme.net:12127/js/caroufredsel-carousel.js"/>
+      <af:resource type="javascript"
+                   source="http://demoserver.tacme.net:12127/js/jquery.film_roll.js"/>
+      <af:resource type="javascript"
+                   source="http://demoserver.tacme.net:12127/js/jquery.bxslider.js"/>
+      <af:resource type="javascript"
+                   source="http://demoserver.tacme.net:12127/js/jquery.touchSwipe.min.js"/>
+      <af:resource type="javascript"
+                   source="http://f1-eu.readspeaker.com/script/5/ReadSpeaker.js?pids=embhl"/>
+      <af:resource type="javascript"
+                   source="http://demoserver.tacme.net:12127/fancybox/jquery.fancybox.js"/>
+      <af:resource type="javascript"
+                   source="http://demoserver.tacme.net:12127/fancybox/jquery.fancybox.pack.js"/>
+      <af:resource type="javascript"
+                   source="http://demoserver.tacme.net:12127/fancybox/jquery.mousewheel-3.0.4.pack.js"/>
+      <af:resource type="javascript"
+                   source="http://jquerymodal.com/jquery.modal.js"/>
+      <!--<af:resource type="javascript"
+                   source="http://demoserver.tacme.net:12127/js/comman_script.js"/>-->
       <af:form id="f1">
-        <af:region value="#{bindings.PPortrenewal1.regionModel}" id="r1"/>
+        <af:region value="#{bindings.EserviceSuccessRatingTF1.regionModel}"
+                   id="r1"/>
+                      
+    
       </af:form>
     </af:document>
   </f:view>

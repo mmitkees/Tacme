@@ -12,7 +12,7 @@
       <property
          name="activityId">CaseInfo</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/CaseInfo.jsff</property>
+         name="page">/WEB-INF/jsf_pages/CaseInfo.jsff</property>
       <property
          name="start">true</property>
       <property
@@ -22,9 +22,9 @@
       <property
          name="y">98.79883</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">91.5</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn3">

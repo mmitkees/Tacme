@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="RecDocImpPprtTFDef">
-    <default-activity id="__1">CreateInsert</default-activity>
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">CreateInsert</default-activity>
     <data-control-scope id="__43">
       <shared/>
     </data-control-scope>
@@ -9,6 +9,11 @@
       <managed-bean-name id="__14">AppServiceRDIP</managed-bean-name>
       <managed-bean-class id="__17">com.app.view.beans.AppService</managed-bean-class>
       <managed-bean-scope id="__16">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__47">
+      <managed-bean-name id="__44">SuccessRatingBean</managed-bean-name>
+      <managed-bean-class id="__45">com.tacme.pp.beans.common.servicerating.SuccessRatingBean</managed-bean-class>
+      <managed-bean-scope id="__46">pageFlow</managed-bean-scope>
     </managed-bean>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="serviceRatingTableTF">
+    <default-activity id="__1">serviceRating-TableView</default-activity>
+    <view id="serviceRating-TableView">
+      <page>/WEB-INF/com/tacme/pp/fragments/serviceRatingAdmin/RatingAdmin-TableView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

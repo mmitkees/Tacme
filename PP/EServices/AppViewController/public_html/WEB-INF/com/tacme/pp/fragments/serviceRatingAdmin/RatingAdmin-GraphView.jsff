@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelTabbed id="pt1">
+    <af:showDetailItem text="Table View" id="sdi1">
+      <af:panelBox text="Table View" id="pb1">
+        <f:facet name="toolbar"/>
+        <af:panelCollection id="pc1">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t2">
+              <af:commandToolbarButton text="Export" id="ctb1">
+                <af:exportCollectionActionListener type="excelHTML"
+                                                   exportedId="t1"
+                                                   filename="RatingDataTable.xls"
+                                                   title="RatingDataTable"/>
+              </af:commandToolbarButton>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.RatingAdminVO12.collectionModel}"
+                    var="row" rows="#{bindings.RatingAdminVO12.rangeSize}"
+                    emptyText="#{bindings.RatingAdminVO12.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.RatingAdminVO12.rangeSize}"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.RatingAdminVO12.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.RatingAdminVO12.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t1">
+            <af:column sortProperty="#{bindings.RatingAdminVO12.hints.RatingValueEn.name}"
+                       sortable="false"
+                       headerText="#{bindings.RatingAdminVO12.hints.RatingValueEn.label}"
+                       id="c3">
+              <af:outputText value="#{row.RatingValueEn}" id="ot5"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.RatingAdminVO12.hints.RatingValueAr.name}"
+                       sortable="false"
+                       headerText="#{bindings.RatingAdminVO12.hints.RatingValueAr.label}"
+                       id="c4">
+              <af:outputText value="#{row.RatingValueAr}" id="ot3"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.RatingAdminVO12.hints.RatingCount.name}"
+                       sortable="false"
+                       headerText="#{bindings.RatingAdminVO12.hints.RatingCount.label}"
+                       id="c2">
+              <af:outputText value="#{row.RatingCount}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.RatingAdminVO12.hints.TotalCount.name}"
+                       sortable="false"
+                       headerText="#{bindings.RatingAdminVO12.hints.TotalCount.label}"
+                       id="c5">
+              <af:outputText value="#{row.TotalCount}" id="ot4"/>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:panelBox>
+    </af:showDetailItem>
+    <af:showDetailItem id="Pie_Chart" text="Pie Chart">
+      <af:panelBox text="Pie Chart" id="pb2">
+        <f:facet name="toolbar">
+          <af:group id="g1">
+            <af:toolbar id="t3">
+              <af:commandToolbarButton text="Print" id="ctb2"
+                                                     actionListener="#{backingBeanScope.RatingAdminBB.printChart}">
+                                       
+                                       <f:attribute name="chartId" value="pieChart1"/>
+                                       
+                                       </af:commandToolbarButton>
+            </af:toolbar>
+          </af:group>
+        </f:facet>
+        <dvt:pieChart id="pieChart1" var="row"
+                      value="#{bindings.RatingAdminVO1.collectionModel}"
+                      threeDEffect="on" dataSelection="single"
+                      sliceLabelPosition="outside">
+          <dvt:chartLegend id="cl1"/>
+          <dvt:pieDataItem id="di1" value="#{row.RatingCount}"
+                           label="#{row.RatingValueEn}"/>
+        </dvt:pieChart>
+      </af:panelBox>
+    </af:showDetailItem>
+    <af:showDetailItem text="Bar Chart" id="Bar_Chart">
+      <af:panelBox text="Bar Chart" id="pb3">
+               <f:facet name="toolbar">
+          <af:group id="g2">
+            <af:toolbar id="t4">
+              <af:commandToolbarButton text="Print" id="ctb3"
+                                       actionListener="#{backingBeanScope.RatingAdminBB.printChart}">
+                                       
+                                       <f:attribute name="chartId" value="barChart1"/>
+                                       
+                                       </af:commandToolbarButton>
+                                       
+            </af:toolbar>
+          </af:group>
+        </f:facet>
+        <dvt:barChart id="barChart1" var="row"
+                      value="#{bindings.RatingAdminVO11.collectionModel}"
+                      stack="on" animationIndicators="all"
+                      dataSelection="single">
+          <dvt:chartLegend id="cl2"/>
+          <f:facet name="dataStamp">
+            <dvt:chartDataItem id="di2" value="#{row.RatingCount}"
+                               group="#{row.RatingValueEn}"
+                               series="#{bindings.RatingAdminVO11.hints.RatingCount.label}"/>
+          </f:facet>
+        </dvt:barChart>
+      </af:panelBox>
+    </af:showDetailItem>
+  </af:panelTabbed>
+</jsp:root>

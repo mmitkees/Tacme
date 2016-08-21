@@ -24,6 +24,14 @@
       </DesignTime>
    </Containee>
    <Containee
+      Name="servicerating"
+      PackageName="com.app.model.Assoc.servicerating"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AS" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
       Name="DBviews"
       PackageName="com.app.model.DBviews"
       ObjectType="JboPackage">
@@ -34,6 +42,14 @@
    <Containee
       Name="entities"
       PackageName="com.app.model.entities"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_EO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="servicerating"
+      PackageName="com.app.model.entities.servicerating"
       ObjectType="JboPackage">
       <DesignTime>
          <Attr Name="_EO" Value="true"/>
@@ -58,6 +74,14 @@
    <Containee
       Name="searchLaw"
       PackageName="com.app.model.views.searchLaw"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="servicerating"
+      PackageName="com.app.model.views.servicerating"
       ObjectType="JboPackage">
       <DesignTime>
          <Attr Name="_VO" Value="true"/>

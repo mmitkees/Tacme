@@ -1,0 +1,43 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule2">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">150.39062</property>
+      <property
+         name="x">144.0</property>
+   </WildcardControlFlowRule>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">EserviceSuccessRatingTF</property>
+      <property
+         name="activityId">EserviceSuccessRatingTF</property>
+      <property
+         name="documentReference">/WEB-INF/com/tacme/pp/taskflows/common/EserviceSuccessRatingTF.xml</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EserviceSuccessRatingTF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">148.48828</property>
+      <property
+         name="x">408.35645</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="WildcardControlFlowRule2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">successRating</property>
+      <property
+         name="sdm:polyPoints">R50,180.0,150.54004,367.35645,148.1377,L50</property>
+   </ControlFlowCase>
+</SDM>

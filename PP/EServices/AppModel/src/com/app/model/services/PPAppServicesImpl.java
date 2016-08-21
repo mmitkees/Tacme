@@ -3377,4 +3377,27 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
     }
 
 
+    /**
+     * Container's getter for RatingRecordsVO1.
+     * @return RatingRecordsVO1
+     */
+    public ViewObjectImpl getRatingRecordsVO1() {
+        return (ViewObjectImpl)findViewObject("RatingRecordsVO1");
+    }
+
+    /**
+     * Container's getter for RatingLOV1.
+     * @return RatingLOV1
+     */
+    public ViewObjectImpl getRatingLOV1() {
+        return (ViewObjectImpl)findViewObject("RatingLOV1");
+    }
+
+    /**
+     * Container's getter for RatingAdminVO1.
+     * @return RatingAdminVO1
+     */
+    public ViewObjectImpl getRatingAdminVO1() {
+        return (ViewObjectImpl)findViewObject("RatingAdminVO1");
+    }
 }

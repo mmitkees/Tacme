@@ -2,7 +2,7 @@
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
 
   <task-flow-definition id="CollDocumentsTFDef">
-    <default-activity id="__2">servDescTFDef</default-activity>
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__2">servDescTFDef</default-activity>
     <transaction id="__14">
       <new-transaction/>
     </transaction>
@@ -32,6 +32,11 @@
       <managed-bean-name id="__49">CustomValidator</managed-bean-name>
       <managed-bean-class id="__50">com.app.view.beans.CustomValidators</managed-bean-class>
       <managed-bean-scope id="__45">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__94">
+      <managed-bean-name id="__95">SuccessRatingBean</managed-bean-name>
+      <managed-bean-class id="__93">com.tacme.pp.beans.common.servicerating.SuccessRatingBean</managed-bean-class>
+      <managed-bean-scope id="__96">pageFlow</managed-bean-scope>
     </managed-bean>
     <view id="CollDocuments">
       <page>/WEB-INF/jsf_pages/CollDocuments.jsff</page>

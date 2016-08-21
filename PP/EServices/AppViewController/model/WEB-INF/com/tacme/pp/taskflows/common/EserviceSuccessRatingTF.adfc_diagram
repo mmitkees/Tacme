@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">CreateWithParameters</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CreateWithParameters&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">123.396484</property>
+      <property
+         name="x">175.01953</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">SuccessMsgView</property>
+      <property
+         name="page">/WEB-INF/jsf_pages/SuccessMsgView.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SuccessMsgView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">125.384766</property>
+      <property
+         name="x">416.01562</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="fromOutcome">CreateWithParams</property>
+      <property
+         name="sdm:polyPoints">R50,216.01953,123.0459,375.01562,125.03418,L50</property>
+   </ControlFlowCase>
+</SDM>

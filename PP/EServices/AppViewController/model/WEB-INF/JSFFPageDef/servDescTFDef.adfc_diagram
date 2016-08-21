@@ -48,7 +48,7 @@
       <property
          name="activityId">srchDescEn</property>
       <property
-         name="page">/srchDescEn.jsff</property>
+         name="page">/WEB-INF/jsf_pages/srchDescEn.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>srchDescEn&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -56,16 +56,16 @@
       <property
          name="y">153.49414</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">491.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View6">
       <property
          name="activityId">srchDescAr</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/srchDescAr.jsff</property>
+         name="page">/WEB-INF/jsf_pages/srchDescAr.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>srchDescAr&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -73,9 +73,9 @@
       <property
          name="y">297.1953</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">492.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"

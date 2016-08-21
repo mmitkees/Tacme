@@ -738,6 +738,15 @@
    <ViewUsage
       Name="CasesViewObj1"
       ViewObjectName="com.app.model.views.CasesViewObj"/>
+   <ViewUsage
+      Name="RatingRecordsVO1"
+      ViewObjectName="com.app.model.views.servicerating.RatingRecordsVO"/>
+   <ViewUsage
+      Name="RatingLOV1"
+      ViewObjectName="com.app.model.views.servicerating.RatingLOV"/>
+   <ViewUsage
+      Name="RatingAdminVO1"
+      ViewObjectName="com.app.model.views.servicerating.RatingAdminVO"/>
    <ViewLinkUsage
       Name="AttachementsToSubSMS1"
       ViewLinkObjectName="com.app.model.views.viewLink.AttachementsToSubSMS"

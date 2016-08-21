@@ -6,6 +6,8 @@
       <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
                className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
       <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+      <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+               className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
    </definitionFactories>
    <pageMap>
       <page path="/WEB-INF/JSFFPageDef/DecisionAppealTF.xml#DecisionAppealTF@Rollback"
@@ -40,10 +42,7 @@
             usageId="com_app_view_SubObjViewPageDef"/>
       <page path="/WEB-INF/JSFFPageDef/SubObjTFDef.xml#SubObjTFDef@CreateInsert"
             usageId="com_app_view_SubObjTFDef_SubObjTFDef_CreateInsertPageDef"/>
-      <page path="/Main.jspx" usageId="com_app_view_MainPageDef"/>
-      <page path="/WEB-INF/JSFFPageDef/PPAppTFdefinition.xml#PPAppTFdefinition@CreateInsert1"
-            usageId="com_app_view_PPAppTFdefinition_PPAppTFdefinition_CreateInsert1PageDef"/>
-      <page path="/WEB-INF/jsf_pages/NewUser.jsff"
+       <page path="/WEB-INF/jsf_pages/NewUser.jsff"
             usageId="com_app_view_NewUserPageDef"/>
       <page path="/WEB-INF/jsf_pages/MistakeInJudgeMat.jsff"
             usageId="com_app_view_MistakeInJudgeMatPageDef"/>
@@ -350,11 +349,7 @@
             usageId="com_app_view_VisitProvDetPageDef"/>
       <page path="/WEB-INF/jsf_pages/MistInJudgeMatV1.1.jsff"
             usageId="com_app_view_Pg1PageDef"/>
-      <page path="/ArabicTestMistView.jsff"
-            usageId="com_app_view_ArabicTestMistViewPageDef"/>
-      <page path="/WEB-INF/JSFFPageDef/ArabicMistkeInJudgeMatTFDef.xml#ArabicMistkeInJudgeMatTFDef@CreateInsert"
-            usageId="com_app_view_ArabicMistkeInJudgeMatTFDef_ArabicMistkeInJudgeMatTFDef_CreateInsertPageDef"/>
-      <page path="/WEB-INF/JSFFPageDef/recofSeizureTFDef.xml#recofSeizureTFDef@CreateInsert"
+         <page path="/WEB-INF/JSFFPageDef/recofSeizureTFDef.xml#recofSeizureTFDef@CreateInsert"
             usageId="com_app_view_recofSeizureTFDef_recofSeizureTFDef_CreateInsertPageDef"/>
       <page path="/WEB-INF/jsf_pages/recofSeizureView.jsff"
             usageId="com_app_view_recofSeizureViewPageDef"/>
@@ -364,6 +359,14 @@
             usageId="com_app_view_AdkSessNewDte_copy_AdjSessNewDte_copy_CreateInsertPageDef"/>
       <page path="/WEB-INF/JSFFPageDef/AdkSessNewDte-copy.xml#AdjSessNewDte-copy@Rollback"
             usageId="com_app_view_AdkSessNewDte_copy_AdjSessNewDte_copy_RollbackPageDef"/>
+      <page path="/WEB-INF/com/tacme/pp/taskflows/common/EserviceSuccessRatingTF.xml#EserviceSuccessRatingTF@CreateWithParameters"
+            usageId="com_app_view_EserviceSuccessRatingTF_EserviceSuccessRatingTF_CreateWithParametersPageDef"/>
+      <page path="/WEB-INF/jsf_pages/SuccessMsgView.jsff"
+            usageId="com_app_view_SuccessMsgViewPageDef"/>
+      <page path="/WEB-INF/com/tacme/pp/fragments/serviceRatingAdmin/RatingAdmin-TableView.jsff"
+            usageId="com_app_view_RatingAdmin_TableViewPageDef"/>
+      <page path="/WEB-INF/com/tacme/pp/fragments/serviceRatingAdmin/RatingAdmin-GraphView.jsff"
+            usageId="com_app_view_RatingAdmin_GraphViewPageDef"/>
    </pageMap>
    <pageDefinitionUsages>
       <page id="com_app_view_DecisionAppealTF_DecisionAppealTF_RollbackPageDef"
@@ -738,6 +741,14 @@
             path="JSFFPageDef.AdkSessNewDte_copy_AdjSessNewDte_copy_CreateInsertPageDef"/>
       <page id="com_app_view_AdkSessNewDte_copy_AdjSessNewDte_copy_RollbackPageDef"
             path="JSFFPageDef.AdkSessNewDte_copy_AdjSessNewDte_copy_RollbackPageDef"/>
+      <page id="com_app_view_EserviceSuccessRatingTF_EserviceSuccessRatingTF_CreateWithParametersPageDef"
+            path="com.tacme.pp.taskflows.common.EserviceSuccessRatingTF_EserviceSuccessRatingTF_CreateWithParametersPageDef"/>
+      <page id="com_app_view_SuccessMsgViewPageDef"
+            path="jsf_pages.SuccessMsgViewPageDef"/>
+      <page id="com_app_view_RatingAdmin_TableViewPageDef"
+            path="com.tacme.pp.fragments.serviceRatingAdmin.RatingAdmin_TableViewPageDef"/>
+      <page id="com_app_view_RatingAdmin_GraphViewPageDef"
+            path="com.tacme.pp.fragments.serviceRatingAdmin.RatingAdmin_GraphViewPageDef"/>
    </pageDefinitionUsages>
    <dataControlUsages>
       <BC4JDataControl id="PPAppServicesDataControl"

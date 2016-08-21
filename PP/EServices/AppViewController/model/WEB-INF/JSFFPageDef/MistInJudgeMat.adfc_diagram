@@ -42,7 +42,7 @@
       <property
          name="activityId">MistakeInJudgeMat</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/MistakeInJudgeMat.jsff</property>
+         name="page">/WEB-INF/jsf_pages/MistakeInJudgeMat.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>MistakeInJudgeMat&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -50,9 +50,9 @@
       <property
          name="y">113.29297</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">233.02539</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -79,7 +79,7 @@
       <property
          name="activityId">SuccessMsgView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/SuccessMsgView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/SuccessMsgView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>SuccessMsgView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -87,9 +87,9 @@
       <property
          name="y">236.44238</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">471.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -116,7 +116,7 @@
       <property
          name="activityId">NotPartyView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/NotPartyView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/NotPartyView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>NotPartyView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -124,9 +124,9 @@
       <property
          name="y">-33.603516</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">384.3457</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <MethodCall
       id="MethodCall11">
@@ -351,7 +351,7 @@
       <property
          name="activityId">MistInJudgeMatV1.1</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/MistInJudgeMatV1.1.jsff</property>
+         name="page">/WEB-INF/jsf_pages/MistInJudgeMatV1.1.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>MistInJudgeMatV1.1&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -359,8 +359,8 @@
       <property
          name="y">92.53418</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">681.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
 </SDM>

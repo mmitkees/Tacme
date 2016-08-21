@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="MdicalTrmntTFDef">
-    <default-activity id="__1">servDescTFDef</default-activity>
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">servDescTFDef</default-activity>
     <input-parameter-definition id="__59">
       <name id="__58">key</name>
       <value>#{pageFlowScope.key}</value>
@@ -25,6 +25,11 @@
       <managed-bean-name id="__40">CustomValidator</managed-bean-name>
       <managed-bean-class id="__43">com.app.view.beans.CustomValidators</managed-bean-class>
       <managed-bean-scope id="__41">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__87">
+      <managed-bean-name id="__85">SuccessRatingBean</managed-bean-name>
+      <managed-bean-class id="__86">com.tacme.pp.beans.common.servicerating.SuccessRatingBean</managed-bean-class>
+      <managed-bean-scope id="__88">pageFlow</managed-bean-scope>
     </managed-bean>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>

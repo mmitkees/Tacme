@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-template id="PPEserviceTemplate">
+    <task-flow-call id="EserviceSuccessRatingTF">
+      <task-flow-reference>
+        <document>/WEB-INF/com/tacme/pp/taskflows/common/EserviceSuccessRatingTF.xml</document>
+        <id>EserviceSuccessRatingTF</id>
+      </task-flow-reference>
+      <input-parameter id="__7">
+        <name>ReqId</name>
+        <value>#{pageFlowScope.ReqId}</value>
+      </input-parameter>
+      <input-parameter id="__8">
+        <name>ServiceId</name>
+        <value>#{pageFlowScope.ServiceId}</value>
+      </input-parameter>
+      <input-parameter id="__3">
+        <name>eserviceUrl</name>
+        <value>#{pageFlowScope.eservice}</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__1">*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">successRating</from-outcome>
+        <to-activity-id id="__5">EserviceSuccessRatingTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-template>
+</adfc-config>

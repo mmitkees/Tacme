@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="MistInJudgeMat">
-    <default-activity id="__1">servDescTFDef</default-activity>
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">servDescTFDef</default-activity>
     <transaction id="__9">
       <new-transaction/>
     </transaction>
@@ -36,6 +36,11 @@
       <managed-bean-name id="__69">AppServiceBean</managed-bean-name>
       <managed-bean-class id="__67">com.app.view.beans.AppService</managed-bean-class>
       <managed-bean-scope id="__66">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__99">
+      <managed-bean-name id="__100">SuccessRatingBean</managed-bean-name>
+      <managed-bean-class id="__41">com.tacme.pp.beans.common.servicerating.SuccessRatingBean</managed-bean-class>
+      <managed-bean-scope id="__42">pageFlow</managed-bean-scope>
     </managed-bean>
     <view id="MistakeInJudgeMat">
       <page>/WEB-INF/jsf_pages/MistakeInJudgeMat.jsff</page>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="SrchCnclWrntTFDef">
-    <default-activity id="__1">servDescTFDef</default-activity>
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">servDescTFDef</default-activity>
     <data-control-scope id="__18">
       <isolated/>
     </data-control-scope>
@@ -28,6 +28,11 @@
       <managed-bean-name id="__28">CustomValidator</managed-bean-name>
       <managed-bean-class id="__27">com.app.view.beans.CustomValidators</managed-bean-class>
       <managed-bean-scope id="__44">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__86">
+      <managed-bean-name id="__89">SuccessRatingBean</managed-bean-name>
+      <managed-bean-class id="__88">com.tacme.pp.beans.common.servicerating.SuccessRatingBean</managed-bean-class>
+      <managed-bean-scope id="__87">pageFlow</managed-bean-scope>
     </managed-bean>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>

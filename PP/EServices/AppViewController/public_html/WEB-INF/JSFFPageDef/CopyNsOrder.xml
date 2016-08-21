@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="CopyNsOrder">
-    <default-activity id="__1">servDescTFDef</default-activity>
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">servDescTFDef</default-activity>
     <transaction id="__18">
       <new-transaction/>
     </transaction>
@@ -51,6 +51,11 @@
       <managed-bean-name id="__92">eDhirahmPay</managed-bean-name>
       <managed-bean-class id="__91">com.app.view.beans.epay</managed-bean-class>
       <managed-bean-scope id="__89">backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__35">
+      <managed-bean-name id="__36">SuccessRatingBean</managed-bean-name>
+      <managed-bean-class id="__34">com.tacme.pp.beans.common.servicerating.SuccessRatingBean</managed-bean-class>
+      <managed-bean-scope id="__37">pageFlow</managed-bean-scope>
     </managed-bean>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>
