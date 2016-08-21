@@ -24,7 +24,7 @@ import oracle.jbo.RowSetIterator;
 import oracle.jbo.client.Configuration;
 import oracle.jbo.domain.Date;
 
-import view.utils.ADFUtils;
+import com.tacme.pp.common.utils.ADFUtils;
 
 public class PaymentJob implements Serializable, TimerListener,
                                    CancelTimerListener {
