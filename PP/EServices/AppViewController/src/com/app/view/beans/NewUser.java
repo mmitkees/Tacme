@@ -1,7 +1,9 @@
 package com.app.view.beans;
 
 import com.app.model.services.PPAppServicesImpl;
-import com.app.view.utils.ADFUtils;
+import com.tacme.pp.common.utils.ADFUtils;
+
+import com.tacme.pp.common.utils.EmailUtils;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
@@ -183,7 +185,7 @@ public class NewUser implements Serializable {
                         copbind.execute();
                         res = "reg";
                         ADFUtils au = new ADFUtils();
-                        au.sendEmail(emailid, subj, txt);
+                       EmailUtils.sendEmail(emailid, subj, txt);
                        
                         // RichPopup.PopupHints hints = new RichPopup.PopupHints();
                         //                    this.getLoginPopupBind().show(hints);
@@ -462,7 +464,7 @@ public class NewUser implements Serializable {
                     String txt =
                         "Password has been reset. The new password is : " +
                         result;
-                    afu.sendEmail(b_email, subj, txt);
+                    EmailUtils.sendEmail(b_email, subj, txt);
                     OperationBinding commitob =
                         bindings.getOperationBinding("Commit");
                     commitob.execute();

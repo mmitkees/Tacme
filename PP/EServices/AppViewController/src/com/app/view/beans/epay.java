@@ -1,7 +1,7 @@
 package com.app.view.beans;
 
 import com.app.model.services.PPAppServicesImpl;
-import com.app.view.utils.ADFUtils;
+import com.tacme.pp.common.utils.ADFUtils; 
 
 import java.io.IOException;
 import java.io.Serializable;

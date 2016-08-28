@@ -1,5 +1,5 @@
 #
-#Tue Jun 14 11:12:37 GST 2016
+#Thu Aug 25 12:42:07 GST 2016
 dIndexedID=3074
 dIsCheckedOut=1
 xRegionDefinition=
@@ -17,8 +17,8 @@ dDocAuthor=weblogic
 dInDate=2016-04-13 06\:08\:52Z
 dIndexerState=
 xVideoRenditions=
-dFlag1=
 xxWCWorkflowAssignment=
+dFlag1=
 xStorageRule=DispByContentId
 dIsWebFormat=0
 xCollectionID=0
@@ -73,5 +73,5 @@ xWebFlag=
 xIdcProfile=
 dOriginalName=default.xml
 dDocOwner=weblogic
-dPublishType=
 dDocName=NEWS-LIST
+dPublishType=

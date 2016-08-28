@@ -93,7 +93,7 @@
         <property name="paramtype" value="html"/>
         <valueList name="parameters">
             <value></value>
-            <value>250</value>
+            <value>500</value>
             <value></value>
             <value>true</value>
             <value>true</value>

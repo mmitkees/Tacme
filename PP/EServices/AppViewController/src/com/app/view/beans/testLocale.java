@@ -1,6 +1,6 @@
 package com.app.view.beans;
 
-import com.app.view.utils.JSFUtils;
+ import com.tacme.pp.common.utils.JSFUtils;
 
 import java.io.Serializable;
 

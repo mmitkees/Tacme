@@ -39,7 +39,7 @@
       <property
          name="activityId">eserviceStatusView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/eserviceStatusView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/eserviceStatusView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>eserviceStatusView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -47,9 +47,9 @@
       <property
          name="y">117.84473</property>
       <property
-         name="x">328.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">328.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -104,17 +104,4 @@
       <property
          name="sdm:polyPoints">B56,331.5,171.49414,426.0,235.22363,L50</property>
    </ControlFlowCase>
-   <MethodCall
-      id="MethodCall10">
-      <property
-         name="activityId">downloadUrl</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>downloadUrl&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">78.59766</property>
-      <property
-         name="x">482.0</property>
-   </MethodCall>
 </SDM>

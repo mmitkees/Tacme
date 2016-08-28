@@ -62,6 +62,10 @@
       <list n="technologyScope">
          <string v="Java"/>
          <string v="JavaBeans"/>
+         <string v="JSF"/>
+         <string v="JSP"/>
+         <string v="ADF_FACES"/>
+         <string v="ADFc"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
@@ -175,6 +179,18 @@
             <value n="id" v="Oracle JDBC"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="ADF Page Flow Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Controller Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Controller Schema"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <list n="libraryReferences">
          <hash>
@@ -255,6 +271,18 @@
          </hash>
          <hash>
             <value n="id" v="Oracle JDBC"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Page Flow Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Controller Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Controller Schema"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

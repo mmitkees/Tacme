@@ -62,9 +62,6 @@
         <to-string/>
       </outcome>
     </method-call>
-    <method-call id="downloadUrl">
-      <method>#{requestScope.eserviceStatus.setDownloadUrl}</method>
-    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id id="__3">router1</from-activity-id>
       <control-flow-case id="__4">

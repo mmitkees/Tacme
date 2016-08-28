@@ -38,7 +38,7 @@
       <managed-bean-scope id="__66">pageFlow</managed-bean-scope>
     </managed-bean>
     <managed-bean id="__99">
-      <managed-bean-name id="__100">SuccessRatingBean</managed-bean-name>
+      <managed-bean-name id="__100012">SuccessRatingBean</managed-bean-name>
       <managed-bean-class id="__41">com.tacme.pp.beans.common.servicerating.SuccessRatingBean</managed-bean-class>
       <managed-bean-scope id="__42">pageFlow</managed-bean-scope>
     </managed-bean>

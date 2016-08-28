@@ -12,7 +12,7 @@
       <af:inputText label="Label 1" id="it1" visible="false"/>
       <af:panelGroupLayout id="pgl3" layout="vertical">
         <af:inputFile label="Label 1" id="if1" visible="false"/>
-        <af:outputText value="#{appviewcontrollerbundle.p_successmsg} #{appviewcontrollerbundle.p_estusrid} : #{pageFlowScope.ReqId}"
+        <af:outputText value="#{appviewcontrollerbundle.p_successmsg} #{appviewcontrollerbundle.p_estusrid}  #{pageFlowScope.ReqId}"
                        id="ot1"
                        inlineStyle="color:Black; font-size:large; font-weight:bold;"/>
       </af:panelGroupLayout>
@@ -100,8 +100,14 @@ $('.rating-popup').modal({
 	clickClose : false
 }).trigger('click');
 
-	
-  
+
+$('.rating-popup').on('modal:open', function(event, modal) {
+ $('body').addClass("rpop-open");
+});
+$('.rating-popup').on('modal:close', function(event, modal) {
+$('body').removeClass("rpop-open");
+});
+
     ]]>
       </af:resource>
     </af:panelGroupLayout>

@@ -1,6 +1,6 @@
 package com.app.view.beans;
 
-import com.app.view.utils.ADFUtils;
+import com.tacme.pp.common.utils.ADFUtils; 
 
 import java.io.Serializable;
 

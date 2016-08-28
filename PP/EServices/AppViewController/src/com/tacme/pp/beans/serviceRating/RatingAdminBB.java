@@ -11,7 +11,7 @@ public class RatingAdminBB {
     public void printChart(ActionEvent actionEvent) {
         
         System.out.println(actionEvent.getComponent().getAttributes().get("chartId"));
-        ADFUtils.printDVTComponent((String)actionEvent.getComponent().getAttributes().get("chartId"));
+     //   ADFUtils.printDVTComponent((String)actionEvent.getComponent().getAttributes().get("chartId"));
         // Add event code here...
     }
 }

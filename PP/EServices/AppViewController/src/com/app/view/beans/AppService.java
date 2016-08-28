@@ -2,7 +2,9 @@ package com.app.view.beans;
 
 import com.app.model.services.PPAppServicesImpl;
 
-import com.app.view.utils.ADFUtils;
+import com.tacme.pp.common.utils.ADFUtils;
+
+import com.tacme.pp.common.utils.EmailUtils;
 
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
@@ -5175,7 +5177,7 @@ public class AppService implements Serializable {
             message =
                     caseid + "تعزيزي المستخدم طلب التسجيل الخاص بك تحت قيد التن�?يذ :";
         }
-        au.sendEmail(email, subj, message);
+        EmailUtils.sendEmail(email, subj, message);
         return null;
     }
 
@@ -10714,7 +10716,7 @@ public class AppService implements Serializable {
                     Message.setSeverity(FacesMessage.SEVERITY_INFO);
                     FacesContext fc = FacesContext.getCurrentInstance();
                     fc.addMessage(null, Message);
-                    adfUtils.sendEmail(emailId,
+                    EmailUtils.sendEmail(emailId,
                                        "Your Profile details have been successfully updated.",
                                        "Your Profile details have been successfully updated.");
                 }
@@ -10724,7 +10726,7 @@ public class AppService implements Serializable {
                     Message.setSeverity(FacesMessage.SEVERITY_INFO);
                     FacesContext fc = FacesContext.getCurrentInstance();
                     fc.addMessage(null, Message);
-                    adfUtils.sendEmail(emailId, "تم تحديث حسابك بنجاح",
+                    EmailUtils.sendEmail(emailId, "تم تحديث حسابك بنجاح",
                                        "تم تحديث حسابك بنجاح");
                 }
             } catch (Exception e) {
@@ -10784,7 +10786,7 @@ public class AppService implements Serializable {
                         commit_action();
                         String email =
                             (String)ADFContext.getCurrent().getSessionScope().get("usermail");
-                        this.afu.sendEmail(email, "Password has been changed",
+                        EmailUtils.sendEmail(email, "Password has been changed",
                                            "Password has been changed");
                         FacesMessage Message =
                             new FacesMessage("Your password has been changed successfully");

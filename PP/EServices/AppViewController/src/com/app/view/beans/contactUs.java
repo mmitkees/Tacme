@@ -1,6 +1,8 @@
 package com.app.view.beans;
 
-import com.app.view.utils.ADFUtils;
+import com.tacme.pp.common.utils.ADFUtils;
+
+import com.tacme.pp.common.utils.EmailUtils;
 
 import javax.faces.event.ValueChangeEvent;
 
@@ -302,7 +304,7 @@ public class contactUs implements Serializable{
                             bindings.getOperationBinding("Commit");
                         commitBinding.execute();
                         ADFUtils au = new ADFUtils();
-                        au.sendEmail((String)email, (String)subject,
+                       EmailUtils.sendEmail((String)email, (String)subject,
                                      (String)decription);
                         if (locale.equals("en")){
                         getMessage("Your message has been successfully sent");

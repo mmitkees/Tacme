@@ -27,7 +27,7 @@
       <managed-bean-scope id="__95">request</managed-bean-scope>
     </managed-bean>
     <managed-bean id="__101">
-      <managed-bean-name id="__100">AppServiceBean</managed-bean-name>
+      <managed-bean-name id="__100012">AppServiceBean</managed-bean-name>
       <managed-bean-class id="__99">com.app.view.beans.AppService</managed-bean-class>
       <managed-bean-scope id="__98">pageFlow</managed-bean-scope>
     </managed-bean>

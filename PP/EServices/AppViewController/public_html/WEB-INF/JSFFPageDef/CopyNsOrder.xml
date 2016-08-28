@@ -226,7 +226,7 @@
       <from-activity-id id="__98">ePayment</from-activity-id>
       <control-flow-case id="__99">
         <from-outcome id="__101">commit</from-outcome>
-        <to-activity-id id="__100">Commit</to-activity-id>
+        <to-activity-id id="__10760">Commit</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__105">

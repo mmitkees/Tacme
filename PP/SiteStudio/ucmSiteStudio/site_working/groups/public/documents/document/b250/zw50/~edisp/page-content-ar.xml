@@ -44,12 +44,12 @@
         <property name="canSpellCheck" value="true"/>
         <property name="isRequired" value="true"/>
         <property name="canApplyCssClasses" value="true"/>
-        <property name="canEditTarget" value="true"/>
+        <property name="canEditTarget" value="false"/>
         <property name="canIncludeInList" value="false"/>
         <property name="enableTableSupport" value="true"/>
         <property name="canPasteFormattedContent" value="true"/>
         <property name="enableObjectProperties" value="true"/>
-        <property name="enableValidation" value="true"/>
+        <property name="enableValidation" value="false"/>
         <property name="canShowAccessibilityReport" value="true"/>
         <property name="canShowSourceMode" value="true"/>
         <property name="canExpandEditor" value="true"/>
@@ -57,9 +57,6 @@
         <property name="canApplyTags" value="true"/>
         <property name="canSetHeight" value="false"/>
         <property name="disableEncloseText" value="false"/>
-        <property name="enableFormSupport" value="false"/>
-        <property name="canSelectAll" value="true"/>
-        <property name="canSearchAndReplace" value="true"/>
     </complexProperty>
     <valueList name="classes"/>
     <valueList name="tags"/>
