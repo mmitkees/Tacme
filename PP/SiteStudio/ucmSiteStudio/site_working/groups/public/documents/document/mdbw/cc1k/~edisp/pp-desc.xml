@@ -70,21 +70,21 @@
 		</dataProperty>
     </complexProperty>
     <complexProperty name="linktoregioncontent">
-        <property name="createnewxml" value="true"/>
-        <property name="createnewnative" value="false"/>
-        <property name="choosemanaged" value="true"/>
-        <property name="chooselocal" value="false"/>
         <property name="choosenone" value="false"/>
-        <valueList name="createnewnativedoctypes"/>
-        <complexProperty name="choosemanagedquerytext">
-            <property name="corecontentonly" value="false"/>
-            <dataProperty name="querytext">
-				xWebsiteObjectType &lt;Matches&gt; `Data File` &lt;OR&gt; xWebsiteObjectType &lt;Matches&gt; `Native Document`
-			</dataProperty>
-        </complexProperty>
         <dataProperty name="defaultmetadata">
 			
 		</dataProperty>
+        <property name="createnewxml" value="true"/>
+        <property name="createnewnative" value="false"/>
+        <valueList name="createnewnativedoctypes">
+            <value></value>
+        </valueList>
+        <property name="choosemanaged" value="true"/>
+        <complexProperty name="choosemanagedquerytext">
+            <dataProperty name="querytext">xWebsiteObjectType &lt;Matches&gt; `Data File` &lt;OR&gt; xWebsiteObjectType &lt;Matches&gt; `Native Document`</dataProperty>
+            <property name="corecontentonly" value="false"/>
+        </complexProperty>
+        <property name="chooselocal" value="false"/>
     </complexProperty>
     <complexProperty name="validate">
         <property name="docname" value="SS_DEFAULT_VALIDATION_SCRIPT"/>
