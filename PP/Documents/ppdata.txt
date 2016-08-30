@@ -1,0 +1,73 @@
+
+Application server:
+Name: srvadtwebapp01
+IP : 172.25.20.10
+User : domain , administrator
+
+Web server:
+Name : srvadtwebp01
+IP : 172.25.1.201
+User : administrator , webadmin
+
+Database server:
+Name : srvadtwebdb01
+IP : 172.25.20.11
+Users : domain, administrator
+
+--------------------------------
+
+Name : Srvadtedhs
+IP : 172.25.1.202
+User : administrator
+--------------------------------
+
+Server name:      srvadtestdb.pp.gov.ae
+
+Service_name:   projmoj
+
+Username:         projtest
+Password:           projtest
+-----------------------------
+http://172.25.1.201:7777/webcenter
+-------------------------------------------------
+
+
+•	host       SrvAdPPDC2.pp.gov.ae
+•	port       389 ( Default ) 
+•	principal (the distinguished name DN user to connect through)   CN=WebCenter Services,OU=Portal,OU=Special Accounts,OU=Users,OU=Data,DC=pp,DC=gov,DC=ae
+•	password            R5re$&HJV
+•	user base DN      OU=Portal,OU=Special Accounts,OU=Users,OU=Data,DC=pp,DC=gov,DC=ae
+•	username Attribute        Webcenter_Portal
+•	group base DN  OU=Portal,OU=Special Accounts,OU=Users,OU=Data,DC=pp,DC=gov,DC=ae
+-------------------------------
+
+(&(memberOf=CN=WebCenter Users,OU=Portal,OU=Special Accounts,OU=Users,OU=Data,DC=pp,DC=gov,DC=ae)(objectCategory=user))
+
+---------------------------
+
+#{empty sessionScope.myLocale?'ar':sessionScope.myLocale}
+
+
+
+-------------------------------------
+
+•	host       SrvAdPPDC2.pp.gov.ae
+•	port       389 ( Default ) 
+•	principal (the distinguished name DN user to connect through)   CN=WebCenter Services,OU=Portal,OU=Special Accounts,OU=Users,OU=Data,DC=pp,DC=gov,DC=ae
+•	password            R5re$&HJV
+•	user base DN      OU=Portal,OU=Special Accounts,OU=Users,OU=Data,DC=pp,DC=gov,DC=ae
+•	username Attribute        Webcenter_Portal
+•	group base DN  OU=Portal,OU=Special Accounts,OU=Users,OU=Data,DC=pp,DC=gov,DC=ae
+-------------------
+
+AllowArchiveNoneFolderItem=false
+
+
+
+
+#Mail Varaibles
+MailServer=exmail.eim.ae
+SysAdminAddress=sendemail@tacme.ae
+SmtpPort=25
+SmtpPassword=send123
+

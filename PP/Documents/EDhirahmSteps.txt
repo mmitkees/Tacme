@@ -1,0 +1,24 @@
+E-Dhirahm integeration steps:
+
+Step 1 :
+=> Run the RunScripts.sql file to the Database. (In case of any issues please check other scripts and identify the issue).
+
+Step 2:
+=> Pass the below parameter as input parameter in response page
+
+TaskFlow Name - eserviceStatusTFDef (To send the request).
+TaskFlow Name - TransactionResponseTFDef.XML (To get the response)
+
+•	locale - en/ar
+•	returnUrl - http://172.25.1.202/PMRWeb/PaymentRouter/PaymentTestPage.aspx?
+•	serviceCode - 000000-0001 (For testing)
+•	secret key - 123456 (Any key - For generating hash).
+•	pmrredurl - #{attrs.serverPath}/portal/AlAin/Payment Response
+
+
+JNDI Names:
+jdbc/ppdevDS
+
+Paramerters passed:
+#{facesContext.externalContext.requestParameterMap['Response.StatusMessage']}
+${param.InvoiceNo}
