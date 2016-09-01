@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="IntArstWrntViewPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqIntArstWrntView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqIntArstWrntView1Iterator"/>
+    <iterator Binds="ReqAttachmentsViewIAW" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsViewIAWIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqIntArstWrntView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqIntArstWrntView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqIntArstWrntView1Iterator"
+                     id="PersonCaptName">
+      <AttrNames>
+        <Item Value="PersonCaptName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqIntArstWrntView1Iterator"
+                     id="PersonCaptData">
+      <AttrNames>
+        <Item Value="PersonCaptData"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ReqAttachmentsViewIAWIterator"
+          id="ReqAttachmentsViewIAW">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsViewIAW0">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="Name"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsViewIAWIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="ReqIntArstWrntView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName1" DTSupportsMRU="true"/>
+    <list IterBinding="ReqIntArstWrntView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_ar" id="RelationCase1" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

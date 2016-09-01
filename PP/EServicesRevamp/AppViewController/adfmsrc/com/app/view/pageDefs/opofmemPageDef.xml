@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="opofmemPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqOpeningOdMemView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqOpeningOdMemView1Iterator"/>
+    <iterator Binds="ReqAttachmentsView28" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsView28Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqOpeningOdMemView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqOpeningOdMemView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqOpeningOdMemView1Iterator"
+                     id="Witnessname">
+      <AttrNames>
+        <Item Value="Witnessname"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ReqAttachmentsView28Iterator" id="ReqAttachmentsView28">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsView280">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsView28Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="ReqOpeningOdMemView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="Prosecutionname" DTSupportsMRU="true"/>
+    <list IterBinding="ReqOpeningOdMemView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_ar" id="Relationcase" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqOpeningOdMemView1Iterator"
+                     id="ComplainantAddress">
+      <AttrNames>
+        <Item Value="ComplainantAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqOpeningOdMemView1Iterator"
+                     id="ComplainantMobile">
+      <AttrNames>
+        <Item Value="ComplainantMobile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqOpeningOdMemView1Iterator"
+                     id="MemoSubject">
+      <AttrNames>
+        <Item Value="MemoSubject"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqOpeningOdMemView1Iterator" StaticList="false"
+          Uses="LOV_Nationality_en" id="ComplainantNationality1"
+          DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqOpeningOdMemView1Iterator"
+                     id="MemoCategory">
+      <AttrNames>
+        <Item Value="MemoCategory"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

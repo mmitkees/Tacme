@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:subform id="s1">
+    <af:panelGroupLayout id="pgl1" layout="vertical">
+      <af:outputText value="#{appviewcontrollerbundle.p_userreg}" id="ot1"/>
+      <af:commandButton text="#{appviewcontrollerbundle.p_login}" id="cb4" action="login"
+                                       styleClass="dialog-btn-wrap btn-action"/>
+    </af:panelGroupLayout>
+  </af:subform>
+</jsp:root>

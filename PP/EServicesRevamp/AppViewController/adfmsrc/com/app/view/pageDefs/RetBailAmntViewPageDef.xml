@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="RetBailAmntViewPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqRetBailAmntView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqRetBailAmntView1Iterator"/>
+    <iterator Binds="ReqAttachmentsViewRBA" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsViewRBAIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqRetBailAmntView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqRetBailAmntView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <tree IterBinding="ReqAttachmentsViewRBAIterator"
+          id="ReqAttachmentsViewRBA">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsViewRBA0">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsViewRBAIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="ReqRetBailAmntView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="true"/>
+    <list IterBinding="ReqRetBailAmntView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_ar" id="RelationCase" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

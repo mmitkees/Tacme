@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TransactionDetailsView"
+  Version="11.1.1.66.73"
+  InheritPersonalization="true"
+  SelectList="TransactionDetails.INVOICE_ID, 
+       TransactionDetails.SERVICE_KEY, 
+       TransactionDetails.TRANSACTION_STATUS, 
+       TransactionDetails.USER_ID, 
+       TransactionDetails.REQ_ID, 
+       TransactionDetails.STATUS_DETAILS"
+  FromList="TRANSACTION_DETAILS TransactionDetails"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="TransactionDetails"
+    Entity="com.app.model.entities.TransactionDetails"/>
+  <ViewAttribute
+    Name="InvoiceId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InvoiceId"
+    EntityUsage="TransactionDetails"
+    AliasName="INVOICE_ID"/>
+  <ViewAttribute
+    Name="ServiceKey"
+    PrecisionRule="true"
+    EntityAttrName="ServiceKey"
+    EntityUsage="TransactionDetails"
+    AliasName="SERVICE_KEY"/>
+  <ViewAttribute
+    Name="TransactionStatus"
+    PrecisionRule="true"
+    EntityAttrName="TransactionStatus"
+    EntityUsage="TransactionDetails"
+    AliasName="TRANSACTION_STATUS"/>
+  <ViewAttribute
+    Name="UserId"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="TransactionDetails"
+    AliasName="USER_ID"/>
+  <ViewAttribute
+    Name="ReqId"
+    PrecisionRule="true"
+    EntityAttrName="ReqId"
+    EntityUsage="TransactionDetails"
+    AliasName="REQ_ID"/>
+  <ViewAttribute
+    Name="StatusDetails"
+    PrecisionRule="true"
+    EntityAttrName="StatusDetails"
+    EntityUsage="TransactionDetails"
+    AliasName="STATUS_DETAILS"/>
+</ViewObject>

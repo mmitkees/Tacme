@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="RatingAdmin_GraphViewPageDef"
+                Package="com.tacme.pp.fragments.serviceRatingAdmin">
+  <parameters/>
+  <executables>
+    <invokeAction Binds="Execute" id="excute" Refresh="always"/>
+    <variableIterator id="variables"/>
+    <iterator Binds="RatingAdminVO1" RangeSize="-1"
+              DataControl="PPAppServicesDataControl"
+              id="RatingAdminVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="RatingAdminVO1Iterator" id="RatingAdminVO1"
+          ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="com.app.model.views.servicerating.RatingAdminVO"
+                      Name="RatingAdminVO1">
+        <AttrNames>
+          <Item Value="RatingCount"/>
+          <Item Value="RatingValueEn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="RatingAdminVO1Iterator" id="Executewithparameters"
+            InstanceName="PPAppServicesDataControl.RatingAdminVO1"
+            DataControl="PPAppServicesDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="key" NDValue="" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="RatingAdminVO1Iterator" id="Execute"
+            InstanceName="PPAppServicesDataControl.RatingAdminVO1"
+            DataControl="PPAppServicesDataControl" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <tree IterBinding="RatingAdminVO1Iterator" id="RatingAdminVO11"
+          ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="com.app.model.views.servicerating.RatingAdminVO"
+                      Name="RatingAdminVO11">
+        <AttrNames>
+          <Item Value="RatingCount"/>
+          <Item Value="RatingValueEn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="RatingAdminVO1Iterator" id="RatingAdminVO12">
+      <nodeDefinition DefName="com.app.model.views.servicerating.RatingAdminVO"
+                      Name="RatingAdminVO120">
+        <AttrNames>
+          <Item Value="RatingKey"/>
+          <Item Value="RatingValueEn"/>
+          <Item Value="RatingValueAr"/>
+          <Item Value="RatingCount"/>
+          <Item Value="TotalCount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

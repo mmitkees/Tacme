@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="dropCountImpose_dropCountImpose_CreateInsertPageDef"
+                Package="JSFFPageDef">
+  <parameters/>
+  <executables>
+    <iterator Binds="ReqDciPrescriptionView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqDciPrescriptionView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ReqDciPrescriptionView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

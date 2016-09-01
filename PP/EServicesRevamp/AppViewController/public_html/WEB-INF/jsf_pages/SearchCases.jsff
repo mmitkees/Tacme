@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="appviewcontrollerBundle"
+         value="#{adfBundle['com.app.view.AppViewControllerBundle']}"/>
+  <af:panelGroupLayout id="pgl5" layout="scroll">
+    <af:panelGroupLayout id="pgl8" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="#{appviewcontrollerBundle.SEARCH_CASES}" id="ot1"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl3">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                modeChangeVisible="false" saveQueryMode="hidden"
+                styleClass="eservice-search service AFQueryHideAddFields cases-search"
+                value="#{bindings.CasesViewObjCriteriaQuery.queryDescriptor}"
+                model="#{bindings.CasesViewObjCriteriaQuery.queryModel}"
+                queryListener="#{bindings.CasesViewObjCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.CasesViewObjCriteriaQuery.processQueryOperation}"
+                resultComponentId="::lv1"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout layout="vertical" id="pgl2">
+      <af:listView id="lv1" value="#{bindings.CasesViewObj1.collectionModel}"
+                   var="row" styleClass="AFStretchWidth case-search-result">
+        <af:listItem id="li1" styleClass="AFStretchWidth">
+          <af:panelGroupLayout id="pgl1" layout="vertical"
+                               styleClass="case-result-box">
+           
+            <af:panelGroupLayout id="pgl7">
+              <af:panelGroupLayout id="pgl4">
+                <af:outputText value="#{bindings.CasesViewObj1.hints.Subject.label}"
+                               id="ot9"/>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl6">
+                <af:outputText value="#{row.Subject}" id="ot10"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl12">
+              <af:panelGroupLayout id="pgl21">
+                <af:outputText value="#{bindings.CasesViewObj1.hints.Casenumber.label}"
+                               id="ot19"/>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl22">
+                <af:outputText value="#{row.Casenumber}" id="ot17"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl27">
+              <af:panelGroupLayout id="pgl28">
+                <af:outputText value="#{bindings.CasesViewObj1.hints.Caseyear.label}"
+                               id="ot2"/>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl29">
+                <af:outputText value="#{row.Caseyear}" id="ot3"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl9">
+              <af:panelGroupLayout id="pgl14">
+                <af:outputText value="#{bindings.CasesViewObj1.hints.Casewith.label}"
+                               id="ot11"/>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl16">
+                <af:outputText value="#{row.Casewith}" id="ot12"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl11">
+              <af:panelGroupLayout id="pgl17">
+                <af:outputText value="#{bindings.CasesViewObj1.hints.Casetype.label}"
+                               id="ot13"/>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl18">
+                <af:outputText value="#{row.Casetype}" id="ot15"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl10">
+              <af:panelGroupLayout id="pgl19">
+                <af:outputText value="#{bindings.CasesViewObj1.hints.Casestatus.label}"
+                               id="ot14"/>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl20">
+                <af:outputText value="#{row.Casestatus}" id="ot16"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl13">
+              <af:panelGroupLayout id="pgl23">
+                <af:outputText value="#{bindings.CasesViewObj1.hints.Casedate.label}"
+                               id="ot20"/>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl24">
+                <af:outputText value="#{row.Casedate}" id="ot18"></af:outputText>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl15">
+              <af:panelGroupLayout id="pgl25">
+                <af:outputText value="#{bindings.CasesViewObj1.hints.Casecategory.label}"
+                               id="ot21"/>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl26">
+                <af:outputText value="#{row.Casecategory}" id="ot22"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+        </af:listItem>
+      </af:listView>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

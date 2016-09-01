@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View3">
+      <property
+         name="activityId">responseView</property>
+      <property
+         name="start">false</property>
+      <property
+         name="page">/WEB-INF/JSFF Pages/responseView.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>responseView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="thumbnailExpanded">true</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">187.72949</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">834.0</property>
+   </View>
+   <MethodCall
+      id="MethodCall7">
+      <property
+         name="activityId">saveResponseStatus</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>saveResponseStatus&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">188.44824</property>
+      <property
+         name="x">251.70117</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="MethodCall7"
+      to="View3">
+      <property
+         name="fromOutcome">saveResponseStatus</property>
+      <property
+         name="sdm:polyPoints">R50,292.70117,188.09766,725.5,187.3789,L50</property>
+   </ControlFlowCase>
+</SDM>

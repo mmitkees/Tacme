@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="SearchExpertTFDef">
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">initSearchExperts</default-activity>
+    <data-control-scope id="__12">
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__2">
+      <managed-bean-name id="__4">srchExpertsBean</managed-bean-name>
+      <managed-bean-class id="__5">com.app.view.beans.srchExperts</managed-bean-class>
+      <managed-bean-scope id="__3">request</managed-bean-scope>
+    </managed-bean>
+    <view id="SerachExpertsView">
+      <page>/WEB-INF/jsf_pages/SerachExpertsView.jsff</page>
+    </view>
+    <method-call id="initSearchExperts">
+      <method>#{bindings.initSearchExperts.execute}</method>
+      <outcome id="__6">
+        <fixed-outcome>initSearchExperts</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">initSearchExperts</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">initSearchExperts</from-outcome>
+        <to-activity-id id="__9">SerachExpertsView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

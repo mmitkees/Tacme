@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="view1PageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqReviewView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqReviewView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ReqReviewView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqReviewView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqReviewView1Iterator" id="ReqRsn">
+      <AttrNames>
+        <Item Value="ReqRsn"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="ReqReviewView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProName" DTSupportsMRU="true"/>
+    <list IterBinding="ReqReviewView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelCase" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="servDescTFDef_servDescTFDef_setCurrentsrchDescARPageDef"
+                Package="JSFFPageDef" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="setCurrentsrchDescAR" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setCurrentsrchDescAR"
+                  IsViewObjectMethod="false"
+                  DataControl="PPAppServicesDataControl"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  ReturnName="data.PPAppServicesDataControl.methodResults.setCurrentsrchDescAR_PPAppServicesDataControl_dataProvider_setCurrentsrchDescAR_result">
+      <NamedData NDName="sid" NDValue="#{pageFlowScope.key}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

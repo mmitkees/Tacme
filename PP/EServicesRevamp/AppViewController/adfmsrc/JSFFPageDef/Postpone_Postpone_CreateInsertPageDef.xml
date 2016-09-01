@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="Postpone_Postpone_CreateInsertPageDef"
+                Package="JSFFPageDef" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ReqPostponeOfFreedomView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqPostponeOfFreedomView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ReqPostponeOfFreedomView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

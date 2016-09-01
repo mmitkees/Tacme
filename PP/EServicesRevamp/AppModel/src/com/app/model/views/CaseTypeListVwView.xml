@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CaseTypeListVwView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="CaseTypeListVw.CASE_TYPE_DESC, 
+       CaseTypeListVw.CASE_TYPE_ID, 
+       CaseTypeListVw.ROWID"
+  FromList="CASE_TYPE_LIST_VW CaseTypeListVw"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="CaseTypeListVw"
+    Entity="com.app.model.entities.CaseTypeListVw"/>
+  <ViewAttribute
+    Name="CaseTypeDesc"
+    PrecisionRule="true"
+    EntityAttrName="CaseTypeDesc"
+    EntityUsage="CaseTypeListVw"
+    AliasName="CASE_TYPE_DESC"/>
+  <ViewAttribute
+    Name="CaseTypeId"
+    PrecisionRule="true"
+    EntityAttrName="CaseTypeId"
+    EntityUsage="CaseTypeListVw"
+    AliasName="CASE_TYPE_ID"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="CaseTypeListVw"
+    AliasName="ROWID"/>
+</ViewObject>

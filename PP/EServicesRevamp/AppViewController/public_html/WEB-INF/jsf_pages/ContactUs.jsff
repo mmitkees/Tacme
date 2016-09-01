@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+   <af:panelGroupLayout id="pgl5" layout="scroll">
+      <af:panelGroupLayout id="pgl6" styleClass="eServicesHeading"
+                           layout="vertical">
+         <af:outputText value="#{appviewcontrollerbundle.p_contact_us}"
+                        id="ot1"
+                        inlineStyle="margin-top: 10px;font-size: 20px;font-family: arial;"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl7" layout="vertical"
+                           styleClass="eServicesFormData">
+         <af:panelGroupLayout id="pgl18" layout="vertical">
+            <af:panelFormLayout id="pfl6" rows="1" maxColumns="2"
+                                styleClass="service">
+               <af:panelFormLayout id="pfl4" rows="1">
+                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Name}"
+                                           partialTriggers="csvt1" id="plam1">
+                     <af:inputText id="csvt1" rows="1"
+                                   binding="#{contactUsBean.it1}"
+                                   value="#{contactUsBean.name}"
+                                   valueChangeListener="#{contactUsBean.namevalidVCL}"
+                                   autoSubmit="true" simple="true"                                   
+                                   validator="#{customValidatorBean.chkStringValidator}"
+                                   shortDesc="Name"/>
+                     <af:panelGroupLayout id="pgl1" layout="vertical"
+                                          partialTriggers="csvt1"
+                                          rendered="#{contactUsBean.cen eq 'N'}">
+                        <af:outputText value="#{appviewcontrollerbundle.p_error_name}"
+                                       id="ot4"
+                                       styleClass="eServicesFormDataMessage"/>
+                     </af:panelGroupLayout>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.P_Email}"
+                                           partialTriggers="em1" id="plam3">
+                     <af:inputText id="em1" rows="1"
+                                   binding="#{contactUsBean.it2}"
+                                   autoSubmit="true"
+                                   value="#{contactUsBean.email}"
+                                   valueChangeListener="#{contactUsBean.emailvalidVCL}"
+                                   simple="true" immediate="true"
+                                   validator="#{customValidatorBean.eMailValidator}"
+                                   shortDesc="EMail"/>
+                     <af:panelGroupLayout id="pgl12" layout="vertical"
+                                          partialTriggers="em1"
+                                          rendered="#{contactUsBean.cee eq 'N'}">
+                        <af:outputText value="#{appviewcontrollerbundle.p_error_email}"
+                                       id="ot6"
+                                       styleClass="eServicesFormDataMessage"/>
+                     </af:panelGroupLayout>
+                  </af:panelLabelAndMessage>
+               </af:panelFormLayout>
+               <af:panelFormLayout id="pfl5" rows="1">
+                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Address}"
+                                           partialTriggers="it_1" id="plam2">
+                     <af:inputText id="it_1" rows="1" autoSubmit="true"
+                                   binding="#{contactUsBean.it3}"
+                                   value="#{contactUsBean.address}"
+                                   valueChangeListener="#{contactUsBean.addressvalidVCL}"
+                                   simple="true" immediate="true"
+                                   shortDesc="Address"/>
+                     <af:panelGroupLayout id="pgl11" layout="vertical"
+                                          partialTriggers="it_1"
+                                          rendered="#{contactUsBean.cadr eq 'N'}">
+                        <af:outputText value="#{appviewcontrollerbundle.p_error_validaddr}"
+                                       id="ot5"
+                                       styleClass="eServicesFormDataMessage"/>
+                     </af:panelGroupLayout>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Phone_Num}"
+                                           partialTriggers="phn1" id="plam4">
+                     <af:inputText id="phn1" rows="1"
+                                   binding="#{contactUsBean.it4}"
+                                   autoSubmit="true"
+                                   value="#{contactUsBean.phoneNo}"
+                                   valueChangeListener="#{contactUsBean.phoneNovalidVCL}"
+                                   simple="true" immediate="true"
+                                   validator="#{customValidatorBean.phonenoValidator}"
+                                   shortDesc="Phone No"/>
+                     <af:panelGroupLayout id="pgl10" layout="vertical"
+                                          partialTriggers="phn1"
+                                          rendered="#{contactUsBean.cpn eq 'N'}">
+                        <af:outputText value="#{appviewcontrollerbundle.p_error_phoneno}"
+                                       id="ot7"
+                                       styleClass="eServicesFormDataMessage"/>
+                     </af:panelGroupLayout>
+                  </af:panelLabelAndMessage>
+               </af:panelFormLayout>
+            </af:panelFormLayout>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl17" rendered="false">
+            <af:inputText id="it3" disabled="true"
+                          maximumLength="#{bindings.return.hints.precision}"
+                          value="#{contactUsBean.capche}">
+               <f:validator binding="#{bindings.return.validator}"/>
+            </af:inputText>
+            <af:outputText value="Type the words above" id="ot10"/>
+            <af:inputText id="it4"/>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgsl1" layout="vertical">
+            <af:panelFormLayout id="pfl2" styleClass="service">
+               <af:panelFormLayout id="pfl8" partialTriggers="it2">
+                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Subject}" id="plam7">
+                     <af:inputText id="it2" autoSubmit="true"
+                                   binding="#{contactUsBean.it5}"
+                                   value="#{contactUsBean.subject}"
+                                   valueChangeListener="#{contactUsBean.subjvalidVCL}"
+                                   rows="1" styleClass="custom_input"
+                                   immediate="true" simple="true" columns="60"
+                                   shortDesc="Subject"/>
+                     <af:panelGroupLayout id="pgl13" layout="vertical"
+                                          partialTriggers="it2">
+                        <af:outputText value="#{appviewcontrollerbundle.p_error_subj}"
+                                       id="ot8"
+                                       styleClass="eServicesFormDataMessage"
+                                       rendered="#{contactUsBean.cs eq 'N'}"/>
+                     </af:panelGroupLayout>
+                  </af:panelLabelAndMessage>
+               </af:panelFormLayout>
+               <af:panelFormLayout id="pfl9">
+                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_desc}" id="plam8"
+                                           partialTriggers="it_2">
+                     <af:inputText id="it_2" columns="60" autoSubmit="true"
+                                   binding="#{contactUsBean.it6}"
+                                   value="#{contactUsBean.decription}"
+                                   valueChangeListener="#{contactUsBean.descvalidVCL}"
+                                   contentStyle="height:100px !important"
+                                   simple="true" immediate="true"
+                                   styleClass="custom_input"
+                                   shortDesc="Descriptions" rows="3"/>
+                     <af:panelGroupLayout id="pgl14" layout="vertical"
+                                          partialTriggers="it_2">
+                        <af:outputText value="#{appviewcontrollerbundle.p_error_desc}"
+                                       id="ot9"
+                                       styleClass="eServicesFormDataMessage"
+                                       rendered="#{contactUsBean.cdesc eq 'N'}"/>
+                     </af:panelGroupLayout>
+                  </af:panelLabelAndMessage>
+               </af:panelFormLayout>
+               <af:panelFormLayout id="pfl7">
+                  <af:panelLabelAndMessage id="plam6"
+                                           labelStyle="padding:0px !important;">
+                     <af:image source="/captchaservlet" id="i1"
+                               clientComponent="true"
+                               inlineStyle="width:251px; height:76.0px;"/>
+                     <af:panelGroupLayout id="pgl21" layout="vertical"
+                                          inlineStyle="margin-top: 10px !important;">
+                        <af:commandButton text="#{appviewcontrollerbundle.p_refca}" id="cb2"
+                                          immediate="true"
+                                          styleClass="refresh-btn">
+                           <af:clientListener method="refreshCaptcha"
+                                              type="action"/>
+                        </af:commandButton>
+                     </af:panelGroupLayout>
+                  </af:panelLabelAndMessage>
+               </af:panelFormLayout>
+               <af:panelFormLayout id="pfl3">
+                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_captchatext}"
+                                           id="plam5">
+                     <af:inputText id="its1" value="#{requestScope.bestGuess}"
+                                   simple="true" immediate="true"
+                                   binding="#{contactUsBean.bind_bguess}"/>
+                  </af:panelLabelAndMessage>
+               </af:panelFormLayout>
+            </af:panelFormLayout>
+            <!--<af:commandButton text="Go" id="cb1"
+                              actionListener="#{MyRegistrationFormBean.verifyAnswer}"></af:commandButton>-->
+                              <!--<af:message id="m1" messageType="info" for="csvt1"/>-->
+          </af:panelGroupLayout>
+          <af:resource type="javascript">
+        function refreshCaptcha(evt) {
+            try {
+                var component = evt.getSource();
+                var i1 = component.findComponent("i1");
+                i1.setSource(i1.getSource() + "?force=" + new Date().getMilliseconds());
+                evt.cancel();
+                return false;
+            }
+            catch (err) {
+                alert(err);
+            }
+            return false;
+        }
+      </af:resource>
+         <af:panelGroupLayout id="pgl4" layout="vertical"><af:panelFormLayout id="pfl1" rows="1" maxColumns="2">
+               <af:commandButton text="#{appviewcontrollerbundle.p_submit}"
+                                 id="cbs1"
+                                 styleClass="btn-action"
+                                 actionListener="#{contactUsBean.verifyAnswer}"/>
+               <af:commandButton text="Reset" id="csb2"
+                                 action="#{contactUsBean.onReset}"
+                                 styleClass="btn-secondary" rendered="false"/>
+               <af:commandButton text="#{appviewcontrollerbundle.p_clear}"
+                                 id="commandButton1"
+                                 action="#{contactUsBean.onReset}"
+                                 styleClass="btn-secondary"/>
+            </af:panelFormLayout>
+         </af:panelGroupLayout>
+         <!--af:panelGroupLayout id="pgl1" layout="vertical">
+        <af:outputText value="Places" id="ot5" styleClass="almatit"/>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:outputText value="Abu Dhabi" id="ot6" styleClass="content-alma"/>
+        <af:spacer width="10" height="10" id="s2"/>
+        <af:outputText value="Sharjah" id="ot7" styleClass="content-alma"/>
+        <af:spacer width="10" height="10" id="s3"/>
+        <af:outputText value="Ajman" id="ot8" styleClass="content-alma"/>
+        <af:spacer width="10" height="10" id="s4"/>
+        <af:outputText value="UMm al Quwain" id="ot9"
+                       styleClass="content-alma"/>
+        <af:spacer width="10" height="10" id="s5"/>
+        <af:outputText value="Fujairah" id="ot10" styleClass="content-alma"/>
+      </af:panelGroupLayout-->
+      </af:panelGroupLayout>
+   </af:panelGroupLayout>
+</jsp:root>

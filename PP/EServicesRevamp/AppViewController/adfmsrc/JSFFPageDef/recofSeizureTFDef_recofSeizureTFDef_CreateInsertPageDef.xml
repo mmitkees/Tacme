@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="recofSeizureTFDef_recofSeizureTFDef_CreateInsertPageDef"
+                Package="JSFFPageDef" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ReqReceiveSeizureView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqReceiveSeizureView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ReqReceiveSeizureView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

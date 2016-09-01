@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <!--af:table value="#{bindings.ReqSerDescVO1.collectionModel}" var="row"
+              rows="#{bindings.ReqSerDescVO1.rangeSize}"
+              emptyText="#{bindings.ReqSerDescVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.ReqSerDescVO1.rangeSize}"
+              rowBandingInterval="0"
+              selectedRowKeys="#{bindings.ReqSerDescVO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.ReqSerDescVO1.collectionModel.makeCurrent}"
+              rowSelection="single" id="t1">
+      <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.Conditions.name}"
+                 sortable="false"
+                 headerText="#{bindings.ReqSerDescVO1.hints.Conditions.label}"
+                 id="c8">
+        <af:inputText value="#{row.bindings.Conditions.inputValue}"
+                      label="#{bindings.ReqSerDescVO1.hints.Conditions.label}"
+                      required="#{bindings.ReqSerDescVO1.hints.Conditions.mandatory}"
+                      columns="#{bindings.ReqSerDescVO1.hints.Conditions.displayWidth}"
+                      maximumLength="#{bindings.ReqSerDescVO1.hints.Conditions.precision}"
+                      shortDesc="#{bindings.ReqSerDescVO1.hints.Conditions.tooltip}"
+                      id="it10">
+          <f:validator binding="#{row.bindings.Conditions.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.Fees.name}"
+                 sortable="false"
+                 headerText="#{bindings.ReqSerDescVO1.hints.Fees.label}"
+                 id="c7">
+        <af:inputText value="#{row.bindings.Fees.inputValue}"
+                      label="#{bindings.ReqSerDescVO1.hints.Fees.label}"
+                      required="#{bindings.ReqSerDescVO1.hints.Fees.mandatory}"
+                      columns="#{bindings.ReqSerDescVO1.hints.Fees.displayWidth}"
+                      maximumLength="#{bindings.ReqSerDescVO1.hints.Fees.precision}"
+                      shortDesc="#{bindings.ReqSerDescVO1.hints.Fees.tooltip}"
+                      id="it8">
+          <f:validator binding="#{row.bindings.Fees.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.Output.name}"
+                 sortable="false"
+                 headerText="#{bindings.ReqSerDescVO1.hints.Output.label}"
+                 id="c1">
+        <af:inputText value="#{row.bindings.Output.inputValue}"
+                      label="#{bindings.ReqSerDescVO1.hints.Output.label}"
+                      required="#{bindings.ReqSerDescVO1.hints.Output.mandatory}"
+                      columns="#{bindings.ReqSerDescVO1.hints.Output.displayWidth}"
+                      maximumLength="#{bindings.ReqSerDescVO1.hints.Output.precision}"
+                      shortDesc="#{bindings.ReqSerDescVO1.hints.Output.tooltip}"
+                      id="it11">
+          <f:validator binding="#{row.bindings.Output.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.PeriodOfSer.name}"
+                 sortable="false"
+                 headerText="#{bindings.ReqSerDescVO1.hints.PeriodOfSer.label}"
+                 id="c11">
+        <af:inputText value="#{row.bindings.PeriodOfSer.inputValue}"
+                      label="#{bindings.ReqSerDescVO1.hints.PeriodOfSer.label}"
+                      required="#{bindings.ReqSerDescVO1.hints.PeriodOfSer.mandatory}"
+                      columns="#{bindings.ReqSerDescVO1.hints.PeriodOfSer.displayWidth}"
+                      maximumLength="#{bindings.ReqSerDescVO1.hints.PeriodOfSer.precision}"
+                      shortDesc="#{bindings.ReqSerDescVO1.hints.PeriodOfSer.tooltip}"
+                      id="it7">
+          <f:validator binding="#{row.bindings.PeriodOfSer.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.Place.name}"
+                 sortable="false"
+                 headerText="#{bindings.ReqSerDescVO1.hints.Place.label}"
+                 id="c3">
+        <af:inputText value="#{row.bindings.Place.inputValue}"
+                      label="#{bindings.ReqSerDescVO1.hints.Place.label}"
+                      required="#{bindings.ReqSerDescVO1.hints.Place.mandatory}"
+                      columns="#{bindings.ReqSerDescVO1.hints.Place.displayWidth}"
+                      maximumLength="#{bindings.ReqSerDescVO1.hints.Place.precision}"
+                      shortDesc="#{bindings.ReqSerDescVO1.hints.Place.tooltip}"
+                      id="it5">
+          <f:validator binding="#{row.bindings.Place.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.PlaceToRecTrans.name}"
+                 sortable="false"
+                 headerText="#{bindings.ReqSerDescVO1.hints.PlaceToRecTrans.label}"
+                 id="c4">
+        <af:inputText value="#{row.bindings.PlaceToRecTrans.inputValue}"
+                      label="#{bindings.ReqSerDescVO1.hints.PlaceToRecTrans.label}"
+                      required="#{bindings.ReqSerDescVO1.hints.PlaceToRecTrans.mandatory}"
+                      columns="#{bindings.ReqSerDescVO1.hints.PlaceToRecTrans.displayWidth}"
+                      maximumLength="#{bindings.ReqSerDescVO1.hints.PlaceToRecTrans.precision}"
+                      shortDesc="#{bindings.ReqSerDescVO1.hints.PlaceToRecTrans.tooltip}"
+                      id="it9">
+          <f:validator binding="#{row.bindings.PlaceToRecTrans.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.RequiredDoc.name}"
+                 sortable="false"
+                 headerText="#{bindings.ReqSerDescVO1.hints.RequiredDoc.label}"
+                 id="c6">
+        <af:inputText value="#{row.bindings.RequiredDoc.inputValue}"
+                      label="#{bindings.ReqSerDescVO1.hints.RequiredDoc.label}"
+                      required="#{bindings.ReqSerDescVO1.hints.RequiredDoc.mandatory}"
+                      columns="#{bindings.ReqSerDescVO1.hints.RequiredDoc.displayWidth}"
+                      maximumLength="#{bindings.ReqSerDescVO1.hints.RequiredDoc.precision}"
+                      shortDesc="#{bindings.ReqSerDescVO1.hints.RequiredDoc.tooltip}"
+                      id="it4">
+          <f:validator binding="#{row.bindings.RequiredDoc.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.ServiceDef.name}"
+                 sortable="false"
+                 headerText="#{bindings.ReqSerDescVO1.hints.ServiceDef.label}"
+                 id="c10">
+        <af:inputText value="#{row.bindings.ServiceDef.inputValue}"
+                      label="#{bindings.ReqSerDescVO1.hints.ServiceDef.label}"
+                      required="#{bindings.ReqSerDescVO1.hints.ServiceDef.mandatory}"
+                      columns="#{bindings.ReqSerDescVO1.hints.ServiceDef.displayWidth}"
+                      maximumLength="#{bindings.ReqSerDescVO1.hints.ServiceDef.precision}"
+                      shortDesc="#{bindings.ReqSerDescVO1.hints.ServiceDef.tooltip}"
+                      id="it2">
+          <f:validator binding="#{row.bindings.ServiceDef.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.ServiceId.name}"
+                 sortable="false"
+                 headerText="#{bindings.ReqSerDescVO1.hints.ServiceId.label}"
+                 id="c9">
+        <af:inputText value="#{row.bindings.ServiceId.inputValue}"
+                      label="#{bindings.ReqSerDescVO1.hints.ServiceId.label}"
+                      required="#{bindings.ReqSerDescVO1.hints.ServiceId.mandatory}"
+                      columns="#{bindings.ReqSerDescVO1.hints.ServiceId.displayWidth}"
+                      maximumLength="#{bindings.ReqSerDescVO1.hints.ServiceId.precision}"
+                      shortDesc="#{bindings.ReqSerDescVO1.hints.ServiceId.tooltip}"
+                      id="it6">
+          <f:validator binding="#{row.bindings.ServiceId.validator}"/>
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.ReqSerDescVO1.hints.ServiceId.format}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.ServiceName.name}"
+                 sortable="false"
+                 headerText="#{bindings.ReqSerDescVO1.hints.ServiceName.label}"
+                 id="c2">
+        <af:inputText value="#{row.bindings.ServiceName.inputValue}"
+                      label="#{bindings.ReqSerDescVO1.hints.ServiceName.label}"
+                      required="#{bindings.ReqSerDescVO1.hints.ServiceName.mandatory}"
+                      columns="#{bindings.ReqSerDescVO1.hints.ServiceName.displayWidth}"
+                      maximumLength="#{bindings.ReqSerDescVO1.hints.ServiceName.precision}"
+                      shortDesc="#{bindings.ReqSerDescVO1.hints.ServiceName.tooltip}"
+                      id="it3">
+          <f:validator binding="#{row.bindings.ServiceName.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.SummProcSteps.name}"
+                 sortable="false"
+                 headerText="#{bindings.ReqSerDescVO1.hints.SummProcSteps.label}"
+                 id="c5">
+        <af:inputText value="#{row.bindings.SummProcSteps.inputValue}"
+                      label="#{bindings.ReqSerDescVO1.hints.SummProcSteps.label}"
+                      required="#{bindings.ReqSerDescVO1.hints.SummProcSteps.mandatory}"
+                      columns="#{bindings.ReqSerDescVO1.hints.SummProcSteps.displayWidth}"
+                      maximumLength="#{bindings.ReqSerDescVO1.hints.SummProcSteps.precision}"
+                      shortDesc="#{bindings.ReqSerDescVO1.hints.SummProcSteps.tooltip}"
+                      id="it1">
+          <f:validator binding="#{row.bindings.SummProcSteps.validator}"/>
+        </af:inputText>
+      </af:column>
+    </af:table-->
+    <!--af:panelFormLayout id="pfl1" rows="2" maxColumns="2"-->
+    
+    <!--af:iterator id="i1" value="#{bindings.ReqSerDescVO1.collectionModel}"
+                 var="itemsar">
+      <af:outputText value="Service Name"
+                     id="ce2"/>
+      <af:outputText value="#{itemsar.ServiceName}" id="ot1"/>
+    </af:iterator-->
+     <!--af:iterator id="si1" value="#{bindings.ReqSerDescVO1.collectionModel}"
+                 var="itemsar1">
+      <af:outputText value="Service Definition"
+                     id="sce2"/>
+      <af:outputText value="#{itemsar1.ServiceDef}" id="ost1"/>
+    </af:iterator-->
+    <!--/af:panelFormLayout-->
+ 
+  <af:panelGridLayout id="pgl2">
+    <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr1">
+     <af:iterator id="is1" value="#{bindings.ReqSerDescVO1.collectionModel}"
+                 var="itemsar">
+      <af:gridCell marginStart="5px" width="50%" id="gc2">
+      <af:outputText value="Service Name"
+                     id="cie2"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc1">
+      
+       <af:outputText value="#{itemsar.ServiceName}" id="oit1"/>
+      </af:gridCell>
+      </af:iterator>
+    </af:gridRow>
+    </af:panelGridLayout>
+      <af:panelGridLayout id="pgl3">
+        <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr2">
+        <af:iterator id="sei1" value="#{bindings.ReqSerDescVO1.collectionModel}"
+                 var="itemsar1">
+          <af:gridCell marginStart="5px" width="50%" id="gc3">
+          <af:outputText value="Service Definition"
+                     id="sce2"/>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc4">
+           <af:outputText value="#{itemsar1.ServiceDef}" id="ost1"/>
+          </af:gridCell>
+          </af:iterator>
+        </af:gridRow>
+       
+      
+    </af:panelGridLayout>
+    <af:panelGridLayout id="pgl4">
+        <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr3">
+        <af:iterator id="sei2" value="#{bindings.ReqSerDescVO1.collectionModel}"
+                 var="itemsar1">
+          <af:gridCell marginStart="5px" width="50%" id="gc5">
+          <af:outputText value="Place"
+                     id="sce3"/>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc6">
+           <af:outputText value="#{itemsar1.Place}" id="ost2"/>
+          </af:gridCell>
+          </af:iterator>
+        </af:gridRow>
+       
+      
+    </af:panelGridLayout>
+    
+    <af:panelGridLayout id="pgl5">
+        <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr4">
+        <af:iterator id="sei3" value="#{bindings.ReqSerDescVO1.collectionModel}"
+                 var="itemsar1">
+          <af:gridCell marginStart="5px" width="50%" id="gc7">
+          <af:outputText value="Fees"
+                     id="sce4"/>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc8">
+           <af:outputText value="#{itemsar1.Fees}" id="ost3"/>
+          </af:gridCell>
+          </af:iterator>
+        </af:gridRow>
+    </af:panelGridLayout>
+    
+    <af:panelGridLayout id="pgl6">
+        <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr5">
+        <af:iterator id="sei4" value="#{bindings.ReqSerDescVO1.collectionModel}"
+                 var="itemsar1">
+          <af:gridCell marginStart="5px" width="50%" id="gc9">
+          <af:outputText value="Period of Service"
+                     id="sce5"/>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc10">
+           <af:outputText value="#{itemsar1.PeriodOfSer}" id="ost4"/>
+          </af:gridCell>
+          </af:iterator>
+        </af:gridRow>
+    </af:panelGridLayout>
+    
+    <af:panelGridLayout id="pgl7">
+        <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr6">
+        <af:iterator id="sei5" value="#{bindings.ReqSerDescVO1.collectionModel}"
+                 var="itemsar1">
+          <af:gridCell marginStart="5px" width="50%" id="gc11">
+          <af:outputText value="Required Documents"
+                     id="sce6"/>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc12">
+           <af:outputText value="#{itemsar1.RequiredDoc}" id="ost5"/>
+          </af:gridCell>
+          </af:iterator>
+        </af:gridRow>
+    </af:panelGridLayout>
+    
+    <af:panelGridLayout id="pgl8">
+        <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr7">
+        <af:iterator id="sei6" value="#{bindings.ReqSerDescVO1.collectionModel}"
+                 var="itemsar1">
+          <af:gridCell marginStart="5px" width="50%" id="gc13">
+          <af:outputText value="Conditions"
+                     id="sce7"/>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc14">
+           <af:outputText value="#{itemsar1.Conditions}" id="ost6"/>
+          </af:gridCell>
+          </af:iterator>
+        </af:gridRow>
+    </af:panelGridLayout>
+    
+    <af:panelGridLayout id="pgl9">
+        <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr8">
+        <af:iterator id="sei7" value="#{bindings.ReqSerDescVO1.collectionModel}"
+                 var="itemsar1">
+          <af:gridCell marginStart="5px" width="50%" id="gc15">
+          <af:outputText value="Summary of Procedural Steps"
+                     id="sce8"/>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc16">
+           <af:outputText value="#{itemsar1.SummProcSteps}" id="ost7"/>
+          </af:gridCell>
+          </af:iterator>
+        </af:gridRow>
+    </af:panelGridLayout>
+    
+     <af:panelGridLayout id="pgl10">
+        <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr9">
+        <af:iterator id="sei8" value="#{bindings.ReqSerDescVO1.collectionModel}"
+                 var="itemsar1">
+          <af:gridCell marginStart="5px" width="50%" id="gc17">
+          <af:outputText value="Output"
+                     id="sce9"/>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc18">
+           <af:outputText value="#{itemsar1.Output}" id="ost8"/>
+          </af:gridCell>
+          </af:iterator>
+        </af:gridRow>
+    </af:panelGridLayout>
+    
+   </af:panelGroupLayout>
+  <!--af:panelFormLayout id="pfl1" rows="1" maxColumns="2">
+<af:forEach items="#{bindings.ReqSerDescVO1.collectionModel}" var="row" step="2" begin="0">
+ <af:outputText value="Service Name" id="odt1"/>
+<af:outputText value="#{row.ServiceName}"
+                     id="cde2"/>
+     
+</af:forEach>
+<af:forEach items="#{bindings.ReqSerDescVO1.collectionModel}" var="row" step="2" begin="1">
+<af:outputText value="Service Definition"
+                     id="scte2"/>
+      <af:outputText value="#{row.ServiceDef}" id="otst1"/>
+</af:forEach>
+</af:panelFormLayout-->
+</jsp:root>

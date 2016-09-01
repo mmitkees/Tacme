@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.ReqSerDescVO1.collectionModel}" var="row"
+            rows="#{bindings.ReqSerDescVO1.rangeSize}" autoHeightRows="0"
+            emptyText="#{bindings.ReqSerDescVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.ReqSerDescVO1.rangeSize}"
+            rowBandingInterval="0"
+            selectedRowKeys="#{bindings.ReqSerDescVO1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.ReqSerDescVO1.collectionModel.makeCurrent}"
+            rowSelection="single" id="t1" styleClass="AFStretchWidth"
+            columnStretching="last" inlineStyle="height:auto !important;">
+    <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.ServiceId.name}"
+               sortable="false" visible="false"
+               headerText="#{bindings.ReqSerDescVO1.hints.ServiceId.label}"
+               id="c2">
+      <af:inputText value="#{row.bindings.ServiceId.inputValue}"
+                    label="#{bindings.ReqSerDescVO1.hints.ServiceId.label}"
+                    required="#{bindings.ReqSerDescVO1.hints.ServiceId.mandatory}"
+                    columns="#{bindings.ReqSerDescVO1.hints.ServiceId.displayWidth}"
+                    maximumLength="#{bindings.ReqSerDescVO1.hints.ServiceId.precision}"
+                    shortDesc="#{bindings.ReqSerDescVO1.hints.ServiceId.tooltip}"
+                    id="it2">
+        <f:validator binding="#{row.bindings.ServiceId.validator}"/>
+        <af:convertNumber groupingUsed="false"
+                          pattern="#{bindings.ReqSerDescVO1.hints.ServiceId.format}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.ReqSerDescVO1.hints.ServiceName.name}"
+               sortable="false"
+               headerText="Service Name"
+               id="c1">
+      <af:commandLink shortDesc="#{bindings.ReqSerDescVO1.hints.ServiceName.tooltip}"
+                      id="it1" text="#{row.bindings.ServiceName.inputValue}"
+                      action="#{srvDescBean.gotoDesc}">
+     <!--af:setPropertyListener from="#{row.bindings.ServiceId.inputValue}"
+                                to="#{pageFlowScope.srvKey}"
+                                type="action"/-->
+      </af:commandLink>
+    </af:column>
+  </af:table>
+</jsp:root>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="WelcomeTFDef">
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">WelcomeTF</default-activity>
+    <data-control-scope id="__2">
+      <shared/>
+    </data-control-scope>
+    <view id="WelcomeTF">
+      <page>/WEB-INF/jsf_pages/WelcomeTF.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

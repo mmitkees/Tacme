@@ -1,0 +1,203 @@
+<wsdl:definitions
+     name="PaymentService"
+     targetNamespace="http://tempuri.org/"
+     xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+     xmlns:wsa10="http://www.w3.org/2005/08/addressing"
+     xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+     xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+     xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+     xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+     xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+     xmlns:tns="http://tempuri.org/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+     xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+    >
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://tempuri.org/Imports">
+            <xsd:import schemaLocation="PaymentService.svc_xsd_xsd0.xsd" namespace="http://tempuri.org/"/>
+            <xsd:import schemaLocation="PaymentService.svc_xsd_xsd1.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+            <xsd:import schemaLocation="PaymentService.svc_xsd_xsd2.xsd" namespace="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="IPaymentServiceSoap_GetPaymentStatusSoap_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetPaymentStatusSoap"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentServiceSoap_GetPaymentStatusSoap_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetPaymentStatusSoapResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentServiceSoap_CompletePaymentSoap_InputMessage">
+        <wsdl:part name="parameters" element="tns:CompletePaymentSoap"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentServiceSoap_CompletePaymentSoap_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CompletePaymentSoapResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentServiceSoap_CancelPaymentSoap_InputMessage">
+        <wsdl:part name="parameters" element="tns:CancelPaymentSoap"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentServiceSoap_CancelPaymentSoap_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CancelPaymentSoapResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentServiceSoap_RefundPaymentSoap_InputMessage">
+        <wsdl:part name="parameters" element="tns:RefundPaymentSoap"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentServiceSoap_RefundPaymentSoap_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RefundPaymentSoapResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentServiceSoap_VoidPaymentSoap_InputMessage">
+        <wsdl:part name="parameters" element="tns:VoidPaymentSoap"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentServiceSoap_VoidPaymentSoap_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VoidPaymentSoapResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentServiceSoap_GetSecureHashed_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetSecureHashed"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentServiceSoap_GetSecureHashed_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetSecureHashedResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentService_GetPaymentStatus_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetPaymentStatus"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentService_GetPaymentStatus_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetPaymentStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentService_CompletePayment_InputMessage">
+        <wsdl:part name="parameters" element="tns:CompletePayment"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentService_CompletePayment_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CompletePaymentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentService_CancelPayment_InputMessage">
+        <wsdl:part name="parameters" element="tns:CancelPayment"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentService_CancelPayment_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CancelPaymentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentService_RefundPayment_InputMessage">
+        <wsdl:part name="parameters" element="tns:RefundPayment"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentService_RefundPayment_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RefundPaymentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentService_VoidPayment_InputMessage">
+        <wsdl:part name="parameters" element="tns:VoidPayment"/>
+    </wsdl:message>
+    <wsdl:message name="IPaymentService_VoidPayment_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VoidPaymentResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="IPaymentServiceSoap">
+        <wsdl:operation name="GetPaymentStatusSoap">
+            <wsdl:input message="tns:IPaymentServiceSoap_GetPaymentStatusSoap_InputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/GetPaymentStatusSoap"/>
+            <wsdl:output message="tns:IPaymentServiceSoap_GetPaymentStatusSoap_OutputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/GetPaymentStatusSoapResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="CompletePaymentSoap">
+            <wsdl:input message="tns:IPaymentServiceSoap_CompletePaymentSoap_InputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/CompletePaymentSoap"/>
+            <wsdl:output message="tns:IPaymentServiceSoap_CompletePaymentSoap_OutputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/CompletePaymentSoapResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="CancelPaymentSoap">
+            <wsdl:input message="tns:IPaymentServiceSoap_CancelPaymentSoap_InputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/CancelPaymentSoap"/>
+            <wsdl:output message="tns:IPaymentServiceSoap_CancelPaymentSoap_OutputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/CancelPaymentSoapResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="RefundPaymentSoap">
+            <wsdl:input message="tns:IPaymentServiceSoap_RefundPaymentSoap_InputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/RefundPaymentSoap"/>
+            <wsdl:output message="tns:IPaymentServiceSoap_RefundPaymentSoap_OutputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/RefundPaymentSoapResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="VoidPaymentSoap">
+            <wsdl:input message="tns:IPaymentServiceSoap_VoidPaymentSoap_InputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/VoidPaymentSoap"/>
+            <wsdl:output message="tns:IPaymentServiceSoap_VoidPaymentSoap_OutputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/VoidPaymentSoapResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetSecureHashed">
+            <wsdl:input message="tns:IPaymentServiceSoap_GetSecureHashed_InputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/GetSecureHashed"/>
+            <wsdl:output message="tns:IPaymentServiceSoap_GetSecureHashed_OutputMessage" wsaw:Action="http://tempuri.org/IPaymentServiceSoap/GetSecureHashedResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="IPaymentService">
+        <wsdl:operation name="GetPaymentStatus">
+            <wsdl:input message="tns:IPaymentService_GetPaymentStatus_InputMessage" wsaw:Action="http://tempuri.org/IPaymentService/GetPaymentStatus"/>
+            <wsdl:output message="tns:IPaymentService_GetPaymentStatus_OutputMessage" wsaw:Action="http://tempuri.org/IPaymentService/GetPaymentStatusResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="CompletePayment">
+            <wsdl:input message="tns:IPaymentService_CompletePayment_InputMessage" wsaw:Action="http://tempuri.org/IPaymentService/CompletePayment"/>
+            <wsdl:output message="tns:IPaymentService_CompletePayment_OutputMessage" wsaw:Action="http://tempuri.org/IPaymentService/CompletePaymentResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="CancelPayment">
+            <wsdl:input message="tns:IPaymentService_CancelPayment_InputMessage" wsaw:Action="http://tempuri.org/IPaymentService/CancelPayment"/>
+            <wsdl:output message="tns:IPaymentService_CancelPayment_OutputMessage" wsaw:Action="http://tempuri.org/IPaymentService/CancelPaymentResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="RefundPayment">
+            <wsdl:input message="tns:IPaymentService_RefundPayment_InputMessage" wsaw:Action="http://tempuri.org/IPaymentService/RefundPayment"/>
+            <wsdl:output message="tns:IPaymentService_RefundPayment_OutputMessage" wsaw:Action="http://tempuri.org/IPaymentService/RefundPaymentResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="VoidPayment">
+            <wsdl:input message="tns:IPaymentService_VoidPayment_InputMessage" wsaw:Action="http://tempuri.org/IPaymentService/VoidPayment"/>
+            <wsdl:output message="tns:IPaymentService_VoidPayment_OutputMessage" wsaw:Action="http://tempuri.org/IPaymentService/VoidPaymentResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SOAPEndPoint" type="tns:IPaymentServiceSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetPaymentStatusSoap">
+            <soap:operation style="document" soapAction="http://tempuri.org/IPaymentServiceSoap/GetPaymentStatusSoap"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CompletePaymentSoap">
+            <soap:operation style="document" soapAction="http://tempuri.org/IPaymentServiceSoap/CompletePaymentSoap"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelPaymentSoap">
+            <soap:operation style="document" soapAction="http://tempuri.org/IPaymentServiceSoap/CancelPaymentSoap"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RefundPaymentSoap">
+            <soap:operation style="document" soapAction="http://tempuri.org/IPaymentServiceSoap/RefundPaymentSoap"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VoidPaymentSoap">
+            <soap:operation style="document" soapAction="http://tempuri.org/IPaymentServiceSoap/VoidPaymentSoap"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetSecureHashed">
+            <soap:operation style="document" soapAction="http://tempuri.org/IPaymentServiceSoap/GetSecureHashed"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="PaymentService">
+        <wsdl:port name="SOAPEndPoint" binding="tns:SOAPEndPoint">
+            <soap:address location="http://172.25.1.202/PMRWeb/PaymentRouter/PaymentService.svc/soap"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="EoPCase1PageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EopCaseView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl" id="EopCaseView1Iterator"/>
+    <iterator Binds="ReqAttachmentsView25" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsView25Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EopCaseView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="EopCaseView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="true"/>
+    <tree IterBinding="ReqAttachmentsView25Iterator" id="ReqAttachmentsView25">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsView250">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsView25Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="EopCaseView1Iterator" StaticList="false" Uses="LOV_pn_ar"
+          id="ProsecutionName1" DTSupportsMRU="true"/>
+    <list IterBinding="EopCaseView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_ar" id="Relationcase1" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="EopCaseView1Iterator" id="CrimeDate">
+      <AttrNames>
+        <Item Value="CrimeDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EopCaseView1Iterator" id="StopReason">
+      <AttrNames>
+        <Item Value="StopReason"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

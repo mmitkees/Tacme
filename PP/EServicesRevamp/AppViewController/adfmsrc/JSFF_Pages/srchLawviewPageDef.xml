@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="srchLawviewPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="searchLawView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="searchLawView1Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="searchLawView1Iterator" StaticList="false"
+          Uses="LOV_lawCategory" id="lawCategory" DTSupportsMRU="true"/>
+    <list IterBinding="searchLawView1Iterator" StaticList="false"
+          Uses="LOV_searchWithin" id="searchWithin" DTSupportsMRU="true"/>
+    <list IterBinding="searchLawView1Iterator" StaticList="false"
+          Uses="LOV_lawList" id="lawList" DTSupportsMRU="true"/>
+    <list IterBinding="searchLawView1Iterator" StaticList="false"
+          Uses="LOV_articleList" id="articleList" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="searchLawView1Iterator" id="searchText">
+      <AttrNames>
+        <Item Value="searchText"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="execSearchLaw"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  DataControl="PPAppServicesDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="execSearchLaw" IsViewObjectMethod="false"
+                  ReturnName="data.PPAppServicesDataControl.methodResults.execSearchLaw_PPAppServicesDataControl_dataProvider_execSearchLaw_result">
+      <NamedData NDName="txt" NDValue="#{bindings.searchText.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

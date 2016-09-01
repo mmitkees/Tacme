@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="Decision_AppealPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqDecisionAppealView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqDecisionAppealView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqDecisionAppealView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqDecisionAppealView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqDecisionAppealView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="false"/>
+    <list IterBinding="ReqDecisionAppealView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelationCase" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqDecisionAppealView1Iterator"
+                     id="SentenseDate">
+      <AttrNames>
+        <Item Value="SentenseDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

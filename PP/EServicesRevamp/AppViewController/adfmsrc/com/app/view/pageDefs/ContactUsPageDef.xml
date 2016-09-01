@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="ContactUsPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="generateCaptchaString_return"
+                IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.generateCaptchaString.result}"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <methodAction id="generateCaptchaString" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="generateCaptchaString"
+                  IsViewObjectMethod="false"
+                  DataControl="PPAppServicesDataControl"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  ReturnName="data.PPAppServicesDataControl.methodResults.generateCaptchaString_PPAppServicesDataControl_dataProvider_generateCaptchaString_result"/>
+    <attributeValues IterBinding="variables" id="return">
+      <AttrNames>
+        <Item Value="generateCaptchaString_return"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="addContact"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  DataControl="PPAppServicesDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addContact" IsViewObjectMethod="false"
+                  ReturnName="data.PPAppServicesDataControl.methodResults.addContact_PPAppServicesDataControl_dataProvider_addContact_result">
+      <NamedData NDName="am_name" NDValue="#{contactUsBean.name}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="am_address" NDValue="#{contactUsBean.address}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="am_email" NDValue="#{contactUsBean.email}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="am_phno" NDValue="#{contactUsBean.phoneNo}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="am_subj" NDValue="#{contactUsBean.subject}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="am_desc" NDValue="#{contactUsBean.decription}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

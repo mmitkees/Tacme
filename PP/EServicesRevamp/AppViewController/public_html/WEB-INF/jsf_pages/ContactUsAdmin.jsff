@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl2" styleClass="AFStretchWidth" layout="vertical">
+    <af:panelGroupLayout layout="vertical" id="pgl1">
+      <af:panelHeader text="Contact Us" id="ph1">
+        <af:query id="qryId1" headerText="Search" disclosed="true"
+                  value="#{bindings.ContactUsViewCriteriaQuery.queryDescriptor}"
+                  model="#{bindings.ContactUsViewCriteriaQuery.queryModel}"
+                  queryListener="#{bindings.ContactUsViewCriteriaQuery.processQuery}"
+                  queryOperationListener="#{bindings.ContactUsViewCriteriaQuery.processQueryOperation}"
+                  resultComponentId="::pc1:resId1"/>
+      </af:panelHeader>
+      <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t1">
+            <af:commandToolbarButton text="Export Table" id="ctb1">
+              <af:exportCollectionActionListener type="excelHTML"
+                                                 exportedId="resId1"/>
+            </af:commandToolbarButton>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.ContactUsView1.collectionModel}" var="row"
+                  rows="#{bindings.ContactUsView1.rangeSize}"
+                  emptyText="#{bindings.ContactUsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.ContactUsView1.rangeSize}"
+                  rowBandingInterval="0"
+                  filterModel="#{bindings.ContactUsViewCriteriaQuery.queryDescriptor}"
+                  queryListener="#{bindings.ContactUsViewCriteriaQuery.processQuery}"
+                  filterVisible="true" varStatus="vs"
+                  selectedRowKeys="#{bindings.ContactUsView1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.ContactUsView1.collectionModel.makeCurrent}"
+                  rowSelection="single" id="resId1" styleClass="AFStretchWidth"
+                  columnStretching="column:resId1c6">
+          <af:column sortProperty="#{bindings.ContactUsView1.hints.Name.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ContactUsView1.hints.Name.label}"
+                     id="resId1c1" width="150">
+            <af:outputText value="#{row.Name}" id="ot5"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ContactUsView1.hints.Email.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ContactUsView1.hints.Email.label}"
+                     id="resId1c2" width="150">
+            <af:outputText value="#{row.Email}" id="ot1"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ContactUsView1.hints.Subject.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ContactUsView1.hints.Subject.label}"
+                     id="resId1c3" width="250">
+            <af:outputText value="#{row.Subject}" id="ot6"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ContactUsView1.hints.Address.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ContactUsView1.hints.Address.label}"
+                     id="resId1c4" width="200">
+            <af:outputText value="#{row.Address}" id="ot2"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ContactUsView1.hints.PhoneNo.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ContactUsView1.hints.PhoneNo.label}"
+                     id="resId1c5">
+            <af:outputText value="#{row.PhoneNo}" id="ot3"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ContactUsView1.hints.Description.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.ContactUsView1.hints.Description.label}"
+                     id="resId1c6">
+            <af:outputText value="#{row.Description}" id="ot4"/>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

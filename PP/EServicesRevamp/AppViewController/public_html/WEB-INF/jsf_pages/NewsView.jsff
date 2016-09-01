@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1">
+    <af:panelGroupLayout id="pgl3">
+      <af:panelGroupLayout id="pgl2" layout="horizontal">
+        <af:image source="/WEB-INF/Images/news-image.jpg" id="i1"/>
+        <af:panelGroupLayout id="pgl1" layout="vertical">
+          <af:outputText value="#{bindings.NewsDate.inputValue}" id="ot1">
+            <af:convertDateTime pattern="#{bindings.NewsDate.format}"/>
+          </af:outputText>
+          <af:outputText value="#{bindings.NewsSubj.inputValue}" id="ot2"/>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+      <af:outputText value="#{bindings.NewsDesc.inputValue}" id="ot3"/>
+    </af:panelGroupLayout>
+  </af:panelFormLayout>
+</jsp:root>

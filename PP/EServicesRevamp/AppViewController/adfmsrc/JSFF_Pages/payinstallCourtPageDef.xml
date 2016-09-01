@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="payinstallCourtPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqPaymentinsCourtView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqPaymentinsCourtView1Iterator"/>
+    <iterator Binds="ReqFinebalanceInstallmentsView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqFinebalanceInstallmentsView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqPaymentinsCourtView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqPaymentinsCourtView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqPaymentinsCourtView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="Prosecutionname" DTSupportsMRU="true"/>
+    <list IterBinding="ReqPaymentinsCourtView1Iterator" StaticList="false"
+          Uses="LOV_Relationcase_ar" id="Relationcase" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqPaymentinsCourtView1Iterator"
+                     id="SponsoredPersonName">
+      <AttrNames>
+        <Item Value="SponsoredPersonName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqPaymentinsCourtView1Iterator"
+                     id="FineAmount">
+      <AttrNames>
+        <Item Value="FineAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqPaymentinsCourtView1Iterator" StaticList="false"
+          Uses="LOV_NoOfInstalls" id="NoOfInstalls1" DTSupportsMRU="true"/>
+    <tree IterBinding="ReqFinebalanceInstallmentsView1Iterator"
+          id="ReqFinebalanceInstallmentsView1">
+      <nodeDefinition DefName="com.app.model.views.ReqFinebalanceInstallmentsView"
+                      Name="ReqFinebalanceInstallmentsView10">
+        <AttrNames>
+          <Item Value="ReqId"/>
+          <Item Value="PayDate"/>
+          <Item Value="InstallmentAmount"/>
+          <Item Value="Status"/>
+          <Item Value="PayAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqFinebalanceInstallmentsView1Iterator"
+            id="CreateInsert"
+            InstanceName="PPAppServicesDataControl.ReqFinebalanceInstallmentsView1"
+            DataControl="PPAppServicesDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

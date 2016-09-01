@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="EndCustAgaJuvePageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqEndCustodyJuvenileView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqEndCustodyJuvenileView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqEndCustodyJuvenileView1Iterator"
+                     id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqEndCustodyJuvenileView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    
+    <list IterBinding="ReqEndCustodyJuvenileView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName1" DTSupportsMRU="false"/>
+    <list IterBinding="ReqEndCustodyJuvenileView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelationCase1" DTSupportsMRU="false"/>
+  </bindings>
+</pageDefinition>

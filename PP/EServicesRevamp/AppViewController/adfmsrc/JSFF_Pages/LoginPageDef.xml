@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="LoginPageDef" Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="login_db"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  DataControl="PPAppServicesDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="login_db" IsViewObjectMethod="false"
+                  ReturnName="data.PPAppServicesDataControl.methodResults.login_db_PPAppServicesDataControl_dataProvider_login_db_result">
+      <NamedData NDName="un" NDValue="#{pageFlowScope.AppServiceBean.un}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="pwrd" NDValue="#{pageFlowScope.AppServiceBean.pwrd}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

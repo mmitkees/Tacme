@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="ReferralInmatePageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqReferralInmateView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqReferralInmateView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqReferralInmateView1Iterator"
+                     id="Prisonername">
+      <AttrNames>
+        <Item Value="Prisonername"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqReferralInmateView1Iterator"
+                     id="Requestreason">
+      <AttrNames>
+        <Item Value="Requestreason"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqReferralInmateView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqReferralInmateView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqReferralInmateView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="false"/>
+    <list IterBinding="ReqReferralInmateView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_ar" id="Relationcase" DTSupportsMRU="false"/>
+  </bindings>
+</pageDefinition>

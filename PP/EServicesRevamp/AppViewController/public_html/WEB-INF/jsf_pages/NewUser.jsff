@@ -1,0 +1,377 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+   <c:set var="appviewcontrollerBundle"
+          value="#{adfBundle['com.app.view.AppViewControllerBundle']}"/>
+   <af:subform id="s1">
+      <af:messages id="m6" globalOnly="true"/>
+      <af:panelGroupLayout id="pgl7" layout="scroll">
+         <af:resource type="javascript">
+           function refreshCaptcha(evt) {
+               try {
+                   var component = evt.getSource();
+                   var i1 = component.findComponent("i1");
+                   i1.setSource(i1.getSource() + "?force=" + new Date().getMilliseconds());
+                   evt.cancel();
+                   return false;
+               }
+               catch (err) {
+                   alert(err);
+               }
+               return false;
+           }           
+         </af:resource>
+         
+         <af:panelGroupLayout id="pgl9" layout="vertical">
+            <af:menuBar id="mb1">
+               <af:commandLink text="#{appviewcontrollerbundle.p_login}"
+                               id="cl1" action="userlogin"/>
+            </af:menuBar>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl4" layout="vertical"
+                              styleClass="eServicesHeading">
+            <af:outputText value="#{appviewcontrollerbundle.P_Usr_Reg}"
+                           id="ot1"/>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl6" layout="vertical"
+                              styleClass="eServicesFormData">
+            <af:panelGroupLayout id="pgl5" layout="vertical">
+               <af:panelFormLayout id="pfl1" styleClass="service"
+                                   maxColumns="2">
+                  <af:panelFormLayout id="pfl2" styleClass="service">
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.P_Email}*"
+                                              id="plam1" partialTriggers="em1">
+                        <af:inputText value="#{bindings.Email.inputValue}"
+                                      required="#{bindings.Email.hints.mandatory}"
+                                      binding="#{NewUser.email_bind}"
+                                      maximumLength="#{bindings.Email.hints.precision}"
+                                      shortDesc="#{bindings.Email.hints.tooltip}"
+                                      id="em1" autoSubmit="true" simple="true"                                      
+                                      validator="#{customValidator.eMailValidator}">
+                           <af:validateRegExp pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+                                              id="v1"
+                                              messageDetailNoMatch="#{facesContext.externalContext.requestLocale eq 'ar' ? 'ادخل بريد الكتروني صحيح' : 'Please enter right Email Format'} "/>
+                        </af:inputText>
+                        <!--<af:message id="m1" for="em1"/>-->
+                        <af:panelGroupLayout id="pgl8"
+                                             rendered="#{NewUser.email eq 'Y' ? true : false}"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_error_email}"
+                                          id="ot2"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.P_Pswd}*"
+                                              id="plam2" partialTriggers="itp1">
+                        <af:inputText id="itp1"
+                                      value="#{bindings.chgpwrd.inputValue}"
+                                      secret="true" autoSubmit="true"
+                                      binding="#{customValidator.chgPwrdBind}"
+                                      simple="true" 
+                                      validator="#{customValidator.passwordCondValidator}" autoComplete="off"
+                                      immediate="true" clientComponent="true">
+                                      <!--<af:clientListener  type="valueChange"
+                      method="suppressAutoComplete"/>-->
+                                      </af:inputText>
+                                      <!--<af:message id="m2" for="itp1"/>-->
+                        <af:panelGroupLayout id="pcpgl8"
+                                             rendered="#{NewUser.chpwrd eq 'Y' ? true : false}"
+                                             layout="vertical"
+                                             partialTriggers="itp1">
+                           <af:outputText value="#{appviewcontrollerbundle.p_invalid_pwrd}"
+                                          id="cpot2"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.P_Con_Pswd}*"
+                                              id="plam3" partialTriggers="cp1">
+                        <af:inputText value="#{bindings.Password.inputValue}"
+                                      required="#{bindings.Password.hints.mandatory}"
+                                      maximumLength="#{bindings.Password.hints.precision}"
+                                      shortDesc="#{bindings.Password.hints.tooltip}"
+                                      id="cp1"
+                                      valueChangeListener="#{pageFlowScope.AppServiceBean.CheckPwrd}"
+                                      autoSubmit="true" secret="true"
+                                       simple="true"
+                                      validator="#{customValidator.passwordValidator}"
+                                      autoComplete="off">
+                           <f:validator binding="#{bindings.Password.validator}"/>
+                        </af:inputText>
+                        <!--<af:message id="m3" for="cp1"/>-->
+                        <af:panelGroupLayout id="pcgl8" partialTriggers="cp1"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_inv_confirmpwrd}"
+                                          id="oct2"
+                                          styleClass="eServicesFormDataMessage"
+                                          rendered="#{NewUser.cpwrd eq 'Y'}"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <!--<af:panelGroupLayout id="pgl2"
+                                       inlineStyle="background-color:rgb(255,253,204);"
+                                       partialTriggers="it9" rendered="false"
+                                       binding="#{pageFlowScope.AppServiceBean.pgPwrd}">
+                     <af:outputFormatted value="Password doesnot match."
+                                         id="of1"
+                                         inlineStyle="font-size:140%; color:Red;"/>
+                  </af:panelGroupLayout>-->
+                     <af:panelLabelAndMessage id="plam4"
+                                              label="#{appviewcontrollerbundle.p_First_Name}*"
+                                              partialTriggers="it11">
+                        <af:inputText value="#{bindings.FirstName.inputValue}"
+                                      required="#{bindings.FirstName.hints.mandatory}"
+                                      maximumLength="#{bindings.FirstName.hints.precision}"
+                                      shortDesc="#{bindings.FirstName.hints.tooltip}"
+                                      id="it11" simple="true" autoSubmit="true">
+                           <f:validator binding="#{bindings.FirstName.validator}"/>
+                        </af:inputText>
+                        <!--<af:message id="m4" for="it11"/>-->
+                        <af:panelGroupLayout id="fn11" partialTriggers="it11"
+                                             rendered="#{NewUser.fname eq 'Y'}"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_inv_firstname}"
+                                          id="fnt2"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Last_Name}*"
+                                              id="plam5" partialTriggers="it3">
+                        <af:inputText value="#{bindings.LastName.inputValue}"
+                                      required="#{bindings.LastName.hints.mandatory}"
+                                      columns="#{bindings.LastName.hints.displayWidth}"
+                                      maximumLength="#{bindings.LastName.hints.precision}"
+                                      shortDesc="#{bindings.LastName.hints.tooltip}"
+                                      id="it3" simple="true" autoSubmit="true">
+                           <f:validator binding="#{bindings.LastName.validator}"/>
+                        </af:inputText>
+                        <!--<af:message id="m5" for="it3"/>-->
+                        <af:panelGroupLayout id="lngl8" partialTriggers="it3"
+                                             rendered="#{NewUser.lname eq 'Y'}"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_inv_middlename}"
+                                          id="lnt2"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Family_NAme}"
+                                              id="plam6" partialTriggers="it6">
+                        <af:inputText value="#{bindings.FamilyName.inputValue}"
+                                      required="#{bindings.FamilyName.hints.mandatory}"
+                                      columns="#{bindings.FamilyName.hints.displayWidth}"
+                                      maximumLength="#{bindings.FamilyName.hints.precision}"
+                                      shortDesc="#{bindings.FamilyName.hints.tooltip}"
+                                      id="it6" simple="true" autoSubmit="true">
+                           <f:validator binding="#{bindings.FamilyName.validator}"/>
+                        </af:inputText>
+                        <!--<af:message id="m7" for="it6"/>-->
+                        <af:panelGroupLayout id="fngl8" partialTriggers="it6"
+                                             rendered="#{NewUser.faname eq 'Y'}"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_inv_familyname}"
+                                          id="ot3"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Mobile}*"
+                                              id="plam7" partialTriggers="phn1">
+                        <af:inputText value="#{bindings.Mobile.inputValue}"
+                                      required="#{bindings.Mobile.hints.mandatory}"
+                                      columns="#{bindings.Mobile.hints.displayWidth}"
+                                      maximumLength="#{bindings.Mobile.hints.precision}"
+                                      shortDesc="#{bindings.Mobile.hints.tooltip}"
+                                      id="phn1" simple="true"
+                                      validator="#{customValidator.phonenoValidator}"
+                                      autoSubmit="true"
+                                      placeholder="05xxxxxxxx"
+                                      binding="#{NewUser.mobile_bind}">
+                           <f:validator binding="#{bindings.Mobile.validator}"/>
+                        </af:inputText>
+                        <!--<af:message id="m8" for="phn1"/>-->
+                        <af:panelGroupLayout id="pml8" partialTriggers="phn1"
+                                             rendered="#{NewUser.mob eq 'Y'}"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_inv_mobile}"
+                                          id="om2"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_dob}*"
+                                              id="plam8" partialTriggers="it4">
+                        <af:inputDate value="#{bindings.Dob.inputValue}"
+                                      required="#{bindings.Dob.hints.mandatory}"
+                                      shortDesc="#{bindings.Dob.hints.tooltip}"
+                                      id="it4" simple="true" autoSubmit="true">
+                           <!--<f:validator binding="#{bindings.Dob.validator}"/>-->
+                           <af:convertDateTime pattern="dd-MM-yyyy"
+                                               secondaryPattern="dd-MM-yyyy"/>
+                           <!--<af:validateDateTimeRange minimum="1950-04-04"
+                                                     maximum="#{NewUser.maxDateVal}"
+                                                     messageDetailNotInRange="Invalid date"/>-->
+                        </af:inputDate>
+                        <!--<af:message id="m9" for="it4"/>-->
+                        <af:panelGroupLayout id="pdbl8" partialTriggers="it4"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.P_inv_Dob}"
+                                          id="odb2"
+                                          styleClass="eServicesFormDataMessage"
+                                          rendered="#{NewUser.dob eq 'Y'}"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Nationality}*"
+                                              id="plam9" partialTriggers="soc1">
+                        <af:selectOneChoice value="#{bindings.Nationality1.inputValue}"
+                                            required="#{bindings.Nationality1.hints.mandatory}"
+                                            shortDesc="#{bindings.Nationality.hints.tooltip}"
+                                            id="soc1" simple="true"
+                                            autoSubmit="true">
+                           <f:selectItems value="#{bindings.Nationality1.items}"
+                                          id="si1"/>
+                        </af:selectOneChoice>
+                        <!--<af:message id="m10" for="soc1"/>-->
+                        <af:panelGroupLayout id="pngl8" partialTriggers="soc1"
+                                             rendered="#{NewUser.na eq 'Y'}"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_inv_nat}"
+                                          id="ont2"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Emirates_ID}*"
+                                              id="plam10"
+                                              partialTriggers="ite1">
+                        <af:inputText value="#{bindings.EmiratesId.inputValue}"
+                                      required="#{bindings.EmiratesId.hints.mandatory}"
+                                      autoSubmit="true"
+                                      maximumLength="#{bindings.EmiratesId.hints.precision}"
+                                      shortDesc="#{bindings.EmiratesId.hints.tooltip}"
+                                      id="ite1" simple="true">
+                           <f:validator binding="#{bindings.EmiratesId.validator}"/>
+                        </af:inputText>
+                        <!--<af:message id="m11" for="ite1"/>-->
+                        <af:panelGroupLayout id="peil8" partialTriggers="ite1"
+                                             rendered="#{NewUser.eidno eq 'Y'}"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.P_inv_Emitate}"
+                                          id="oei2"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_ID_Expiry_date}*"
+                                              id="plam11" partialTriggers="it7">
+                        <af:inputDate value="#{bindings.EmiratesIdExpiry.inputValue}"
+                                      required="#{bindings.EmiratesIdExpiry.hints.mandatory}"
+                                      shortDesc="#{bindings.EmiratesIdExpiry.hints.tooltip}"
+                                      id="it7" simple="true"
+                                      autoSubmit="true">
+                           <f:validator binding="#{bindings.EmiratesIdExpiry.validator}"/>
+                           <af:convertDateTime pattern="dd-MM-yyyy"
+                                               type="date"/>
+                        </af:inputDate>
+                        <!--<af:message id="m12" for="it7"/>-->
+                        <af:panelGroupLayout id="peel8" partialTriggers="it7"
+                                             rendered="#{NewUser.edate eq 'Y'}"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.P_inv_expirydate}"
+                                          id="oee2"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{appviewcontrollerbundle.P_Pre_Lang}*"
+                                              id="plam12"
+                                              partialTriggers="soc2">
+                        <af:selectOneChoice value="#{bindings.RegistrationLang.inputValue}"
+                                            required="#{bindings.RegistrationLang.hints.mandatory}"
+                                            shortDesc="#{bindings.RegistrationLang.hints.tooltip}"
+                                            id="soc2" simple="true"
+                                            autoSubmit="true">
+                           <f:selectItems value="#{bindings.RegistrationLang.items}"
+                                          id="si2"/>
+                        </af:selectOneChoice>
+                        <!--<af:message id="m13" for="soc2"/>-->
+                        <af:panelGroupLayout id="prll8" partialTriggers="soc2"
+                                             rendered="#{NewUser.rlang eq 'Y'}"
+                                             layout="vertical">
+                           <af:outputText value="#{appviewcontrollerbundle.p_inv_prelang}"
+                                          id="orl2"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <!-- Implementing captcha -->
+                     <af:panelFormLayout id="nupfl7">
+                        <af:panelLabelAndMessage id="nuplam6"
+                                                 labelStyle="padding:0px !important;">
+                           <af:image source="/captchaservlet" id="nui1"
+                                     clientComponent="true"
+                                     inlineStyle="width:251px; height:76.0px;"/>
+                           <af:panelGroupLayout id="nupgl21" layout="vertical"
+                                                inlineStyle="margin-top: 10px !important;">
+                              <af:commandButton text="#{appviewcontrollerbundle.p_refca}"
+                                                id="nucb2" immediate="true"
+                                                styleClass="refresh-btn"
+                                                action="#{NewUser.refreshCaptcha}"
+                                                >
+                                 <!--<af:clientListener method="refreshCaptcha"
+                                                    type="action"/>-->
+                              </af:commandButton>
+                           </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                     </af:panelFormLayout>
+                     <af:panelFormLayout id="nupfl3">
+                        <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_captchatext}"
+                                                 id="nuplam5">
+                           <af:inputText id="nuits1"
+                                         value="#{requestScope.bestGuess}"
+                                         simple="true" immediate="true"
+                                         binding="#{NewUser.captchaBind}"
+                                         partialTriggers="nucb2"/>
+                        </af:panelLabelAndMessage>
+                     </af:panelFormLayout>
+                     <af:selectBooleanCheckbox text="#{appviewcontrollerBundle.BY_ACCEPTING_THIS_MEANS_THAT_Y}"
+                                               id="sbc1"
+                                               binding="#{NewUser.acceptterms}"
+                                               valueChangeListener="#{NewUser.acceptterm_vcl}"
+                                               autoSubmit="true"
+                                               styleClass="overf"/>
+                     <af:panelGroupLayout id="patl8" partialTriggers="sbc1"
+                                          layout="vertical">
+                        <af:outputText value="#{appviewcontrollerBundle.PLEASE_ACCEPT_TERMS_AND_CONDIT}"
+                                       id="oat2"
+                                       styleClass="eServicesFormDataMessage logibn-condition"
+                                       rendered="#{NewUser.acepttrm eq 'Y'}"/>
+                     </af:panelGroupLayout>
+                  </af:panelFormLayout>
+               </af:panelFormLayout>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl1" layout="vertical">
+               <af:panelFormLayout id="pfl3" rows="1"
+                                   styleClass="serviceButton">
+                  <af:commandButton text="#{appviewcontrollerbundle.p_submit}"
+                                    id="cb1" styleClass="btn-action"
+                                    action="#{NewUser.userReg}"/>
+                  <af:commandButton text="Clear" id="cb2" rendered="false">
+                     <af:resetActionListener/>
+                  </af:commandButton>
+                  <af:resetButton text="resetButton 1" id="rb1"
+                                  rendered="false"/>
+                  <af:commandButton text="#{appviewcontrollerbundle.p_clear}"
+                                    immediate="true" id="cb3"
+                                    styleClass="btn-secondary" action="reset">
+                     <af:resetActionListener/>
+                  </af:commandButton>
+               </af:panelFormLayout>
+            </af:panelGroupLayout>
+            <af:popup id="p1" binding="#{NewUser.loginPopupBind}">
+               <af:dialog id="d1" type="none" styleClass="login-dialogue">
+                  <af:panelGroupLayout id="pgl3" layout="vertical">
+                     <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_userreg']}"
+                                    id="ot4"/>
+                     <af:commandButton text="Login" id="cb4" action="login"
+                                       styleClass="dialog-btn-wrap"/>
+                  </af:panelGroupLayout>
+               </af:dialog>
+            </af:popup>
+         </af:panelGroupLayout>
+      </af:panelGroupLayout>
+   </af:subform>
+</jsp:root>

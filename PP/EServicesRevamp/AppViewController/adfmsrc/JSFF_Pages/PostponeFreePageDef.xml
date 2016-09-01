@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="PostponeFreePageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqAttachmentsView32" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsView32Iterator"/>
+    <iterator Binds="ReqPostponeOfFreedomView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqPostponeOfFreedomView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ReqAttachmentsView32Iterator" id="ReqAttachmentsView32">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsView320">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="Name"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsView32Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqPostponeOfFreedomView1Iterator"
+                     id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqPostponeOfFreedomView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqPostponeOfFreedomView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="Prosecutionname" DTSupportsMRU="false"/>
+    <list IterBinding="ReqPostponeOfFreedomView1Iterator" StaticList="false"
+          Uses="LOV_Relationcase_en" id="Relationcase" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqPostponeOfFreedomView1Iterator"
+                     id="DelayReason">
+      <AttrNames>
+        <Item Value="DelayReason"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

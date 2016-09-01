@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="SearchLawViewARPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+      <iterator Binds="SrchLawROVOAR1" RangeSize="25"
+              DataControl="PPAppServicesDataControl" id="SrchLawROVOAR1Iterator"/>
+    <iterator Binds="NewSearchLawROVOAR1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="NewSearchLawROVOAR1Iterator"/>
+  </executables>
+  <bindings>
+   <tree IterBinding="SrchLawROVOAR1Iterator" id="SrchLawROVOAR1">
+      <nodeDefinition DefName="com.app.model.views.SrchLawROVOAR"
+                      Name="SrchLawROVOAR10">
+        <AttrNames>
+          <Item Value="ArticleNameAr"/>
+          <Item Value="CategoryNameAr"/>
+          <Item Value="EmiratesNameAr"/>
+          <Item Value="SerWithinNameAr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="NewSearchLawROVOAR1Iterator" StaticList="false"
+          Uses="LOV_Languagecategory" id="Languagecategory"
+          DTSupportsMRU="false"/>
+    <list IterBinding="NewSearchLawROVOAR1Iterator" StaticList="false"
+          Uses="LOV_Searchwithin" id="Searchwithin" DTSupportsMRU="false"/>
+    <list IterBinding="NewSearchLawROVOAR1Iterator" StaticList="false"
+          Uses="LOV_Emirates" id="Emirates" DTSupportsMRU="false"/>
+    <list IterBinding="NewSearchLawROVOAR1Iterator" StaticList="false"
+          Uses="LOV_Article" id="Article" DTSupportsMRU="false"/>
+  </bindings>
+</pageDefinition>

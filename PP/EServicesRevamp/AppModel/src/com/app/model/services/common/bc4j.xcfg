@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.app.model.services.PPAppServices">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.app.model.AppModel" name="PPAppServicesLocal" ApplicationName="com.app.model.services.PPAppServices">
+         <AM-Pooling jbo.ampool.initpoolsize="1" jbo.doconnectionpooling="true" jbo.ampool.maxavailablesize="10" jbo.ampool.maxinactiveage="300000" jbo.ampool.maxpoolsize="100" jbo.ampool.monitorsleepinterval="120000"/>
+         <Security AppModuleJndiName="com.app.model.services.PPAppServices"/>
+         <Custom JDBCDataSource="jdbc/ppdevDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.app.model.AppModel" name="PPAppServicesShared" ApplicationName="com.app.model.services.PPAppServices">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="com.app.model.services.PPAppServices"/>
+         <Custom JDBCDataSource="jdbc/ppdevDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.app.model.AppModel" name="PPscheduler" ApplicationName="com.app.model.services.PPAppServices">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="com.app.model.services.PPAppServices"/>
+         <Custom JDBCDataSource="jdbc/ppdevDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

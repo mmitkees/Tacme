@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+          
+   <af:resource type="javascript">
+     function handleDialog(event) {
+         if (event.getOutcome() == AdfDialogEvent.OUTCOME_CANCEL) {
+             event.cancel();
+         }
+     }
+   </af:resource>     
+   <af:subform id="s1" defaultCommand="cb1">
+   <af:panelGroupLayout id="pgl8" layout="scroll">
+      <af:panelFormLayout id="pfl1">
+         <af:panelFormLayout id="pf1l2" maxColumns="1" rows="2">
+            <af:outputText value="#{appviewcontrollerbundle.p_loginheader}"
+                           id="ot1"/>
+            <!--<af:popup id="p1"
+                      binding="#{pageFlowScope.AppServiceBean.loginPopupBind}">
+               <af:dialog id="d1" inlineStyle="width:180px !important ;"
+                          type="none">
+                  <af:panelGroupLayout id="pgl4" layout="vertical">
+                     <af:panelLabelAndMessage id="plam3"
+                                              labelStyle="color: #af2222;     font-size: 24px;     font-family: Arial;     padding: 15px 0 5px 5px;     display: block;">
+                        <af:panelFormLayout id="pfl4" styleClass="service">
+                           <af:inputDate id="id1"
+                                         value="#{pageFlowScope.AppServiceBean.gdob}"
+                                         label="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_dob']}"
+                                         columns="25" showRequired="true"
+                                         changed="false" simple="false"
+                                         />
+                        </af:panelFormLayout>
+                     </af:panelLabelAndMessage>
+                     <af:commandButton text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_submit']}"
+                                       id="cb3"
+                                       action="#{pageFlowScope.AppServiceBean.DobDialList}"
+                                       styleClass=" btn-action"
+                                       >
+                                       
+                                       </af:commandButton>
+                  </af:panelGroupLayout>
+                  <af:clientListener method="handleDialog" type="dialog"/>
+               </af:dialog>
+            </af:popup>-->
+         </af:panelFormLayout>
+      </af:panelFormLayout>
+      <af:panelGroupLayout id="pgl9" layout="vertical"
+                           styleClass="eServicesHeading">
+         <af:outputText value="#{appviewcontrollerbundle.p_loginheader}"
+                        id="ot3"/>
+         <af:popup id="p11"
+                   binding="#{pageFlowScope.AppServiceBean.loginPopupBind}">
+            <af:dialog id="d11" type="none" styleClass="dob-pop-up">
+               <af:panelGroupLayout id="pgl14" layout="vertical">
+                  <af:panelLabelAndMessage id="pla1m3"
+                                           labelStyle="color: #af2222;     font-size: 24px;     font-family: Arial;     padding: 15px 0 5px 5px;     display: block;">
+                     <af:panelFormLayout id="pf1l4" styleClass="service">
+                        <af:inputDate id="i1d1"
+                                      value="#{pageFlowScope.AppServiceBean.gdob}"
+                                      label="#{appviewcontrollerbundle.p_dob}"
+                                      columns="25" showRequired="true"
+                                      changed="false" simple="false"
+                                      contentStyle="background-color: #f9f7f2 !important;border: 1px solid #b0a37c !important;width: 270px;height:35px !important">
+                           <af:convertDateTime type="date"
+                                               pattern="dd-MM-yyyy"/>
+                        </af:inputDate>
+                     </af:panelFormLayout>
+                  </af:panelLabelAndMessage>
+                  <af:commandButton text="#{appviewcontrollerbundle.p_submit}"
+                                    id="cb4"
+                                    action="#{pageFlowScope.AppServiceBean.DobDialList}"
+                                    styleClass=" btn-action"
+                                    inlineStyle="margin:18px 46px 0 !important;"/>
+               </af:panelGroupLayout>
+            </af:dialog>
+         </af:popup>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl7" layout="vertical"
+                           styleClass="eServicesFormData login-form">
+         <af:panelGroupLayout id="pgl2" layout="vertical" partialTriggers="cb1">
+            <af:outputFormatted value="#{appviewcontrollerbundle.p_invaliduser}"
+                                id="of1"
+                                inlineStyle="color:Red; font-size: 15px;  margin: 0px 13px;"
+                                rendered="#{pageFlowScope.AppServiceBean.eflag eq 'N'}"/>
+            <af:outputFormatted value="#{appviewcontrollerbundle.P_inv_unlg}" id="of2"
+                                inlineStyle="color:Red; font-size: 15px;  margin: 0px 13px;"
+                                rendered="#{pageFlowScope.AppServiceBean.eflag eq 'UN'}"/>
+            <af:outputFormatted value="#{appviewcontrollerbundle.P_inv_pwrdlg}" id="of3"
+                                inlineStyle="color:Red; font-size: 15px;  margin: 0px 13px;"
+                                rendered="#{pageFlowScope.AppServiceBean.eflag eq 'PWRD'}"/>
+            <af:outputFormatted value="#{appviewcontrollerbundle.P_inv_unpwrdlg}"
+                                id="of4"
+                                inlineStyle="color:Red; font-size: 15px;  margin: 0px 13px;"
+                                rendered="#{pageFlowScope.AppServiceBean.eflag eq 'UNPWRD'}"/>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl3" layout="vertical">
+            <af:panelFormLayout id="pfl2" maxColumns="1" styleClass="service">
+               <af:panelFormLayout id="pfl3" maxColumns="1"
+                                   styleClass="service">
+                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_username}"
+                                           id="plam1" showRequired="true">
+                     <af:inputText id="it1"
+                                   value="#{pageFlowScope.AppServiceBean.un}"
+                                   showRequired="false" immediate="true"
+                                   autoSubmit="true" simple="true" columns="15"
+                                   binding="#{pageFlowScope.AppServiceBean.bind_username}"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelGroupLayout id="epgl1" partialTriggers="it1 plam1"
+                                       rendered="false">
+                     <af:outputText value="Please enter username #{pageFlowScope.AppServiceBean.erun}"
+                                    id="eot1"/>
+                  </af:panelGroupLayout>
+                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_password}"
+                                           id="plam2" showRequired="true">
+                     <af:inputText id="it2"
+                                   value="#{pageFlowScope.AppServiceBean.pwrd}"
+                                   secret="true" showRequired="false"
+                                   autoSubmit="true" simple="true"
+                                   immediate="true" columns="15"
+                                   binding="#{pageFlowScope.AppServiceBean.bind_pwrd}"
+                                   clientComponent="true">                                   
+                                   </af:inputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelGroupLayout id="epgl2" partialTriggers="it2 plam2"
+                                       rendered="false">
+                     <af:outputText value="Please enter password #{pageFlowScope.AppServiceBean.erpwrd}"
+                                    id="eot2"/>
+                  </af:panelGroupLayout>
+               </af:panelFormLayout>
+            </af:panelFormLayout>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl5" layout="vertical">
+            <af:panelFormLayout id="pfl5" rows="1">
+               <af:commandLink text="#{appviewcontrollerbundle.p_forgotpassword}"
+                               id="cl1"
+                               inlineStyle="text-decoration:underline; padding:10px; color:#af2222 !important;"
+                               styleClass="clr" action="forgetPassword"/>
+               <af:commandLink text="#{appviewcontrollerbundle.p_newuser}"
+                               id="cl2" action="newuser"
+                               inlineStyle="text-decoration:underline;padding:10px;color:#af2222 !important;"
+                               styleClass="clr"/>
+            </af:panelFormLayout>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl1" layout="vertical">
+            <af:panelFormLayout id="pfl6" rows="1" styleClass="serviceButton">
+               <af:commandButton text="#{appviewcontrollerbundle.p_login}"
+                                 id="cb1" partialSubmit="true"
+                                 action="#{pageFlowScope.AppServiceBean.login_action}"
+                                 styleClass="btn-action">                                     
+                                 </af:commandButton>
+               <af:commandButton text="#{appviewcontrollerbundle.p_clear}"
+                                 id="cb2"
+                                 action="#{pageFlowScope.AppServiceBean.clear_login_action}"
+                                 styleClass="btn-secondary"/>
+            </af:panelFormLayout>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl6" layout="vertical"
+                              partialTriggers="cb1 cb2"
+                              styleClass="service login-popup" rendered="false">
+            <af:panelGroupLayout rendered="#{pageFlowScope.AppServiceBean.showPanel == 'Y' ? true : false}"
+                                 styleClass="dob-popup">
+               <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_dob']}"
+                              id="ot2"/>
+               <af:inputDate id="id41"
+                             value="#{pageFlowScope.AppServiceBean.gdob}"
+                             label="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_dob']}"
+                             columns="25" showRequired="true" changed="false"
+                             simple="false" styleClass="service"/>
+               <af:commandButton text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_submit']}"
+                                 id="cb53"
+                                 action="#{pageFlowScope.AppServiceBean.DobDialList}"
+                                 styleClass=" btn-action"></af:commandButton>
+            </af:panelGroupLayout>
+         </af:panelGroupLayout>
+      </af:panelGroupLayout>
+   </af:panelGroupLayout>
+   <!--oracle-jdev-comment:preferred-managed-bean-name:pageFlowScope.AppServiceBean-->
+   <!--<af:panelFormLayout id="pfl2" maxColumns="8" rows="1">-->
+   <!--</af:panelFormLayout>-->
+   </af:subform>
+</jsp:root>

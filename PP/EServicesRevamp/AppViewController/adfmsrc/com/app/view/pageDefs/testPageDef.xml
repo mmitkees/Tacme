@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="testPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="serviceRatingGraphTF1"
+              taskFlowId="/WEB-INF/com/tacme/pp/taskflows/serviceRatingAdmin/serviceRatingGraphTF.xml#serviceRatingGraphTF"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="EserviceSuccessRatingTF1"
+              taskFlowId="/WEB-INF/com/tacme/pp/taskflows/common/EserviceSuccessRatingTF.xml#EserviceSuccessRatingTF"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="ReqId" value="3333"/>
+        <parameter id="ServiceId" value="3333"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

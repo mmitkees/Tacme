@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+    <af:panelGroupLayout id="pgl14" layout="vertical">
+      <af:menuBar id="mb1">
+        <af:commandLink text="Click here for E-Services" id="cl1"
+                        action="exit1"/>
+      </af:menuBar>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl2" layout="vertical">
+      <af:panelGroupLayout id="pgl3" layout="vertical"
+                           styleClass="eServicesHeading">
+        <af:outputText value="Case Information" id="ot1"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl8" layout="vertical"
+                           styleClass="eServicesFormData">
+        <af:panelGroupLayout id="pgl4" layout="vertical">
+          <af:panelFormLayout id="pfl1" maxColumns="2" rows="1"
+                              styleClass="service">
+            <af:panelFormLayout id="pfl2">
+              <af:panelLabelAndMessage label="Case No" id="plam1"
+                                       showRequired="true">
+                <af:inputText id="it1" showRequired="true" simple="true"
+                              immediate="true"/>
+                <af:panelGroupLayout id="pgl10" layout="vertical">
+                  <af:outputText value="Error Message" id="ot5"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="Prosecution Name" id="plam2"
+                                       showRequired="true">
+                <af:selectOneChoice id="soc2"
+                                    unselectedLabel="&lt;-- Select Prosecution -->"
+                                    showRequired="true" simple="true"
+                                    immediate="true">
+                  <af:selectItem label="Ajuvanle Juvinile Prosecution"
+                                 value="AJP" id="si6"/>
+                  <af:selectItem label="Sharjah Public Prosecution" value="SPP"
+                                 id="si7"/>
+                  <af:selectItem label="Federal Capital Prosecution" value="FCP"
+                                 id="si5"/>
+                </af:selectOneChoice>
+                <af:panelGroupLayout id="pgl11" layout="vertical">
+                  <af:outputText value="Error Message" id="ot4"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl3">
+              <af:panelLabelAndMessage label="Case Year" id="plam3"
+                                       showRequired="true">
+                <af:selectOneChoice id="soc1"
+                                    unselectedLabel="&lt;--Select Year-->"
+                                    showRequired="true" simple="true"
+                                    immediate="true">
+                  <af:selectItem label="2015" value="2015" id="si1"/>
+                  <af:selectItem label="2014" value="2014" id="si3"/>
+                  <af:selectItem label="2013" value="2013" id="si4"/>
+                  <af:selectItem label="2012" value="2012" id="si2"/>
+                </af:selectOneChoice>
+                <af:panelGroupLayout id="pgl12" layout="vertical">
+                  <af:outputText value="Error Message" id="ot3"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="Relationship with case" id="plam4"
+                                       showRequired="true">
+                <af:selectOneChoice id="soc3"
+                                    unselectedLabel="&lt;--Select Relationship-->"
+                                    showRequired="true" simple="true"
+                                    immediate="true">
+                  <af:selectItem label="Lawyer" value="Lawyer" id="si10"/>
+                  <af:selectItem label="Agent" value="A" id="si8"/>
+                  <af:selectItem label="Party To Case" value="PTC" id="si9"/>
+                </af:selectOneChoice>
+                <af:panelGroupLayout id="pgl13" layout="vertical">
+                  <af:outputText value="Error Message" id="ot2"
+                                 styleClass="eServicesFormDataMessage"/>
+                </af:panelGroupLayout>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl9" layout="vertical">
+          <af:panelFormLayout id="pfl6" maxColumns="1" rows="1"
+                              styleClass="service">
+            <af:panelFormLayout id="pfl5">
+              <af:panelLabelAndMessage label="Attachments" id="plam5">
+                <af:inputFile id="if1" simple="true" immediate="true"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl7" layout="vertical">
+          <af:panelFormLayout id="pfl4" rows="1" styleClass="serviceButton">
+            <af:commandButton text="Submit" id="cb1" styleClass="btn-action "/>
+            <af:commandButton text="Clear" id="cb2" styleClass="btn-secondary"/>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

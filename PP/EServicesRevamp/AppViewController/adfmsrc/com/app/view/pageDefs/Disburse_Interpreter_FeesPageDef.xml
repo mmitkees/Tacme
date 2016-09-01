@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="Disburse_Interpreter_FeesPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqAttachmentsView5" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsView5Iterator"/>
+    <iterator Binds="ReqDisburseInterpreterView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqDisburseInterpreterView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ReqAttachmentsView5Iterator" id="ReqAttachmentsView5">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsView50">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsView5Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqDisburseInterpreterView1Iterator"
+                     id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqDisburseInterpreterView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqDisburseInterpreterView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="false"/>
+    <list IterBinding="ReqDisburseInterpreterView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelationCase" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqDisburseInterpreterView1Iterator"
+                     id="Iban">
+      <AttrNames>
+        <Item Value="Iban"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

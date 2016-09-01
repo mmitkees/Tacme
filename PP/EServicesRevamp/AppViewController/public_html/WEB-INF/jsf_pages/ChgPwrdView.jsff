@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+    <af:panelGroupLayout id="pgl9" layout="vertical">
+      <af:menuBar id="mb1">
+        <af:commandLink text="Click here for E-Services" id="cl1"
+                        action="#{eservice}" rendered="false"/>
+        <af:goLink text="#{appviewcontrollerbundle.p_click_eservice}" id="gl1"
+                   destination="#{pageFlowScope.eservice}"/>
+      </af:menuBar>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl3" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="#{appviewcontrollerbundle.p_Change_password}" id="ot2"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl4" layout="vertical"
+                         styleClass="eServicesFormData">
+      <af:panelGroupLayout id="pgl8" layout="vertical">
+        <af:panelFormLayout id="pfl1" styleClass="service">
+          <af:panelFormLayout id="pfl3">
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Current_password}*" id="plam1"
+                                     partialTriggers="it1">
+              <af:inputText id="it1" showRequired="false"
+                            value="#{pageFlowScope.AppServicesCP.oldpwrd}"
+                            secret="true"
+                            disabled="#{pageFlowScope.AppServicesCP.DFlag eq 'Y'}"
+                            simple="true" autoSubmit="true" immediate="true">                
+              </af:inputText>
+              <af:panelGroupLayout id="pgl5" layout="vertical" partialTriggers="it1">
+                <af:outputText id="ot1"
+                               styleClass="eServicesFormDataMessage"
+                               rendered="#{pageFlowScope.AppServicesCP.cbval eq 'Y'}"
+                               value="#{appviewcontrollerbundle.p_inv_oldpwrd}"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_New_Password}*" id="plam2"
+                                     partialTriggers="itp1">
+              <af:inputText id="itp1" showRequired="false"
+                            value="#{pageFlowScope.AppServicesCP.nb_pwrd}"
+                            secret="true"
+                            disabled="#{pageFlowScope.AppServicesCP.DFlag eq 'Y'}"
+                            simple="true" immediate="true"
+                            validator="#{customValidator.passwordCondValidator}"
+                            autoSubmit="true"/>
+              <af:panelGroupLayout id="pgl6" layout="vertical"
+                                   partialTriggers="itp1" rendered="#{pageFlowScope.AppServicesCP.nbval eq 'Y'}">
+                <af:outputText id="ot4"
+                               styleClass="eServicesFormDataMessage"
+                               value="#{appviewcontrollerbundle.p_inv_newpwrd}"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.P_Con_Pswd}*" id="plam3"
+                                     partialTriggers="it3">
+              <af:inputText id="it3" showRequired="false"
+                            value="#{pageFlowScope.AppServicesCP.cob_pwrd}"
+                            secret="true"
+                            disabled="#{pageFlowScope.AppServicesCP.DFlag eq 'Y'}"
+                            simple="true" immediate="true" autoSubmit="true"/>
+              <af:panelGroupLayout id="pgl7" layout="vertical" partialTriggers="it3" rendered="#{pageFlowScope.AppServicesCP.cobval eq 'Y'}">
+                <af:outputText value="#{appviewcontrollerbundle.p_inv_confpwrd}" id="ot3"
+                               styleClass="eServicesFormDataMessage" 
+                               />
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl2" layout="vertical">
+        <af:commandButton text="#{appviewcontrollerbundle.p_submit}" id="cb1"
+                          action="#{pageFlowScope.AppServicesCP.chg_wprd_action}"
+                          styleClass="btn-action"/>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="AppealPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqAppealView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAppealView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqAppealView1Iterator" id="Caseno">
+      <AttrNames>
+        <Item Value="Caseno"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqAppealView1Iterator" StaticList="false"
+          Uses="LOV_Caseyear" id="Caseyear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqAppealView1Iterator" StaticList="false"
+          Uses="LOV_pn_en" id="Prosecutionname" DTSupportsMRU="false"/>
+    <list IterBinding="ReqAppealView1Iterator" StaticList="false"
+          Uses="LOV_Relationcase_en" id="Relationwithcase"
+          DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqAppealView1Iterator" id="Subject">
+      <AttrNames>
+        <Item Value="Subject"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

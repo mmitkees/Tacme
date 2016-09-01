@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl5" layout="scroll">
+    <af:panelGroupLayout id="pgl6" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="#{appviewcontrollerbundle.page_SearchTrans}"
+                     id="ot1"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl7" layout="vertical"
+                         styleClass="eServicesFormData">
+      <af:panelGroupLayout id="pgl3" layout="vertical">
+        <af:panelGroupLayout id="pgl1" layout="vertical">
+          <af:panelFormLayout id="pfl1" rows="1" maxColumns="2"
+                              styleClass="service">
+            <af:panelFormLayout id="pfl2">
+              <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Name}"
+                                       id="plam1">
+                <af:inputText id="it1" rows="1" binding="#{srchTranslator.it1}"
+                              value="#{srchTranslator.name}" immediate="true"
+                              simple="true"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Address}"
+                                       id="plam3">
+                <af:inputText id="it2" columns="60"
+                              binding="#{srchTranslator.it3}"
+                              value="#{srchTranslator.address}" simple="true"
+                              immediate="true"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl5" rendered="false">
+              <af:panelLabelAndMessage label="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_City']}"
+                                       id="plam2">
+                <af:inputText id="soc1" binding="#{srchTranslator.it2}"
+                              value="#{srchTranslator.city}" rows="1"
+                              immediate="true" simple="true"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl2" layout="vertical">
+        <af:panelFormLayout id="pfl6" rows="1" styleClass="serviceButton">
+          <af:commandButton text="#{appviewcontrollerbundle.p_search}"
+                            id="cb1" styleClass="btn-action"
+                            disabled="#{!bindings.srchtranslators.enabled}"
+                            actionListener="#{bindings.srchtranslators.execute}"/>
+          <af:commandButton text="#{appviewcontrollerbundle.p_clear}"
+                            id="cb2"
+                            action="#{srchTranslator.onSrchLawyersClear}"
+                            styleClass="btn-secondary"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl8" layout="vertical">
+        <!--<af:table value="#{bindings.PrcTranslatorsVwView1.collectionModel}"
+                  var="row" rows="#{bindings.PrcTranslatorsVwView1.rangeSize}"
+                  emptyText="#{bindings.PrcTranslatorsVwView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.PrcTranslatorsVwView1.rangeSize}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.PrcTranslatorsVwView1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.PrcTranslatorsVwView1.collectionModel.makeCurrent}"
+                  rowSelection="single" id="t2"
+                  styleClass="taBhaed AFStretchWidth"
+                  inlineStyle="height:auto !important;" columnStretching="last"
+                  binding="#{srchTranslator.t1}">
+          <af:column sortProperty="#{bindings.PrcTranslatorsVwView1.hints.FullNameN.name}"
+                     sortable="false"
+                     headerText="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Full_Name']}"
+                     id="c10">
+            <af:outputText value="#{row.FullNameN}" id="ot8"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.PrcTranslatorsVwView1.hints.CityDesc.name}"
+                     sortable="false"
+                     headerText="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_City']}"
+                     id="c7">
+            <af:outputText value="#{row.CityDesc}" id="ot10"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.PrcTranslatorsVwView1.hints.PhoneNo.name}"
+                     sortable="false"
+                     headerText="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Phone_Num']}"
+                     id="c6">
+            <af:outputText value="#{row.PhoneNo}" id="ot9"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.PrcTranslatorsVwView1.hints.Fax.name}"
+                     sortable="false"
+                     headerText="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Fax_Num']}"
+                     id="c8">
+            <af:outputText value="#{row.Fax}" id="ot11"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.PrcTranslatorsVwView1.hints.OfficeAddress.name}"
+                     sortable="false"
+                     headerText="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Address']}"
+                     id="c9">
+            <af:outputText value="#{row.OfficeAddress}" id="ot7"/>
+          </af:column>
+        </af:table>-->
+        <af:panelGroupLayout id="pgl4" partialTriggers="::cb1">
+          <table cellspacing="2" cellpadding="3" border="1" width="100%"
+                 class="pptable">
+            <tr class="pptable-header">
+              <th width="20%" height="20">
+                <af:outputText value="#{appviewcontrollerbundle.p_Full_Name}"
+                               id="ot6"/>
+              </th>
+              <th width="20%" height="20">
+                <af:outputText value="#{appviewcontrollerbundle.p_Phone_Num}"
+                               id="ot14"/>
+              </th>
+              <th width="20%" height="20"> 
+                <af:outputText value="#{appviewcontrollerbundle.p_Fax_Num}"
+                               id="ot15"/>
+              </th>
+              <th width="20%" height="20">
+                <af:outputText value="#{appviewcontrollerbundle.p_City}"
+                               id="ot13"/>
+              </th>
+              <th width="20%" height="20">
+                <af:outputText value="#{appviewcontrollerbundle.p_Address}"
+                               id="ot16"/> 
+              </th>
+            </tr>
+             
+            <af:iterator value="#{bindings.PrcTranslatorsVwView1.collectionModel}"
+                         var="item" id="lv1">
+              <tr class="pptable-data">
+                <td width="20%">
+                  <af:outputText value="#{item.FullNameN}" id="ot12"/> 
+                </td>
+                <td width="20%">
+                  <af:outputText value="#{item.PhoneNo}" id="ot2"/>
+                </td>
+                <td width="20%">
+                  <af:outputText value="#{item.Fax}" id="ot3"/>
+                </td>
+                <td width="20%">
+                  <af:outputText value="#{item.CityDesc}" id="ot4"/> 
+                </td>
+                <td width="20%">
+                  <af:outputText value="#{item.OfficeAddress}" id="ot5"/>
+                </td>
+              </tr>
+            </af:iterator>
+          </table>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

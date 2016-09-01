@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="DispExpFeeTFDef_DispExpFeeTFDef_CreateInsertPageDef"
+                Package="com.app.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ReqDisbExpFeeView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqDisbExpFeeView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ReqDisbExpFeeView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

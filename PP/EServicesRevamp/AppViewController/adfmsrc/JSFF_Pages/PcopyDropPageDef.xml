@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="PcopyDropPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqAttachmentsView31" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsView31Iterator"/>
+    <iterator Binds="ReqPcopyCasedropingDecView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqPcopyCasedropingDecView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ReqAttachmentsView31Iterator" id="ReqAttachmentsView31">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsView310">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsView31Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqPcopyCasedropingDecView1Iterator"
+                     id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqPcopyCasedropingDecView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqPcopyCasedropingDecView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="Prosecutionname" DTSupportsMRU="false"/>
+    <list IterBinding="ReqPcopyCasedropingDecView1Iterator" StaticList="false"
+          Uses="LOV_Relationcase_en" id="Relationcase" DTSupportsMRU="false"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+  </bindings>
+</pageDefinition>

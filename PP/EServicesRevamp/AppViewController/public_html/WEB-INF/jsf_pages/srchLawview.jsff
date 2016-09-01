@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+<af:panelGroupLayout id="pgl5" layout="scroll">
+    <af:panelGroupLayout id="pgl1" styleClass="eServicesHeading"
+                         layout="vertical">
+      <af:outputText value="#{appviewcontrollerbundle.p_search_law}" id="ot1"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl2" styleClass="eServicesFormData"
+                         layout="vertical">
+      <af:panelGroupLayout id="pgl7" layout="vertical">
+        <af:panelFormLayout id="pfl6" rows="1" maxColumns="1"
+                            styleClass="service">
+          <af:panelFormLayout id="pfl4">
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Law_desc}"
+                                     id="plam1">
+              <!--<af:selectOneChoice id="soc1"
+                                  value="#{bindings.Languagecategory.inputValue}"
+                                  binding="#{srchLawBean.soc1}"
+                                  valueChangeListener="#{srchLawBean.onLawCatgChange}"
+                                  valuePassThru="true" simple="true"
+                                  changed="false" immediate="true">
+                <f:selectItems value="#{bindings.Languagecategory.items}"
+                               id="si4"/>
+              </af:selectOneChoice>-->
+              <af:selectOneChoice value="#{bindings.lawCategory.inputValue}"                                  
+                                  required="#{bindings.lawCategory.hints.mandatory}"
+                                  shortDesc="#{bindings.lawCategory.hints.tooltip}"
+                                  id="soc1" autoSubmit="true" simple="true">
+                <f:selectItems value="#{bindings.lawCategory.items}" id="si1"/>
+              </af:selectOneChoice>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Search_With}"
+                                     id="plam2">
+              <!--<af:selectOneChoice id="soc21" valuePassThru="true"
+                                  value="#{bindings.Emirates.inputValue}"
+                                  valueChangeListener="#{srchLawBean.onLawChange}"
+                                  binding="#{srchLawBean.soc3}" immediate="true"
+                                  simple="true">
+                <f:selectItems value="#{bindings.Emirates.items}" id="si5"/>
+              </af:selectOneChoice>-->
+              <af:selectOneChoice value="#{bindings.searchWithin.inputValue}"                                  
+                                  required="#{bindings.searchWithin.hints.mandatory}"
+                                  shortDesc="#{bindings.searchWithin.hints.tooltip}"
+                                  id="soc2" autoSubmit="true" simple="true">
+                <f:selectItems value="#{bindings.searchWithin.items}" id="si2"/>
+              </af:selectOneChoice>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl5">
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Law}"
+                                     id="plam3">
+              <!--<af:selectOneChoice id="soc11" valuePassThru="true"
+                                  value="#{bindings.Searchwithin.inputValue}"
+                                  valueChangeListener="#{srchLawBean.onSrchWithinChange}"
+                                  binding="#{srchLawBean.soc2}" simple="true"
+                                  immediate="true">
+                <f:selectItems value="#{bindings.Searchwithin.items}" id="si6"/>
+              </af:selectOneChoice>-->
+              <af:selectOneChoice value="#{bindings.lawList.inputValue}"
+                                  required="#{bindings.lawList.hints.mandatory}"
+                                  shortDesc="#{bindings.lawList.hints.tooltip}"
+                                  id="soc3" partialTriggers="soc1 soc2"
+                                  autoSubmit="true" simple="true">
+                <f:selectItems value="#{bindings.lawList.items}" id="si3"/>
+              </af:selectOneChoice>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Arti}"
+                                     id="plam4">
+              <!--<af:selectOneChoice id="soc31" valuePassThru="true"
+                                  value="#{bindings.Article.inputValue}"
+                                  valueChangeListener="#{srchLawBean.onArticleChange}"
+                                  binding="#{srchLawBean.soc4}" immediate="true"
+                                  simple="true">
+                <f:selectItems value="#{bindings.Article.items}" id="si7"/>
+              </af:selectOneChoice>-->
+              <af:selectOneChoice value="#{bindings.articleList.inputValue}"
+                                  required="#{bindings.articleList.hints.mandatory}"
+                                  shortDesc="#{bindings.articleList.hints.tooltip}"
+                                  id="soc4" partialTriggers="soc3"
+                                  styleClass="optionList" simple="true">
+                <f:selectItems value="#{bindings.articleList.items}" id="si4"/>
+              </af:selectOneChoice>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl6" layout="vertical">
+        <af:panelFormLayout id="pfl2" styleClass="service" maxColumns="1"
+                            rows="1">
+          <af:panelFormLayout id="pfl3">
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Srch_Txt}"
+                                     id="plam5">
+              <af:checkUncommittedDataBehavior/>
+              <af:inputText id="it2" columns="60" styleClass="custom_input"
+                            simple="true" immediate="true"
+                            value="#{bindings.searchText.inputValue}"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage id="plam6" partialTriggers="cb1">
+              <af:inputText id="it52" columns="60"
+                            contentStyle="height:100px !important"
+                            styleClass="custom_input" simple="true"
+                            immediate="true" value="#{srchLawBean.res}"/>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl4" layout="vertical">
+        <af:panelFormLayout id="pfl7" rows="1" styleClass="serviceButton">
+          <af:commandButton text="#{appviewcontrollerbundle.p_search}"
+                            id="cb1"
+                            styleClass="btn-action"                            
+                            action="#{srchLawBean.getdescription}"
+                            partialSubmit="true"/>
+          <!--<af:commandButton text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_clear']}"
+                            id="cb2" rendered="false"
+                            styleClass="btn-secondary"/>-->
+        </af:panelFormLayout>
+      </af:panelGroupLayout>      
+        
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

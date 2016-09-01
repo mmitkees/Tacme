@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle-webservice-clients xmlns:ns2="http://java.sun.com/xml/ns/javaee">
+   <webservice-client>
+      <service-qname namespaceURI="http://tempuri.org/"
+                     localpart="PaymentService"/>
+      <port-info>
+         <wsdl-port namespaceURI="http://tempuri.org/"
+                    localpart="SOAPEndPoint"/>
+         <runtime/>
+         <operations>
+            <operation name="getPaymentStatusSoap"/>
+            <operation name="completePaymentSoap"/>
+            <operation name="cancelPaymentSoap"/>
+            <operation name="refundPaymentSoap"/>
+            <operation name="voidPaymentSoap"/>
+            <operation name="getSecureHashed"/>
+         </operations>
+      </port-info>
+   </webservice-client>
+</oracle-webservice-clients>

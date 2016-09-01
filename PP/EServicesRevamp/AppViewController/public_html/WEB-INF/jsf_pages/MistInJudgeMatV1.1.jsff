@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+  <af:panelGroupLayout id="pgl11" layout="vertical">
+         <af:menuBar id="mb1">
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Click_here_for_E-Services']}" id="cl1"
+                            action="#{pageFlowScope.eservice}"
+                            rendered="false"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:outputText id="cl2"
+                           value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Welcome']} : #{sessionScope.name}"/>
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Logout']}" id="cl3" action="logout"
+                            actionListener="#{AppServiceMijm.logOutAction}"/>
+            <af:spacer width="10" height="10" id="s3"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Change_password']}" id="cl4" action="chgpwrd"/>
+            <af:spacer width="10" height="10" id="s4"/>
+            <af:commandLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Edit_Profile']}" id="cl5" action="editprofile"/>
+         </af:menuBar>
+      </af:panelGroupLayout>
+  <af:panelGroupLayout id="pgl8" layout="vertical"
+                           styleClass="eServicesHeading">
+         <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:P_Cor_Mis_Mater']}"
+                        id="ot3"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl2" layout="vertical"
+                           styleClass="eServicesFormData">
+                           <af:panelGroupLayout id="pgl9" layout="vertical">
+            <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_caseinfo']}"
+                           id="ot4" styleClass="casEinfo_hEad"/>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl3" layout="vertical">
+            <af:panelGroupLayout id="pgl5" layout="vertical">
+               <af:panelFormLayout id="pfl1" maxColumns="2" rows="1"
+                                   styleClass="service">
+                  <af:panelFormLayout id="pfl2">
+                     <af:panelLabelAndMessage label="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_case_no']}*"
+                                              id="plam1" partialTriggers="it1">
+                        <af:inputText value="#{bindings.CaseNo.inputValue}"
+                                      required="#{bindings.CaseNo1.hints.mandatory}"
+                                      maximumLength="#{bindings.CaseNo1.hints.precision}"
+                                      shortDesc="#{bindings.CaseNo1.hints.tooltip}"
+                                      id="it1"
+                                      validator="#{CustomValidator.caseNoValidator}"
+                                      autoSubmit="true"
+                                      valueChangeListener="#{AppServiceMijm.CaseNoCheckVCL}"
+                                      simple="true" immediate="true">
+                           <f:validator binding="#{bindings.CaseNo1.validator}"/>
+                           <af:convertNumber groupingUsed="false"
+                                             pattern="#{bindings.CaseNo1.format}"/>
+                        </af:inputText>
+                        <af:panelGroupLayout id="pgwl2"
+                                             rendered="#{AppServiceMijm.cn eq 'Y'}"
+                                             partialTriggers="it1"
+                                             binding="#{AppServiceMijm.cnopg}"
+                                             layout="vertical">
+                           <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_cno_invalid']}"
+                                          id="ot6"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_prosection_name']} *"
+                                              id="plam2" partialTriggers="soc3">
+                        <af:selectOneChoice value="#{bindings.ProsecName1.inputValue}"
+                                            required="#{bindings.ProsecName1.hints.mandatory}"
+                                            shortDesc="#{bindings.ProsecName.hints.tooltip}"
+                                            simple="true" id="soc3"
+                                            immediate="true"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--النيابة المختصة-->' : '&lt;--Prosecution name-->'}"
+                                            autoSubmit="true"
+                                            valueChangeListener="#{AppServiceMijm.ProsNameCheckVCL}">
+                           <f:selectItems value="#{bindings.ProsecName1.items}"
+                                          id="si3"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="pgl6" layout="vertical"
+                                             rendered="#{AppServiceMijm.pc eq 'Y' ? true : false}"
+                                             partialTriggers="soc3">
+                           <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_pnme_invalid']}"
+                                          id="ot8"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Err_Type']}*"
+                                              id="plam3">
+                        <af:inputText label="Label 1" id="it3" simple="true"/>
+                        <af:panelGroupLayout id="etl6" layout="vertical"
+                                             partialTriggers="it2"
+                                             rendered="#{AppServiceMijm.et eq 'Y' ? true : false}">
+                           <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_inv_errortype']}"
+                                          id="et8"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+                  <af:panelFormLayout id="pfl3">
+                     <af:panelLabelAndMessage label="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_case_year']} *"
+                                              id="plam4" partialTriggers="soc2">
+                        <af:selectOneChoice value="#{bindings.CaseYear.inputValue}"
+                                            required="#{bindings.CaseYear1.hints.mandatory}"
+                                            shortDesc="#{bindings.CaseYear.hints.tooltip}"
+                                            simple="true" id="soc2"
+                                            immediate="true"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--سنة القضية-->' : '&lt;--Case year-->'}"
+                                            autoSubmit="true"
+                                            valueChangeListener="#{AppServiceMijm.CaseYearCheckVCL}">
+                           <f:selectItems value="#{bindings.CaseYear1.items}"
+                                          id="si2"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="pgwl3" layout="vertical"
+                                             rendered="#{AppServiceMijm.cy eq 'Y'}"
+                                             partialTriggers="soc2">
+                           <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_cyr_invalid']}"
+                                          id="ot7"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_relation_case']}*"
+                                              id="plam5" partialTriggers="soc1">
+                        <af:selectOneChoice value="#{bindings.RelCase1.inputValue}"
+                                            required="#{bindings.RelCase1.hints.mandatory}"
+                                            shortDesc="#{bindings.RelCase.hints.tooltip}"
+                                            simple="true" id="soc1"
+                                            immediate="true"
+                                            unselectedLabel="#{pageFlowScope.locale == 'ar' ? '&lt;--العلاقة بالقضية-->' : '&lt;--Relation case-->'}"
+                                            autoSubmit="true">
+                           <f:selectItems value="#{bindings.RelCase1.items}"
+                                          id="si1"/>
+                        </af:selectOneChoice>
+                        <af:panelGroupLayout id="pg2l8" layout="vertical"
+                                             rendered="#{AppServiceMijm.rc eq 'Y'}"
+                                             partialTriggers="soc1">
+                           <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_rcase_invalid']}"
+                                          id="ot9"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                     <af:panelLabelAndMessage label="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Corr_Phr']}*"
+                                              id="plam6" partialTriggers="it6">
+                        <af:inputText value="#{bindings.CorrectedPhrase1.inputValue}"
+                                      id="it6" simple="true" autoSubmit="true"
+                                      immediate="true">
+                           <!--<f:validator binding="#{bindings.CorrPhase.validator}"/>-->
+                           <f:validator binding="#{bindings.CorrectedPhrase1.validator}"/>
+                        </af:inputText>
+                        <af:panelGroupLayout id="cpl6" layout="vertical"
+                                             partialTriggers="it6"
+                                             rendered="#{AppServiceMijm.cp eq 'Y' ? true : false}">
+                           <af:outputText value="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_inv_corphase']}"
+                                          id="cp8"
+                                          styleClass="eServicesFormDataMessage"/>
+                        </af:panelGroupLayout>
+                     </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+               </af:panelFormLayout>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl7" layout="vertical">
+               <af:panelFormLayout id="pfl4"  styleClass="service" rows="1"
+                                   maxColumns="1">
+                  <af:panelFormLayout id="pfl5">
+                     <af:panelLabelAndMessage label="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_uploadfile']}"
+                                              id="plam7">
+                        <af:inputFile id="if1"
+                                      disabled="#{AppServiceMijm.DFlag eq 'Y'}"
+                                      autoHeightRows="-1" maximumFiles="5"
+                                      value="#{AppServiceMijm.uploadedfile}"
+                                      binding="#{AppServiceMijm.upFileBind}"
+                                      simple="true" immediate="true"/>
+                     </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+               </af:panelFormLayout>
+            </af:panelGroupLayout>
+         </af:panelGroupLayout>
+         <af:panelGroupLayout id="pgl4" layout="vertical">
+            <af:panelFormLayout id="pfl6" rows="1" styleClass="serviceButton">
+               <af:commandButton text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_submit']}"
+                                 id="cb2"
+                                 action="#{AppServiceMijm.judgeMistMataction}"
+                                 disabled="#{AppServiceMijm.DFlag eq 'Y'}"
+                                 styleClass="btn-action"/>
+               <!--<af:commandButton actionListener="#{bindings.Commit.execute}"
+                                 text="Commit"
+                                 disabled="#{!bindings.Commit.enabled}"
+                                 id="cb1"/>-->
+               <af:commandButton text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_clear']}"
+                                 id="cb3"
+                                 disabled="#{AppServiceMijm.DFlag eq 'Y'}"
+                                 actionListener="#{bindings.Rollback.execute}"
+                                 immediate="true" action="aftrl"
+                                 styleClass="btn-secondary">
+                  <!--<af:resetActionListener/>-->
+                  <af:resetActionListener/>
+               </af:commandButton>
+            </af:panelFormLayout>
+         </af:panelGroupLayout>
+      </af:panelGroupLayout>
+   </af:panelGroupLayout>
+</jsp:root>

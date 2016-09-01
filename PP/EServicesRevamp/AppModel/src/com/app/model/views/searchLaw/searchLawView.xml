@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="searchLawView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  ComponentClass="com.app.model.views.searchLaw.searchLawViewImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|Prog|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.app.model.views.searchLaw.searchLawView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="lawCategoryView1"
+    ViewObjectName="com.app.model.views.searchLaw.lawCategoryView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="emiratesView1"
+    ViewObjectName="com.app.model.views.searchLaw.emiratesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="lawListView1"
+    ViewObjectName="com.app.model.views.searchLaw.lawListView">
+    <ParameterMap>
+      <PIMap Variable="emirates">
+        <TransientExpression><![CDATA[searchWithin]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="lawcateg">
+        <TransientExpression><![CDATA[lawCategory]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="articleListView1"
+    ViewObjectName="com.app.model.views.searchLaw.articleListView">
+    <ParameterMap>
+      <PIMap Variable="icode">
+        <TransientExpression><![CDATA[lawList]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="stext">
+        <TransientExpression><![CDATA[searchText]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="lawCodeView1"
+    ViewObjectName="com.app.model.views.searchLaw.lawCodeView">
+    <ParameterMap>
+      <PIMap Variable="lawListId">
+        <TransientExpression><![CDATA[lawList]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_lawCategory"
+    ListVOName="lawCategoryView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_lawCategory_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="lawCategory"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RvLowValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RvMeaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_searchWithin"
+    ListVOName="emiratesView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_searchWithin_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="searchWithin"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RvLowValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RvMeaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_lawList"
+    ListVOName="lawListView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_lawList_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="lawList"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_articleList"
+    ListVOName="articleListView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_articleList_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="articleList"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ToCharId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item
+        Value="SubstrDescription1DecodeInstrDescription11LengthDescriptionInstrDescription1"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ViewAttribute
+    Name="lawCategory"
+    LOVName="LOV_lawCategory"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="searchWithin"
+    LOVName="LOV_searchWithin"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="lawList"
+    LOVName="LOV_lawList"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="codeLaw"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    Expression="select  CODE from PRC_LAW_VW  where ID = lawList"/>
+  <ViewAttribute
+    Name="articleList"
+    LOVName="LOV_articleList"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="searchText"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.app.model.AppModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="SubSMSViewPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqSubSmsView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqSubSmsView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqSubSmsView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqSubSmsView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqSubSmsView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="false"/>
+    <list IterBinding="ReqSubSmsView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelationCase" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqSubSmsView1Iterator" id="TelephoneNumber">
+      <AttrNames>
+        <Item Value="TelephoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <button IterBinding="ReqSubSmsView1Iterator" id="IsEmail"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="IsEmail"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="ReqSubSmsView1Iterator" id="IsSms"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="IsSms"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

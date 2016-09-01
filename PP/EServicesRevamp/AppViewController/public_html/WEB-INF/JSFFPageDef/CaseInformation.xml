@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="taskFlowCall1">
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">CaseInfo</default-activity>
+    <transaction id="__8">
+      <new-transaction/>
+    </transaction>
+    <data-control-scope id="__9">
+      <shared/>
+    </data-control-scope>
+    <view id="CaseInfo">
+      <page>/WEB-INF/jsf_pages/CaseInfo.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome id="__2">
+        <name>taskFlowReturn1</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">CaseInfo</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__7">exit</from-outcome>
+        <to-activity-id id="__5">taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

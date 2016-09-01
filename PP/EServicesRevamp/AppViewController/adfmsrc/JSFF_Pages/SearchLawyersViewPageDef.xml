@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="SearchLawyersViewPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PrcLawyersVwView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="PrcLawyersVwView1Iterator"/>
+    <searchRegion Criteria="PrcLawyersVwViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="PrcLawyersVwView1Iterator"
+                  id="PrcLawyersVwViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="PrcLawyersVwView1Iterator" id="PrcLawyersVwView1">
+      <nodeDefinition DefName="com.app.model.views.PrcLawyersVwView"
+                      Name="PrcLawyersVwView10">
+        <AttrNames>
+          <Item Value="FullNameN"/>
+          <Item Value="CityDesc"/>
+          <Item Value="OfficeAddress"/>
+          <Item Value="PhoneNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

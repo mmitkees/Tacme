@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+    <af:panelGroupLayout id="pgl18" layout="vertical">
+      <af:menuBar id="mb1">
+        <af:commandLink text="Click here for E-Services" id="cl1"
+                        action="#{pageFlowScope.eservice}" rendered="false"/>
+        <af:goLink text="#{appviewcontrollerbundle.p_click_eservice}" id="gl1"
+                   destination="#{pageFlowScope.eservice}"/>
+        <af:spacer width="20" height="10" id="s1"/>
+        <af:commandLink text="#{appviewcontrollerbundle.p_Logout}" id="cl2" action="lo"
+                        actionListener="#{pageFlowScope.AppServicesEP.logOutAction}"/>
+      </af:menuBar>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl2" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="#{appviewcontrollerbundle.p_Edit_Profile}" id="ot1"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl3" layout="vertical"
+                         styleClass="eServicesFormData">
+      <af:panelGroupLayout id="pgl4" layout="vertical">
+        <af:panelFormLayout id="pfl2" styleClass="service" maxColumns="1">
+          <af:panelFormLayout id="pfl1">
+            <af:panelLabelAndMessage label="ID" id="plam1"
+                                     rendered="false" showRequired="true">
+              <af:inputText value="#{bindings.Id.inputValue}"
+                            required="#{bindings.Id.hints.mandatory}"
+                            maximumLength="#{bindings.Id.hints.precision}"
+                            shortDesc="#{bindings.Id.hints.tooltip}" id="it3">
+                <f:validator binding="#{bindings.Id.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.Id.format}"/>
+              </af:inputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_First_Name}" id="plam2"
+                                     showRequired="true">
+              <af:inputText value="#{bindings.FirstName.inputValue}"
+                            required="#{bindings.FirstName.hints.mandatory}"
+                            maximumLength="#{bindings.FirstName.hints.precision}"
+                            shortDesc="#{bindings.FirstName.hints.tooltip}"
+                            id="it11" showRequired="true" simple="true"
+                            immediate="true"
+                            binding="#{pageFlowScope.AppServicesEP.bind_efn}">
+                <f:validator binding="#{bindings.FirstName.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl6" layout="vertical" rendered="false">
+                <af:outputText value="Error Message" id="ot2"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Last_Name}" id="plam3"
+                                     showRequired="true">
+              <af:inputText value="#{bindings.LastName.inputValue}"
+                            required="#{bindings.LastName.hints.mandatory}"
+                            maximumLength="#{bindings.LastName.hints.precision}"
+                            shortDesc="#{bindings.LastName.hints.tooltip}"
+                            id="it6" showRequired="true" simple="true"
+                            immediate="true"
+                            binding="#{pageFlowScope.AppServicesEP.bind_eln}">
+                <f:validator binding="#{bindings.LastName.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl7" layout="vertical" rendered="false">
+                <af:outputText value="Error Message" id="ot3"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Family_NAme}" id="plam4">
+              <af:inputText value="#{bindings.FamilyName.inputValue}"
+                            required="#{bindings.FamilyName.hints.mandatory}"
+                            maximumLength="#{bindings.FamilyName.hints.precision}"
+                            shortDesc="#{bindings.FamilyName.hints.tooltip}"
+                            id="it7" showRequired="true" simple="true"
+                            immediate="true">
+                <f:validator binding="#{bindings.FamilyName.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl8" layout="vertical" rendered="false">
+                <af:outputText value="Error Message" id="ot4"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Mobile}" id="plam5"
+                                     showRequired="true">
+              <af:inputText value="#{bindings.Mobile.inputValue}"
+                            required="#{bindings.Mobile.hints.mandatory}"
+                            maximumLength="#{bindings.Mobile.hints.precision}"
+                            shortDesc="#{bindings.Mobile.hints.tooltip}"
+                            id="phn1" showRequired="true" simple="true"
+                            immediate="true"
+                            validator="#{CustomValidator.phonenoValidator}"
+                            autoSubmit="true" placeholder="05xxxxxxxx">
+                <f:validator binding="#{bindings.Mobile.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl9" layout="vertical" rendered="false">
+                <af:outputText value="Error Message" id="ot5"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_dob}" id="plam6"
+                                     showRequired="true">
+              <af:inputDate value="#{bindings.Dob.inputValue}"
+                            required="#{bindings.Dob.hints.mandatory}"
+                            shortDesc="#{bindings.Dob.hints.tooltip}" id="it8"
+                            showRequired="true" simple="true" immediate="true"
+                            binding="#{pageFlowScope.AppServicesEP.bind_edob}">
+                <f:validator binding="#{bindings.Dob.validator}"/>
+                 <af:convertDateTime pattern="#{bindings.Dob.inputValue != null ? 'dd-MM-yyyy' : ''}"
+             secondaryPattern="#{bindings.Dob.inputValue != null ? 'dd-MM-yyyy' : ''}"/>
+              </af:inputDate>
+              <af:panelGroupLayout id="pgl10" layout="vertical"
+                                   rendered="false">
+                <af:outputText value="Error Message" id="ot6"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Education}" id="plam7">
+              <af:selectOneChoice id="soc1"
+                                  value="#{bindings.Education.inputValue}"
+                                  unselectedLabel="&lt;--Select Education Level-->"
+                                  showRequired="true" simple="true"
+                                  immediate="true"
+                                  rendered="#{pageFlowScope.locale eq 'en'}">
+                <af:selectItem label="High School" value="High School"
+                               id="si5"/>
+                <af:selectItem label="Diploma" value="Diploma" id="si4"/>
+                <af:selectItem label="Graduate" value="Graduate" id="si2"/>
+                <af:selectItem label="Post Graduate" value="Post Graduate"
+                               id="si3"/>
+                <af:selectItem label="PHD" value="PHD" id="si1"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice id="asoc1" rendered="#{pageFlowScope.locale eq 'ar'}"
+                                  value="#{bindings.Education.inputValue}"
+                                  unselectedLabel="&lt;--اختر المستوى التعليمي-->"
+                                  showRequired="true" simple="true"
+                                  immediate="true">
+                <af:selectItem label="ثانوية عامة" value="ثانوية عامة"
+                               id="asi5"/>
+                <af:selectItem label="دبلومة" value="دبلومة" id="asi4"/>
+                <af:selectItem label="خريج جامعي" value="خريج جامعي" id="asi2"/>
+                <af:selectItem label="دراسات عليا" value="دراسات عليا"
+                               id="asi3"/>
+                <af:selectItem label="دكتوراه" value="دكتوراه" id="asi1"/>
+              </af:selectOneChoice>
+              <af:panelGroupLayout id="pgl11" layout="vertical"
+                                   rendered="false">
+                <af:outputText value="Error Message" id="ot7"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Education.hints.label}"
+                                     id="plam13" rendered="false"
+                                     showRequired="true">
+              <af:inputText value="#{bindings.Education.inputValue}"
+                            required="#{bindings.Education.hints.mandatory}"
+                            columns="#{bindings.Education.hints.displayWidth}"
+                            maximumLength="#{bindings.Education.hints.precision}"
+                            shortDesc="#{bindings.Education.hints.tooltip}"
+                            id="it5">
+                <f:validator binding="#{bindings.Education.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl12" layout="vertical"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Nationality}" id="plam8"
+                                     showRequired="true">
+              <af:selectOneChoice value="#{bindings.Nationality.inputValue}"
+                                  required="#{bindings.Nationality.hints.mandatory}"
+                                  shortDesc="#{bindings.Nationality.hints.tooltip}"
+                                  id="soc3" simple="true">
+                <f:selectItems value="#{bindings.Nationality.items}" id="si13"/>
+              </af:selectOneChoice>
+              <af:panelGroupLayout id="pgl13" layout="vertical"
+                                   rendered="false">
+                <af:outputText value="Error Message" id="ot8"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Emirates_ID}" id="plam9"
+                                     showRequired="true">
+              <af:inputText value="#{bindings.EmiratesId.inputValue}"
+                            required="#{bindings.EmiratesId.hints.mandatory}"
+                            maximumLength="#{bindings.EmiratesId.hints.precision}"
+                            shortDesc="#{bindings.EmiratesId.hints.tooltip}"
+                            id="ite1" showRequired="true" simple="true"
+                            immediate="true"
+                            validator="#{CustomValidator.emiratesIDValidator}"
+                            autoSubmit="true">
+                <f:validator binding="#{bindings.EmiratesId.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl14" layout="vertical"
+                                   rendered="false">
+                <af:outputText value="Error Message" id="ot9"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_ID_Expiry_date}" id="plam10"
+                                     showRequired="true">
+              <af:inputDate value="#{bindings.EmiratesIdExpiry.inputValue}"
+                            required="#{bindings.EmiratesIdExpiry.hints.mandatory}"
+                            shortDesc="#{bindings.EmiratesIdExpiry.hints.tooltip}"
+                            id="it10" showRequired="true" simple="true"
+                            immediate="true">
+                <f:validator binding="#{bindings.EmiratesIdExpiry.validator}"/>
+                <af:convertDateTime pattern="dd-MM-yyyy"/>
+              </af:inputDate>
+              <af:panelGroupLayout id="pgl15" layout="vertical"
+                                   rendered="false">
+                <af:outputText value="Error Message" id="ot10"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Union_No}" id="plam11">
+              <af:inputText value="#{bindings.UnionNo.inputValue}"
+                            required="#{bindings.UnionNo.hints.mandatory}"
+                            maximumLength="#{bindings.UnionNo.hints.precision}"
+                            shortDesc="#{bindings.UnionNo.hints.tooltip}"
+                            id="it12" showRequired="true" simple="true"
+                            immediate="true">
+                <f:validator binding="#{bindings.UnionNo.validator}"/>
+              </af:inputText>
+              <af:panelGroupLayout id="pgl16" layout="vertical"
+                                   rendered="false">
+                <af:outputText value="Error Message" id="ot11"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Occupation}" id="plam12">
+              <af:selectOneChoice id="soc2"
+                                  unselectedLabel="&lt;--Select Occupation-->"
+                                  showRequired="true"
+                                  value="#{bindings.Occupation.inputValue}"
+                                  simple="true" immediate="true"
+                                  rendered="#{pageFlowScope.locale eq 'en'}">
+                <af:selectItem label="Employed" value="Employed" id="si8"
+                               />
+                <af:selectItem label="Business/Self Employed"
+                               value="Business/Self Employed" id="si7"
+                               />
+                <af:selectItem label="Executive/Middle Management"
+                               value="Executive/Middle Management" id="si10"
+                               />
+                <af:selectItem label="Engineer" value="Engineer" id="si12"
+                />
+                <af:selectItem label="General/Administrative"
+                               value="General/Administrative" id="si9"
+                               />
+                <af:selectItem label="UnEmployed" value="UnEmployed" id="si11"
+                />
+                <af:selectItem label="Others" value="Others" id="si6"
+                />                
+              </af:selectOneChoice>
+              
+              <af:selectOneChoice id="arsoc2"
+              rendered="#{pageFlowScope.locale eq 'ar'}"
+                                  unselectedLabel="&lt;--اختر الوظيفة-->"
+                                  showRequired="true"
+                                  value="#{bindings.Occupation.inputValue}"
+                                  simple="true" immediate="true">
+                <af:selectItem label="موظف" value="موظف" id="arsi8"
+                               />
+                <af:selectItem label="عمل خاص"
+                               value="عمل خاص" id="arsi7"
+                               />
+                <af:selectItem label="عمل تنفيذي"
+                               value="عمل تنفيذي" id="arsi10"
+                               />                
+                <af:selectItem label="عمل عام /اداري"
+                               value="عمل عام /اداري" id="arsi9"
+                               />
+                <af:selectItem label=" موظف " value=" موظف " id="arsi11"
+                />
+                <af:selectItem label="اخري" value="اخري" id="arsi6"
+                />                
+              </af:selectOneChoice>
+              
+              <af:panelGroupLayout id="pgl17" layout="vertical"
+                                   rendered="false">
+                <af:outputText value="Error Message" id="ot12"
+                               styleClass="eServicesFormDataMessage"/>
+              </af:panelGroupLayout>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Occupation.hints.label}"
+                                     id="plam14" rendered="false"
+                                     showRequired="true">
+              <af:inputText value="#{bindings.Occupation.inputValue}"
+                            required="#{bindings.Occupation.hints.mandatory}"
+                            columns="#{bindings.Occupation.hints.displayWidth}"
+                            maximumLength="#{bindings.Occupation.hints.precision}"
+                            shortDesc="#{bindings.Occupation.hints.tooltip}"
+                            id="it4" rendered="true">
+                <f:validator binding="#{bindings.Occupation.validator}"/>
+              </af:inputText>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl5" layout="vertical">
+        <af:panelFormLayout id="pfl3" styleClass="serviceButton">
+          <af:commandButton text="#{appviewcontrollerbundle.p_submit}"
+                            id="cb1"
+                            action="#{pageFlowScope.AppServicesEP.Submit_action}"
+                            styleClass="btn-action "/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:AppServicesEP-->
+</jsp:root>

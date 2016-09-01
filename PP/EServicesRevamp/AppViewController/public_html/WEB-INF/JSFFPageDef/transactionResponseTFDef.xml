@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="transactionResponseTFDef">
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">saveResponseStatus</default-activity>
+    <input-parameter-definition id="__18">
+      <name id="__16">invoiceNo</name>
+      <value>#{pageFlowScope.invoiceNo}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__19">
+      <name id="__20">StatusCode</name>
+      <value>#{pageFlowScope.StatusCode}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__6">
+      <name id="__7">transMessage</name>
+      <value>#{pageFlowScope.transMessage}</value>
+    </input-parameter-definition>
+    <managed-bean id="__3">
+      <managed-bean-name id="__5">eDhirhamResponse</managed-bean-name>
+      <managed-bean-class id="__2">com.app.view.beans.epay</managed-bean-class>
+      <managed-bean-scope id="__4">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__14">
+      <managed-bean-name id="__12">MyDate</managed-bean-name>
+      <managed-bean-class id="__15">java.util.Date</managed-bean-class>
+      <managed-bean-scope id="__13">request</managed-bean-scope>
+    </managed-bean>
+    <view id="responseView">
+      <page>/WEB-INF/jsf_pages/responseView.jsff</page>
+    </view>
+    <method-call id="saveResponseStatus">
+      <method>#{bindings.saveResponseStatus.execute}</method>
+      <outcome id="__21">
+        <fixed-outcome>saveResponseStatus</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__22">
+      <from-activity-id id="__23">saveResponseStatus</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome id="__24">saveResponseStatus</from-outcome>
+        <to-activity-id id="__25">responseView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="ContactUsAdminPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ContactUsView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ContactUsView1Iterator"/>
+    <searchRegion Criteria="ContactUsViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ContactUsView1Iterator"
+                  id="ContactUsViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ContactUsView1Iterator" id="ContactUsView1">
+      <nodeDefinition DefName="com.app.model.views.ContactUsView"
+                      Name="ContactUsView10">
+        <AttrNames>
+          <Item Value="Name"/>
+          <Item Value="Email"/>
+          <Item Value="Subject"/>
+          <Item Value="Address"/>
+          <Item Value="PhoneNo"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

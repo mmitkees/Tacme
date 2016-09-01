@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="PPRenewalPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqPportrenewalView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqPportrenewalView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqPportrenewalView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqPportrenewalView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqPportrenewalView1Iterator" StaticList="false"
+          Uses="LOV_pn_en" id="Prosecutionname" DTSupportsMRU="true"/>
+    <list IterBinding="ReqPportrenewalView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="Relationcase" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqPportrenewalView1Iterator"
+                     id="PassportExpiryDate">
+      <AttrNames>
+        <Item Value="PassportExpiryDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqPportrenewalView1Iterator"
+                     id="PassportIssueDate">
+      <AttrNames>
+        <Item Value="PassportIssueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqPportrenewalView1Iterator" id="PassportNo">
+      <AttrNames>
+        <Item Value="PassportNo"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

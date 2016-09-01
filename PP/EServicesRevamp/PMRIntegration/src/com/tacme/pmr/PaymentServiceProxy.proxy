@@ -1,0 +1,227 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebServiceProxy xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webserviceproxy">
+   <list n="CHILD_NODES">
+      <url path="PaymentService.xml"/>
+      <url path="PaymentService.wsdl"/>
+      <url path="PaymentService.svc_xsd_xsd2.xsd"/>
+      <url path="PaymentService.svc_xsd_xsd1.xsd"/>
+      <url path="PaymentService.svc_xsd_xsd0.xsd"/>
+      <url path="types/PaymentServiceResponse.java"/>
+      <url path="types/CompletePayment.java"/>
+      <url path="types/CancelPaymentSoap.java"/>
+      <url path="types/RefundPaymentResponse.java"/>
+      <url path="types/VoidPaymentSoapResponse.java"/>
+      <url path="IPaymentServiceSoap.java"/>
+      <url path="types/GetSecureHashed.java"/>
+      <url path="types/GetPaymentStatusResponse.java"/>
+      <url path="types/GetPaymentStatusSoap.java"/>
+      <url path="types/GetPaymentStatusSoapResponse.java"/>
+      <url path="types/ObjectFactory.java"/>
+      <url path="types/VoidPaymentResponse.java"/>
+      <url path="types/CancelPayment.java"/>
+      <url path="SOAPEndPointClient.java"/>
+      <url path="PaymentService.java"/>
+      <url path="types/CompletePaymentResponse.java"/>
+      <url path="types/VoidPayment.java"/>
+      <url path="types/CancelPaymentSoapResponse.java"/>
+      <url path="types/CompletePaymentSoap.java"/>
+      <url path="types/GetPaymentStatus.java"/>
+      <url path="types/package-info.java"/>
+      <url path="types/RefundPaymentSoap.java"/>
+      <url path="types/PaymentGetStatusResponse.java"/>
+      <url path="types/CancelPaymentResponse.java"/>
+      <url path="types/RefundPaymentSoapResponse.java"/>
+      <url path="types/VoidPaymentSoap.java"/>
+      <url path="types/CompletePaymentSoapResponse.java"/>
+      <url path="types/RefundPayment.java"/>
+      <url path="types/GetSecureHashedResponse.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="ATTACHMENT_ENCODING" v="MTOM"/>
+      <list n="LOCAL_FILES"/>
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy"/>
+      <url n="ORACLE_WEBSERVICES_XML" path="PaymentService.xml"/>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="com.tacme.pmr"/>
+            <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="com.tacme.pmr.types"/>
+         </hash>
+      </hash>
+      <value n="PROXY_ASYNC_METHODS" v="FOR_ENABLED"/>
+      <list n="PROXY_CLIENTS">
+         <url path="SOAPEndPointClient.java"/>
+      </list>
+      <value n="PROXY_MAPPING_URL"/>
+      <url n="PROXY_ORIGINAL_WSDL_URL" protocol="http" host="ppt.pp.gov.ae" path="/PMRWeb/PaymentRouter/PaymentService.svc" query="wsdl"/>
+      <hash n="PROXY_PORTS">
+         <hash n="SOAPEndPoint">
+            <value n="ACCESSES_DOC_WRAPPPED" v="true"/>
+            <value n="ACCESSES_RPC_ENCODED" v="false"/>
+            <value n="CLASS_NAME" v="com.tacme.pmr.IPaymentServiceSoap"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyPort"/>
+            <value n="NAME" v="SOAPEndPoint"/>
+            <hash n="OPERATIONS">
+               <hash n="cancelPaymentSoap">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="completePaymentSoap">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getPaymentStatusSoap">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="getSecureHashed">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="refundPaymentSoap">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="voidPaymentSoap">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </hash>
+            <hash n="PROPERTY_GROUPS">
+               <hash n="WS_CLIENT_POLICY">
+                  <value n="addressing"/>
+                  <list n="management"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.policy.PolicyClientModel"/>
+                  <value n="mtom"/>
+                  <hash n="POLICY_OVERRIDE_PROPERTIES"/>
+                  <list n="security"/>
+                  <value n="wsrm"/>
+               </hash>
+            </hash>
+            <url n="PROXY_ORIGINAL_PORT_ENDPOINT" protocol="http" host="ppt.pp.gov.ae" path="/PMRWeb/PaymentRouter/PaymentService.svc/soap"/>
+         </hash>
+      </hash>
+      <value n="PROXY_SERVICE_NAME" v="PaymentService"/>
+      <value n="PROXY_SERVICE_NAMESPACE" v="http://tempuri.org/"/>
+      <url n="PROXY_TARGET_PROJECT" path="../../../../PMRIntegration.jpr"/>
+      <list n="PROXY_WSDL_IMPORT_LIST">
+         <url path="PaymentService.svc_xsd_xsd2.xsd"/>
+         <url path="PaymentService.svc_xsd_xsd1.xsd"/>
+         <url path="PaymentService.svc_xsd_xsd0.xsd"/>
+      </list>
+      <url n="PROXY_WSDL_URL" path="PaymentService.wsdl"/>
+      <hash n="REFERENCED_WEBSERVICE">
+         <list n="BD_">
+            <hash>
+               <value n="BOUND_PORT_TYPE" v="{http://tempuri.org/}IPaymentServiceSoap"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPBinding"/>
+               <value n="NAME" v="{http://tempuri.org/}SOAPEndPoint"/>
+               <list n="OP_BINDINGS">
+                  <hash>
+                     <value n="BOUND_OPERATION" v="com.tacme.pmr.types.PaymentGetStatusResponse.getPaymentStatusSoap.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="com.tacme.pmr.types.PaymentServiceResponse.completePaymentSoap.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="com.tacme.pmr.types.PaymentServiceResponse.cancelPaymentSoap.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="com.tacme.pmr.types.PaymentServiceResponse.refundPaymentSoap.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="com.tacme.pmr.types.PaymentServiceResponse.voidPaymentSoap.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.getSecureHashed.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+            </hash>
+         </list>
+         <list n="BINDING_FILES"/>
+         <value n="GUID" v="30d1eb1c-0156-1000-8002-c0a838019201"/>
+         <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy$ProxyJavaWebService"/>
+         <list n="PO_">
+            <hash>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPPort"/>
+               <value n="NAME" v="SOAPEndPoint"/>
+               <value n="PORT_BINDING_NAME" v="{http://tempuri.org/}SOAPEndPoint"/>
+               <list n="PORT_OPS">
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.tacme.pmr.types.PaymentGetStatusResponse.getPaymentStatusSoap.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.tacme.pmr.types.PaymentServiceResponse.completePaymentSoap.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.tacme.pmr.types.PaymentServiceResponse.cancelPaymentSoap.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.tacme.pmr.types.PaymentServiceResponse.refundPaymentSoap.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="com.tacme.pmr.types.PaymentServiceResponse.voidPaymentSoap.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.getSecureHashed.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+               <url n="URL" protocol="http" host="ppt.pp.gov.ae" path="/PMRWeb/PaymentRouter/PaymentService.svc/soap"/>
+            </hash>
+         </list>
+         <hash n="PROPERTY_GROUPS">
+            <hash n="WSDL_TO_JAVA_PROPERTIES">
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+               <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="com.tacme.pmr"/>
+               <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="com.tacme.pmr.types"/>
+            </hash>
+         </hash>
+         <list n="PT_">
+            <hash>
+               <value n="AUTO_SERVICE_INTERFACE"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaPortType"/>
+               <value n="NAME" v="{http://tempuri.org/}IPaymentServiceSoap"/>
+               <hash n="PROPERTY_GROUPS"/>
+               <value n="PT_CLASS" v="com.tacme.pmr.IPaymentServiceSoapImpl"/>
+               <value n="PT_SERVICE_INTERFACE" v="com.tacme.pmr.IPaymentServiceSoap"/>
+            </hash>
+         </list>
+         <url n="TARGET_PROJECT" path="../../../../PMRIntegration.jpr"/>
+         <value n="WS_ORIG_GEN_DIRECTION" v="TOP_DOWN"/>
+         <value n="WS_TARGET_NAMESPACE" v="http://tempuri.org/"/>
+         <value n="WS_URI" v="PaymentService"/>
+         <url n="WS_WSDL_FILE" path="PaymentService.wsdl"/>
+      </hash>
+      <value n="SERVICE_ASYNC" v="false"/>
+      <value n="USE_WSDL_LOCATION" v="true"/>
+   </hash>
+</jdevws:WebServiceProxy>

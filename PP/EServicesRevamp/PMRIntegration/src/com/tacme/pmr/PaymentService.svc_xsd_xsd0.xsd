@@ -1,0 +1,185 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:tns="http://tempuri.org/">
+    <xs:import schemaLocation="PaymentService.svc_xsd_xsd2.xsd" namespace="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+    <xs:element name="GetPaymentStatusSoap">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SecureHash" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetPaymentStatusSoapResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetPaymentStatusSoapResult" nillable="true" type="q1:PaymentGetStatusResponse"
+                     xmlns:q1="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CompletePaymentSoap">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SecureHash" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CompletePaymentSoapResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="CompletePaymentSoapResult" nillable="true" type="q2:PaymentServiceResponse"
+                     xmlns:q2="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CancelPaymentSoap">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SecureHash" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CancelPaymentSoapResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="CancelPaymentSoapResult" nillable="true" type="q3:PaymentServiceResponse"
+                     xmlns:q3="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="RefundPaymentSoap">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SecureHash" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="RefundPaymentSoapResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="RefundPaymentSoapResult" nillable="true" type="q4:PaymentServiceResponse"
+                     xmlns:q4="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="VoidPaymentSoap">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SecureHash" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="VoidPaymentSoapResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="VoidPaymentSoapResult" nillable="true" type="q5:PaymentServiceResponse"
+                     xmlns:q5="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetSecureHashed">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="InvoiceID" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Lang" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="PaymentType" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Price" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ReturnUrl" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ServiceCode" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetSecureHashedResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetSecureHashedResult" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetPaymentStatus">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SecureHash" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetPaymentStatusResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetPaymentStatusResult" nillable="true" type="q6:PaymentGetStatusResponse"
+                     xmlns:q6="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CompletePayment">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SecureHash" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CompletePaymentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="CompletePaymentResult" nillable="true" type="q7:PaymentServiceResponse"
+                     xmlns:q7="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CancelPayment">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SecureHash" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CancelPaymentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="CancelPaymentResult" nillable="true" type="q8:PaymentServiceResponse"
+                     xmlns:q8="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="RefundPayment">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SecureHash" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="RefundPaymentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="RefundPaymentResult" nillable="true" type="q9:PaymentServiceResponse"
+                     xmlns:q9="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="VoidPayment">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SecureHash" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="VoidPaymentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="VoidPaymentResult" nillable="true" type="q10:PaymentServiceResponse"
+                     xmlns:q10="http://schemas.datacontract.org/2004/07/PMRWeb.PaymentRouter"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

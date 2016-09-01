@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="SearchExpertTFDef_SearchExpertTFDef_initSearchExpertsPageDef"
+                Package="JSFFPageDef" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <action id="initSearchExperts" RequiresUpdateModel="true"
+            Action="invokeMethod" MethodName="initSearchExperts"
+            IsViewObjectMethod="false" DataControl="PPAppServicesDataControl"
+            InstanceName="PPAppServicesDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

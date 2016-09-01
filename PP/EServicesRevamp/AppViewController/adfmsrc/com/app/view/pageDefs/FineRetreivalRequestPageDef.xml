@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="FineRetreivalRequestPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqAttachmentsView9" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsView9Iterator"/>
+    <iterator Binds="ReqFineRetreivalRequestView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqFineRetreivalRequestView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ReqAttachmentsView9Iterator" id="ReqAttachmentsView9">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsView90">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsView9Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqFineRetreivalRequestView1Iterator"
+                     id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqFineRetreivalRequestView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqFineRetreivalRequestView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="false"/>
+    <list IterBinding="ReqFineRetreivalRequestView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelationCase" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

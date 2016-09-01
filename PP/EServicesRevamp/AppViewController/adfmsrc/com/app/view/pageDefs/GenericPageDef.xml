@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="GenericPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="getResourceBundle_locale"
+                IsQueriable="false"/>
+    </variableIterator>
+    <methodIterator Binds="getResourceBundle.result"
+                    DataControl="PPAppServicesDataControl" RangeSize="25"
+                    BeanClass="java.lang.String"
+                    id="getResourceBundleIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getResourceBundle" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getResourceBundle"
+                  IsViewObjectMethod="false"
+                  DataControl="PPAppServicesDataControl"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  ReturnName="data.PPAppServicesDataControl.methodResults.getResourceBundle_PPAppServicesDataControl_dataProvider_getResourceBundle_result">
+      <NamedData NDName="locale" NDType="java.lang.String"
+                 />
+    </methodAction>
+    
+  </bindings>
+</pageDefinition>

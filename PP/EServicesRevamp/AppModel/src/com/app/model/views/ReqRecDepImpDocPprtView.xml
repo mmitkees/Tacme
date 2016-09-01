@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReqRecDepImpDocPprtView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="ReqRecDepImpDocPprt.REQ_ID, 
+       ReqRecDepImpDocPprt.CASE_NO, 
+       ReqRecDepImpDocPprt.CASE_YEAR, 
+       ReqRecDepImpDocPprt.PROSECUTION_NAME, 
+       ReqRecDepImpDocPprt.RELATION_CASE, 
+       ReqRecDepImpDocPprt.RESTR_TYPE"
+  FromList="REQ_REC_DEP_IMP_DOC_PPRT ReqRecDepImpDocPprt"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="CaseYearStatic1"
+    ViewObjectName="com.app.model.views.CaseYearStatic"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProsecutionListVwView1"
+    ViewObjectName="com.app.model.views.ProsecutionListVwView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RelationCaseStatic1"
+    ViewObjectName="com.app.model.views.RelationCaseStatic"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProsecutionListView1"
+    ViewObjectName="com.app.model.views.ProsecutionListView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RelationCaseARStatic1"
+    ViewObjectName="com.app.model.views.RelationCaseARStatic"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CaseYear"
+    ListVOName="CaseYearStatic1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="LOV_CaseYear_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CaseYear"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_pn_ar"
+    ListVOName="ProsecutionListVwView1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProsecutionName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProsecutionName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProsecutionName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Relationcase_en"
+    ListVOName="RelationCaseStatic1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RelationCase"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_pn_en"
+    ListVOName="ProsecutionListView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_pn_en_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProsecutionName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProsecutionName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProsecutionName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Relationcase_ar"
+    ListVOName="RelationCaseARStatic1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Relationcase_ar_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RelationCase"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ReqRecDepImpDocPprt"
+    Entity="com.app.model.entities.ReqRecDepImpDocPprt"/>
+  <ViewAttribute
+    Name="ReqId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ReqId"
+    EntityUsage="ReqRecDepImpDocPprt"
+    AliasName="REQ_ID"/>
+  <ViewAttribute
+    Name="CaseNo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaseNo"
+    EntityUsage="ReqRecDepImpDocPprt"
+    AliasName="CASE_NO"/>
+  <ViewAttribute
+    Name="CaseYear"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaseYear"
+    EntityUsage="ReqRecDepImpDocPprt"
+    AliasName="CASE_YEAR"
+    LOVName="LOV_CaseYear">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProsecutionName"
+    PrecisionRule="true"
+    EntityAttrName="ProsecutionName"
+    EntityUsage="ReqRecDepImpDocPprt"
+    AliasName="PROSECUTION_NAME"
+    LOVName="LOV_pn_ar"
+    LOVFinder="ProsecutionName">
+    <TransientExpression><![CDATA[if (Language=='ar'){
+return 'LOV_pn_ar';
+}else{
+return 'LOV_pn_en';
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Language"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RelationCase"
+    PrecisionRule="true"
+    EntityAttrName="RelationCase"
+    EntityUsage="ReqRecDepImpDocPprt"
+    AliasName="RELATION_CASE"
+    LOVName="LOV_Relationcase_en"
+    LOVFinder="RelationCase">
+    <TransientExpression><![CDATA[if (Language=='ar'){
+return 'LOV_Relationcase_ar';
+}else{
+return 'LOV_Relationcase_en';
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Language"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RestrType"
+    PrecisionRule="true"
+    EntityAttrName="RestrType"
+    EntityUsage="ReqRecDepImpDocPprt"
+    AliasName="RESTR_TYPE"/>
+  <ViewAttribute
+    Name="Language"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[adf.context.current.sessionScope.get('lang')]]></TransientExpression>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="ReqAttachmentsView"
+    ViewLink="com.app.model.views.viewLink.AttachmentToDepImpDoc"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ReqRequestsView"
+    ViewLink="com.app.model.views.viewLink.RequestToDepImpDoc"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.app.model.AppModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="srchDescArPageDef"
+                Package="JSFF_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MojServicesView1" RangeSize="10"
+              DataControl="PPAppServicesDataControl"
+              id="MojServicesView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="MojServicesView1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MojServicesView1Iterator" id="SubmitInDept">
+      <AttrNames>
+        <Item Value="SubmitInDept"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MojServicesView1Iterator"
+                     id="CollectFromDept">
+      <AttrNames>
+        <Item Value="CollectFromDept"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MojServicesView1Iterator" id="Fees1">
+      <AttrNames>
+        <Item Value="Fees"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MojServicesView1Iterator"
+                     id="PeriodOfService">
+      <AttrNames>
+        <Item Value="PeriodOfService"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MojServicesView1Iterator" id="Condition">
+      <AttrNames>
+        <Item Value="Condition"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MojServicesView1Iterator" id="ProcessSummary">
+      <AttrNames>
+        <Item Value="ProcessSummary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MojServicesView1Iterator" id="OutputResult">
+      <AttrNames>
+        <Item Value="OutputResult"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MojServicesView1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MojServicesView1Iterator"
+                     id="RequiredDocName">
+      <AttrNames>
+        <Item Value="RequiredDocName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

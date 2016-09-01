@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ChgPwrdTFDef">
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">ChgPwrdView</default-activity>
+    <data-control-scope id="__6">
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__8">
+      <name id="__7">eservice</name>
+      <value>#{pageFlowScope.eservice}</value>
+    </input-parameter-definition>
+    <managed-bean id="__5">
+      <managed-bean-name id="__3">AppServicesCP</managed-bean-name>
+      <managed-bean-class id="__2">com.app.view.beans.AppService</managed-bean-class>
+      <managed-bean-scope id="__4">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__9">
+      <managed-bean-name id="__11">customValidator</managed-bean-name>
+      <managed-bean-class id="__10">com.app.view.beans.CustomValidators</managed-bean-class>
+      <managed-bean-scope id="__12">request</managed-bean-scope>
+    </managed-bean>
+    <view id="ChgPwrdView">
+      <page>/WEB-INF/jsf_pages/ChgPwrdView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

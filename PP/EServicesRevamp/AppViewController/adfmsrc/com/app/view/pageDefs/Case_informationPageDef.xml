@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="Case_informationPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqDepositMoneyView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqDepositMoneyView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqDepositMoneyView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqDepositMoneyView1Iterator" id="CaseYear">
+      <AttrNames>
+        <Item Value="CaseYear"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqDepositMoneyView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="ProsecutionName" DTSupportsMRU="false"/>
+    <list IterBinding="ReqDepositMoneyView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelationWithcase"
+          DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ReqDepositMoneyView1Iterator"
+                     id="DepositAmount">
+      <AttrNames>
+        <Item Value="DepositAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReqDepositMoneyView1Iterator"
+                     id="AccusedName">
+      <AttrNames>
+        <Item Value="AccusedName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <list IterBinding="ReqDepositMoneyView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear1" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

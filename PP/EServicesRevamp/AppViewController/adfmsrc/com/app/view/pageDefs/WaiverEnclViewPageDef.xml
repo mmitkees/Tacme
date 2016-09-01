@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="WaiverEnclViewPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReqAttachmentsViewWE" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqAttachmentsViewWEIterator"/>
+    <iterator Binds="ReqWaiverEnclView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="ReqWaiverEnclView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ReqAttachmentsViewWEIterator" id="ReqAttachmentsViewWE">
+      <nodeDefinition DefName="com.app.model.views.ReqAttachmentsView"
+                      Name="ReqAttachmentsViewWE0">
+        <AttrNames>
+          <Item Value="DisplayName"/>
+          <Item Value="AttachSize"/>
+          <Item Value="AttachDate"/>
+          <Item Value="AttachByPersonId"/>
+          <Item Value="ContentType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ReqAttachmentsViewWEIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReqWaiverEnclView1Iterator" id="CaseNo">
+      <AttrNames>
+        <Item Value="CaseNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ReqWaiverEnclView1Iterator" StaticList="false"
+          Uses="LOV_CaseYear" id="CaseYear" DTSupportsMRU="false"/>
+    <list IterBinding="ReqWaiverEnclView1Iterator" StaticList="false"
+          Uses="LOV_pn_ar" id="Prosecutionname" DTSupportsMRU="true"/>
+    <list IterBinding="ReqWaiverEnclView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_en" id="RelationCase" DTSupportsMRU="false"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <list IterBinding="ReqWaiverEnclView1Iterator" StaticList="false"
+          Uses="LOV_RelationCase_ar" id="RelationCase1" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="ReqWaiverEnclView1Iterator" id="AccusedName">
+      <AttrNames>
+        <Item Value="AccusedName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

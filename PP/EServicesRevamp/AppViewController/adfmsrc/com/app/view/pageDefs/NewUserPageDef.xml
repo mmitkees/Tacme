@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="NewUserPageDef"
+                Package="com.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PuPublicuserView1" RangeSize="10"
+              DataControl="PPAppServicesDataControl"
+              id="PuPublicuserView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Password">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="FamilyName">
+      <AttrNames>
+        <Item Value="FamilyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Mobile">
+      <AttrNames>
+        <Item Value="Mobile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Dob">
+      <AttrNames>
+        <Item Value="Dob"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Nationality">
+      <AttrNames>
+        <Item Value="Nationality"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="EmiratesId">
+      <AttrNames>
+        <Item Value="EmiratesId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator"
+                     id="EmiratesIdExpiry">
+      <AttrNames>
+        <Item Value="EmiratesIdExpiry"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="PPAppServicesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PPAppServicesDataControl"/>
+    <list IterBinding="PuPublicuserView1Iterator" id="RegistrationLang"
+          DTSupportsMRU="true" StaticList="true">
+      <AttrNames>
+        <Item Value="RegistrationLang"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="English"/>
+        <Item Value="Arabic"/>
+      </ValueList>
+    </list>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="chgpwrd">
+      <AttrNames>
+        <Item Value="chgpwrd"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="emailExist"
+                  InstanceName="PPAppServicesDataControl.dataProvider"
+                  DataControl="PPAppServicesDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="emailExist" IsViewObjectMethod="false"
+                  ReturnName="data.PPAppServicesDataControl.methodResults.emailExist_PPAppServicesDataControl_dataProvider_emailExist_result">
+      <NamedData NDName="email" NDValue="#{bindings.Email.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <list IterBinding="PuPublicuserView1Iterator" StaticList="false"
+          Uses="LOV_Nationality_ar" id="Nationality1" DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

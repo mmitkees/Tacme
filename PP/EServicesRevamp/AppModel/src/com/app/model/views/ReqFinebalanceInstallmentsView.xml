@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReqFinebalanceInstallmentsView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="ReqFinebalanceInstallments.ID, 
+       ReqFinebalanceInstallments.REQ_ID, 
+       ReqFinebalanceInstallments.PAY_AMOUNT, 
+       ReqFinebalanceInstallments.PAY_DATE, 
+       ReqFinebalanceInstallments.INSTALLMENT_INDEX, 
+       ReqFinebalanceInstallments.STATUS"
+  FromList="REQ_FINEBALANCE_INSTALLMENTS ReqFinebalanceInstallments"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="ReqFinebalanceInstallments"
+    Entity="com.app.model.entities.ReqFinebalanceInstallments"/>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="ReqFinebalanceInstallments"
+    AliasName="ID"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="ReqId"
+    PrecisionRule="true"
+    EntityAttrName="ReqId"
+    EntityUsage="ReqFinebalanceInstallments"
+    AliasName="REQ_ID"/>
+  <ViewAttribute
+    Name="PayAmount"
+    PrecisionRule="true"
+    EntityAttrName="FineAmount"
+    EntityUsage="ReqFinebalanceInstallments"
+    AliasName="PAY_AMOUNT"/>
+  <ViewAttribute
+    Name="PayDate"
+    PrecisionRule="true"
+    EntityAttrName="PayDate"
+    EntityUsage="ReqFinebalanceInstallments"
+    AliasName="PAY_DATE"/>
+  <ViewAttribute
+    Name="InstallmentAmount"
+    PrecisionRule="true"
+    EntityAttrName="InstallmentAmount"
+    EntityUsage="ReqFinebalanceInstallments"
+    AliasName="INSTALLMENT_INDEX"/>
+  <ViewAttribute
+    Name="Status"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="ReqFinebalanceInstallments"
+    AliasName="STATUS"/>
+</ViewObject>
