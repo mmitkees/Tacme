@@ -1,6 +1,7 @@
 package com.app.view.beans;
 
 import com.app.model.services.PPAppServicesImpl;
+
 import com.tacme.pp.common.utils.ADFUtils;
 
 import com.tacme.pp.common.utils.EmailUtils;
@@ -13,6 +14,8 @@ import java.sql.SQLException;
 
 import java.util.Calendar;
 import java.util.Date;
+
+import java.util.Locale;
 
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
@@ -147,7 +150,7 @@ public class NewUser implements Serializable {
                         _mob = "Y";
                         g = "Y";
                     }
-                    if (iterrow.getAttribute("Dob") == null) {
+                    if (iterrow.getAttribute("DateOfBirth") == null) {
                         _dob = "Y";
                         g = "Y";
                     }
@@ -177,16 +180,17 @@ public class NewUser implements Serializable {
                         String subj =
                             " PP E-services Registration التسجيل بالخدمات الالكترونية للنيابة العامة";
                         String txt = "";
-                        txt += "عزيزي المستخدم تم استقبال طلب التسجيل الخاص بك و هو الأن تحت قيد التنفيذ\n" + 
-                        "Your registration is received and it is under approval process.\n";
+                        txt +=
+"عزيزي المستخدم تم استقبال طلب التسجيل الخاص بك و هو الأن تحت قيد التنفيذ\n" +
+                                "Your registration is received and it is under approval process.\n";
 
                         OperationBinding copbind =
                             bindings.getOperationBinding("Commit");
                         copbind.execute();
                         res = "reg";
                         ADFUtils au = new ADFUtils();
-                       EmailUtils.sendEmail(emailid, subj, txt);
-                       
+                        EmailUtils.sendEmail(emailid, subj, txt);
+
                         // RichPopup.PopupHints hints = new RichPopup.PopupHints();
                         //                    this.getLoginPopupBind().show(hints);
                         executeSMSproc((String)this.mobile_bind.getValue());
@@ -221,17 +225,17 @@ public class NewUser implements Serializable {
 
         return res;
     }
-    
+
     public void executeSMSproc(String p_mobno) {
         String subj = null;
         try {
             for (int i = 0; i <= 1; i++) {
                 if (i == 0) {
                     subj =
-    "Your registration is received and it is under approval process.";
+"Your registration is received and it is under approval process.";
                 } else if (i == 1) {
                     subj =
-                    "عزيزي المستخدم تم استقبال طلب التسجيل الخاص بك و هو الأن تحت قيد التنفيذ";
+"عزيزي المستخدم تم استقبال طلب التسجيل الخاص بك و هو الأن تحت قيد التنفيذ";
                 }
                 DBTransactionImpl dbti =
                     (DBTransactionImpl)getAm().getDBTransaction();
@@ -259,7 +263,7 @@ public class NewUser implements Serializable {
             e.printStackTrace();
         }
     }
-    
+
     public PPAppServicesImpl getAm() {
         FacesContext fc = FacesContext.getCurrentInstance();
         Application app = fc.getApplication();
@@ -453,8 +457,24 @@ public class NewUser implements Serializable {
             String result = (String)operationBinding.execute();
             if (result != null) {
                 if (result.equals("notreg")) {
-                    FacesMessage Message =
-                        new FacesMessage("User has not been registered");
+                    String locale = "";
+                    String msg = "";
+                    try {
+                        locale =
+                                ((Locale)ADFUtils.evaluateEL("#{pageFlowScope.locale}")).toString();
+                    } catch (Exception e) {
+                        locale = "ar";
+                    }
+                    if (locale == "en") {
+                        msg =
+                        "This email has not been registered with us before";
+                    } else {
+                        msg =
+                        "هذا البريد الالكتروني غير مسجل لدينا يرجى التأكد من البريد الالكتروني ";
+                       
+                    }
+
+                    FacesMessage Message = new FacesMessage(msg);
                     Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                     FacesContext fc = FacesContext.getCurrentInstance();
                     fc.addMessage(null, Message);
@@ -468,16 +488,45 @@ public class NewUser implements Serializable {
                     OperationBinding commitob =
                         bindings.getOperationBinding("Commit");
                     commitob.execute();
-                    FacesMessage Message =
-                        new FacesMessage("Password has been sent to the registered email id");
+                    String locale = "";
+                    String msg = "";
+                    try {
+                        locale =
+                                ((Locale)ADFUtils.evaluateEL("#{pageFlowScope.locale}")).toString();
+                    } catch (Exception e) {
+                        locale = "ar";
+                    }
+                    if (locale == "en") {
+                        msg =
+                        "Password has been sent to the registered email id";
+                    } else {
+                        msg =
+                        "تم ارسل كلمة السر إلى البريد الالكتروني الخاص بك المسجل لدينا ";
+                       
+                    }
+
+                    FacesMessage Message = new FacesMessage(msg);
                     Message.setSeverity(FacesMessage.SEVERITY_INFO);
                     FacesContext fc = FacesContext.getCurrentInstance();
                     fc.addMessage(null, Message);
                 }
             }
         } else {
-            FacesMessage Message =
-                new FacesMessage("Please enter the email address");
+            String locale = "";
+            String msg = "";
+            try {
+                locale =
+                        ((Locale)ADFUtils.evaluateEL("#{pageFlowScope.locale}")).toString();
+            } catch (Exception e) {
+                locale = "ar";
+            }
+            if (locale == "en") {
+                msg = "Please enter the email address correctly";
+            } else {
+                
+                msg = "ادخل البريد الالكتروني صحيح  ";
+            }
+            FacesMessage Message = new FacesMessage(msg);
             Message.setSeverity(FacesMessage.SEVERITY_INFO);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);

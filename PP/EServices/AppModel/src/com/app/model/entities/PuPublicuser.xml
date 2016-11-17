@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="PuPublicuser"
-  Version="11.1.1.64.93"
+  Version="11.1.1.66.73"
   InheritPersonalization="true"
   DBObjectType="table"
   DBObjectName="PU_PUBLICUSER"
@@ -367,16 +367,7 @@
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </Attribute>
-  <Attribute
-    Name="RowID"
-    IsUpdateable="false"
-    ColumnName="ROWID"
-    SQLType="VARCHAR"
-    Type="oracle.jbo.domain.RowID"
-    ColumnType="ROWID"
-    TableName="PU_PUBLICUSER"
-    PrimaryKey="true"/>
-  <Attribute
+<Attribute
     Name="AppRef"
     Precision="30"
     ColumnName="APP_REF"
@@ -388,6 +379,25 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DateOfBirth"
+    ColumnName="DATE_OF_BIRTH"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="PU_PUBLICUSER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="DateOfBirth_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="DateOfBirth_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Key
     Name="Emailpk"

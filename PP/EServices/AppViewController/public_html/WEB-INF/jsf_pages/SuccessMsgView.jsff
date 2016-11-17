@@ -36,19 +36,19 @@
           <af:panelGroupLayout id="pgl8" styleClass="xrating-img">
             <af:commandImageLink text="" id="cil1"
                                  actionListener="#{pageFlowScope.SuccessRatingBean.submitRecord}"
-                                 icon="http://demoserver.tacme.net:12127/images/happyn1.png"
+                                 icon="/../images/happyn1.png"
                                  styleClass="ximg-1">
               <f:attribute name="rvalue" value="1"/>
             </af:commandImageLink>
             <af:commandImageLink text="" id="cil2"
                                  actionListener="#{pageFlowScope.SuccessRatingBean.submitRecord}"
-                                 icon="http://demoserver.tacme.net:12127/images/happyn2.png"
+                                 icon="/../images/happyn2.png"
                                  styleClass="ximg-2">
               <f:attribute name="rvalue" value="2"/>
             </af:commandImageLink>
             <af:commandImageLink text="" id="cil3"
                                  actionListener="#{pageFlowScope.SuccessRatingBean.submitRecord}"
-                                 icon="http://demoserver.tacme.net:12127/images/happyn3.png"
+                                 icon="/../images/happyn3.png"
                                  styleClass="ximg-3">
               <f:attribute name="rvalue" value="3"/>
             </af:commandImageLink>
@@ -60,24 +60,23 @@
               id="rating-popup">
           <span class="rating-popup-inner af_panelGroupLayout"
                 id="rating-popup-inner">
-            <span class="rating-text" >${appviewcontrollerBundle.RATING_QUESTION}</span>
-            <span style="display:none;"  class="rating-text-success">${appviewcontrollerBundle.RATING_THANKS}</span></span><span class="rating-img af_panelGroupLayout"
-                                                                                                                                   id="rating-img">
+            <span class="rating-text">
+              ${appviewcontrollerBundle.RATING_QUESTION}</span><span style="display:none;"
+                                                                     class="rating-text-success">
+              ${appviewcontrollerBundle.RATING_THANKS}</span></span><span class="rating-img af_panelGroupLayout"
+                                                                          id="rating-img">
             <a href="#" onclick="return false;"
                class="img-1 af_commandImageLink" id="hapy_link">
               <img class="af_commandImageLink_image"
-                   src="http://demoserver.tacme.net:12127/images/happyn1.png"
-                   id="rating_img_1"></img></a><a href="#"
-                                               class="img-2 af_commandImageLink"
-                                               id="neutral_link"> 
+                   src="/../images/happyn1.png" id="rating_img_1"></img></a><a href="#"
+                                                                               class="img-2 af_commandImageLink"
+                                                                               id="neutral_link"> 
               <img class="af_commandImageLink_image"
-                   src="http://demoserver.tacme.net:12127/images/happyn2.png"
-                   id="rating_img_2"></img></a><a href="#"
-                                                 class="img-3 af_commandImageLink"
-                                                 id="sad_link">
+                   src="/../images/happyn2.png" id="rating_img_2"></img></a><a href="#"
+                                                                               class="img-3 af_commandImageLink"
+                                                                               id="sad_link">
               <img class="af_commandImageLink_image"
-                   src="http://demoserver.tacme.net:12127/images/happyn3.png"
-                   id="rating_img_3"></img></a></span></span>
+                   src="/../images/happyn3.png" id="rating_img_3"></img></a></span></span>
       </af:panelGroupLayout>
       <af:resource type="javascript">
         <![CDATA[                  

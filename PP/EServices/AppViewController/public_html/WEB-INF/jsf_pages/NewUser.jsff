@@ -198,16 +198,16 @@
                      </af:panelLabelAndMessage>
                      <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_dob}*"
                                               id="plam8" partialTriggers="it4">
-                        <af:inputDate value="#{bindings.Dob.inputValue}"
-                                      required="#{bindings.Dob.hints.mandatory}"
-                                      shortDesc="#{bindings.Dob.hints.tooltip}"
+                        <af:inputDate value="#{bindings.DateOfBirth.inputValue}"
+                                      required="#{bindings.DateOfBirth.hints.mandatory}"
+                                      shortDesc="#{bindings.DateOfBirth.hints.tooltip}"
                                       id="it4" simple="true" autoSubmit="true">
                            <!--<f:validator binding="#{bindings.Dob.validator}"/>-->
-                           <af:convertDateTime pattern="dd-MM-yyyy"
-                                               secondaryPattern="dd-MM-yyyy"/>
                            <!--<af:validateDateTimeRange minimum="1950-04-04"
                                                      maximum="#{NewUser.maxDateVal}"
                                                      messageDetailNotInRange="Invalid date"/>-->
+                           <f:validator binding="#{bindings.DateOfBirth.validator}"/>
+                           <af:convertDateTime pattern="#{bindings.DateOfBirth.format}"/>
                         </af:inputDate>
                         <!--<af:message id="m9" for="it4"/>-->
                         <af:panelGroupLayout id="pdbl8" partialTriggers="it4"
@@ -242,10 +242,11 @@
                                               partialTriggers="ite1">
                         <af:inputText value="#{bindings.EmiratesId.inputValue}"
                                       required="#{bindings.EmiratesId.hints.mandatory}"
-                                      autoSubmit="true"
+                                      autoSubmit="true" placeholder="xxx-xxxx-xxxxxxx-x"
                                       maximumLength="#{bindings.EmiratesId.hints.precision}"
                                       shortDesc="#{bindings.EmiratesId.hints.tooltip}"
                                       id="ite1" simple="true">
+                           <af:validateRegExp pattern="[0-9]{3}-[0-9]{4}-[0-9]{7}-[0-9]{1}"/>
                            <f:validator binding="#{bindings.EmiratesId.validator}"/>
                         </af:inputText>
                         <!--<af:message id="m11" for="ite1"/>-->

@@ -40,11 +40,6 @@
         <Item Value="Mobile"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Dob">
-      <AttrNames>
-        <Item Value="Dob"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="PuPublicuserView1Iterator" id="Nationality">
       <AttrNames>
         <Item Value="Nationality"/>
@@ -66,16 +61,6 @@
     <action id="Rollback" RequiresUpdateModel="false"
             Action="rollbackTransaction"
             DataControl="PPAppServicesDataControl"/>
-    <list IterBinding="PuPublicuserView1Iterator" id="RegistrationLang"
-          DTSupportsMRU="true" StaticList="true">
-      <AttrNames>
-        <Item Value="RegistrationLang"/>
-      </AttrNames>
-      <ValueList>
-        <Item Value="English"/>
-        <Item Value="Arabic"/>
-      </ValueList>
-    </list>
     <attributeValues IterBinding="PuPublicuserView1Iterator" id="chgpwrd">
       <AttrNames>
         <Item Value="chgpwrd"/>
@@ -92,5 +77,13 @@
     </methodAction>
     <list IterBinding="PuPublicuserView1Iterator" StaticList="false"
           Uses="LOV_Nationality_ar" id="Nationality1" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="DateOfBirth">
+      <AttrNames>
+        <Item Value="DateOfBirth"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" Uses="LOV_RegistrationLang"
+                  IterBinding="PuPublicuserView1Iterator"
+                  id="RegistrationLang"/>
   </bindings>
 </pageDefinition>

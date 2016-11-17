@@ -6,74 +6,34 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="CasesViewObj1" RangeSize="25"
-              DataControl="PPAppServicesDataControl" id="SearchCases1Iterator"/>
-    <searchRegion Criteria="SearchCasesCriteria"
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="SearchCases1Iterator" id="SearchCasesCriteriaQuery"/>
+              DataControl="PPAppServicesDataControl"
+              id="CasesViewObj1Iterator"/>
     <searchRegion Criteria="CasesViewObjCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="SearchCases1Iterator" id="CasesViewObjCriteriaQuery"/>
+                  Binds="CasesViewObj1Iterator" id="CasesViewObjCriteriaQuery"/>
   </executables>
   <bindings>
-    <tree IterBinding="SearchCases1Iterator" id="SearchCases1">
-      <nodeDefinition DefName="com.app.model.views.CasesSearch"
-                      Name="SearchCases10">
-        <AttrNames>
-          <Item Value="Subject"/>
-          <Item Value="Statusdate"/>
-          <Item Value="Locationname"/>
-          <Item Value="Locationid"/>
-          <Item Value="Caseyear"/>
-          <Item Value="Casewith"/>
-          <Item Value="Casetype"/>
-          <Item Value="Casestatusid"/>
-          <Item Value="Casestatus"/>
-          <Item Value="Casenumber"/>
-          <Item Value="Caseid"/>
-          <Item Value="Casedate"/>
-          <Item Value="Casecategory"/>
-          <Item Value="Language"/>
-          <Item Value="ProcecutionLOVSwitcher"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="SearchCases1Iterator" id="CasesViewObj1">
+    <tree IterBinding="CasesViewObj1Iterator" id="CasesViewObj1">
       <nodeDefinition DefName="com.app.model.views.CasesViewObj"
                       Name="CasesViewObj10">
         <AttrNames>
-          <Item Value="Subject"/>
-          <Item Value="Statusdate"/>
-          <Item Value="Locationname"/>
-          <Item Value="Locationid"/>
-          <Item Value="Caseyear"/>
-          <Item Value="Casewith"/>
-          <Item Value="Casetype"/>
-          <Item Value="Casestatusid"/>
-          <Item Value="Casestatus"/>
-          <Item Value="Casenumber"/>
-          <Item Value="Caseid"/>
-          <Item Value="Casedate"/>
           <Item Value="Casecategory"/>
-          <Item Value="Language"/>
-          <Item Value="ProcecutionLOVSwitcher"/>
+          <Item Value="Casedate"/>
+          <Item Value="Caseid"/>
+          <Item Value="Casenumber"/>
+          <Item Value="Casestatus"/>
+          <Item Value="Casestatusid"/>
+          <Item Value="Casetype"/>
+          <Item Value="Casewith"/>
+          <Item Value="Caseyear"/>
+  
+          <Item Value="Locationid"/>
+          <Item Value="Locationname"/>
+          
+          <Item Value="Statusdate"/>
+          <Item Value="Subject"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="SearchCases1Iterator" id="Caseid">
-      <AttrNames>
-        <Item Value="Caseid"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="SearchCases1Iterator" id="Language">
-      <AttrNames>
-        <Item Value="Language"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="SearchCases1Iterator"
-                     id="ProcecutionLOVSwitcher">
-      <AttrNames>
-        <Item Value="ProcecutionLOVSwitcher"/>
-      </AttrNames>
-    </attributeValues>
   </bindings>
 </pageDefinition>

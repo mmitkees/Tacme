@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="LoginUserView"
-  Version="11.1.1.64.93"
+  Version="11.1.1.66.73"
   InheritPersonalization="true"
   BindingStyle="OracleName"
   CustomQuery="true"
@@ -33,7 +33,7 @@
     Type="java.lang.String"
     DefaultValue="Approved"/>
   <SQLQuery>
-    <![CDATA[select id,email,password,dob,first_name,last_name,mobile,emirates_id,status from pu_publicuser where email = :em and password = :pwrd and status = :p_st]]>
+    <![CDATA[select id,email,password,dob,first_name,last_name,mobile,emirates_id,status,date_of_birth from pu_publicuser where email = :em and password = :pwrd and status = :p_st]]>
   </SQLQuery>
   <ViewAttribute
     Name="Id"
@@ -169,6 +169,28 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DateOfBirth"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="DATE_OF_BIRTH"
+    Expression="DATE_OF_BIRTH"
+    SQLType="DATE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="DateOfBirth_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="DateOfBirth_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="Id"/>

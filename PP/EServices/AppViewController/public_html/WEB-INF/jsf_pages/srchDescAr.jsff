@@ -4,9 +4,8 @@
   <af:panelGroupLayout id="pgl2" layout="scroll">
     <af:panelGroupLayout id="pgl3" layout="vertical" rendered="false">
       <af:menuBar id="mb1">
-        <af:commandLink text="طـباعـة" id="cl1" action="#{AppServices.printAction}">
-          
-        </af:commandLink>
+        <af:commandLink text="طـباعـة" id="cl1"
+                        action="#{AppServices.printAction}"></af:commandLink>
         <af:spacer width="10" height="10" id="s1"/>
         <af:commandLink text="Back" id="cl2" rendered="false"/>
         <af:spacer width="10" height="10" id="s2"/>
@@ -14,7 +13,8 @@
     </af:panelGroupLayout>
     <af:panelGroupLayout id="pgl4" layout="vertical"
                          styleClass="eServicesHeading">
-      <af:outputText value="#{appviewcontrollerbundle.p_sdsrvinf}  : #{bindings.Name.inputValue}"  id="ot11"/>
+      <af:outputText value="#{appviewcontrollerbundle.p_sdsrvinf}  : #{bindings.Name.inputValue}"
+                     id="ot11"/>
     </af:panelGroupLayout>
     <af:panelGroupLayout id="pgl1" layout="vertical">
       <af:panelGroupLayout id="pgl5" layout="vertical"
@@ -23,62 +23,70 @@
                             maxColumns="1" fieldWidth="70%" labelWidth="30%">
           <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_sdsrvnme}"
                                    id="plam5">
-            <af:outputText value="#{bindings.Name.inputValue}" id="ot4"/>
+            <af:outputText value="#{bindings.Name.inputValue}" id="ot4"
+                           escape="false"/>
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_sdsrvdef}"
                                    id="plam2">
-            <af:outputText value="#{bindings.Description.inputValue}" id="ot2"/>
+            <af:outputText value="#{bindings.Description.inputValue}" id="ot2"
+                           escape="false"/>
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_sdsrvplce}"
                                    id="plam8">
-            <af:outputText value="#{bindings.SubmitInDept.inputValue}" id="ot9"/>
+            <af:outputText value="#{bindings.SubmitInDept.inputValue}" id="ot9"
+                           escape="false"/>
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_plcetrn}"
                                    id="plam6">
             <af:outputText value="#{bindings.CollectFromDept.inputValue}"
-                           id="ot3"/>
+                           id="ot3" escape="false"/>
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_sdsrvfee}"
                                    id="plam10">
-            <af:outputText value="#{bindings.Fees1.inputValue}" id="ot6"/>
+            <af:outputText value="#{bindings.Fees1.inputValue}" id="ot6"
+                           escape="false"/>
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_sdsrvpdsrv}"
                                    id="plam3">
             <af:outputText value="#{bindings.PeriodOfService.inputValue}"
-                           id="ot10"/>
+                           id="ot10" escape="false"/>
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_sdsrvreqdc}"
                                    id="plam4">
-            <af:outputText value="#{bindings.RequiredDocName.inputValue}" id="ot5"/>
+            <af:outputText value="#{bindings.RequiredDocName.inputValue}"
+                           id="ot5" escape="false"/>
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_sdsrvcond}"
                                    id="plam1">
-            <af:outputText value="#{bindings.Condition.inputValue}" id="ot8"/>
+            <af:outputText value="#{bindings.Condition.inputValue}" id="ot8"
+                           escape="false"/>
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_sdsrvprcstp}"
                                    id="plam7">
             <af:outputText value="#{bindings.ProcessSummary.inputValue}"
-                           id="ot7"/>
+                           id="ot7" escape="false"/>
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_sdsrvoprslt}"
                                    id="plam9">
-            <af:outputText value="#{bindings.OutputResult.inputValue}" id="ot1"/>
+            <af:outputText value="#{bindings.OutputResult.inputValue}" id="ot1"
+                           escape="false"/>
           </af:panelLabelAndMessage>
         </af:panelFormLayout>
       </af:panelGroupLayout>
-      <af:commandLink text="الدخول إلى الخدمات إلى إلكترونية" id="cl3" action="goservice"
-                      rendered="false"/>
+      <af:commandLink text="الدخول إلى الخدمات إلى إلكترونية" id="cl3"
+                      action="goservice" rendered="false"/>
       <af:panelGroupLayout id="pgl6" layout="vertical" styleClass="btns-box">
-        <!--<af:commandImageLink text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Back']}" id="cil1"
-                             styleClass="bck" rendered="false"/>-->
-        <!--<af:commandButton text="#{o_w_f_t_TranslationsRBBean['SCOPEGUID:s9f590bbd_6f05_44aa_94b6_43b7f80537b6:p_Back']}" id="cb2"
-                          action="#{pageFlowScope.eservice}"
-                          styleClass="service-bk-btn" rendered="false"/>-->
+       <af:commandButton text="#{appviewcontrollerbundle.p_sdsrvprcd}" id="cb2" action="goservice"
+                          styleClass="proceed-btn"/>
+        
+       
         <af:goButton text="#{appviewcontrollerbundle.p_sdsrvbck}" id="gb1"
                      destination="#{pageFlowScope.eservice}"
                      styleClass="service-bk-btn"/>
-        <af:commandButton text="#{appviewcontrollerbundle.p_sdsrvprcd}" id="cb1"
-                          action="goservice" styleClass="proceed-btn"/>
+
+        <af:goButton text="#{appviewcontrollerbundle.BACK_TO_ALL_SERVICES}" id="gb2"
+                     destination="/portal/PPServices/services"
+                     styleClass="service-bk-btn"/>
       </af:panelGroupLayout>
     </af:panelGroupLayout>
   </af:panelGroupLayout>

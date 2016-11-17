@@ -5,8 +5,7 @@
    <af:panelGroupLayout id="pgl5" layout="scroll">
       <af:panelGroupLayout id="pgl6" styleClass="eServicesHeading"
                            layout="vertical">
-         <af:outputText value="#{appviewcontrollerbundle.p_contact_us}"
-                        id="ot1"
+         <af:outputText value="#{appviewcontrollerbundle.p_contact_us}" id="ot1"
                         inlineStyle="margin-top: 10px;font-size: 20px;font-family: arial;"/>
       </af:panelGroupLayout>
       <af:panelGroupLayout id="pgl7" layout="vertical"
@@ -21,9 +20,8 @@
                                    binding="#{contactUsBean.it1}"
                                    value="#{contactUsBean.name}"
                                    valueChangeListener="#{contactUsBean.namevalidVCL}"
-                                   autoSubmit="true" simple="true"                                   
-                                   validator="#{customValidatorBean.chkStringValidator}"
-                                   shortDesc="Name"/>
+                                   autoSubmit="true" simple="true"
+                                   validator="#{customValidatorBean.chkStringValidator}"/>
                      <af:panelGroupLayout id="pgl1" layout="vertical"
                                           partialTriggers="csvt1"
                                           rendered="#{contactUsBean.cen eq 'N'}">
@@ -40,8 +38,7 @@
                                    value="#{contactUsBean.email}"
                                    valueChangeListener="#{contactUsBean.emailvalidVCL}"
                                    simple="true" immediate="true"
-                                   validator="#{customValidatorBean.eMailValidator}"
-                                   shortDesc="EMail"/>
+                                   validator="#{customValidatorBean.eMailValidator}"/>
                      <af:panelGroupLayout id="pgl12" layout="vertical"
                                           partialTriggers="em1"
                                           rendered="#{contactUsBean.cee eq 'N'}">
@@ -58,8 +55,7 @@
                                    binding="#{contactUsBean.it3}"
                                    value="#{contactUsBean.address}"
                                    valueChangeListener="#{contactUsBean.addressvalidVCL}"
-                                   simple="true" immediate="true"
-                                   shortDesc="Address"/>
+                                   simple="true" immediate="true"/>
                      <af:panelGroupLayout id="pgl11" layout="vertical"
                                           partialTriggers="it_1"
                                           rendered="#{contactUsBean.cadr eq 'N'}">
@@ -72,12 +68,11 @@
                                            partialTriggers="phn1" id="plam4">
                      <af:inputText id="phn1" rows="1"
                                    binding="#{contactUsBean.it4}"
-                                   autoSubmit="true"
+                                   autoSubmit="true" placeholder="05xxxxxxxx"
                                    value="#{contactUsBean.phoneNo}"
                                    valueChangeListener="#{contactUsBean.phoneNovalidVCL}"
                                    simple="true" immediate="true"
-                                   validator="#{customValidatorBean.phonenoValidator}"
-                                   shortDesc="Phone No"/>
+                                   validator="#{customValidatorBean.phonenoValidator}"/>
                      <af:panelGroupLayout id="pgl10" layout="vertical"
                                           partialTriggers="phn1"
                                           rendered="#{contactUsBean.cpn eq 'N'}">
@@ -101,14 +96,14 @@
          <af:panelGroupLayout id="pgsl1" layout="vertical">
             <af:panelFormLayout id="pfl2" styleClass="service">
                <af:panelFormLayout id="pfl8" partialTriggers="it2">
-                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Subject}" id="plam7">
+                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_Subject}"
+                                           id="plam7">
                      <af:inputText id="it2" autoSubmit="true"
                                    binding="#{contactUsBean.it5}"
                                    value="#{contactUsBean.subject}"
                                    valueChangeListener="#{contactUsBean.subjvalidVCL}"
                                    rows="1" styleClass="custom_input"
-                                   immediate="true" simple="true" columns="60"
-                                   shortDesc="Subject"/>
+                                   immediate="true" simple="true" columns="60"/>
                      <af:panelGroupLayout id="pgl13" layout="vertical"
                                           partialTriggers="it2">
                         <af:outputText value="#{appviewcontrollerbundle.p_error_subj}"
@@ -119,16 +114,15 @@
                   </af:panelLabelAndMessage>
                </af:panelFormLayout>
                <af:panelFormLayout id="pfl9">
-                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_desc}" id="plam8"
-                                           partialTriggers="it_2">
+                  <af:panelLabelAndMessage label="#{appviewcontrollerbundle.p_desc}"
+                                           id="plam8" partialTriggers="it_2">
                      <af:inputText id="it_2" columns="60" autoSubmit="true"
                                    binding="#{contactUsBean.it6}"
                                    value="#{contactUsBean.decription}"
                                    valueChangeListener="#{contactUsBean.descvalidVCL}"
                                    contentStyle="height:100px !important"
                                    simple="true" immediate="true"
-                                   styleClass="custom_input"
-                                   shortDesc="Descriptions" rows="3"/>
+                                   styleClass="custom_input" rows="3"/>
                      <af:panelGroupLayout id="pgl14" layout="vertical"
                                           partialTriggers="it_2">
                         <af:outputText value="#{appviewcontrollerbundle.p_error_desc}"
@@ -146,8 +140,8 @@
                                inlineStyle="width:251px; height:76.0px;"/>
                      <af:panelGroupLayout id="pgl21" layout="vertical"
                                           inlineStyle="margin-top: 10px !important;">
-                        <af:commandButton text="#{appviewcontrollerbundle.p_refca}" id="cb2"
-                                          immediate="true"
+                        <af:commandButton text="#{appviewcontrollerbundle.p_refca}"
+                                          id="cb2" immediate="true"
                                           styleClass="refresh-btn">
                            <af:clientListener method="refreshCaptcha"
                                               type="action"/>
@@ -166,27 +160,27 @@
             </af:panelFormLayout>
             <!--<af:commandButton text="Go" id="cb1"
                               actionListener="#{MyRegistrationFormBean.verifyAnswer}"></af:commandButton>-->
-                              <!--<af:message id="m1" messageType="info" for="csvt1"/>-->
-          </af:panelGroupLayout>
-          <af:resource type="javascript">
-        function refreshCaptcha(evt) {
-            try {
-                var component = evt.getSource();
-                var i1 = component.findComponent("i1");
-                i1.setSource(i1.getSource() + "?force=" + new Date().getMilliseconds());
-                evt.cancel();
-                return false;
-            }
-            catch (err) {
-                alert(err);
-            }
-            return false;
-        }
-      </af:resource>
-         <af:panelGroupLayout id="pgl4" layout="vertical"><af:panelFormLayout id="pfl1" rows="1" maxColumns="2">
+            <!--<af:message id="m1" messageType="info" for="csvt1"/>-->
+         </af:panelGroupLayout>
+         <af:resource type="javascript">
+           function refreshCaptcha(evt) {
+               try {
+                   var component = evt.getSource();
+                   var i1 = component.findComponent("i1");
+                   i1.setSource(i1.getSource() + "?force=" + new Date().getMilliseconds());
+                   evt.cancel();
+                   return false;
+               }
+               catch (err) {
+                   alert(err);
+               }
+               return false;
+           }
+         </af:resource>
+         <af:panelGroupLayout id="pgl4" layout="vertical">
+            <af:panelFormLayout id="pfl1" rows="1" maxColumns="2">
                <af:commandButton text="#{appviewcontrollerbundle.p_submit}"
-                                 id="cbs1"
-                                 styleClass="btn-action"
+                                 id="cbs1" styleClass="btn-action"
                                  actionListener="#{contactUsBean.verifyAnswer}"/>
                <af:commandButton text="Reset" id="csb2"
                                  action="#{contactUsBean.onReset}"

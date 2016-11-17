@@ -850,6 +850,7 @@
       </hash>
    </hash>
    <hash n="ResourceBundleOptions">
+      <value n="DefaultProjectBundleName" v="com.app.view.AppViewControllerBundle"/>
       <list n="RegisteredResourceBundles"/>
    </hash>
 </jpr:project>

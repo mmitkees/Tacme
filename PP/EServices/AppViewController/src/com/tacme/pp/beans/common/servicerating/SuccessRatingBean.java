@@ -15,11 +15,13 @@ public class SuccessRatingBean {
         String param =
             (String)actionEvent.getComponent().getAttributes().get("rvalue");
         System.out.println(param);
+        if(!param.equals(ADFUtils.getBoundAttributeValue("RatingKey"))){
         ADFUtils.setBoundAttributeValue("RatingKey", param);
-        
+      
         ADFUtils.findOperation("Commit").execute();
         System.out.println("--------------------");
         ADFUtils.addScriptOnPartialRequest("showThanks(" +param+
                                            ");");
+        }
     }
 }

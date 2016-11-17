@@ -1,16 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-          xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelGroupLayout id="pgl1" layout="scroll">
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+       <c:set var="appviewcontrollerBundle"
+              value="#{adfBundle['com.app.view.AppViewControllerBundle']}"/>
+       <af:panelGroupLayout id="pgl1" layout="scroll">
     <af:panelGroupLayout id="pgl2" layout="vertical">
       <af:panelGroupLayout id="pgl3" layout="vertical">
-        <af:outputText value="Your registration has been processed and an email has been sent to you."
+        <af:outputText value="#{appviewcontrollerBundle.YOUR_REGISTRATION_HAS_SUBMITTED}"
                        id="ot1" inlineStyle="font-size:25.0px;"/>
       </af:panelGroupLayout>
       <af:panelGroupLayout id="pgl4" layout="vertical">
         <af:panelFormLayout id="pfl1" rows="1" styleClass="serviceButton">
-          <af:commandButton text="#{appviewcontrollerbundle.p_login}"
+          <af:commandButton text="#{appviewcontrollerBundle.p_login}"
                             id="cb1" styleClass="btn-action" action="reglogin"/>
         </af:panelFormLayout>
       </af:panelGroupLayout>

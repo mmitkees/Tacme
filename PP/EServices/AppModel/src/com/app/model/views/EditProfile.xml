@@ -4,10 +4,9 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="EditProfile"
-  Version="11.1.1.64.93"
+  Version="11.1.1.66.73"
   InheritPersonalization="true"
   SelectList="PuPublicuser.FIRST_NAME, 
-       PuPublicuser.ROWID, 
        PuPublicuser.LAST_NAME, 
        PuPublicuser.FAMILY_NAME, 
        PuPublicuser.MOBILE, 
@@ -20,19 +19,14 @@
        PuPublicuser.EMIRATES_ID_EXPIRY, 
        PuPublicuser.ID, 
        PuPublicuser.PASSWORD, 
-       PuPublicuser.EMAIL"
+       PuPublicuser.EMAIL, 
+       PuPublicuser.DATE_OF_BIRTH"
   FromList="PU_PUBLICUSER PuPublicuser"
   Where="PuPublicuser.ID = :b_id"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
-  UseGlueCode="false"
-  RowClass="com.app.model.views.EditProfileRowImpl"
-  ComponentClass="com.app.model.views.EditProfileImpl">
-  <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access|Coll"/>
-    <Attr Name="_isCodegen" Value="true"/>
-  </DesignTime>
+  UseGlueCode="false">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -98,13 +92,6 @@
     EntityAttrName="FirstName"
     EntityUsage="PuPublicuser"
     AliasName="FIRST_NAME"/>
-  <ViewAttribute
-    Name="RowID"
-    IsUpdateable="false"
-    PrecisionRule="true"
-    EntityAttrName="RowID"
-    EntityUsage="PuPublicuser"
-    AliasName="ROWID"/>
   <ViewAttribute
     Name="LastName"
     PrecisionRule="true"
@@ -221,6 +208,12 @@ return 'LOV_Nationality_en';
     EntityAttrName="Email"
     EntityUsage="PuPublicuser"
     AliasName="EMAIL"/>
+  <ViewAttribute
+    Name="DateOfBirth"
+    PrecisionRule="true"
+    EntityAttrName="DateOfBirth"
+    EntityUsage="PuPublicuser"
+    AliasName="DATE_OF_BIRTH"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.app.model.AppModelBundle"/>

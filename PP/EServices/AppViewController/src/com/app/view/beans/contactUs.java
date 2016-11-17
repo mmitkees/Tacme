@@ -303,15 +303,19 @@ public class contactUs implements Serializable{
                         OperationBinding commitBinding =
                             bindings.getOperationBinding("Commit");
                         commitBinding.execute();
-                        ADFUtils au = new ADFUtils();
-                       EmailUtils.sendEmail((String)email, (String)subject,
-                                     (String)decription);
+                      String msg="";
+                       
                         if (locale.equals("en")){
+                            msg="Your message has been successfully sent >>>>> "+  getDecription() ;
                         getMessage("Your message has been successfully sent");
                         }
                         if (locale.equals("ar")){
+                            msg=" تم ارسال رسالتك بنجاح   >>>>"+ getDecription();
                             getMessage("تم ارسال رسالتك بنجاح");
                         }
+                        
+                        EmailUtils.sendEmail((String)email, (String)subject,
+                                      (String)msg);
                         //                        sendMail();
                         this.setName("");
                         this.setEmail("");

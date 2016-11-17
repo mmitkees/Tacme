@@ -205,8 +205,8 @@ public class CustomValidators implements Serializable {
             ADFUtils adfutils = new ADFUtils();
             ViewObject emiratesView =
                 adfutils.getApplicationModuleForDataControl("PPAppServicesDataControl").findViewObject("EmiratesListView1");
-            BigDecimal eidbig = new BigDecimal(object.toString());
-            emiratesView.setNamedWhereClauseParam("eid", eidbig);
+            //BigDecimal eidbig = new BigDecimal(object.toString());
+            emiratesView.setNamedWhereClauseParam("eid", object.toString());
             emiratesView.executeQuery();
             if (emiratesView.getEstimatedRowCount() != 0)
                 chk = "Y";

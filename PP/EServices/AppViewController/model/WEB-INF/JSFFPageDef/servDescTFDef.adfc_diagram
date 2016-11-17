@@ -54,9 +54,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">153.49414</property>
+         name="y">97.256836</property>
       <property
-         name="x">491.0</property>
+         name="x">480.0</property>
       <property
          name="pageFragment">true</property>
    </View>
@@ -85,7 +85,7 @@
       <property
          name="fromOutcome">en</property>
       <property
-         name="sdm:polyPoints">R46,157.0,162.09766,450.0,156.64355,L54</property>
+         name="sdm:polyPoints">R46,157.0,162.09766,439.0,100.40625,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -105,7 +105,7 @@
       <property
          name="fromOutcome">setCurrentsrchDescEN</property>
       <property
-         name="sdm:polyPoints">R50,234.35059,41.396484,450.0,149.64355,L46</property>
+         name="sdm:polyPoints">R50,234.35059,41.396484,439.0,93.40625,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -140,7 +140,7 @@
       <property
          name="fromOutcome">goservice</property>
       <property
-         name="sdm:polyPoints">R50,532.0,153.14355,604.6555,147.09766,L46</property>
+         name="sdm:polyPoints">R50,521.0,96.90625,606.0,147.09766,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -163,9 +163,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">210.44824</property>
+         name="y">173.74707</property>
       <property
-         name="x">-23.989258</property>
+         name="x">-36.989258</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -175,6 +175,6 @@
       <property
          name="fromOutcome">setServices</property>
       <property
-         name="sdm:polyPoints">R50,17.010742,210.09766,75.0,165.59766,L50</property>
+         name="sdm:polyPoints">R50,4.010742,173.39648,75.0,165.59766,L50</property>
    </ControlFlowCase>
 </SDM>

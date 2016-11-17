@@ -747,6 +747,9 @@
    <ViewUsage
       Name="RatingAdminVO1"
       ViewObjectName="com.app.model.views.servicerating.RatingAdminVO"/>
+   <ViewUsage
+      Name="LanguageROVO1"
+      ViewObjectName="com.app.model.views.readonly.LanguageROVO"/>
    <ViewLinkUsage
       Name="AttachementsToSubSMS1"
       ViewLinkObjectName="com.app.model.views.viewLink.AttachementsToSubSMS"

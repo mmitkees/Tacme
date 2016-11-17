@@ -34,11 +34,6 @@
         <Item Value="Mobile"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="EditProfile1Iterator" id="Dob">
-      <AttrNames>
-        <Item Value="Dob"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="EditProfile1Iterator" id="Education">
       <AttrNames>
         <Item Value="Education"/>
@@ -68,5 +63,10 @@
             RequiresUpdateModel="true" Action="commitTransaction"/>
     <list IterBinding="EditProfile1Iterator" StaticList="false"
           Uses="LOV_Nationality_en" id="Nationality" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="EditProfile1Iterator" id="DateOfBirth">
+      <AttrNames>
+        <Item Value="DateOfBirth"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

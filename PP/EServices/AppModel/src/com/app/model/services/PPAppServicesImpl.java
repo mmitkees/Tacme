@@ -2,8 +2,6 @@ package com.app.model.services;
 
 import com.app.model.services.common.PPAppServices;
 
-import com.app.model.views.EditProfileImpl;
-import com.app.model.views.PuPublicuserViewImpl;
 
 import com.app.model.views.searchLaw.*;
 
@@ -1878,7 +1876,7 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
                     ADFContext.getCurrent().getSessionScope().put("usermail",
                                                                   uem);
                     ADFContext.getCurrent().getSessionScope().put("dob",
-                                                                  lur.getAttribute("Dob"));
+                                                                  lur.getAttribute("DateOfBirth"));
                     String name =
                         lur.getAttribute("FirstName") + " " + lur.getAttribute("LastName");
                     ADFContext.getCurrent().getSessionScope().put("name",
@@ -3399,5 +3397,13 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
      */
     public ViewObjectImpl getRatingAdminVO1() {
         return (ViewObjectImpl)findViewObject("RatingAdminVO1");
+    }
+
+    /**
+     * Container's getter for LanguageROVO1.
+     * @return LanguageROVO1
+     */
+    public ViewObjectImpl getLanguageROVO1() {
+        return (ViewObjectImpl)findViewObject("LanguageROVO1");
     }
 }

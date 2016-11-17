@@ -5,12 +5,13 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="Review1" taskFlowId="/WEB-INF/JSFFPageDef/Review.xml#Review"
+    <taskFlow id="MistInJudgeMat1"
+              taskFlowId="/WEB-INF/JSFFPageDef/MistInJudgeMat.xml#MistInJudgeMat"
               activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding">
       <parameters>
-        <parameter id="key" value="en"/>
-        <parameter id="locale" value="22"/>
+        <parameter id="key" value="33"/>
+        <parameter id="locale" value="ar"/>
       </parameters>
     </taskFlow>
   </executables>

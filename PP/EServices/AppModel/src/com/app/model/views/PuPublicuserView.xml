@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="PuPublicuserView"
-  Version="11.1.1.64.93"
+  Version="11.1.1.66.73"
   InheritPersonalization="true"
   SelectList="PuPublicuser.ID, 
        PuPublicuser.EMAIL, 
@@ -35,18 +35,13 @@
        PuPublicuser.LAST_UPDATED_BY, 
        PuPublicuser.LAST_UPDATE_DATE, 
        PuPublicuser.RESET_PWD, 
-       PuPublicuser.ROWID"
+       PuPublicuser.DATE_OF_BIRTH"
+       
   FromList="PU_PUBLICUSER PuPublicuser"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
-  UseGlueCode="false"
-  RowClass="com.app.model.views.PuPublicuserViewRowImpl"
-  ComponentClass="com.app.model.views.PuPublicuserViewImpl">
-  <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
-    <Attr Name="_isCodegen" Value="true"/>
-  </DesignTime>
+  UseGlueCode="false">
   <ViewAccessor
     Name="CountryNationalityListVwView1"
     ViewObjectName="com.app.model.views.CountryNationalityListVwView"
@@ -58,6 +53,10 @@
   <ViewAccessor
     Name="CountryNationalityArabView1"
     ViewObjectName="com.app.model.views.CountryNationalityArabView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="LanguageROVO1"
+    ViewObjectName="com.app.model.views.readonly.LanguageROVO"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Nationality_en"
@@ -92,6 +91,24 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="NationalityNameE"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RegistrationLang"
+    ListVOName="LanguageROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RegistrationLang"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Lang_Key"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Lang_Value"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -224,13 +241,17 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="PuPublicuser"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+  </ViewAttribute>
   <ViewAttribute
     Name="ModifiedDate"
     PrecisionRule="true"
     EntityAttrName="ModifiedDate"
     EntityUsage="PuPublicuser"
-    AliasName="MODIFIED_DATE"/>
+    AliasName="MODIFIED_DATE">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+  </ViewAttribute>
   <ViewAttribute
     Name="StatusReason"
     PrecisionRule="true"
@@ -242,7 +263,15 @@
     PrecisionRule="true"
     EntityAttrName="RegistrationLang"
     EntityUsage="PuPublicuser"
-    AliasName="REGISTRATION_LANG"/>
+    AliasName="REGISTRATION_LANG"
+    LOVName="LOV_RegistrationLang">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ModifiedByPerson"
     PrecisionRule="true"
@@ -272,7 +301,9 @@
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="PuPublicuser"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
@@ -291,13 +322,6 @@
     EntityAttrName="ResetPwd"
     EntityUsage="PuPublicuser"
     AliasName="RESET_PWD"/>
-  <ViewAttribute
-    Name="RowID"
-    IsUpdateable="false"
-    PrecisionRule="true"
-    EntityAttrName="RowID"
-    EntityUsage="PuPublicuser"
-    AliasName="ROWID"/>
   <ViewAttribute
     Name="Language"
     IsSelected="false"
@@ -344,4 +368,10 @@ return 'LOV_Nationality_ar';
     SQLType="DATE">
     <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
   </ViewAttribute>
+  <ViewAttribute
+    Name="DateOfBirth"
+    PrecisionRule="true"
+    EntityAttrName="DateOfBirth"
+    EntityUsage="PuPublicuser"
+    AliasName="DATE_OF_BIRTH"/>
 </ViewObject>

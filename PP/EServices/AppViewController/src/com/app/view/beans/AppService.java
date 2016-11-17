@@ -219,8 +219,8 @@ public class AppService implements Serializable {
     private static ADFLogger _logger =
         ADFLogger.createADFLogger(AppService.class);
     private RichPopup loginPopupBind;
-    private String dob;
-    private String gdob;
+    private Date dob;
+    private Date gdob;
     private String ERR_Attach =
         ".pdf ,.gif,.jpeg,.doc,.txt <Need Input> Single File Size 2MB ; Total Of All File Size 10MB";
     private RichPanelGroupLayout cnopg;
@@ -262,7 +262,7 @@ public class AppService implements Serializable {
                     RichPopup.PopupHints hints = new RichPopup.PopupHints();
                     this.getLoginPopupBind().show(hints);
                     dob =
-(String)ADFContext.getCurrent().getSessionScope().get("dob");
+(Date)ADFContext.getCurrent().getSessionScope().get("dob");
                 } else {
                     this.setEflag("N");
                 }
@@ -286,21 +286,28 @@ public class AppService implements Serializable {
 
     public String DobDialList() {
         String locale = "";
-        Locale mylocale = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale mylocale=null;
+        try{
+         mylocale = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        }catch (Exception e){
+             mylocale=new Locale("ar");
+        }
         if (mylocale != null) {
             locale = mylocale.getLanguage();
         } else {
-            locale = "en";
+            locale = "ar";
         }
         //        locale = "en";
         String action = null;
         try {
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-            Date gdob1;
-            if (gdob != null) {
-                gdob1 = formatter.parse(gdob);
-                Date dob1 = formatter.parse(dob);
-                if (gdob1.compareTo(dob1) == 0) {
+//            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+//            Date gdob1;
+                System.out.println(dob);
+                System.out.println(gdob);
+            if (gdob != null || dob!=null) {
+//                gdob1 = formatter.parse(gdob);
+//                Date dob1 = formatter.parse(dob);
+                if (gdob.compareTo(dob) == 0) {
                     if ((ADFContext.getCurrent().getSessionScope().get("login") ==
                          null) ||
                         (ADFContext.getCurrent().getSessionScope().get("login") ==
@@ -314,6 +321,8 @@ public class AppService implements Serializable {
                         action = "service";
                     }
                 } else {
+                    System.out.println(dob);
+                    System.out.println(gdob);
                     if (locale.equals("en")) {
                         FacesMessage Message =
                             new FacesMessage("Invalid date of birth");
@@ -330,13 +339,23 @@ public class AppService implements Serializable {
                     }
                 }
             } else {
-                FacesMessage Message =
+                if (locale.equals("en")) {
+                    FacesMessage Message =
                     new FacesMessage("Please select the date of birth");
-                Message.setSeverity(FacesMessage.SEVERITY_ERROR);
-                FacesContext fc = FacesContext.getCurrentInstance();
-                fc.addMessage(null, Message);
+                    Message.setSeverity(FacesMessage.SEVERITY_ERROR);
+                    FacesContext fc = FacesContext.getCurrentInstance();
+                    fc.addMessage(null, Message);
+                }
+                if (locale.equals("ar")) {
+                    FacesMessage Message =
+                    new FacesMessage("اختر تاريخ الميلاد");
+                    Message.setSeverity(FacesMessage.SEVERITY_ERROR);
+                    FacesContext fc = FacesContext.getCurrentInstance();
+                    fc.addMessage(null, Message);
+                }
+                
             }
-        } catch (ParseException e) {
+        } catch (Exception e) {e.printStackTrace();
         }
         System.out.println("returned value is :: " + action);
         return action;
@@ -2357,7 +2376,7 @@ public class AppService implements Serializable {
         //        commit_action();
         ADFUtils afu = new ADFUtils();
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -2487,7 +2506,7 @@ public class AppService implements Serializable {
 
     public String depositMoneyaction() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -2613,7 +2632,7 @@ public class AppService implements Serializable {
 
     public String decisionAppealaction() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -2738,7 +2757,7 @@ public class AppService implements Serializable {
 
     public String disburseInterpreteraction() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -2861,7 +2880,7 @@ public class AppService implements Serializable {
 
     public String disbExpFeeInterpreteraction() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -2982,7 +3001,7 @@ public class AppService implements Serializable {
 
     public String endCustAgaJuveaction() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -3109,7 +3128,7 @@ public class AppService implements Serializable {
 
     public String appealaction() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -3228,7 +3247,7 @@ public class AppService implements Serializable {
 
     public String fine_retreive_req_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -3347,7 +3366,7 @@ public class AppService implements Serializable {
 
     public String lawyer_profile_req_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -3475,7 +3494,7 @@ public class AppService implements Serializable {
      */
     public String Exe_Bill_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -3598,7 +3617,7 @@ public class AppService implements Serializable {
      */
     public String Ref_inm_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -3729,7 +3748,7 @@ public class AppService implements Serializable {
      */
     public String collect_doc_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -3845,7 +3864,7 @@ public class AppService implements Serializable {
     public String pay_fine_imp_court_action() {
         String s = "Y";
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
         ViewObject reqview = getAm().findViewObject("ReqRequestsView12");
@@ -3962,7 +3981,7 @@ public class AppService implements Serializable {
 
     public String pay_lawyer_fee_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -4088,7 +4107,7 @@ public class AppService implements Serializable {
 
     public String prov_fin_per_bail_fee_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -4212,7 +4231,7 @@ public class AppService implements Serializable {
 
     public String rec_corpse_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -4330,7 +4349,7 @@ public class AppService implements Serializable {
 
     public String rec_Review_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -4451,7 +4470,7 @@ public class AppService implements Serializable {
     public String rec_CaseCopy1_action() {
         String s = "Y";
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
         ViewObject reqview = getAm().findViewObject("ReqRequestsView19");
@@ -4568,7 +4587,7 @@ public class AppService implements Serializable {
 
     public String copy_judge_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        //        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        //        Locale localel = getTheCurrentLocale();
         //        String locale = localel.toString();
         String locale = "en";
         String s = "Y";
@@ -4688,7 +4707,7 @@ public class AppService implements Serializable {
 
     public String cpy_ns_ordr_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        //        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        //        Locale localel = getTheCurrentLocale();
         //        String locale = localel.toString();
         String locale = "en";
         String s = "Y";
@@ -4875,7 +4894,7 @@ public class AppService implements Serializable {
 
     public String adj_sess_new_dte_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -5006,7 +5025,7 @@ public class AppService implements Serializable {
 
     public String rec_of_seizure_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -5183,7 +5202,7 @@ public class AppService implements Serializable {
 
     public String DCIP_Due_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -5296,7 +5315,7 @@ public class AppService implements Serializable {
 
     public String Exhumation_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -5415,7 +5434,7 @@ public class AppService implements Serializable {
 
     public String EoPCase_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -5544,7 +5563,7 @@ public class AppService implements Serializable {
 
     public String FdReimbursement_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -5663,7 +5682,7 @@ public class AppService implements Serializable {
 
     public String Req_MeetProcse_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -5797,7 +5816,7 @@ public class AppService implements Serializable {
 
     public String OpenofMem_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -5935,7 +5954,7 @@ public class AppService implements Serializable {
 
     public String PPRenewal_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -6063,7 +6082,7 @@ public class AppService implements Serializable {
 
     public String PaymentinsCourt_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //                String locale = "en";
         String s = "Y";
@@ -6199,7 +6218,7 @@ public class AppService implements Serializable {
 
     public String PCopyCasedropingdec_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        //        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        //        Locale localel = getTheCurrentLocale();
         //        String locale = localel.toString();
         String locale = "en";
         String s = "Y";
@@ -6319,7 +6338,7 @@ public class AppService implements Serializable {
 
     public String PostponeOffreedom_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -6440,7 +6459,7 @@ public class AppService implements Serializable {
 
     public String receving_Deposit_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -7500,21 +7519,9 @@ public class AppService implements Serializable {
         return loginPopupBind;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
 
-    public String getDob() {
-        return dob;
-    }
 
-    public void setGdob(String gdob) {
-        this.gdob = gdob;
-    }
 
-    public String getGdob() {
-        return gdob;
-    }
 
     public void setExhumationUPFilebind(RichInputFile ExhumationUPFilebind) {
         this.ExhumationUPFilebind = ExhumationUPFilebind;
@@ -7563,10 +7570,19 @@ public class AppService implements Serializable {
         }
         return null;
     }
-
+    public Locale getTheCurrentLocale(){
+        Locale mylocale =new Locale("ar");
+        try{
+         mylocale = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        }catch (Exception e){
+             mylocale=new Locale("ar");
+        }
+        return mylocale;
+    }
     public String Waiv_Encl_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
+        
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -7773,7 +7789,7 @@ public class AppService implements Serializable {
     public String visit_prov_det_action() {
         String s = "Y";
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -8021,7 +8037,7 @@ public class AppService implements Serializable {
 
     public String sub_obj_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         if (key.equals("38")) {
             String s = "Y";
@@ -8406,7 +8422,7 @@ public class AppService implements Serializable {
 
     public String sub_sms_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -8612,7 +8628,7 @@ public class AppService implements Serializable {
 
     public String whom_it_may_cncrn_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -8821,7 +8837,7 @@ public class AppService implements Serializable {
 
     public String Case_Information_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -9002,7 +9018,7 @@ public class AppService implements Serializable {
 
     public String Service1_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -9270,7 +9286,7 @@ public class AppService implements Serializable {
 
     public String srch_cncl_wrnt_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -9448,7 +9464,7 @@ public class AppService implements Serializable {
 
     public String ret_bail_amnt_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -9657,7 +9673,7 @@ public class AppService implements Serializable {
 
     public String rehabil_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -9869,7 +9885,7 @@ public class AppService implements Serializable {
 
     public String rec_pprt_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -10240,7 +10256,7 @@ public class AppService implements Serializable {
 
     public String int_arst_wrnt_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -10522,7 +10538,7 @@ public class AppService implements Serializable {
 
     public String appeal_cassation_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -10699,7 +10715,7 @@ public class AppService implements Serializable {
     }
 
     public String Submit_action() {
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         if (this.getBind_efn().getValue() != null &&
@@ -10783,34 +10799,99 @@ public class AppService implements Serializable {
                 String result = (String)operationBinding.execute();
                 if (result != null) {
                     if (result.equals("Y")) {
+                        String locale = "";
+                        String msg = "";
+                        try {
+                            locale =
+                                    ((Locale)ADFUtils.evaluateEL("#{pageFlowScope.locale}")).toString();
+                        } catch (Exception e) {
+                            locale = "ar";
+                        }
+                        if (locale == "en") {
+                            msg =
+                            "Password has been changed";
+                        } else {
+                            msg =
+                            "تم تغير كلمة المرور الخاصة بك  ";
+                           
+                        }
                         commit_action();
                         String email =
                             (String)ADFContext.getCurrent().getSessionScope().get("usermail");
-                        EmailUtils.sendEmail(email, "Password has been changed",
-                                           "Password has been changed");
+                        EmailUtils.sendEmail(email, msg,msg);
                         FacesMessage Message =
-                            new FacesMessage("Your password has been changed successfully");
+                            new FacesMessage(msg);
                         Message.setSeverity(FacesMessage.SEVERITY_INFO);
                         FacesContext fc = FacesContext.getCurrentInstance();
                         fc.addMessage(null, Message);
                     }
                     if (result.equals("N")) {
+                        String locale = "";
+                        String msg = "";
+                        try {
+                            locale =
+                                    ((Locale)ADFUtils.evaluateEL("#{pageFlowScope.locale}")).toString();
+                        } catch (Exception e) {
+                            locale = "ar";
+                        }
+                        if (locale == "en") {
+                            msg =
+                            "Cannot able to submit the request. Please get in touch with the administrator";
+                        } else {
+                            msg =
+                            "لم نستطيع تغير كلمة المرور يرجى الرجوع إلى  خدمة الدعم الفني للموقع ";
+                           
+                        }
                         FacesMessage Message =
-                            new FacesMessage("Cannot able to submit the request. Please get in touch with the administrator");
+                            new FacesMessage(msg);
                         Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                         FacesContext fc = FacesContext.getCurrentInstance();
                         fc.addMessage(null, Message);
                     }
                     if (result.equals("nomatchpwrd")) {
+                        String locale = "";
+                        String msg = "";
+                        try {
+                            locale =
+                                    ((Locale)ADFUtils.evaluateEL("#{pageFlowScope.locale}")).toString();
+                        } catch (Exception e) {
+                            locale = "ar";
+                        }
+                        if (locale == "en") {
+                            msg =
+                            "Confirm password does not match the New Pasword";
+                        } else {
+                            msg =
+                            "تأكيد كلمة المرور ليست ك كلمة المرور الجديدة ";
+                           
+                        }
                         FacesMessage Message =
-                            new FacesMessage("Confirm password does not match the New Pasword");
+                            new FacesMessage(msg);
+                       
                         Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                         FacesContext fc = FacesContext.getCurrentInstance();
                         fc.addMessage(null, Message);
                     }
                     if (result.equals("wrongcurrpwrd")) {
+                        String locale = "";
+                        String msg = "";
+                        try {
+                            locale =
+                                    ((Locale)ADFUtils.evaluateEL("#{pageFlowScope.locale}")).toString();
+                        } catch (Exception e) {
+                            locale = "ar";
+                        }
+                        if (locale == "en") {
+                            msg =
+                            "Current password is wrong";
+                        } else {
+                            msg =
+                            "كلمة المرور الحالية خطأ  ";
+                           
+                        }
                         FacesMessage Message =
-                            new FacesMessage("Current password is wrong");
+                            new FacesMessage(msg);
+                       
                         Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                         FacesContext fc = FacesContext.getCurrentInstance();
                         fc.addMessage(null, Message);
@@ -11024,7 +11105,7 @@ public class AppService implements Serializable {
 
     public String submitAction() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
-        Locale localel = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        Locale localel = getTheCurrentLocale();
         String locale = localel.toString();
         //        String locale = "en";
         String s = "Y";
@@ -12047,6 +12128,22 @@ public class AppService implements Serializable {
 
     public String getMc() {
         return mc;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setGdob(Date gdob) {
+        this.gdob = gdob;
+    }
+
+    public Date getGdob() {
+        return gdob;
     }
 }
 

@@ -86,71 +86,101 @@
     <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
-    <![CDATA[select * from prc_public_cases_vw]]>
+    <![CDATA[SELECT CASEID,
+  CASENUMBER,
+  CASEYEAR,
+  CASEDATE,
+  LOCATIONNAME,
+  LOCATIONID,
+  SUBJECT,
+  STATUSDATE,
+  CASESTATUS,
+  CASECATEGORY,
+  CASESTATUSID,
+  CASETYPE,
+  CASEWITH
+FROM PRC_PUBLIC_CASES_VW]]>
   </SQLQuery>
   <ViewAttribute
-    Name="Language"
-    IsSelected="false"
+    Name="Caseid"
+    IsUpdateable="false"
     IsPersistent="false"
+    IsNotNull="true"
     PrecisionRule="true"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR">
-    <TransientExpression><![CDATA[adf.context.expressionEvaluator.evaluate('#{pageFlowScope.locale}')]]></TransientExpression>
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="CASEID"
+    Expression="CASEID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="ProcecutionLOVSwitcher"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR">
-    <TransientExpression><![CDATA[if (Language != null && Language == 'ar'){
-return 'LOV_pn_ar';
-}else{
-return 'LOV_pn_en';
-}]]></TransientExpression>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Subject"
+    Name="Casenumber"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.lang.String"
-    ColumnType="CHAR"
-    AliasName="SUBJECT"
-    Expression="SUBJECT"
-    SQLType="VARCHAR">
+    Precision="8"
+    Scale="0"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="CASENUMBER"
+    Expression="CASENUMBER"
+    SQLType="INTEGER">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="4000"/>
+      <Attr Name="_DisplaySize" Value="9"/>
     </DesignTime>
-    <Properties>
+     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.app.model.views.CasesViewObj.Subject_LABEL"/>
+          ResId="com.app.model.views.CasesViewObj.Casenumber_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="Statusdate"
+    Name="Caseyear"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
+    Precision="4"
+    Scale="0"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="CASEYEAR"
+    Expression="CASEYEAR"
+    SQLType="INTEGER"
+    LOVName="LOV_Caseyear">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+   <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.app.model.views.CasesViewObj.Caseyear_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Casedate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
     Type="java.sql.Date"
     ColumnType="DATE"
-    AliasName="STATUSDATE"
-    Expression="STATUSDATE"
-    SQLType="TIMESTAMP">
+    AliasName="CASEDATE"
+    Expression="CASEDATE"
+    SQLType="DATE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
-    <Properties>
+     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.app.model.views.CasesViewObj.Statusdate_LABEL"/>
+          ResId="com.app.model.views.CasesViewObj.Casedate_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -168,7 +198,7 @@ return 'LOV_pn_en';
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
-    <Properties>
+     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.app.model.views.CasesViewObj.Locationname_LABEL"/>
@@ -178,21 +208,21 @@ return 'LOV_pn_en';
   <ViewAttribute
     Name="Locationid"
     IsUpdateable="false"
-    LOVName="LOV_pn_en"
-    LOVFinder="ProcecutionLOVSwitcher"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     AliasName="LOCATIONID"
     Expression="LOCATIONID"
-    SQLType="NUMERIC">
+    SQLType="NUMERIC"
+    LOVName="LOV_pn_en"
+    LOVFinder="ProceecutionLOVSwitcher">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
+       <LABEL
           ResId="com.app.model.views.CasesViewObj.Locationid_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
@@ -200,27 +230,120 @@ return 'LOV_pn_en';
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="Caseyear"
+    Name="Subject"
     IsUpdateable="false"
-    LOVName="LOV_Caseyear"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SUBJECT"
+    Expression="SUBJECT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+        <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.app.model.views.CasesViewObj.Subject_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Statusdate"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Precision="4"
-    Scale="0"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    AliasName="CASEYEAR"
-    Expression="CASEYEAR"
-    SQLType="NUMERIC">
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="STATUSDATE"
+    Expression="STATUSDATE"
+    SQLType="DATE">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="5"/>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+     <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.app.model.views.CasesViewObj.Statusdate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Casestatus"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CASESTATUS"
+    Expression="CASESTATUS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+        <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.app.model.views.CasesViewObj.Casestatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Casecategory"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CASECATEGORY"
+    Expression="CASECATEGORY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.app.model.views.CasesViewObj.Caseyear_LABEL"/>
-        <CONTROLTYPE
-          Value="choice"/>
+          ResId="com.app.model.views.CasesViewObj.Casecategory_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Casestatusid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="CASESTATUSID"
+    Expression="CASESTATUSID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Casetype"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CASETYPE"
+    Expression="CASETYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+     <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.app.model.views.CasesViewObj.Casetype_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -246,137 +369,31 @@ return 'LOV_pn_en';
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="Casetype"
+    Name="Language"
     IsUpdateable="false"
+    IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Precision="255"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    AliasName="CASETYPE"
-    Expression="CASETYPE"
+    AliasName="VIEW_ATTR"
     SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="255"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.app.model.views.CasesViewObj.Casetype_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
+    <TransientExpression><![CDATA[adf.context.expressionEvaluator.evaluate('#{pageFlowScope.locale}')]]></TransientExpression>
   </ViewAttribute>
   <ViewAttribute
-    Name="Casestatusid"
-    IsUpdateable="false"
+    Name="ProceecutionLOVSwitcher"
+    IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    AliasName="CASESTATUSID"
-    Expression="CASESTATUSID"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Casestatus"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="240"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    AliasName="CASESTATUS"
-    Expression="CASESTATUS"
+    AliasName="VIEW_ATTR"
     SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="240"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.app.model.views.CasesViewObj.Casestatus_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Casenumber"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="8"
-    Scale="0"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    AliasName="CASENUMBER"
-    Expression="CASENUMBER"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="9"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.app.model.views.CasesViewObj.Casenumber_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Caseid"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    AliasName="CASEID"
-    Expression="CASEID"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Casedate"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.sql.Date"
-    ColumnType="DATE"
-    AliasName="CASEDATE"
-    Expression="CASEDATE"
-    SQLType="TIMESTAMP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="7"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.app.model.views.CasesViewObj.Casedate_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Casecategory"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="240"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="CASECATEGORY"
-    Expression="CASECATEGORY"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="240"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.app.model.views.CasesViewObj.Casecategory_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
+    <TransientExpression><![CDATA[if (Language != null && Language == 'ar'){
+return 'LOV_pn_ar';
+}else{
+return 'LOV_pn_en';
+}]]></TransientExpression>
   </ViewAttribute>
   <ViewCriteria
     Name="CasesViewObjCriteria"
@@ -402,23 +419,23 @@ return 'LOV_pn_en';
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
-      Name="vcrow13"
+      Name="vcrow18"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="Locationid"
-        ViewAttribute="Locationid"
+        Name="Casenumber"
+        ViewAttribute="Casenumber"
         Operator="="
         Conjunction="AND"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="CasesViewObjCriteria_vcrow13_Caseyear_CasesViewObjCriteria_vcrow13_Caseyear_itemHolder_vcrow15_Caseyear"
+        Name="Caseyear"
         ViewAttribute="Caseyear"
         Operator="="
         Conjunction="AND"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="Casenumber"
-        ViewAttribute="Casenumber"
+        Name="Locationid"
+        ViewAttribute="Locationid"
         Operator="="
         Conjunction="AND"
         Required="Optional"/>

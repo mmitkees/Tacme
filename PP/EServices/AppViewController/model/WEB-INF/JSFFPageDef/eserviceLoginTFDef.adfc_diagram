@@ -7,7 +7,7 @@
       <property
          name="activityId">Login</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/Login.jsff</property>
+         name="page">/WEB-INF/jsf_pages/Login.jsff</property>
       <property
          name="start">true</property>
       <property
@@ -17,9 +17,9 @@
       <property
          name="y">95.09766</property>
       <property
-         name="x">175.5</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">175.5</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn5">
@@ -51,7 +51,7 @@
       <property
          name="activityId">ForgetPassword</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/ForegetPassword.jsff</property>
+         name="page">/WEB-INF/jsf_pages/ForegetPassword.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ForgetPassword&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -59,16 +59,16 @@
       <property
          name="y">259.89648</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">105.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View6">
       <property
          name="activityId">NewUser</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/NewUser.jsff</property>
+         name="page">/WEB-INF/jsf_pages/NewUser.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>NewUser&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -76,9 +76,9 @@
       <property
          name="y">259.6836</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">410.5</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -148,7 +148,7 @@
       <property
          name="activityId">regSuccess</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/regSuccess.jsff</property>
+         name="page">/WEB-INF/jsf_pages/regSuccess.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>regSuccess&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -156,9 +156,9 @@
       <property
          name="y">177.84473</property>
       <property
-         name="x">538.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">538.0</property>
    </View>
    <ControlFlowCase
       islink="true"
