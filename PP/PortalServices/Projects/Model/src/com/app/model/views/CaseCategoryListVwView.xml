@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CaseCategoryListVwView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="CaseCategoryListVw.CASE_CATEGORY_ID, 
+       CaseCategoryListVw.CASE_CATEGORY_DESC, 
+       CaseCategoryListVw.ROWID"
+  FromList="CASE_CATEGORY_LIST_VW CaseCategoryListVw"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="CaseCategoryListVw"
+    Entity="com.app.model.entities.CaseCategoryListVw"/>
+  <ViewAttribute
+    Name="CaseCategoryId"
+    PrecisionRule="true"
+    EntityAttrName="CaseCategoryId"
+    EntityUsage="CaseCategoryListVw"
+    AliasName="CASE_CATEGORY_ID"/>
+  <ViewAttribute
+    Name="CaseCategoryDesc"
+    PrecisionRule="true"
+    EntityAttrName="CaseCategoryDesc"
+    EntityUsage="CaseCategoryListVw"
+    AliasName="CASE_CATEGORY_DESC"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="CaseCategoryListVw"
+    AliasName="ROWID"/>
+</ViewObject>

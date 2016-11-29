@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+
+<JboProject
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="AppModel"
+   Version="11.1.1.66.73"
+   SeparateXMLFiles="true"
+   PackageName="com.app.model">
+   <DesignTime>
+      <Attr Name="_jprName" Value="../../../../PP-Model.jpr"/>
+      <Attr Name="_appModuleNames0"
+         Value="com.app.model.services.PPAppServices"/>
+      <Attr Name="_jbo.TypeMapEntries" Value="Java"/>
+      <Attr Name="_NamedConnection" Value="ppdev"/>
+   </DesignTime>
+   <Containee
+      Name="Assoc"
+      PackageName="com.app.model.Assoc"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AS" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="servicerating"
+      PackageName="com.app.model.Assoc.servicerating"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AS" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="DBviews"
+      PackageName="com.app.model.DBviews"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_EO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="entities"
+      PackageName="com.app.model.entities"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_EO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="servicerating"
+      PackageName="com.app.model.entities.servicerating"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_EO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="services"
+      PackageName="com.app.model.services"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AM" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="readonly"
+      PackageName="com.app.model.views.readonly"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="searchLaw"
+      PackageName="com.app.model.views.searchLaw"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="servicerating"
+      PackageName="com.app.model.views.servicerating"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="viewLink"
+      PackageName="com.app.model.views.viewLink"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VL" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="views"
+      PackageName="com.app.model.views"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <AppContainee
+      Name="Model"
+      FullName="model.Model"
+      ObjectType="JboProject"/>
+</JboProject>

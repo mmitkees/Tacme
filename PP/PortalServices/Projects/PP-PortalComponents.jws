@@ -19,6 +19,7 @@
    </hash>
    <list n="listOfChildren">
       <hash><url n="URL" path="common/common.jpr"/></hash>
+      <hash><url n="URL" path="Model/PP-Model.jpr"/></hash>
       <hash><url n="URL" path="NewsLetterBC/NewsLetterBC.jpr"/></hash>
       <hash><url n="URL" path="NewsLetterVC/NewsLetterVC.jpr"/></hash>
       <hash><url n="URL" path="SuggestionsComplainsBC/SuggestionsComplainsBC.jpr"/></hash>

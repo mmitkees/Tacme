@@ -35,5 +35,8 @@
                      SupportsSortCollection="true"
                      Configuration="SNVAppModuleLocal" syncMode="Immediate"
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="PPAppServicesDataControl" Package="com.app.model.services" FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true" SupportsSortCollection="true"
+                     Configuration="PPAppServicesLocal" syncMode="Immediate" xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
   </dataControlUsages>
 </Application>

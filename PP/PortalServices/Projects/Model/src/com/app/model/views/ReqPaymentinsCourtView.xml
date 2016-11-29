@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReqPaymentinsCourtView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  FromList="REQ_INSTALLMENT_OF_FINE ReqInstallmentOfFine"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  SelectList="ReqInstallmentOfFine.CASE_INFO, 
+       ReqInstallmentOfFine.FINE_AMOUNT, 
+       ReqInstallmentOfFine.NO_OF_INSTALLS, 
+       ReqInstallmentOfFine.REQ_ID, 
+       ReqInstallmentOfFine.SPONSORED_PERSON_NAME">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="CaseYearStatic1"
+    ViewObjectName="com.app.model.views.CaseYearStatic"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProsecutionListVwView1"
+    ViewObjectName="com.app.model.views.ProsecutionListVwView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RelationCaseStatic1"
+    ViewObjectName="com.app.model.views.RelationCaseStatic"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProsecutionListView1"
+    ViewObjectName="com.app.model.views.ProsecutionListView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RelationCaseARStatic1"
+    ViewObjectName="com.app.model.views.RelationCaseARStatic"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="installmentListView1"
+    ViewObjectName="com.app.model.views.installmentListView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CaseYear"
+    ListVOName="CaseYearStatic1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_CaseYear_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CaseYear"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_pn_ar"
+    ListVOName="ProsecutionListVwView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_pn_ar_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Prosecutionname"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProsecutionId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProsecutionName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Relationcase_en"
+    ListVOName="RelationCaseStatic1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Relationcase_en_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Relationcase"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_pn_en"
+    ListVOName="ProsecutionListView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_pn_en_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Prosecutionname"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProsecutionId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProsecutionName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Relationcase_ar"
+    ListVOName="RelationCaseARStatic1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Relationcase_ar_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Relationcase"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_NoOfInstalls"
+    ListVOName="installmentListView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_NoOfInstalls_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NoOfInstalls"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ReqInstallmentOfFine"
+    Entity="com.app.model.entities.ReqInstallmentOfFine"
+    DeleteParticipant="false"/>
+  <ViewAttribute
+    Name="CaseNo"    
+    PrecisionRule="true"
+    AliasName="CASE_NO"
+    IsSelected="false"
+    IsPersistent="false"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="$none$"
+    SQLType="$none$"/>
+  <ViewAttribute
+    Name="CaseYear"    
+    PrecisionRule="true"
+    AliasName="CASE_YEAR"
+    LOVName="LOV_CaseYear"
+    IsSelected="false"
+    IsPersistent="false"
+    Precision="4"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Prosecutionname"    
+    PrecisionRule="true"
+    AliasName="PROSECUTIONNAME"
+    LOVName="LOV_pn_ar"
+    LOVFinder="LOVSwitcherPros"
+    IsSelected="false"
+    IsPersistent="false"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR">
+    <Dependencies>
+      <Item
+        Value="Language"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Relationcase"    
+    PrecisionRule="true"
+    AliasName="RELATIONCASE"
+    LOVName="LOV_Relationcase_ar"
+    LOVFinder="LOVSwitcherRel"
+    IsSelected="false"
+    IsPersistent="false"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Language"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[adf.context.expressionEvaluator.evaluate('#{pageFlowScope.locale}')]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LOVSwitcherPros"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[if (Language=='ar'){
+return 'LOV_pn_ar';
+}else{
+return 'LOV_pn_en';
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Language"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LOVSwitcherRel"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if (Language=='ar'){
+return 'LOV_Relationcase_ar';
+}else{
+return 'LOV_Relationcase_en';
+}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Language"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CaseInfo"
+    PrecisionRule="true"
+    EntityAttrName="CaseInfo"
+    EntityUsage="ReqInstallmentOfFine"
+    AliasName="CASE_INFO"/>
+  <ViewAttribute
+    Name="FineAmount"
+    PrecisionRule="true"
+    EntityAttrName="FineAmount"
+    EntityUsage="ReqInstallmentOfFine"
+    AliasName="FINE_AMOUNT"/>
+  <ViewAttribute
+    Name="NoOfInstalls"
+    PrecisionRule="true"
+    EntityAttrName="NoOfInstalls"
+    EntityUsage="ReqInstallmentOfFine"
+    AliasName="NO_OF_INSTALLS"
+    LOVName="LOV_NoOfInstalls">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ReqId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ReqId"
+    EntityUsage="ReqInstallmentOfFine"
+    AliasName="REQ_ID"/>
+  <ViewAttribute
+    Name="SponsoredPersonName"
+    PrecisionRule="true"
+    EntityAttrName="SponsoredPersonName"
+    EntityUsage="ReqInstallmentOfFine"
+    AliasName="SPONSORED_PERSON_NAME"/>
+  <ViewLinkAccessor
+    Name="ReqAttachmentsView"
+    ViewLink="com.app.model.views.viewLink.AttachmentToPBInstalCourt"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ReqRequestsView"
+    ViewLink="com.app.model.views.viewLink.RequestToPBInstalCourt"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ReqFinebalanceInstallmentsView"
+    ViewLink="com.app.model.views.viewLink.fnBaltoReqPayins"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.app.model.AppModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -21,10 +21,6 @@
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
   </DesignTime>
   <ViewAccessor
-    Name="type1"
-    ViewObjectName="com.pp.component.model.snc.views.type"
-    RowLevelBinds="true"/>
-  <ViewAccessor
     Name="typeVO1"
     ViewObjectName="com.pp.component.model.snc.views.typeVO"
     RowLevelBinds="true"/>
@@ -133,42 +129,36 @@
         ViewAttribute="Id"
         Operator="="
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="ComplainsSuggestionsViewCriteria_vcrow8_SenderName"
         ViewAttribute="SenderName"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="ComplainsSuggestionsViewCriteria_vcrow8_SendDate"
         ViewAttribute="SendDate"
         Operator="BETWEEN"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="ComplainsSuggestionsViewCriteria_vcrow8_SenderEmail"
         ViewAttribute="SenderEmail"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="ComplainsSuggestionsViewCriteria_vcrow8_MessageBody"
         ViewAttribute="MessageBody"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="ComplainsSuggestionsViewCriteria_vcrow8_MessageType"
         ViewAttribute="MessageType"
         Operator="="
         Conjunction="AND"
-        Value=""
         GenerateIsNullClauseForBindVars="false"
         Required="Optional">
         <Properties>

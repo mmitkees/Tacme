@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EdhirahmCodeView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="EdhirahmCode.UNIQUE_ID, 
+       EdhirahmCode.CODE_KEY, 
+       EdhirahmCode.SERVICE_CODE, 
+       EdhirahmCode.ROWID"
+  FromList="EDHIRAHM_CODE EdhirahmCode"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="UNIQUE_ID = :puid">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <Variable
+    Name="puid"
+    Kind="where"
+    Type="java.math.BigDecimal"/>
+  <EntityUsage
+    Name="EdhirahmCode"
+    Entity="com.app.model.entities.EdhirahmCode"/>
+  <ViewAttribute
+    Name="UniqueId"
+    PrecisionRule="true"
+    EntityAttrName="UniqueId"
+    EntityUsage="EdhirahmCode"
+    AliasName="UNIQUE_ID"/>
+  <ViewAttribute
+    Name="CodeKey"
+    PrecisionRule="true"
+    EntityAttrName="CodeKey"
+    EntityUsage="EdhirahmCode"
+    AliasName="CODE_KEY"/>
+  <ViewAttribute
+    Name="ServiceCode"
+    PrecisionRule="true"
+    EntityAttrName="ServiceCode"
+    EntityUsage="EdhirahmCode"
+    AliasName="SERVICE_CODE"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="EdhirahmCode"
+    AliasName="ROWID"/>
+</ViewObject>

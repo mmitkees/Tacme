@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReqExchangeBillView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="ReqExchangeBill.REQ_ID, 
+       ReqExchangeBill.CASE_NO, 
+       ReqExchangeBill.CASEYEAR, 
+       ReqExchangeBill.PROSECUTIONNAME, 
+       ReqExchangeBill.RELATION_WITH_CASE, 
+       ReqExchangeBill.ACCUSEDNAME"
+  FromList="REQ_EXCHANGE_BILL ReqExchangeBill"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="ReqExchangeBill"
+    Entity="com.app.model.entities.ReqExchangeBill"/>
+  <ViewAttribute
+    Name="ReqId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ReqId"
+    EntityUsage="ReqExchangeBill"
+    AliasName="REQ_ID"/>
+  <ViewAttribute
+    Name="CaseNo"
+    PrecisionRule="true"
+    EntityAttrName="CaseNo"
+    EntityUsage="ReqExchangeBill"
+    AliasName="CASE_NO"/>
+  <ViewAttribute
+    Name="Caseyear"
+    PrecisionRule="true"
+    EntityAttrName="Caseyear"
+    EntityUsage="ReqExchangeBill"
+    AliasName="CASEYEAR"/>
+  <ViewAttribute
+    Name="Prosecutionname"
+    PrecisionRule="true"
+    EntityAttrName="Prosecutionname"
+    EntityUsage="ReqExchangeBill"
+    AliasName="PROSECUTIONNAME"/>
+  <ViewAttribute
+    Name="RelationWithCase"
+    PrecisionRule="true"
+    EntityAttrName="RelationWithCase"
+    EntityUsage="ReqExchangeBill"
+    AliasName="RELATION_WITH_CASE"/>
+  <ViewAttribute
+    Name="Accusedname"
+    PrecisionRule="true"
+    EntityAttrName="Accusedname"
+    EntityUsage="ReqExchangeBill"
+    AliasName="ACCUSEDNAME"/>
+</ViewObject>

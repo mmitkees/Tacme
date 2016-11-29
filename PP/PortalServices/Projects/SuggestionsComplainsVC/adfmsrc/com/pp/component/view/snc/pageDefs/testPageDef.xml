@@ -8,15 +8,17 @@
     <taskFlow id="SuggestionsViewer1"
               taskFlowId="/WEB-INF/com/pp/component/snc/SuggestionsViewer.xml#SuggestionsViewer"
               activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <taskFlow id="SuggestionAdmin1"
-              taskFlowId="/WEB-INF/com/pp/component/snc/Admin/SuggestionAdmin.xml#SuggestionAdmin"
-              activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <taskFlow id="SuggestionAdmin2"
-              taskFlowId="/WEB-INF/com/pp/component/snc/Admin/SuggestionAdmin.xml#SuggestionAdmin"
-              activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="locale" value="ar"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="SuggestionsViewer2" taskFlowId="/WEB-INF/com/pp/component/snc/SuggestionsViewer.xml#SuggestionsViewer" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="locale" value="ar"/>
+      </parameters>
+    </taskFlow>
   </executables>
   <bindings/>
 </pageDefinition>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReqTransactionAssoc"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="ReqRequests"
+    Cardinality="1"
+    Source="true"
+    Owner="com.app.model.entities.ReqRequests"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ReqRequests"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.app.model.entities.ReqRequests.ReqId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="TransactionDetails"
+    Cardinality="1"
+    Owner="com.app.model.entities.TransactionDetails">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="TransactionDetails"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.app.model.entities.TransactionDetails.ReqId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

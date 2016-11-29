@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReqCaseInfoView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="ReqCaseInfo.CASE_ID, 
+       ReqCaseInfo.CASE_NUMBER, 
+       ReqCaseInfo.CASE_YEAR, 
+       ReqCaseInfo.CASE_TYPE, 
+       ReqCaseInfo.CASE_CITY_ID, 
+       ReqCaseInfo.RELATION, 
+       ReqCaseInfo.ORA_CASE_ID, 
+       ReqCaseInfo.ORA_PARTY_ID"
+  FromList="REQ_CASE_INFO ReqCaseInfo"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="ReqCaseInfo"
+    Entity="com.app.model.entities.ReqCaseInfo"/>
+  <ViewAttribute
+    Name="CaseId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaseId"
+    EntityUsage="ReqCaseInfo"
+    AliasName="CASE_ID"/>
+  <ViewAttribute
+    Name="CaseNumber"
+    PrecisionRule="true"
+    EntityAttrName="CaseNumber"
+    EntityUsage="ReqCaseInfo"
+    AliasName="CASE_NUMBER"/>
+  <ViewAttribute
+    Name="CaseYear"
+    PrecisionRule="true"
+    EntityAttrName="CaseYear"
+    EntityUsage="ReqCaseInfo"
+    AliasName="CASE_YEAR"/>
+  <ViewAttribute
+    Name="CaseType"
+    PrecisionRule="true"
+    EntityAttrName="CaseType"
+    EntityUsage="ReqCaseInfo"
+    AliasName="CASE_TYPE"/>
+  <ViewAttribute
+    Name="CaseCityId"
+    PrecisionRule="true"
+    EntityAttrName="CaseCityId"
+    EntityUsage="ReqCaseInfo"
+    AliasName="CASE_CITY_ID"/>
+  <ViewAttribute
+    Name="Relation"
+    PrecisionRule="true"
+    EntityAttrName="Relation"
+    EntityUsage="ReqCaseInfo"
+    AliasName="RELATION"/>
+  <ViewAttribute
+    Name="OraCaseId"
+    PrecisionRule="true"
+    EntityAttrName="OraCaseId"
+    EntityUsage="ReqCaseInfo"
+    AliasName="ORA_CASE_ID"/>
+  <ViewAttribute
+    Name="OraPartyId"
+    PrecisionRule="true"
+    EntityAttrName="OraPartyId"
+    EntityUsage="ReqCaseInfo"
+    AliasName="ORA_PARTY_ID"/>
+</ViewObject>

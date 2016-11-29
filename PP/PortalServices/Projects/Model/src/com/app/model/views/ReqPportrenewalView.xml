@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReqPportrenewalView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  FromList="REQ_RENEW_PASSPORT_VISA ReqRenewPassportVisa"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  SelectList="ReqRenewPassportVisa.CASE_INFO, 
+       ReqRenewPassportVisa.PASSPORT_EXPIRY_DATE, 
+       ReqRenewPassportVisa.PASSPORT_ISSUE_DATE, 
+       ReqRenewPassportVisa.PASSPORT_NO, 
+       ReqRenewPassportVisa.REQ_ID">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="CaseYearStatic1"
+    ViewObjectName="com.app.model.views.CaseYearStatic"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProsecutionListVwView1"
+    ViewObjectName="com.app.model.views.ProsecutionListVwView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RelationCaseStatic1"
+    ViewObjectName="com.app.model.views.RelationCaseStatic"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProsecutionListView1"
+    ViewObjectName="com.app.model.views.ProsecutionListView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RelationCaseARStatic1"
+    ViewObjectName="com.app.model.views.RelationCaseARStatic"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CaseYear"
+    ListVOName="CaseYearStatic1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="LOV_CaseYear_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CaseYear"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RelationCase_en"
+    ListVOName="RelationCaseStatic1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_RelationCase_en_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Relationcase"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_pn_en"
+    ListVOName="ProsecutionListView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_pn_en_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Prosecutionname"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProsecutionId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProsecutionName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_pn_ar"
+    ListVOName="ProsecutionListVwView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_pn_ar_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Prosecutionname"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProsecutionId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProsecutionName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RelationCase_ar"
+    ListVOName="RelationCaseARStatic1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_RelationCase_ar_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Relationcase"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ReqRenewPassportVisa"
+    Entity="com.app.model.entities.ReqRenewPassportVisa"
+    DeleteParticipant="false"/>
+  <ViewAttribute
+    Name="CaseNo"
+    
+    PrecisionRule="true"
+    AliasName="CASE_NO"
+    IsSelected="false"
+    IsPersistent="false"
+    Precision="6"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="CaseYear"
+    
+    PrecisionRule="true"
+    AliasName="CASE_YEAR"
+    LOVName="LOV_CaseYear"
+    IsSelected="false"
+    IsPersistent="false"
+    Precision="4"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Prosecutionname"
+    
+    PrecisionRule="true"
+    AliasName="PROSECUTIONNAME"
+    LOVName="LOV_pn_en"
+    LOVFinder="LOVSwitcherPros"
+    IsSelected="false"
+    IsPersistent="false"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR">
+    <Dependencies>
+      <Item
+        Value="Language"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Relationcase"
+    
+    PrecisionRule="true"
+    AliasName="RELATIONCASE"
+    LOVName="LOV_RelationCase_en"
+    LOVFinder="LOVSwitcherRel"
+    IsSelected="false"
+    IsPersistent="false"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR">
+    <Dependencies>
+      <Item
+        Value="Language"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Language"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[adf.context.expressionEvaluator.evaluate('#{pageFlowScope.locale}')]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LOVSwitcherPros"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[if (Language != null && Language == 'ar'){
+return 'LOV_pn_ar';
+}else{
+return 'LOV_pn_en';
+}]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LOVSwitcherRel"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[if (Language=='ar'){
+return 'LOV_RelationCase_ar';
+}else{
+return 'LOV_RelationCase_en';
+}]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CaseInfo"
+    PrecisionRule="true"
+    EntityAttrName="CaseInfo"
+    EntityUsage="ReqRenewPassportVisa"
+    AliasName="CASE_INFO"/>
+  <ViewAttribute
+    Name="PassportExpiryDate"
+    PrecisionRule="true"
+    EntityAttrName="PassportExpiryDate"
+    EntityUsage="ReqRenewPassportVisa"
+    AliasName="PASSPORT_EXPIRY_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <TOOLTIP
+          ResId="com.app.model.views.ReqPportrenewalView.PassportExpiryDate_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PassportIssueDate"
+    PrecisionRule="true"
+    EntityAttrName="PassportIssueDate"
+    EntityUsage="ReqRenewPassportVisa"
+    AliasName="PASSPORT_ISSUE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <TOOLTIP
+          ResId="com.app.model.views.ReqPportrenewalView.PassportIssueDate_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PassportNo"
+    PrecisionRule="true"
+    EntityAttrName="PassportNo"
+    EntityUsage="ReqRenewPassportVisa"
+    AliasName="PASSPORT_NO"/>
+  <ViewAttribute
+    Name="ReqId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ReqId"
+    EntityUsage="ReqRenewPassportVisa"
+    AliasName="REQ_ID"/>
+  <ViewLinkAccessor
+    Name="ReqAttachmentsView"
+    ViewLink="com.app.model.views.viewLink.AttachmentToPportrenewal"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ReqRequestsView"
+    ViewLink="com.app.model.views.viewLink.RequestToPportRenewal"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.app.model.AppModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

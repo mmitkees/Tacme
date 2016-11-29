@@ -23,7 +23,9 @@
   <Variable
     Name="locale"
     Kind="where"
-    Type="java.lang.String"/>
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.context.expressionEvaluator.evaluate('#{pageFlowScope.locale}')]]></TransientExpression>
+  </Variable>
   <SQLQuery>
     <![CDATA[SELECT TYPE_ID ,CASE WHEN :locale like 'ar' 
             THEN TYPE_VALUE_AR

@@ -58,6 +58,15 @@
       <string v="oracle.stellent.wcm.jdev.features.settings.WorkingDirPathSettings/SiteFilesWorkingDir"/>
    </list>
    <value n="defaultPackage" v="view"/>
+   <hash n="oracle.ide.model.DependencyConfiguration">
+      <list n="dependencyList">
+         <hash>
+            <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
+            <url n="sourceOwnerURL" path="../PP-PortalComponents.jws"/>
+            <url n="sourceURL" path="../Model/PP-Model.jpr"/>
+         </hash>
+      </list>
+   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="Java"/>
@@ -86,6 +95,48 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
+         <hash n="adflibCommon1">
+            <value n="adflib-connectionDetails" v="true"/>
+            <value n="adflib-nonReusablesError" v="false"/>
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="true"/>
+            </hash>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="2"/>
+                        </hash>
+                        <hash>
+                           <value n="type" v="5"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Project Output"/>
+                     <hash n="filters">
+                        <list n="rules"/>
+                     </hash>
+                     <value n="internalName" v="project-output"/>
+                     <value n="type" v="1"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="jarURL" path="deploy/adflibCommon1.jar"/>
+            <hash n="libraryDependencies">
+               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
+            </hash>
+            <hash n="LibraryDependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
+                     <url n="sourceOwnerURL" path="../PP-PortalComponents.jws"/>
+                     <url n="sourceURL" path="../Model/PP-Model.jpr"/>
+                  </hash>
+               </list>
+            </hash>
+            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
+            <value n="profileName" v="adflibCommon1"/>
+         </hash>
          <hash n="PPPortalComponents_common_webapp1">
             <hash n="appletArchives"/>
             <hash n="appletFiles">
@@ -96,6 +147,15 @@
             </hash>
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
+            </hash>
+            <hash n="dependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="../Model/PP-Model.jpr"/>
+                     <value n="profileName" v="PPAppModel"/>
+                  </hash>
+               </list>
             </hash>
             <url n="earURL" path="deploy/PPPortalComponents_common_webapp1.ear"/>
             <value n="enterpriseAppName" v="PPPortalComponents_common_webapp1"/>
@@ -156,6 +216,7 @@
       </hash>
       <list n="profileList">
          <string v="PPPortalComponents_common_webapp1"/>
+         <string v="adflibCommon1"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
