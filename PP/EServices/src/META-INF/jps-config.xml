@@ -5,14 +5,5 @@
          <description>Credential Store Service Provider</description>
       </serviceProvider>
    </serviceProviders>
-   <serviceInstances>
-      <serviceInstance name="credstore" provider="credstore.provider">
-         <property name="location" value="./"/>
-      </serviceInstance>
-   </serviceInstances>
-   <jpsContexts default="PPApp">
-      <jpsContext name="PPApp">
-         <serviceInstanceRef ref="credstore"/>
-      </jpsContext>
-   </jpsContexts>
+
 </jpsConfig>

@@ -7,6 +7,18 @@
   <c:set var="appviewcontrollerBundle"
          value="#{adfBundle['com.app.view.AppViewControllerBundle']}"/>
   <af:panelGroupLayout id="pgl1">
+  <af:panelGroupLayout id="pgl11" layout="vertical">
+         <af:menuBar id="mb1">
+
+            <af:outputText id="cls2"
+                           value="#{appviewcontrollerbundle.p_Welcome} : #{sessionScope.name}"/>
+            <af:spacer width="10" height="10" id="ss2"/>
+            <af:commandLink text="#{appviewcontrollerbundle.p_Logout}" id="cls3" action="logout"
+                            actionListener="#{pageFlowScope.eserviceStatus.logout}"/>
+            <af:spacer width="10" height="10" id="s3"/>
+           
+         </af:menuBar>
+      </af:panelGroupLayout>
     <af:panelGroupLayout id="pgl3" styleClass="eservice-status-top">
       <af:panelGroupLayout id="pgl2" styleClass="eservices-status-left">
         <af:query id="qryId1" disclosed="true" modeChangeVisible="false"

@@ -13,9 +13,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">144.94824</property>
+         name="y">202.24707</property>
       <property
-         name="x">133.0</property>
+         name="x">107.0</property>
    </Router>
    <TaskFlowCall
       id="TaskFlowCall3">
@@ -30,9 +30,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">295.79883</property>
+         name="y">259.91895</property>
       <property
-         name="x">276.89746</property>
+         name="x">326.89746</property>
    </TaskFlowCall>
    <View
       id="View4">
@@ -47,9 +47,9 @@
       <property
          name="y">117.84473</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">328.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -59,7 +59,7 @@
       <property
          name="fromOutcome">go</property>
       <property
-         name="sdm:polyPoints">R50,174.0,144.59766,287.0,117.49414,L50</property>
+         name="sdm:polyPoints">R46,148.0,198.39648,287.0,117.49414,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -69,7 +69,7 @@
       <property
          name="fromOutcome">login</property>
       <property
-         name="sdm:polyPoints">B50,133.0,198.59766,235.89746,295.44824,L50</property>
+         name="sdm:polyPoints">R54,148.0,205.39648,285.89746,259.91895,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -79,7 +79,7 @@
       <property
          name="fromOutcome">mainpage</property>
       <property
-         name="sdm:polyPoints">T50,276.89746,241.44824,324.5,171.49414,B44</property>
+         name="sdm:polyPoints">T50,326.89746,205.91895,328.0,171.49414,B50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall8">
@@ -90,9 +90,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">235.57422</property>
+         name="y">117.87305</property>
       <property
-         name="x">467.0</property>
+         name="x">557.0</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -102,6 +102,25 @@
       <property
          name="fromOutcome">pay</property>
       <property
-         name="sdm:polyPoints">B56,331.5,171.49414,426.0,235.22363,L50</property>
+         name="sdm:polyPoints">R50,369.0,117.49414,516.0,117.52246,L50</property>
    </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="WildcardControlFlowRule11"
+      to="Router2">
+      <property
+         name="fromOutcome">logout</property>
+      <property
+         name="sdm:polyPoints">B50,162.0,106.94824,107.0,147.89648,T50</property>
+   </ControlFlowCase>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule11">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">64.29883</property>
+      <property
+         name="x">162.0</property>
+   </WildcardControlFlowRule>
 </SDM>

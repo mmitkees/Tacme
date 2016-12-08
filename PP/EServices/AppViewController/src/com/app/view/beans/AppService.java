@@ -238,7 +238,7 @@ public class AppService implements Serializable {
     private ADFUtils afu = new ADFUtils();
     private RichInputText bind_efn;
     private RichInputText bind_eln;
-    private ADFUtils adfUtils = new ADFUtils();
+
     private RichInputDate bind_edob;
 
     public AppService() {
@@ -286,11 +286,11 @@ public class AppService implements Serializable {
 
     public String DobDialList() {
         String locale = "";
-        Locale mylocale=null;
-        try{
-         mylocale = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
-        }catch (Exception e){
-             mylocale=new Locale("ar");
+        Locale mylocale = null;
+        try {
+            mylocale = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        } catch (Exception e) {
+            mylocale = new Locale("ar");
         }
         if (mylocale != null) {
             locale = mylocale.getLanguage();
@@ -300,13 +300,13 @@ public class AppService implements Serializable {
         //        locale = "en";
         String action = null;
         try {
-//            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-//            Date gdob1;
-                System.out.println(dob);
-                System.out.println(gdob);
-            if (gdob != null || dob!=null) {
-//                gdob1 = formatter.parse(gdob);
-//                Date dob1 = formatter.parse(dob);
+            //            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+            //            Date gdob1;
+            System.out.println(dob);
+            System.out.println(gdob);
+            if (gdob != null || dob != null) {
+                //                gdob1 = formatter.parse(gdob);
+                //                Date dob1 = formatter.parse(dob);
                 if (gdob.compareTo(dob) == 0) {
                     if ((ADFContext.getCurrent().getSessionScope().get("login") ==
                          null) ||
@@ -341,21 +341,22 @@ public class AppService implements Serializable {
             } else {
                 if (locale.equals("en")) {
                     FacesMessage Message =
-                    new FacesMessage("Please select the date of birth");
+                        new FacesMessage("Please select the date of birth");
                     Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                     FacesContext fc = FacesContext.getCurrentInstance();
                     fc.addMessage(null, Message);
                 }
                 if (locale.equals("ar")) {
                     FacesMessage Message =
-                    new FacesMessage("اختر تاريخ الميلاد");
+                        new FacesMessage("اختر تاريخ الميلاد");
                     Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                     FacesContext fc = FacesContext.getCurrentInstance();
                     fc.addMessage(null, Message);
                 }
-                
+
             }
-        } catch (Exception e) {e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         System.out.println("returned value is :: " + action);
         return action;
@@ -588,11 +589,19 @@ public class AppService implements Serializable {
         if (mb < 10) {
             deposit_money_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
+
         }
     }
 
@@ -608,8 +617,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             decision_appeal_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -651,8 +667,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             disburse_interpreter_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -694,8 +717,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             disburse_expfee_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -765,8 +795,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             end_custody_juvenile_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -809,8 +846,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             appeal_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -894,8 +938,15 @@ public class AppService implements Serializable {
                 //                lawyer_profile_FileUploadaction();
             } else {
                 lawyerprfUpFileBind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -919,8 +970,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             lawyer_profile_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -971,8 +1029,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             coll_doc_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -999,8 +1064,15 @@ public class AppService implements Serializable {
                 //                pay_fine_impc_FileUploadaction();
             } else {
                 payfineUpFileBind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -1024,8 +1096,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             pay_fine_impc_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1052,8 +1131,15 @@ public class AppService implements Serializable {
                 //                pay_lawyer_fee_FileUploadaction();
             } else {
                 payLawFeeFileBind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -1077,8 +1163,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             pay_lawyer_fee_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1097,8 +1190,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             prov_fin_per_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1149,8 +1249,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             rec_corpse_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1169,8 +1276,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             rec_Exc_Bill_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1189,8 +1303,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             rec_review_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1216,8 +1337,15 @@ public class AppService implements Serializable {
                 //                rec_ref_inmate_FileUploadaction();
             } else {
                 refinmUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -1261,8 +1389,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             Case_copy1FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1281,8 +1416,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             copy_judgeFileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1301,8 +1443,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             cpy_ns_ordr_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1328,8 +1477,15 @@ public class AppService implements Serializable {
                 //                adj_sess_new_dte_FileUploadaction(did);
             } else {
                 cpynsoUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -1354,8 +1510,15 @@ public class AppService implements Serializable {
             adj_sess_new_dte_FileUploadaction(did);
 
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1374,8 +1537,15 @@ public class AppService implements Serializable {
             //            adj_sess_new_dte_FileUploadaction(did);
             rec_seizure_fileupload(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1401,8 +1571,15 @@ public class AppService implements Serializable {
                 //                Drop_Court_DueFileUploadaction();
             } else {
                 this.DciDueUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -1436,8 +1613,15 @@ public class AppService implements Serializable {
                     //                    Drop_Court_DueFileUploadaction();
                 } else {
                     this.DciDueUPFilebind.resetValue();
-                    FacesMessage Message =
-                        new FacesMessage("File Size should be less than 10 MB");
+                    FacesMessage Message = null;
+                    if ((getTheCurrentLocale().toString()).equals("en")) {
+                        Message =
+                                new FacesMessage("File Size should be less than 10 MB");
+                    }
+                    if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        Message =
+                                new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                    }
                     Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                     FacesContext fc = FacesContext.getCurrentInstance();
                     fc.addMessage(null, Message);
@@ -1463,8 +1647,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             Drop_Court_DueFileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1483,8 +1674,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             Exhumation_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1510,8 +1708,15 @@ public class AppService implements Serializable {
                 //                EoPCase_FileUploadaction();
             } else {
                 this.EoPCaseUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -1535,8 +1740,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             EoPCase_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1562,8 +1774,15 @@ public class AppService implements Serializable {
                 //                FdReimbur_FileUploadaction();
             } else {
                 this.FdreimburUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -1587,8 +1806,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             FdReimbur_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1614,8 +1840,15 @@ public class AppService implements Serializable {
                 //                Meet_Proc_FileUploadaction();
             } else {
                 this.MeetProcUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -1639,8 +1872,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             Meet_Proc_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1666,8 +1906,15 @@ public class AppService implements Serializable {
                 //                Openof_Mem_FileUploadaction();
             } else {
                 this.OpenofMemUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -1691,8 +1938,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             Openof_Mem_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1711,8 +1965,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             PportRenewal_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1738,8 +1999,15 @@ public class AppService implements Serializable {
                 //                PaymentinsCourt_FileUploadaction();
             } else {
                 this.PpmentinsCourtUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -1764,8 +2032,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             PaymentinsCourt_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1783,8 +2058,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             Pcopycasedropdec_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1810,8 +2092,15 @@ public class AppService implements Serializable {
                 //                Postpone_FileUploadaction();
             } else {
                 this.PostponeofFreeUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -1835,8 +2124,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             Postpone_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -1856,8 +2152,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             RecDepChrg_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -2451,10 +2754,18 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "File Type extension are not allowed",
+                                                                                          "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "نوع الملف غير مسموح به",
+                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }
                     }
                 }
                 if (s.equals("Y")) {
@@ -2467,10 +2778,8 @@ public class AppService implements Serializable {
                         (Number)reqr.getAttribute("ReqId");
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
-                    
-                    
-                    
-                    
+
+
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
                                    ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
@@ -2579,10 +2888,18 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "File Type extension are not allowed",
+                                                                                          "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "نوع الملف غير مسموح به",
+                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }
                     }
                 }
                 if (s.equals("Y")) {
@@ -2596,9 +2913,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -2704,10 +3021,18 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "File Type extension are not allowed",
+                                                                                          "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "نوع الملف غير مسموح به",
+                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }
                     }
                 }
                 if (s.equals("Y")) {
@@ -2721,9 +3046,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -2830,10 +3155,18 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "File Type extension are not allowed",
+                                                                                          "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "نوع الملف غير مسموح به",
+                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }
                     }
                 }
                 if (s.equals("Y")) {
@@ -2847,9 +3180,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -2951,10 +3284,18 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "File Type extension are not allowed",
+                                                                                          "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "نوع الملف غير مسموح به",
+                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }
                     }
                 }
                 if (s.equals("Y")) {
@@ -2968,9 +3309,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -3076,10 +3417,18 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "File Type extension are not allowed",
+                                                                                          "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "نوع الملف غير مسموح به",
+                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }
                     }
                 }
                 if (s.equals("Y")) {
@@ -3093,9 +3442,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -3197,10 +3546,18 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "File Type extension are not allowed",
+                                                                                          "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "نوع الملف غير مسموح به",
+                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }
                     }
                 }
                 if (s.equals("Y")) {
@@ -3214,9 +3571,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -3318,10 +3675,18 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "File Type extension are not allowed",
+                                                                                          "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
+                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                          "نوع الملف غير مسموح به",
+                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }
                     }
                 }
                 if (s.equals("Y")) {
@@ -3335,9 +3700,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -3437,10 +3802,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -3454,9 +3825,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -3563,10 +3934,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -3580,9 +3957,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -3691,10 +4068,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -3708,9 +4091,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -3816,10 +4199,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -3833,9 +4222,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -3934,10 +4323,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -3951,9 +4346,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -4052,10 +4447,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -4069,9 +4470,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -4177,10 +4578,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -4194,9 +4601,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             }
@@ -4301,10 +4708,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -4319,9 +4732,9 @@ public class AppService implements Serializable {
                                    csid);
 
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -4419,10 +4832,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -4436,9 +4855,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -4539,10 +4958,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -4556,9 +4981,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -4660,10 +5085,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -4677,9 +5108,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -4779,10 +5210,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -4796,9 +5233,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -4970,10 +5407,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -4988,9 +5431,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -5118,9 +5561,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -5157,14 +5600,15 @@ public class AppService implements Serializable {
         int f = 0;
         if (file_u != null) {
             for (int i = 0; i < file_u.size(); i++) {
-                if ((file_u.get(i).getFilename().endsWith("jpeg")) ||
-                    (file_u.get(i).getFilename().endsWith("jpg")) ||
-                    (file_u.get(i).getFilename().endsWith("txt")) ||
-                    (file_u.get(i).getFilename().endsWith("doc")) ||
-                    (file_u.get(i).getFilename().endsWith("gif")) ||
-                    (file_u.get(i).getFilename().endsWith("pdf")) ||
-                    (file_u.get(i).getFilename().endsWith("png")) ||
-                    (file_u.get(i).getFilename().endsWith("tiff"))) {
+                if ((file_u.get(i).getFilename().toLowerCase().endsWith("jpeg")) ||
+                    (file_u.get(i).getFilename().toLowerCase().endsWith("jpg")) ||
+                    (file_u.get(i).getFilename().toLowerCase().endsWith("txt")) ||
+                    (file_u.get(i).getFilename().toLowerCase().endsWith("doc")) ||
+                    (file_u.get(i).getFilename().toLowerCase().endsWith("docx")) ||
+                    (file_u.get(i).getFilename().toLowerCase().endsWith("gif")) ||
+                    (file_u.get(i).getFilename().toLowerCase().endsWith("pdf")) ||
+                    (file_u.get(i).getFilename().toLowerCase().endsWith("png")) ||
+                    (file_u.get(i).getFilename().toLowerCase().endsWith("tiff"))) {
                     if (f == 0) {
                         validateFile = "N";
                     }
@@ -5192,9 +5636,9 @@ public class AppService implements Serializable {
                     "Your request has been processed successfully Request number : " +
                     caseid;
         } else if (locale.equals("ar")) {
-            subj = "تعزيزي المستخدم طلب التسجيل الخاص بك تحت قيد التن�?يذ";
+            subj = "عزيزي المستخدم طلب التسجيل الخاص بك تحت قيد التنفيذ";
             message =
-                    caseid + "تعزيزي المستخدم طلب التسجيل الخاص بك تحت قيد التن�?يذ :";
+                     "عزيزي المستخدم طلب التسجيل الخاص بك تحت قيد التنفيذ :" + caseid ;
         }
         EmailUtils.sendEmail(email, subj, message);
         return null;
@@ -5268,10 +5712,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -5285,9 +5735,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -5384,10 +5834,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -5401,9 +5857,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -5510,10 +5966,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -5527,9 +5989,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -5632,10 +6094,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -5649,9 +6117,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -5753,10 +6221,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -5770,9 +6244,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -5889,10 +6363,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -5906,9 +6386,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -6026,10 +6506,16 @@ public class AppService implements Serializable {
                             casinfr.remove();
                             reqr.remove();
                             s = "N";
-                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                          "File Type extension are not allowed",
-                                                                                          "Kindly reload the files"));
+                            if ((getTheCurrentLocale().toString()).equals("en")) {
+                                       FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                              "File Type extension are not allowed",
+                                                                                                              "Kindly reload the files"));
+                                    }
+                                    if ((getTheCurrentLocale().toString()).equals("ar")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                              "نوع الملف غير مسموح به",
+                                                                                                              "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                    }                   
                         }
                     }
                     if (s.equals("Y")) {
@@ -6043,9 +6529,9 @@ public class AppService implements Serializable {
                         executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                        csid);
                         ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                     ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                       ((Number)reqr.getAttribute("ReqId")).stringValue());
                         ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                        ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                       ((Number)reqr.getAttribute("ServiceId")).stringValue());
                         return "successRating";
                     }
                 } else {
@@ -6156,10 +6642,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -6173,9 +6665,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -6208,10 +6700,18 @@ public class AppService implements Serializable {
             spn = "Y";
         }
         if (installcheck.equals("N")) {
-            FacesContext.getCurrentInstance().addMessage(null,
-                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                          "Fine amount does not match with the installment amount",
-                                                                          "Fine amount does not match with the installment amount"));
+
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                      "Fine amount does not match with the installment amount",
+                                                                                      "Fine amount does not match with the installment amount"));
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                      "قمة الغرامة ليست مثل قيمة التقسيط",
+                                                                                      ""));
+            }                   
+            
         }
         return null;
     }
@@ -6288,10 +6788,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -6305,9 +6811,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -6409,10 +6915,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -6426,9 +6938,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -6530,10 +7042,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -6547,9 +7065,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -6766,29 +7284,6 @@ public class AppService implements Serializable {
         return ecajUpFileBind;
     }
 
-    public void caseNoValidation(ValueChangeEvent vce) {
-        if (this.getCn().equals("Y")) {
-            this.setCn("N");
-            /* this.getCnopg().setRendered(false);
-            AdfFacesContext adfFacesContext =
-                AdfFacesContext.getCurrentInstance();
-            adfFacesContext.addPartialTarget(cnopg);*/
-        }
-        System.out.println(".....<><><><><><>Case number validation :: " +
-                           this.getCn());
-        Number valn = (Number)vce.getNewValue();
-        String val = String.valueOf(valn);
-        if (val.length() == 6) {
-            _logger.info("Case number validated");
-        } else {
-            String msg =
-                "Enter a Valid Case Number with 6 digit Number Format";
-            FacesMessage Message = new FacesMessage(msg);
-            Message.setSeverity(FacesMessage.SEVERITY_ERROR);
-            FacesContext fc = FacesContext.getCurrentInstance();
-            fc.addMessage(null, Message);
-        }
-    }
 
 
     public void setAppealUpFileBind(RichInputFile appealUpFileBind) {
@@ -7520,9 +8015,6 @@ public class AppService implements Serializable {
     }
 
 
-
-
-
     public void setExhumationUPFilebind(RichInputFile ExhumationUPFilebind) {
         this.ExhumationUPFilebind = ExhumationUPFilebind;
     }
@@ -7570,19 +8062,21 @@ public class AppService implements Serializable {
         }
         return null;
     }
-    public Locale getTheCurrentLocale(){
-        Locale mylocale =new Locale("ar");
-        try{
-         mylocale = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
-        }catch (Exception e){
-             mylocale=new Locale("ar");
+
+    public Locale getTheCurrentLocale() {
+        Locale mylocale = new Locale("ar");
+        try {
+            mylocale = (Locale)afu.evaluateEL("#{pageFlowScope.locale}");
+        } catch (Exception e) {
+            mylocale = new Locale("ar");
         }
         return mylocale;
     }
+
     public String Waiv_Encl_action() {
         String key = (String)afu.evaluateEL("#{pageFlowScope.key}");
         Locale localel = getTheCurrentLocale();
-        
+
         String locale = localel.toString();
         String s = "Y";
         ViewObject caseinfovo = getAm().findViewObject("ReqCaseInfoView1");
@@ -7654,10 +8148,16 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                   FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "File Type extension are not allowed",
+                                                                                                          "Kindly reload the files"));
+                                }
+                                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                          "نوع الملف غير مسموح به",
+                                                                                                          "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -7671,9 +8171,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -7736,8 +8236,15 @@ public class AppService implements Serializable {
                 //                Waiv_Encl_FileUploadaction();
             } else {
                 this.waivEnclUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -7761,8 +8268,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             Waiv_Encl_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -7867,10 +8381,18 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                                                                                                                                                                      
+
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                           FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "File Type extension are not allowed",
+                                                                                                  "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "نوع الملف غير مسموح به",
+                                                                                                  "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }   
                     }
                 }
                 if (s.equals("Y")) {
@@ -7884,9 +8406,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -7984,8 +8506,16 @@ public class AppService implements Serializable {
                 //                visit_prd_FileUploadaction();
             } else {
                 this.VisitPrDUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }                   
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -8009,8 +8539,16 @@ public class AppService implements Serializable {
         if (mb < 10) {
             visit_prd_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }                   
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -8122,10 +8660,17 @@ public class AppService implements Serializable {
                             casinfr.remove();
                             reqr.remove();
                             s = "N";
-                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                          "File Type extension are not allowed",
-                                                                                          "Kindly reload the files"));
+
+                            if ((getTheCurrentLocale().toString()).equals("en")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                      "File Type extension are not allowed",
+                                                                                                      "Kindly reload the files"));
+                            }
+                            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                      "نوع الملف غير مسموح به",
+                                                                                                      "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                            }   
                         }
                     }
                     if (s.equals("Y")) {
@@ -8139,9 +8684,9 @@ public class AppService implements Serializable {
                         executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                        csid);
                         ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                     ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                       ((Number)reqr.getAttribute("ReqId")).stringValue());
                         ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                        ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                       ((Number)reqr.getAttribute("ServiceId")).stringValue());
                         return "successRating";
                     }
                 }
@@ -8267,10 +8812,17 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                           FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "File Type extension are not allowed",
+                                                                                                  "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "نوع الملف غير مسموح به",
+                                                                                                  "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }   
                     }
                 }
                 if (s.equals("Y")) {
@@ -8284,9 +8836,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             }
@@ -8348,8 +8900,15 @@ public class AppService implements Serializable {
                 //                sub_obj_FileUploadaction();
             } else {
                 this.SubObjUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                           if ((getTheCurrentLocale().toString()).equals("en")) {
+                               Message =
+                                       new FacesMessage("File Size should be less than 10 MB");
+                           }
+                           if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               Message =
+                                       new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                           }                   
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -8374,8 +8933,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             sub_obj_FileUploadaction(did, rid);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+                       if ((getTheCurrentLocale().toString()).equals("en")) {
+                           Message =
+                                   new FacesMessage("File Size should be less than 10 MB");
+                       }
+                       if ((getTheCurrentLocale().toString()).equals("ar")) {
+                           Message =
+                                   new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                       }                   
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -8394,8 +8960,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             sub_obj_FileUploadaction(did, rid);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+                       if ((getTheCurrentLocale().toString()).equals("en")) {
+                           Message =
+                                   new FacesMessage("File Size should be less than 10 MB");
+                       }
+                       if ((getTheCurrentLocale().toString()).equals("ar")) {
+                           Message =
+                                   new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                       }                   
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -8492,10 +9065,17 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                                    FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                           "File Type extension are not allowed",
+                                                                                                           "Kindly reload the files"));
+                                 }
+                                 if ((getTheCurrentLocale().toString()).equals("ar")) {
+                                FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                           "نوع الملف غير مسموح به",
+                                                                                                           "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                                 }                   
+
                     }
                 }
                 if (s.equals("Y")) {
@@ -8509,9 +9089,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -8574,8 +9154,17 @@ public class AppService implements Serializable {
                 //                sub_sms_FileUploadaction();
             } else {
                 this.SubSMSUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+
+
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }                   
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -8700,10 +9289,17 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                           FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "File Type extension are not allowed",
+                                                                                                  "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "نوع الملف غير مسموح به",
+                                                                                                  "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }           
                     }
                 }
                 if (s.equals("Y")) {
@@ -8717,9 +9313,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -8782,8 +9378,15 @@ public class AppService implements Serializable {
                 //                whom_it_mcnrn_FileUploadaction();
             } else {
                 this.WICUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                         if ((getTheCurrentLocale().toString()).equals("en")) {
+                             Message =
+                                     new FacesMessage("File Size should be less than 10 MB");
+                         }
+                         if ((getTheCurrentLocale().toString()).equals("ar")) {
+                             Message =
+                                     new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                         }                   
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -8807,8 +9410,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             whom_it_mcnrn_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+                     if ((getTheCurrentLocale().toString()).equals("en")) {
+                         Message =
+                                 new FacesMessage("File Size should be less than 10 MB");
+                     }
+                     if ((getTheCurrentLocale().toString()).equals("ar")) {
+                         Message =
+                                 new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                     }                   
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -8916,10 +9526,18 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                           FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "File Type extension are not allowed",
+                                                                                                  "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "نوع الملف غير مسموح به",
+                                                                                                  "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }                   
+
                     }
                 }
                 if (s.equals("Y")) {
@@ -8933,9 +9551,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -8987,8 +9605,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             Case_Information_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+                       if ((getTheCurrentLocale().toString()).equals("en")) {
+                           Message =
+                                   new FacesMessage("File Size should be less than 10 MB");
+                       }
+                       if ((getTheCurrentLocale().toString()).equals("ar")) {
+                           Message =
+                                   new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                       }           
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -9081,11 +9706,18 @@ public class AppService implements Serializable {
                     } else {
                         casinfr.remove();
                         reqr.remove();
-                        s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                           FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "File Type extension are not allowed",
+                                                                                                  "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "نوع الملف غير مسموح به",
+                                                                                                  "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }                   
+
                     }
                 }
                 if (s.equals("Y")) {
@@ -9099,9 +9731,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -9149,8 +9781,15 @@ public class AppService implements Serializable {
         if (mb < 10) {
             prosSideAppeal_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+            FacesMessage Message = null;
+                       if ((getTheCurrentLocale().toString()).equals("en")) {
+                           Message =
+                                   new FacesMessage("File Size should be less than 10 MB");
+                       }
+                       if ((getTheCurrentLocale().toString()).equals("ar")) {
+                           Message =
+                                   new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                       }           
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -9194,8 +9833,15 @@ public class AppService implements Serializable {
                 Service1_FileUploadaction();
             } else {
                 this.Service1UPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+                FacesMessage Message = null;
+                           if ((getTheCurrentLocale().toString()).equals("en")) {
+                               Message =
+                                       new FacesMessage("File Size should be less than 10 MB");
+                           }
+                           if ((getTheCurrentLocale().toString()).equals("ar")) {
+                               Message =
+                                       new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                           }           
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -9356,10 +10002,17 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                           FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "File Type extension are not allowed",
+                                                                                                  "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "نوع الملف غير مسموح به",
+                                                                                                  "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -9373,9 +10026,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -9428,8 +10081,16 @@ public class AppService implements Serializable {
         if (mb < 10) {
             srch_cncl_wrnt_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }                   
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -9533,10 +10194,17 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                           FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "File Type extension are not allowed",
+                                                                                                  "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "نوع الملف غير مسموح به",
+                                                                                                  "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -9550,9 +10218,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -9612,8 +10280,16 @@ public class AppService implements Serializable {
                 //                ret_bail_amnt_FileUploadaction();
             } else {
                 this.RetBailAmntUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }                   
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -9736,10 +10412,17 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                           FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "File Type extension are not allowed",
+                                                                                                  "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "نوع الملف غير مسموح به",
+                                                                                                  "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -9753,9 +10436,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -9824,8 +10507,16 @@ public class AppService implements Serializable {
                 //                rehabil_FileUploadaction();
             } else {
                 this.RehabilUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }                   
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -9849,8 +10540,16 @@ public class AppService implements Serializable {
         if (mb < 10) {
             rehabil_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }                   
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -9956,10 +10655,17 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                           FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "File Type extension are not allowed",
+                                                                                                  "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "نوع الملف غير مسموح به",
+                                                                                                  "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -9973,9 +10679,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -10060,8 +10766,16 @@ public class AppService implements Serializable {
         if (mb < 10) {
             rec_pprt_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }                   
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -10131,9 +10845,9 @@ public class AppService implements Serializable {
                 String txt = "Case details "+caseno+" has been sent and waiting for approval";
                 au.sendEmail(email, subj, txt);*/
             ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                         ((Number)reqr.getAttribute("ReqId")).stringValue());
+                           ((Number)reqr.getAttribute("ReqId")).stringValue());
             ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                            ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                           ((Number)reqr.getAttribute("ServiceId")).stringValue());
             return "successRating";
         } else {
             return "N";
@@ -10178,8 +10892,16 @@ public class AppService implements Serializable {
                 rec_doc_in_FileUploadaction();
             } else {
                 this.RecDocimpUPFilebind.resetValue();
-                FacesMessage Message =
-                    new FacesMessage("File Size should be less than 10 MB");
+
+                FacesMessage Message = null;
+                if ((getTheCurrentLocale().toString()).equals("en")) {
+                    Message =
+                            new FacesMessage("File Size should be less than 10 MB");
+                }
+                if ((getTheCurrentLocale().toString()).equals("ar")) {
+                    Message =
+                            new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+                }                   
                 Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                 FacesContext fc = FacesContext.getCurrentInstance();
                 fc.addMessage(null, Message);
@@ -10357,10 +11079,17 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                           FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "File Type extension are not allowed",
+                                                                                                  "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "نوع الملف غير مسموح به",
+                                                                                                  "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -10374,9 +11103,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -10470,8 +11199,16 @@ public class AppService implements Serializable {
         if (mb < 10) {
             int_arst_wrnt_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }                   
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -10613,12 +11350,17 @@ public class AppService implements Serializable {
                             casinfr.remove();
                             reqr.remove();
                             s = "N";
-                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                         new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                          "File Type extension are not allowed",
-                                                                                          "This file (" +
-                                                                                          file_u.get(i).getFilename() +
-                                                                                          ") is not allowed;Kindly reload the files"));
+
+                            if ((getTheCurrentLocale().toString()).equals("en")) {
+                               FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                      "File Type extension are not allowed",
+                                                                                                      "Kindly reload the files"));
+                            }
+                            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                            FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                      "نوع الملف غير مسموح به",
+                                                                                                      "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                            }                   
                         }
                     }
                 }
@@ -10633,9 +11375,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -10690,8 +11432,16 @@ public class AppService implements Serializable {
         if (mb < 10) {
             appeal_cassation_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }                   
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);
@@ -10733,8 +11483,8 @@ public class AppService implements Serializable {
                     FacesContext fc = FacesContext.getCurrentInstance();
                     fc.addMessage(null, Message);
                     EmailUtils.sendEmail(emailId,
-                                       "Your Profile details have been successfully updated.",
-                                       "Your Profile details have been successfully updated.");
+                                         "Your Profile details have been successfully updated.",
+                                         "Your Profile details have been successfully updated.");
                 }
                 if (locale.equals("ar")) {
                     FacesMessage Message =
@@ -10743,7 +11493,7 @@ public class AppService implements Serializable {
                     FacesContext fc = FacesContext.getCurrentInstance();
                     fc.addMessage(null, Message);
                     EmailUtils.sendEmail(emailId, "تم تحديث حسابك بنجاح",
-                                       "تم تحديث حسابك بنجاح");
+                                         "تم تحديث حسابك بنجاح");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -10808,19 +11558,16 @@ public class AppService implements Serializable {
                             locale = "ar";
                         }
                         if (locale == "en") {
-                            msg =
-                            "Password has been changed";
+                            msg = "Password has been changed";
                         } else {
-                            msg =
-                            "تم تغير كلمة المرور الخاصة بك  ";
-                           
+                            msg = "تم تغير كلمة المرور الخاصة بك  ";
+
                         }
                         commit_action();
                         String email =
                             (String)ADFContext.getCurrent().getSessionScope().get("usermail");
-                        EmailUtils.sendEmail(email, msg,msg);
-                        FacesMessage Message =
-                            new FacesMessage(msg);
+                        EmailUtils.sendEmail(email, msg, msg);
+                        FacesMessage Message = new FacesMessage(msg);
                         Message.setSeverity(FacesMessage.SEVERITY_INFO);
                         FacesContext fc = FacesContext.getCurrentInstance();
                         fc.addMessage(null, Message);
@@ -10836,14 +11583,13 @@ public class AppService implements Serializable {
                         }
                         if (locale == "en") {
                             msg =
-                            "Cannot able to submit the request. Please get in touch with the administrator";
+"Cannot able to submit the request. Please get in touch with the administrator";
                         } else {
                             msg =
-                            "لم نستطيع تغير كلمة المرور يرجى الرجوع إلى  خدمة الدعم الفني للموقع ";
-                           
+"لم نستطيع تغير كلمة المرور يرجى الرجوع إلى  خدمة الدعم الفني للموقع ";
+
                         }
-                        FacesMessage Message =
-                            new FacesMessage(msg);
+                        FacesMessage Message = new FacesMessage(msg);
                         Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                         FacesContext fc = FacesContext.getCurrentInstance();
                         fc.addMessage(null, Message);
@@ -10859,15 +11605,14 @@ public class AppService implements Serializable {
                         }
                         if (locale == "en") {
                             msg =
-                            "Confirm password does not match the New Pasword";
+"Confirm password does not match the New Pasword";
                         } else {
                             msg =
-                            "تأكيد كلمة المرور ليست ك كلمة المرور الجديدة ";
-                           
+"تأكيد كلمة المرور ليست ك كلمة المرور الجديدة ";
+
                         }
-                        FacesMessage Message =
-                            new FacesMessage(msg);
-                       
+                        FacesMessage Message = new FacesMessage(msg);
+
                         Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                         FacesContext fc = FacesContext.getCurrentInstance();
                         fc.addMessage(null, Message);
@@ -10882,16 +11627,13 @@ public class AppService implements Serializable {
                             locale = "ar";
                         }
                         if (locale == "en") {
-                            msg =
-                            "Current password is wrong";
+                            msg = "Current password is wrong";
                         } else {
-                            msg =
-                            "كلمة المرور الحالية خطأ  ";
-                           
+                            msg = "كلمة المرور الحالية خطأ  ";
+
                         }
-                        FacesMessage Message =
-                            new FacesMessage(msg);
-                       
+                        FacesMessage Message = new FacesMessage(msg);
+
                         Message.setSeverity(FacesMessage.SEVERITY_ERROR);
                         FacesContext fc = FacesContext.getCurrentInstance();
                         fc.addMessage(null, Message);
@@ -11178,10 +11920,17 @@ public class AppService implements Serializable {
                         casinfr.remove();
                         reqr.remove();
                         s = "N";
-                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),
-                                                                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                                                                      "File Type extension are not allowed",
-                                                                                      "Kindly reload the files"));
+
+                        if ((getTheCurrentLocale().toString()).equals("en")) {
+                           FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "File Type extension are not allowed",
+                                                                                                  "Kindly reload the files"));
+                        }
+                        if ((getTheCurrentLocale().toString()).equals("ar")) {
+                        FacesContext.getCurrentInstance().addMessage(upFileBind.getClientId(FacesContext.getCurrentInstance()),new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                                                                                  "نوع الملف غير مسموح به",
+                                                                                                  "يرجى اعادة رفع الملفات بالانواع المسموح بيها "));
+                        }                   
                     }
                 }
                 if (s.equals("Y")) {
@@ -11195,9 +11944,9 @@ public class AppService implements Serializable {
                     executeSMSproc((String)ADFContext.getCurrent().getSessionScope().get("mobile"),
                                    csid);
                     ADFUtils.setEL("#{pageFlowScope.ReqId}",
-                                 ((Number)reqr.getAttribute("ReqId")).stringValue());
+                                   ((Number)reqr.getAttribute("ReqId")).stringValue());
                     ADFUtils.setEL("#{pageFlowScope.ServiceId}",
-                                    ((Number)reqr.getAttribute("ServiceId")).stringValue());
+                                   ((Number)reqr.getAttribute("ServiceId")).stringValue());
                     return "successRating";
                 }
             } else {
@@ -11246,8 +11995,16 @@ public class AppService implements Serializable {
         if (mb < 10) {
             medtrmnt_FileUploadaction(did);
         } else {
-            FacesMessage Message =
-                new FacesMessage("File Size should be less than 10 MB");
+
+            FacesMessage Message = null;
+            if ((getTheCurrentLocale().toString()).equals("en")) {
+                Message =
+                        new FacesMessage("File Size should be less than 10 MB");
+            }
+            if ((getTheCurrentLocale().toString()).equals("ar")) {
+                Message =
+                        new FacesMessage("يجب ان يكون الملف أقَل من 10 ميجا بايت ");
+            }                   
             Message.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, Message);

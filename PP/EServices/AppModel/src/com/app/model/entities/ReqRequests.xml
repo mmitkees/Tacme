@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ReqRequests"
-  Version="11.1.1.64.93"
+  Version="11.1.1.66.73"
   InheritPersonalization="true"
   DBObjectType="table"
   DBObjectName="REQ_REQUESTS"
@@ -54,25 +54,25 @@
   </Attribute>
   <Attribute
     Name="Status"
+    DefaultValue="SENT"
     Precision="100"
     ColumnName="STATUS"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="REQ_REQUESTS"
-    DefaultValue="SENT">
+    TableName="REQ_REQUESTS">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="CreatedDate"
+    IsUpdateable="while_insert"
     ColumnName="CREATED_DATE"
     SQLType="TIMESTAMP"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="REQ_REQUESTS"
-    IsUpdateable="while_insert"
     HistoryColumn="DateHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="7"/>
@@ -161,13 +161,13 @@
   </Attribute>
   <Attribute
     Name="AppRef"
+    DefaultValue="web-app"
     Precision="30"
     ColumnName="APP_REF"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="REQ_REQUESTS"
-    DefaultValue="web-app">
+    TableName="REQ_REQUESTS">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>

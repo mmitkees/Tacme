@@ -2,46 +2,23 @@
 <SDM>
    <OverallProperties
       id="OverallProperties1"/>
-   <MethodCall
-      id="MethodCall2">
-      <property
-         name="activityId">initTranslators</property>
-      <property
-         name="start">true</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>initTranslators&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">233.44824</property>
-      <property
-         name="x">136.67871</property>
-   </MethodCall>
    <View
       id="View3">
       <property
          name="activityId">searchTranslatorView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/searchTranslatorView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/searchTranslatorView.jsff</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>searchTranslatorView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>searchTranslatorView&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">234.14355</property>
+         name="y">141.66602</property>
       <property
          name="pageFragment">true</property>
       <property
-         name="x">311.0</property>
+         name="x">266.0</property>
    </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase4"
-      from="MethodCall2"
-      to="View3">
-      <property
-         name="fromOutcome">initTranslators</property>
-      <property
-         name="sdm:polyPoints">R50,177.67871,233.09766,270.0,233.79297,L50</property>
-   </ControlFlowCase>
 </SDM>

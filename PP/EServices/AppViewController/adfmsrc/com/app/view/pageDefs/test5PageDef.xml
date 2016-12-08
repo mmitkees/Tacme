@@ -5,15 +5,8 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="MistInJudgeMat1"
-              taskFlowId="/WEB-INF/JSFFPageDef/MistInJudgeMat.xml#MistInJudgeMat"
-              activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding">
-      <parameters>
-        <parameter id="key" value="33"/>
-        <parameter id="locale" value="ar"/>
-      </parameters>
-    </taskFlow>
+    <taskFlow id="SearchExpertTFDef1" taskFlowId="/WEB-INF/JSFFPageDef/SearchExpertTFDef.xml#SearchExpertTFDef" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>

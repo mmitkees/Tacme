@@ -5,64 +5,19 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-      <iterator Binds="SrchExpertsResultROVO1" RangeSize="25"
-              DataControl="PPAppServicesDataControl"
-              id="SrchExpertsResultROVO1Iterator"/>
-    <searchRegion Binds="SrchExpertsResultROVO1Iterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  id="SrchExpertsResultROVO1Query"/>
-    <iterator Binds="PrcExpertsVwView1" RangeSize="25"
-              DataControl="PPAppServicesDataControl"
-              id="PrcExpertsVwView1Iterator"/>
+    <iterator Binds="PublicSearchExpertsROVO1" RangeSize="25" DataControl="PPAppServicesDataControl" id="PublicSearchExpertsROVO1Iterator"/>
+    <searchRegion Criteria="PublicSearchExpertsROVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="PublicSearchExpertsROVO1Iterator" id="PublicSearchExpertsROVOCriteriaQuery"/>
   </executables>
   <bindings>
-  
-  <tree IterBinding="SrchExpertsResultROVO1Iterator"
-          id="SrchExpertsResultROVO1">
-      <nodeDefinition DefName="com.app.model.views.SrchExpertsResultROVO"
-                      Name="SrchExpertsResultROVO10">
+    <tree IterBinding="PublicSearchExpertsROVO1Iterator" id="PublicSearchExpertsROVO1">
+      <nodeDefinition DefName="com.app.model.views.readonly.publicservices.PublicSearchExpertsROVO" Name="PublicSearchExpertsROVO10">
         <AttrNames>
-          <Item Value="Id"/>
-          <Item Value="Name"/>
-          <Item Value="Address"/>
-          <Item Value="ExpertType"/>
-          <Item Value="FullName"/>
-          <Item Value="Status"/>
           <Item Value="City"/>
-          <Item Value="PhoneNo"/>
-          <Item Value="FaxNo"/>
-          <Item Value="Email"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <methodAction id="initSearchExperts"
-                  InstanceName="PPAppServicesDataControl.dataProvider"
-                  DataControl="PPAppServicesDataControl"
-                  RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="initSearchExperts" IsViewObjectMethod="false"/>
-    <methodAction id="srchExperts" RequiresUpdateModel="true"
-                  Action="invokeMethod" MethodName="srchExperts"
-                  IsViewObjectMethod="false"
-                  DataControl="PPAppServicesDataControl"
-                  InstanceName="PPAppServicesDataControl.dataProvider">
-      <NamedData NDName="name" NDValue="#{requestScope.srchExpertsBean.name}"
-                 NDType="java.lang.String"/>
-      <NamedData NDName="exprttype"
-                 NDValue="#{requestScope.srchExpertsBean.expertType}"
-                 NDType="java.lang.String"/>
-      <NamedData NDName="address"
-                 NDValue="#{requestScope.srchExpertsBean.address}"
-                 NDType="java.lang.String"/>
-    </methodAction>
-    <tree IterBinding="PrcExpertsVwView1Iterator" id="PrcExpertsVwView1">
-      <nodeDefinition DefName="com.app.model.views.PrcExpertsVwView"
-                      Name="PrcExpertsVwView10">
-        <AttrNames>
-          <Item Value="FullNameN"/>
-          <Item Value="CityDesc"/>
-          <Item Value="PhoneNo"/>
           <Item Value="Fax"/>
+          <Item Value="FullName"/>
           <Item Value="OfficeAddress"/>
+          <Item Value="PhoneNo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

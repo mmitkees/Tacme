@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="searchTranslatorTFDef">
-    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">initTranslators</default-activity>
+    <template-reference>       <document id="__200">/WEB-INF/com/tacme/pp/taskflows/template/PPEserviceTemplate.xml</document>       <id id="__100">PPEserviceTemplate</id>     </template-reference>     <default-activity id="__1">searchTranslatorView</default-activity>
     <managed-bean id="__6">
       <managed-bean-name id="__5">srchTranslator</managed-bean-name>
       <managed-bean-class id="__3">com.app.view.beans.searchTranslator</managed-bean-class>
       <managed-bean-scope id="__4">request</managed-bean-scope>
     </managed-bean>
-    <method-call id="initTranslators">
-      <method>#{bindings.initTranslators.execute}</method>
-      <outcome id="__2">
-        <fixed-outcome>initTranslators</fixed-outcome>
-      </outcome>
-    </method-call>
     <view id="searchTranslatorView">
       <page>/WEB-INF/jsf_pages/searchTranslatorView.jsff</page>
     </view>
-    <control-flow-rule id="__7">
-      <from-activity-id id="__8">initTranslators</from-activity-id>
-      <control-flow-case id="__9">
-        <from-outcome id="__10">initTranslators</from-outcome>
-        <to-activity-id id="__11">searchTranslatorView</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

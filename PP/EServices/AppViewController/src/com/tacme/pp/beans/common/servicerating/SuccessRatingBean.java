@@ -2,11 +2,13 @@ package com.tacme.pp.beans.common.servicerating;
 
 import com.tacme.pp.common.utils.ADFUtils;
 
+import java.io.Serializable;
+
 import javax.faces.event.ActionEvent;
 
 import oracle.binding.OperationBinding;
 
-public class SuccessRatingBean {
+public class SuccessRatingBean implements Serializable {
     public SuccessRatingBean() {
     }
 

@@ -241,8 +241,6 @@
             usageId="com_app_view_SearchCasesTFDef_SearchCasesTFDef_initSearchCasePageDef"/-->
       <page path="/WEB-INF/jsf_pages/SerachExpertsView.jsff"
             usageId="com_app_view_SerachExpertsViewPageDef"/>
-      <page path="/WEB-INF/JSFFPageDef/SearchExpertTFDef.xml#SearchExpertTFDef@initSearchExperts"
-            usageId="com_app_view_SearchExpertTFDef_SearchExpertTFDef_initSearchExpertsPageDef"/>
       <page path="/WEB-INF/jsf_pages/SearchLawyersView.jsff"
             usageId="com_app_view_SearchLawyersViewPageDef"/>
       <page path="/test4.jspx" usageId="com_app_view_test4PageDef"/>
@@ -311,8 +309,6 @@
             usageId="com_app_view_ContactUsAdminPageDef"/>
       <page path="/WEB-INF/jsf_pages/eserviceStatusView.jsff"
             usageId="com_app_view_eserviceStatusViewPageDef"/>
-      <page path="/WEB-INF/JSFFPageDef/searchTranslatorTFDef.xml#searchTranslatorTFDef@initTranslators"
-            usageId="com_app_view_searchTranslatorTFDef_searchTranslatorTFDef_initTranslatorsPageDef"/>
       <page path="/WEB-INF/jsf_pages/searchTranslatorView.jsff"
             usageId="com_app_view_searchTranslatorViewPageDef"/>
       <page path="/WEB-INF/JSFFPageDef/CopyJudge.xml#CopyJudge@Commit"
@@ -611,8 +607,6 @@
             path="JSFFPageDef.SearchCasesTFDef_SearchCasesTFDef_initSearchCasePageDef"/-->
       <page id="com_app_view_SerachExpertsViewPageDef"
             path="JSFF_Pages.SerachExpertsViewPageDef"/>
-      <page id="com_app_view_SearchExpertTFDef_SearchExpertTFDef_initSearchExpertsPageDef"
-            path="JSFFPageDef.SearchExpertTFDef_SearchExpertTFDef_initSearchExpertsPageDef"/>
       <page id="com_app_view_SearchLawyersViewPageDef"
             path="JSFF_Pages.SearchLawyersViewPageDef"/>
       <page id="com_app_view_test4PageDef"
@@ -689,8 +683,6 @@
             path="JSFF_Pages.ContactUsAdminPageDef"/>
       <page id="com_app_view_eserviceStatusViewPageDef"
             path="JSFF_Pages.eserviceStatusViewPageDef"/>
-      <page id="com_app_view_searchTranslatorTFDef_searchTranslatorTFDef_initTranslatorsPageDef"
-            path="JSFFPageDef.searchTranslatorTFDef_searchTranslatorTFDef_initTranslatorsPageDef"/>
       <page id="com_app_view_searchTranslatorViewPageDef"
             path="JSFF_Pages.searchTranslatorViewPageDef"/>
       <page id="com_app_view_CopyJudge_CopyJudge_CommitPageDef"

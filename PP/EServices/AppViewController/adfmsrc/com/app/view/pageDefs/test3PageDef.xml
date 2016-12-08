@@ -5,14 +5,18 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="searchCaseTFDef1"
-              taskFlowId="/WEB-INF/JSFFPageDef/searchCaseTFDef.xml#searchCaseTFDef"
-              activation="deferred"
+    <taskFlow id="searchCaseTFDef1" taskFlowId="/WEB-INF/JSFFPageDef/searchCaseTFDef.xml#searchCaseTFDef" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding">
       <parameters>
-        <parameter id="locale" value="en"/>
+        <parameter id="locale" value="ar"/>
       </parameters>
     </taskFlow>
+    <taskFlow id="SearchExpertTFDef1" taskFlowId="/WEB-INF/JSFFPageDef/SearchExpertTFDef.xml#SearchExpertTFDef" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="SearchLawyersTFDef1" taskFlowId="/WEB-INF/JSFFPageDef/SearchLawyersTFDef.xml#SearchLawyersTFDef" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="searchTranslatorTFDef1" taskFlowId="/WEB-INF/JSFFPageDef/searchTranslatorTFDef.xml#searchTranslatorTFDef" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>

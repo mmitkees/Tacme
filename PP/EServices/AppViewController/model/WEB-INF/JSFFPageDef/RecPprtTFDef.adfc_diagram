@@ -22,7 +22,7 @@
       <property
          name="activityId">RecPprtView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/RecPprtView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/RecPprtView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>RecPprtView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -30,9 +30,9 @@
       <property
          name="y">77.143555</property>
       <property
-         name="x">305.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">305.0</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn4">
@@ -74,7 +74,7 @@
       <property
          name="activityId">SuccessMsgView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/SuccessMsgView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/SuccessMsgView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>SuccessMsgView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -82,16 +82,16 @@
       <property
          name="y">2.0976562</property>
       <property
-         name="x">462.01562</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">462.01562</property>
    </View>
    <View
       id="View8">
       <property
          name="activityId">NotPartyView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/NotPartyView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/NotPartyView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>NotPartyView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -99,9 +99,9 @@
       <property
          name="y">189.29297</property>
       <property
-         name="x">510.3457</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">510.3457</property>
    </View>
    <ControlFlowCase
       islink="true"

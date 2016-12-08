@@ -8,7 +8,7 @@
     <af:document id="d1">
       <af:messages id="m1"/>
       <af:form id="f1">
-        <af:region value="#{bindings.searchCaseTFDef1.regionModel}" id="r1"/>
+        <af:region value="#{bindings.searchTranslatorTFDef1.regionModel}" id="r1"/>
       </af:form>
     </af:document>
   </f:view>

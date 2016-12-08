@@ -12,7 +12,7 @@
       <property
          name="activityId">FDReim</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/FDReim.jsff</property>
+         name="page">/WEB-INF/jsf_pages/FDReim.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>FDReim&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -79,24 +79,24 @@
       <property
          name="activityId">SuccessMsgView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/SuccessMsgView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/SuccessMsgView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>SuccessMsgView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">232.79883</property>
+         name="y">222.1377</property>
       <property
          name="pageFragment">true</property>
       <property
-         name="x">393.01562</property>
+         name="x">399.01562</property>
    </View>
    <View
       id="View8">
       <property
          name="activityId">NotPartyView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/NotPartyView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/NotPartyView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>NotPartyView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -126,7 +126,7 @@
       <property
          name="fromOutcome">Y</property>
       <property
-         name="sdm:polyPoints">B61,260.5,144.79883,352.01562,232.44824,L50</property>
+         name="sdm:polyPoints">B61,260.5,144.79883,358.01562,221.78711,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -146,7 +146,7 @@
       <property
          name="fromOutcome">exitsh</property>
       <property
-         name="sdm:polyPoints">T50,393.01562,178.44824,415.5,152.44824,B50</property>
+         name="sdm:polyPoints">T50,399.01562,167.78711,415.5,152.44824,B50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -321,6 +321,6 @@
       <property
          name="fromOutcome">editprofile</property>
       <property
-         name="sdm:polyPoints">B50,253.5,147.10693,289.2207,217.44824,T50</property>
+         name="sdm:polyPoints">B50,253.5,147.30405,289.2207,217.44824,T50</property>
    </ControlFlowCase>
 </SDM>

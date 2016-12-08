@@ -87,6 +87,13 @@
         <to-activity-id id="__35">ePayment</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
+    <control-flow-rule id="__44">
+      <from-activity-id id="__45">*</from-activity-id>
+      <control-flow-case id="__46">
+        <from-outcome id="__48">logout</from-outcome>
+        <to-activity-id id="__47">router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

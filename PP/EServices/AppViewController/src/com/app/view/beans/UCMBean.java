@@ -193,7 +193,7 @@ public class UCMBean implements Serializable{
     public String downloadAttachUrl(){
         String web = null;
         if (replaceUrl != null && did != null){
-        web = "http://"+replaceUrl+"/cs/idcplg?IdcService=GET_FILE&dDocName="+did+"&RevisionSelectionMethod=LatestReleased&allowInterupt=1";
+        web = replaceUrl+"/cs/idcplg?IdcService=GET_FILE&dDocName="+did+"&RevisionSelectionMethod=LatestReleased&allowInterupt=1";
         }
         return web;
     }

@@ -750,6 +750,15 @@
    <ViewUsage
       Name="LanguageROVO1"
       ViewObjectName="com.app.model.views.readonly.LanguageROVO"/>
+   <ViewUsage
+      Name="PublicSearchExpertsROVO1"
+      ViewObjectName="com.app.model.views.readonly.publicservices.PublicSearchExpertsROVO"/>
+   <ViewUsage
+      Name="PublicSearchLawyersROVO1"
+      ViewObjectName="com.app.model.views.readonly.publicservices.PublicSearchLawyersROVO"/>
+   <ViewUsage
+      Name="PublicSearchTranslatorsROVO1"
+      ViewObjectName="com.app.model.views.readonly.publicservices.PublicSearchTranslatorsROVO"/>
    <ViewLinkUsage
       Name="AttachementsToSubSMS1"
       ViewLinkObjectName="com.app.model.views.viewLink.AttachementsToSubSMS"

@@ -5,40 +5,22 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="PrcTranslatorsVwView1" RangeSize="25"
-              DataControl="PPAppServicesDataControl"
-              id="PrcTranslatorsVwView1Iterator"/>
+    <iterator Binds="PublicSearchTranslatorsROVO1" RangeSize="25" DataControl="PPAppServicesDataControl" id="PublicSearchTranslatorsROVO1Iterator"/>
+    <searchRegion Criteria="PublicSearchTranslatorsCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="PublicSearchTranslatorsROVO1Iterator" id="PublicSearchTranslatorsCriteriaQuery"/>
   </executables>
   <bindings>
-    <methodAction id="initTranslators"
-                  InstanceName="PPAppServicesDataControl.dataProvider"
-                  DataControl="PPAppServicesDataControl"
-                  RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="initTranslators" IsViewObjectMethod="false"/>
-    <tree IterBinding="PrcTranslatorsVwView1Iterator"
-          id="PrcTranslatorsVwView1">
-      <nodeDefinition DefName="com.app.model.views.PrcTranslatorsVwView"
-                      Name="PrcTranslatorsVwView10">
+    <tree IterBinding="PublicSearchTranslatorsROVO1Iterator" id="PublicSearchTranslatorsROVO1">
+      <nodeDefinition DefName="com.app.model.views.readonly.publicservices.PublicSearchTranslatorsROVO" Name="PublicSearchTranslatorsROVO10">
         <AttrNames>
-          <Item Value="FullNameN"/>
-          <Item Value="CityDesc"/>
           <Item Value="PhoneNo"/>
-          <Item Value="Fax"/>
           <Item Value="OfficeAddress"/>
+          <Item Value="FullName"/>
+          <Item Value="Fax"/>
+          <Item Value="City"/>
+          <Item Value="Rowid1"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <methodAction id="srchtranslators" RequiresUpdateModel="true"
-                  Action="invokeMethod" MethodName="srchtranslators"
-                  IsViewObjectMethod="false"
-                  DataControl="PPAppServicesDataControl"
-                  InstanceName="PPAppServicesDataControl.dataProvider">
-      <NamedData NDName="name" NDValue="#{srchTranslator.name}"
-                 NDType="java.lang.String"/>
-      <NamedData NDName="city" NDValue="#{srchTranslator.city}"
-                 NDType="java.lang.String"/>
-      <NamedData NDName="address" NDValue="#{srchTranslator.address}"
-                 NDType="java.lang.String"/>
-    </methodAction>
   </bindings>
 </pageDefinition>

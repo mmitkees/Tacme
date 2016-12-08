@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 import javax.faces.event.ActionEvent;
 
+import oracle.adf.share.ADFContext;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.event.QueryEvent;
@@ -102,5 +103,10 @@ public class eserviceStatus implements Serializable{
 
     public RichPopup getPaymentPopup() {
         return paymentPopup;
+    }
+
+    public void logout(ActionEvent actionEvent) {
+        // Add event code here...
+        ADFContext.getCurrent().getSessionScope().put("login", "");
     }
 }
