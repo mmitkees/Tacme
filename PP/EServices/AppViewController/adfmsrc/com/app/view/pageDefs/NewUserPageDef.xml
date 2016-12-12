@@ -85,5 +85,7 @@
     <listOfValues StaticList="false" Uses="LOV_RegistrationLang"
                   IterBinding="PuPublicuserView1Iterator"
                   id="RegistrationLang"/>
+    <list IterBinding="PuPublicuserView1Iterator" StaticList="false" Uses="LOV_RegistrationLang" id="RegistrationLang1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

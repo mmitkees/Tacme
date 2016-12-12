@@ -281,12 +281,12 @@
                      <af:panelLabelAndMessage label="#{appviewcontrollerbundle.P_Pre_Lang}*"
                                               id="plam12"
                                               partialTriggers="soc2">
-                        <af:selectOneChoice value="#{bindings.RegistrationLang.inputValue}"
+                        <af:selectOneChoice value="#{bindings.RegistrationLang1.inputValue}"
                                             required="#{bindings.RegistrationLang.hints.mandatory}"
                                             shortDesc="#{bindings.RegistrationLang.hints.tooltip}"
                                             id="soc2" simple="true"
                                             autoSubmit="true">
-                           <f:selectItems value="#{bindings.RegistrationLang.items}"
+                           <f:selectItems value="#{bindings.RegistrationLang1.items}"
                                           id="si2"/>
                         </af:selectOneChoice>
                         <!--<af:message id="m13" for="soc2"/>-->
