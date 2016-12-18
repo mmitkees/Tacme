@@ -17,4 +17,17 @@
          <Custom JDBCDataSource="jdbc/ppdevDS"/>
       </AppModuleConfig>
    </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="com.app.model.services.PPAppModule">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.app.model.AppModel" name="PPAppModuleLocal" ApplicationName="com.app.model.services.PPAppModule">
+         <Database jbo.TypeMapEntries="Java"/>
+         <Security AppModuleJndiName="com.app.model.services.PPAppModule"/>
+         <Custom JDBCDataSource="jdbc/ppdevDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="PPAppModuleShared" jbo.project="com.app.model.AppModel" ApplicationName="com.app.model.services.PPAppModule" DeployPlatform="LOCAL">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.TypeMapEntries="Java"/>
+         <Security AppModuleJndiName="com.app.model.services.PPAppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ppdevDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
 </BC4JConfig>

@@ -106,6 +106,6 @@ group by RatingRecordsEO.RATING_KEY,RatingValues.RATING_VALUE_EN,RatingValues.RA
   </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
-      PropertiesFile="com.app.model.PP-ModelBundle"/>
+      PropertiesFile="com.app.model.AppModelBundle"/>
   </ResourceBundle>
 </ViewObject>

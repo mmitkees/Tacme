@@ -59,7 +59,7 @@
   </Attribute>
   <Attribute
     Name="ContractNumber"
-    Precision="200"
+    Precision="100"
     ColumnName="CONTRACT_NO"
     SQLType="VARCHAR"
     Type="java.lang.String"
@@ -68,10 +68,16 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="200"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="DefendentName"
-    Precision="200"
+    Precision="100"
     ColumnName="DEFENDENT_NAME"
     SQLType="VARCHAR"
     Type="java.lang.String"
@@ -80,6 +86,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="200"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Key
     Name="PkReqLawyerProfile"

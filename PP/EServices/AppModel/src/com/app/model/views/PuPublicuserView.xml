@@ -55,8 +55,8 @@
     ViewObjectName="com.app.model.views.CountryNationalityArabView"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="LanguageROVO1"
-    ViewObjectName="com.app.model.views.readonly.LanguageROVO"
+    Name="LanguageLOV1"
+    ViewObjectName="com.app.model.views.readonly.lov.LanguageLOV"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Nationality_en"
@@ -96,10 +96,10 @@
   </ListBinding>
   <ListBinding
     Name="LOV_RegistrationLang"
-    ListVOName="LanguageROVO1"
+    ListVOName="LanguageLOV1"
     ListRangeSize="-1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    NullValueFlag="none"
+    NullValueId="LOV_RegistrationLang_LOVUIHints_NullValueId"
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="RegistrationLang"/>
@@ -374,4 +374,8 @@ return 'LOV_Nationality_ar';
     EntityAttrName="DateOfBirth"
     EntityUsage="PuPublicuser"
     AliasName="DATE_OF_BIRTH"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.app.model.AppModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

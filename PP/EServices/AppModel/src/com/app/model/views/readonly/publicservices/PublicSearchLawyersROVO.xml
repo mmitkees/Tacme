@@ -179,6 +179,6 @@ FROM PRC_LAWYERS_VW PrcLawyersVw]]>
   </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
-      PropertiesFile="com.app.model.PP-ModelBundle"/>
+      PropertiesFile="com.app.model.AppModelBundle"/>
   </ResourceBundle>
 </ViewObject>

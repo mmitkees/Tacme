@@ -192,6 +192,6 @@ FROM PRC_TRANSLATORS_VW PrcTranslatorsVw]]>
   </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
-      PropertiesFile="com.app.model.PP-ModelBundle"/>
+      PropertiesFile="com.app.model.AppModelBundle"/>
   </ResourceBundle>
 </ViewObject>

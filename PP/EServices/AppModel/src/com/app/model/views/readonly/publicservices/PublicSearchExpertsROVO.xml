@@ -178,6 +178,6 @@ FROM PRC_EXPERTS_VW]]>
   </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
-      PropertiesFile="com.app.model.PP-ModelBundle"/>
+      PropertiesFile="com.app.model.AppModelBundle"/>
   </ResourceBundle>
 </ViewObject>

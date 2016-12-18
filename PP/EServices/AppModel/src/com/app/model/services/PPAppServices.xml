@@ -747,9 +747,7 @@
    <ViewUsage
       Name="RatingAdminVO1"
       ViewObjectName="com.app.model.views.servicerating.RatingAdminVO"/>
-   <ViewUsage
-      Name="LanguageROVO1"
-      ViewObjectName="com.app.model.views.readonly.LanguageROVO"/>
+ 
    <ViewUsage
       Name="PublicSearchExpertsROVO1"
       ViewObjectName="com.app.model.views.readonly.publicservices.PublicSearchExpertsROVO"/>
@@ -759,6 +757,9 @@
    <ViewUsage
       Name="PublicSearchTranslatorsROVO1"
       ViewObjectName="com.app.model.views.readonly.publicservices.PublicSearchTranslatorsROVO"/>
+   <ViewUsage
+      Name="LanguageLOV1"
+      ViewObjectName="com.app.model.views.readonly.lov.LanguageLOV"/>
    <ViewLinkUsage
       Name="AttachementsToSubSMS1"
       ViewLinkObjectName="com.app.model.views.viewLink.AttachementsToSubSMS"

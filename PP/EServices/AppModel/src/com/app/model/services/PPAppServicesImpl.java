@@ -3431,4 +3431,12 @@ public class PPAppServicesImpl extends ApplicationModuleImpl implements Serializ
     public ViewObjectImpl getPublicSearchTranslatorsROVO1() {
         return (ViewObjectImpl)findViewObject("PublicSearchTranslatorsROVO1");
     }
+
+    /**
+     * Container's getter for LanguageLOV1.
+     * @return LanguageLOV1
+     */
+    public ViewObjectImpl getLanguageLOV1() {
+        return (ViewObjectImpl)findViewObject("LanguageLOV1");
+    }
 }
