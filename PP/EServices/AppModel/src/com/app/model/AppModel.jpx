@@ -57,6 +57,22 @@
    </Containee>
    <Containee
       Name="readonly"
+      PackageName="com.app.model.views.readonly.lov"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="readonly"
+      PackageName="com.app.model.views.readonly.publicservices"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="readonly"
       PackageName="com.app.model.views.readonly"
       ObjectType="JboPackage">
       <DesignTime>
@@ -87,12 +103,4 @@
          <Attr Name="_VO" Value="true"/>
       </DesignTime>
    </Containee>
-   <AppContainee
-      Name="Model"
-      FullName="model.Model"
-      ObjectType="JboProject">
-      <DesignTime>
-         <Attr Name="_SourceName" Value="SMSPrjadfLib.jar"/>
-      </DesignTime>
-   </AppContainee>
 </JboProject>

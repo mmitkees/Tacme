@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="windows-1252" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
 <!---->
 <ViewObject
@@ -10,7 +10,7 @@
   CustomQuery="true"
   PageIterMode="Full"
   UseGlueCode="false"
-  OrderBy="req_id desc">
+  OrderBy="REQ_ID desc">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
     <Attr Name="_isExpertMode" Value="true"/>
@@ -18,40 +18,59 @@
   <Variable
     Name="puid"
     Kind="where"
-    Type="oracle.jbo.domain.Number">
+    Type="java.math.BigDecimal">
     <TransientExpression><![CDATA[adf.context.current.sessionScope.get('uid')]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Variable>
   <SQLQuery>
-    <![CDATA[SELECT ReqRequests.REQ_ID, 
-       ReqRequests.REQ_NAME,
-(select ms .name from moj_services ms where ms.language = 'en' and ms.request_service_name = ReqRequests.req_name and ms.translated_service_id = ReqRequests.service_id)"EngName",
-(select ms .name from moj_services ms where ms.language = 'ar' and ms.request_service_name = ReqRequests.req_name and ms.id = ReqRequests.service_id)"ArabicName", 
-(select msj.name from moj_services msj where language = 'ar' and msj.id = (select moj.translated_service_id from moj_services moj where moj.name = ReqRequests.REQ_NAME)) reqNameAr,
-       ReqRequests.REQ_CLASS, 
-       ReqRequests.STATUS, 
-       ReqRequests.CREATED_DATE, 
-       ReqRequests.MODIFIED_DATE, 
-       ReqRequests.PUBLIC_USER_ID, 
-       ReqRequests.SERVICE_ID, 
-       ReqRequests.PROSEC_ID, 
-       ReqRequests.REF_NO, 
-       ReqRequests.STATUS_DETAILS, 
-       ReqRequests.CASE_INFO_ID,
-(select epc.prosecution_eng_name from ENV_PROSECUTIONS_CITY epc where epc.prosecution_id =  ReqRequests.PROSEC_ID) "Pros_en_name",
-(select epc.prosecution_name from ENV_PROSECUTIONS_CITY epc where epc.prosecution_id =  ReqRequests.PROSEC_ID) "Pros_ar_name"
-FROM REQ_REQUESTS ReqRequests
-WHERE public_user_id = :puid
-group by ReqRequests.req_id,ReqRequests.req_name,
-ReqRequests.REQ_CLASS, 
-       ReqRequests.STATUS, 
-       ReqRequests.CREATED_DATE, 
-       ReqRequests.MODIFIED_DATE, 
-       ReqRequests.PUBLIC_USER_ID, 
-       ReqRequests.SERVICE_ID, 
-       ReqRequests.PROSEC_ID, 
-       ReqRequests.REF_NO, 
-       ReqRequests.STATUS_DETAILS, 
-       ReqRequests.CASE_INFO_ID order by req_id desc]]>
+    <![CDATA[SELECT ReqRequests.REQ_ID ,
+  ReqRequests.REQ_NAME,
+  (SELECT ms .name
+  FROM moj_services ms
+  WHERE ms.language            = 'en'
+  AND ms.request_service_name  = ReqRequests.req_name
+  AND ms.translated_service_id = ReqRequests.service_id
+  )"Service_Name_En",
+  (SELECT ms .name
+  FROM moj_services ms
+  WHERE ms.language           = 'ar'
+  AND ms.request_service_name = ReqRequests.req_name
+  AND ms.id                   = ReqRequests.service_id
+  )"Service_Name_Ar ",
+  (SELECT msj.name
+  FROM moj_services msj
+  WHERE language = 'ar'
+  AND msj.id     =
+    (SELECT moj.translated_service_id
+    FROM moj_services moj
+    WHERE moj.name = ReqRequests.REQ_NAME
+    )
+  ) reqNameAr,
+  ReqRequests.REQ_CLASS,
+  ReqRequests.STATUS,
+  DECODE (ReqRequests.STATUS, 'Pending Payment', 'في انتظار الدفع', 'Payment Failed', 'فشلت عملية الدفع', 'Under Payment Process', 'جاري عملية الدفع', 'SENT','تحت المراجعة', 'Payment Done','تم الدفع','') STATUS_AR,
+  ReqRequests.CREATED_DATE,
+  ReqRequests.MODIFIED_DATE,
+  ReqRequests.PUBLIC_USER_ID,
+  ReqRequests.SERVICE_ID,
+  ReqRequests.PROSEC_ID,
+  ReqRequests.REF_NO,
+  ReqRequests.STATUS_DETAILS,
+  DECODE (ReqRequests.STATUS_DETAILS,
+  'Payment Failed Submit a new Request', 'فشلت عملية الدفع اعد طلبك من جديد ', 'Payment Done','تم الدفع','Payment not completed successfully  Try To pay again','فشلت عملية الدفع اعد محاولة الدفع مرة اخري ','') STATUS_DETAILS_AR,
+  ReqRequests.CASE_INFO_ID,
+  epc.PROSECUTION_ENG_NAME "Pros_en_name",
+  epc.PROSECUTION_NAME "Pros_ar_name", 
+  (select  max(cc.INVOICE_ID) from TRANSACTION_DETAILS cc where cc.REQ_ID= ReqRequests.REQ_ID) Invoice_ID
+FROM REQ_REQUESTS ReqRequests,
+  ENV_PROSECUTIONS_CITY epc 
+WHERE public_user_id   = :puid 
+AND epc.prosecution_id = ReqRequests.PROSEC_ID]]>
   </SQLQuery>
   <EntityUsage
     Name="ReqRequests"
@@ -79,15 +98,15 @@ ReqRequests.REQ_CLASS,
     EntityUsage="ReqRequests"
     AliasName="REQ_NAME"/>
   <ViewAttribute
-    Name="Engname"
+    Name="ServiceNameEn"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="4000"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    AliasName='"EngName"'
-    Expression='"EngName"'
+    AliasName='"Service_Name_En"'
+    Expression='"Service_Name_En"'
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
@@ -95,22 +114,20 @@ ReqRequests.REQ_CLASS,
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.app.model.views.ReqRequestsStatusView.Engname_LABEL"/>
-        <DISPLAYWIDTH
-          Value="75"/>
+          ResId="com.app.model.views.ReqRequestsStatusView.ServiceNameEn_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="Arabicname"
+    Name="ServiceNameAr"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="4000"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    AliasName='"ArabicName"'
-    Expression='"ArabicName"'
+    AliasName='"Service_Name_Ar "'
+    Expression='"Service_Name_Ar "'
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
@@ -118,9 +135,7 @@ ReqRequests.REQ_CLASS,
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.app.model.views.ReqRequestsStatusView.Arabicname_LABEL"/>
-        <DISPLAYWIDTH
-          Value="75"/>
+          ResId="com.app.model.views.ReqRequestsStatusView.ServiceNameAr_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -163,6 +178,27 @@ ReqRequests.REQ_CLASS,
           ResId="com.app.model.views.ReqRequestsStatusView.Status_LABEL"/>
         <DISPLAYWIDTH
           Value="75"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StatusAr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STATUS_AR"
+    Expression="STATUS_AR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.app.model.views.ReqRequestsStatusView.StatusAr_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -231,6 +267,27 @@ ReqRequests.REQ_CLASS,
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="StatusDetailsAr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="43"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STATUS_DETAILS_AR"
+    Expression="STATUS_DETAILS_AR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="43"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.app.model.views.ReqRequestsStatusView.StatusDetailsAr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="CaseInfoId"
     PrecisionRule="true"
     EntityAttrName="CaseInfoId"
@@ -254,8 +311,6 @@ ReqRequests.REQ_CLASS,
       <SchemaBasedProperties>
         <LABEL
           ResId="com.app.model.views.ReqRequestsStatusView.ProsEnName_LABEL"/>
-        <DISPLAYWIDTH
-          Value="75"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -277,8 +332,27 @@ ReqRequests.REQ_CLASS,
       <SchemaBasedProperties>
         <LABEL
           ResId="com.app.model.views.ReqRequestsStatusView.ProsArName_LABEL"/>
-        <DISPLAYWIDTH
-          Value="75"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InvoiceId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="25"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INVOICE_ID"
+    Expression="INVOICE_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.app.model.views.ReqRequestsStatusView.InvoiceId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -315,18 +389,6 @@ ReqRequests.REQ_CLASS,
         Conjunction="AND"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="ReqRequestsStatusViewCriteria_vcrow16_Engname"
-        ViewAttribute="Engname"
-        Operator="STARTSWITH"
-        Conjunction="OR"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="ReqRequestsStatusViewCriteria_vcrow16_Arabicname"
-        ViewAttribute="Arabicname"
-        Operator="STARTSWITH"
-        Conjunction="OR"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="ReqRequestsStatusViewCriteria_vcrow16_Status"
         ViewAttribute="Status"
         Operator="STARTSWITH"
@@ -341,18 +403,6 @@ ReqRequests.REQ_CLASS,
       <ViewCriteriaItem
         Name="ReqRequestsStatusViewCriteria_vcrow16_StatusDetails"
         ViewAttribute="StatusDetails"
-        Operator="STARTSWITH"
-        Conjunction="OR"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="ReqRequestsStatusViewCriteria_vcrow16_ProsEnName"
-        ViewAttribute="ProsEnName"
-        Operator="STARTSWITH"
-        Conjunction="OR"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="ReqRequestsStatusViewCriteria_vcrow16_ProsArName"
-        ViewAttribute="ProsArName"
         Operator="STARTSWITH"
         Conjunction="OR"
         Required="Optional"/>

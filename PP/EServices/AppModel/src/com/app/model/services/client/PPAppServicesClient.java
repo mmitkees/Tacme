@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 import java.util.Locale;
 import java.util.Map;
 
-import model.services.common.SMSPrjService;
 
 import oracle.jbo.client.remote.ApplicationModuleImpl;
 // ---------------------------------------------------------------------
@@ -78,10 +77,7 @@ public class PPAppServicesClient extends ApplicationModuleImpl implements PPAppS
 //    }
 
 
-    public SMSPrjService getSMSPrjService() {
-        return (SMSPrjService)findApplicationModule("SMSPrjService1");
-    }
-
+   
 
     //    public Map getResourceBundle(String locale) {
 //        Object _ret =

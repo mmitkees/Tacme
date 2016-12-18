@@ -1356,10 +1356,7 @@
       SrcViewUsageName="com.app.model.services.PPAppServices.ReqReceiveSeizureView1"
       DstViewUsageName="com.app.model.services.PPAppServices.ReqRequestsView37"
       Reversed="false"/>
-   <AppModuleUsage
-      Name="SMSPrjService1"
-      FullName="model.services.SMSPrjService"
-      SharedScope="0"/>
+  
    <ClientInterface>
       <Method
          Name="login_db">
