@@ -82,12 +82,12 @@
          <hash>
             <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
             <url n="sourceOwnerURL" path="../PP-Eservices.jws"/>
-            <url n="sourceURL" path="../Common/Common.jpr"/>
+            <url n="sourceURL" path="../PMRIntegration/PMRIntegration.jpr"/>
          </hash>
          <hash>
             <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
             <url n="sourceOwnerURL" path="../PP-Eservices.jws"/>
-            <url n="sourceURL" path="../PMRIntegration/PMRIntegration.jpr"/>
+            <url n="sourceURL" path="../Common/Common.jpr"/>
          </hash>
          <hash>
             <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
@@ -405,10 +405,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="SMSPrjadfLib.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Oracle.ucm.ridc-11.1.1.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -483,15 +479,6 @@
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
                <value n="id" v="ADF Library"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../SMSPrj/ViewController/deploy/SMSPrjadfLib.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="SMSPrjadfLib.jar"/>
-               <value n="id" v="SMSPrjadfLib.jar"/>
-               <value n="locked" v="true"/>
             </hash>
             <hash>
                <list n="classPath">
@@ -629,10 +616,6 @@
          </hash>
          <hash>
             <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="SMSPrjadfLib.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>

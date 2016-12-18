@@ -58,8 +58,6 @@
       <string v="oracle.stellent.wcm.jdev.features.settings.WorkingDirPathSettings/SiteFilesWorkingDir"/>
    </list>
    <value n="defaultPackage" v="com.tacme.pp.model"/>
-   <value n="jbo.JpxName" v="com.tacme.pp.model.Model"/>
-   <value n="JboProject" v="true"/>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="Java"/>
@@ -67,12 +65,6 @@
          <string v="JavaBeans"/>
       </list>
    </hash>
-   <value n="oracle.jbo.ObjAMSuffix" v="AM"/>
-   <value n="oracle.jbo.ObjAssocSuffix" v="Assoc"/>
-   <value n="oracle.jbo.ObjEOSuffix" v="EO"/>
-   <value n="oracle.jbo.ObjViewLinkSuffix" v="Link"/>
-   <value n="oracle.jbo.ObjVOSuffix" v="VO"/>
-   <value n="oracle.jbo.SavedPreferences" v="true"/>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
       <list n="copyRes">
          <string v=".gif"/>

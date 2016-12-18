@@ -18,6 +18,15 @@
         <parameter id="ServiceId" value="3333"/>
       </parameters>
     </taskFlow>
+    <taskFlow id="AppealTFDef1"
+              taskFlowId="/WEB-INF/JSFFPageDef/AppealTFDef.xml#AppealTFDef"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="key" value="11"/>
+        <parameter id="locale" value="en"/>
+      </parameters>
+    </taskFlow>
   </executables>
   <bindings/>
 </pageDefinition>

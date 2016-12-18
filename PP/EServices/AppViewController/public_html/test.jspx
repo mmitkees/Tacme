@@ -45,10 +45,7 @@
       <!--<af:resource type="javascript"
                    source="http://demoserver.tacme.net:12127/js/comman_script.js"/>-->
       <af:form id="f1">
-        <af:region value="#{bindings.EserviceSuccessRatingTF1.regionModel}"
-                   id="r1"/>
-                      
-    
+        <af:region value="#{bindings.AppealTFDef1.regionModel}" id="r1"/>
       </af:form>
     </af:document>
   </f:view>
