@@ -1,5 +1,6 @@
 package com.tacme.pp.common.utils;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -51,8 +52,8 @@ public class JSFUtils {
         Application app = facesContext.getApplication();
         ExpressionFactory elFactory = app.getExpressionFactory();
         ELContext elContext = facesContext.getELContext();
-        ValueExpression valueExp = 
-            elFactory.createValueExpression(elContext, expression, 
+        ValueExpression valueExp =
+            elFactory.createValueExpression(elContext, expression,
                                             Object.class);
         return valueExp.getValue(elContext);
     }
@@ -70,16 +71,16 @@ public class JSFUtils {
         return request.getUserPrincipal().getName();
     }
 
-    public static Object resloveMethodExpression(String expression, 
-                                                 Class returnType, 
-                                                 Class[] argTypes, 
+    public static Object resloveMethodExpression(String expression,
+                                                 Class returnType,
+                                                 Class[] argTypes,
                                                  Object[] argValues) {
         FacesContext facesContext = getFacesContext();
         Application app = facesContext.getApplication();
         ExpressionFactory elFactory = app.getExpressionFactory();
         ELContext elContext = facesContext.getELContext();
-        MethodExpression methodExpression = 
-            elFactory.createMethodExpression(elContext, expression, returnType, 
+        MethodExpression methodExpression =
+            elFactory.createMethodExpression(elContext, expression, returnType,
                                              argTypes);
         return methodExpression.invoke(elContext, argValues);
     }
@@ -129,8 +130,8 @@ public class JSFUtils {
         Application app = facesContext.getApplication();
         ExpressionFactory elFactory = app.getExpressionFactory();
         ELContext elContext = facesContext.getELContext();
-        ValueExpression valueExp = 
-            elFactory.createValueExpression(elContext, expression, 
+        ValueExpression valueExp =
+            elFactory.createValueExpression(elContext, expression,
                                             Object.class);
 
         //Check that the input newValue can be cast to the property type
@@ -166,7 +167,7 @@ public class JSFUtils {
         Map sessionState = ctx.getExternalContext().getSessionMap();
         sessionState.put(key, object);
     }
-    
+
     /**
      * Store page flow scope attribute
      * @param name
@@ -229,7 +230,7 @@ public class JSFUtils {
      * @param severity severity of message
      * @return Faces Message object
      */
-    public static FacesMessage getMessageFromBundle(String key, 
+    public static FacesMessage getMessageFromBundle(String key,
                                                     FacesMessage.Severity severity) {
         ResourceBundle bundle = getBundle();
         String summary = getStringSafely(bundle, key, null);
@@ -245,7 +246,7 @@ public class JSFUtils {
      */
     public static void addFacesInformationMessage(String msg) {
         FacesContext ctx = getFacesContext();
-        FacesMessage fm = 
+        FacesMessage fm =
             new FacesMessage(FacesMessage.SEVERITY_INFO, msg, "");
         ctx.addMessage(getRootViewComponentId(), fm);
     }
@@ -256,7 +257,7 @@ public class JSFUtils {
      */
     public static void addFacesErrorMessage(String msg) {
         FacesContext ctx = getFacesContext();
-        FacesMessage fm = 
+        FacesMessage fm =
             new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, "");
         ctx.addMessage(getRootViewComponentId(), fm);
     }
@@ -268,7 +269,7 @@ public class JSFUtils {
      */
     public static void addFacesErrorMessage(String attrName, String msg) {
         FacesContext ctx = getFacesContext();
-        FacesMessage fm = 
+        FacesMessage fm =
             new FacesMessage(FacesMessage.SEVERITY_ERROR, attrName, msg);
         ctx.addMessage(getRootViewComponentId(), fm);
     }
@@ -308,7 +309,7 @@ public class JSFUtils {
         UIViewRoot uiRoot = ctx.getViewRoot();
         Locale locale = uiRoot.getLocale();
         ClassLoader ldr = Thread.currentThread().getContextClassLoader();
-        return ResourceBundle.getBundle(ctx.getApplication().getMessageBundle(), 
+        return ResourceBundle.getBundle(ctx.getApplication().getMessageBundle(),
                                         locale, ldr);
     }
 
@@ -327,7 +328,7 @@ public class JSFUtils {
      * @param value attribute value
      */
     public static void setRequestAttribute(String name, Object value) {
-        getFacesContext().getExternalContext().getRequestMap().put(name, 
+        getFacesContext().getExternalContext().getRequestMap().put(name,
                                                                    value);
     }
 
@@ -335,7 +336,7 @@ public class JSFUtils {
     * Internal method to proxy for resource keys that don't exist
     */
 
-    private static String getStringSafely(ResourceBundle bundle, String key, 
+    private static String getStringSafely(ResourceBundle bundle, String key,
                                           String defaultValue) {
         String resource = null;
         try {
@@ -396,14 +397,14 @@ public class JSFUtils {
     /**
      * Method to create a redirect URL. The assumption is that the JSF servlet mapping is
      * "faces", which is the default
-     * 
+     *
      * @param view the JSP or JSPX page to redirect to
      * @return a URL to redirect to
      */
     public static String getPageURL(String view) {
         FacesContext facesContext = getFacesContext();
         ExternalContext externalContext = facesContext.getExternalContext();
-        String url = 
+        String url =
             ((HttpServletRequest)externalContext.getRequest()).getRequestURL().toString();
         StringBuffer newUrlBuffer = new StringBuffer();
         newUrlBuffer.append(url.substring(0, url.lastIndexOf("faces/")));
@@ -421,9 +422,9 @@ public class JSFUtils {
     public static Object getExpressionObjectReference(String expression) {
         FacesContext fc = FacesContext.getCurrentInstance();
         ELContext elctx = fc.getELContext();
-        ExpressionFactory elFactory = 
+        ExpressionFactory elFactory =
             fc.getApplication().getExpressionFactory();
-        return elFactory.createValueExpression(elctx, expression, 
+        return elFactory.createValueExpression(elctx, expression,
                                                Object.class).getValue(elctx);
     }
 
@@ -436,13 +437,18 @@ public class JSFUtils {
      * @param args
      * @return
      */
-    public static Object invokeMethodExpression(String expr, Class returnType, Class[]    argTypes,Object[] args){
-       FacesContext fc = FacesContext.getCurrentInstance(); 
-       ELContext elctx = fc.getELContext();
-       ExpressionFactory elFactory = fc.getApplication().getExpressionFactory(); 
-       MethodExpression methodExpr = elFactory.createMethodExpression(elctx,expr,returnType,argTypes);    
-       return methodExpr.invoke(elctx,args); 
-      }
+    public static Object invokeMethodExpression(String expr, Class returnType,
+                                                Class[] argTypes,
+                                                Object[] args) {
+        FacesContext fc = FacesContext.getCurrentInstance();
+        ELContext elctx = fc.getELContext();
+        ExpressionFactory elFactory =
+            fc.getApplication().getExpressionFactory();
+        MethodExpression methodExpr =
+            elFactory.createMethodExpression(elctx, expr, returnType,
+                                             argTypes);
+        return methodExpr.invoke(elctx, args);
+    }
 
     /**
      * Invoke an expression
@@ -452,46 +458,77 @@ public class JSFUtils {
      * @param argument
      * @return
      */
-    public static Object invokeMethodExpression(String expr, Class returnType,Class argType,    Object argument){ 
-       return invokeMethodExpression(expr, returnType,new Class[]{argType}, new Object[]{argument});
-       
-      }
-    
-    
-    
-    
-    public static void showFacesInformationMessage(String msg) {
-    
-    FacesContext ctx = getFacesContext();
-    msg = "<html>"+msg+"</html>";
-    FacesMessage fm = 
-        new FacesMessage(FacesMessage.SEVERITY_INFO, msg, "");
-    ctx.addMessage(null, fm);
-    
-    }
-    
-    public static void showFacesErrorMessage(Exception e)
-    {
-    StackTraceElement[] elements = e.getStackTrace();
-    String errorStack = "";
-    
-    for(StackTraceElement ele : elements) {
-      errorStack = errorStack.concat(ele.toString()+"\n");
+    public static Object invokeMethodExpression(String expr, Class returnType,
+                                                Class argType,
+                                                Object argument) {
+        return invokeMethodExpression(expr, returnType,
+                                      new Class[] { argType },
+                                      new Object[] { argument });
+
     }
 
-        JSFUtils.showFacesErrorMessage(errorStack);      
-    
+
+    public static void showFacesInformationMessage(String msg) {
+
+        FacesContext ctx = getFacesContext();
+        msg = "<html>" + msg + "</html>";
+        FacesMessage fm =
+            new FacesMessage(FacesMessage.SEVERITY_INFO, msg, "");
+        ctx.addMessage(null, fm);
+
     }
-    
+
+    public static void showFacesErrorMessage(Exception e) {
+        StackTraceElement[] elements = e.getStackTrace();
+        String errorStack = "";
+
+        for (StackTraceElement ele : elements) {
+            errorStack = errorStack.concat(ele.toString() + "\n");
+        }
+
+        JSFUtils.showFacesErrorMessage(errorStack);
+
+    }
+
     public static void showFacesErrorMessage(String msg) {
-    
-    FacesContext ctx = getFacesContext();
-    FacesMessage fm = 
-        new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, "");
-    ctx.addMessage(null, fm);
-    
+
+        FacesContext ctx = getFacesContext();
+        FacesMessage fm =
+            new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, "");
+        ctx.addMessage(null, fm);
+
+    }
+    public static void showFacesErrorMessageForComponent(UIComponent component,String msg) {
+
+        FacesContext ctx = getFacesContext();
+        FacesMessage fm =
+            new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, "");
+        ctx.addMessage(component.getClientId(ctx), fm);
+
+    }
+
+    public static void showFacesErrorMessages(ArrayList<String> msgs) {
+
+        FacesContext ctx = getFacesContext();
+        for (String msg : msgs) {
+            FacesMessage fm =
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, "");
+            ctx.addMessage(null, fm);
+        }
+
     }
     
+    public static void showFacesErrorMessages(String componentId,ArrayList<String> msgs) {
+
+        FacesContext ctx = getFacesContext();
+        for (String msg : msgs) {
+            FacesMessage fm =
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, "");
+            ctx.addMessage(null, fm);
+        }
+
+    }
+
     public static void refreshCurrentPage() {
         FacesContext context = getFacesContext();
         String currentView = context.getViewRoot().getViewId();
@@ -501,7 +538,7 @@ public class JSFUtils {
         x.setViewId(currentView);
         context.setViewRoot(x);
     }
-    
+
     /**
      * Get attribute value from page flow scope
      * @param name
@@ -510,40 +547,54 @@ public class JSFUtils {
     public static Object getFromPageFlow(String name) {
         return RequestContext.getCurrentInstance().getPageFlowScope().get(name);
     }
-    
-    public static RowKeySet getDraggedRowKeySetFromTreeTable(DropEvent dropEvent, String discriminant ){
-      JUCtrlHierNodeBinding draggedRowNode=null;
-      //Get the Dragged Row  
-        Transferable transferable= dropEvent.getTransferable();
-        DataFlavor<RowKeySet> rowKeySetFlavor= DataFlavor.getDataFlavor(RowKeySet.class,discriminant);
-        RowKeySet rowKeySet=transferable.getData(rowKeySetFlavor);
-          return rowKeySet;
+
+    public static RowKeySet getDraggedRowKeySetFromTreeTable(DropEvent dropEvent,
+                                                             String discriminant) {
+        JUCtrlHierNodeBinding draggedRowNode = null;
+        //Get the Dragged Row
+        Transferable transferable = dropEvent.getTransferable();
+        DataFlavor<RowKeySet> rowKeySetFlavor =
+            DataFlavor.getDataFlavor(RowKeySet.class, discriminant);
+        RowKeySet rowKeySet = transferable.getData(rowKeySetFlavor);
+        return rowKeySet;
     }
-    
-    public static JUCtrlHierNodeBinding  getTreeNodeByKey(RichTreeTable treeTable,List key){
-      JUCtrlHierNodeBinding treeNode=null;
-      CollectionModel cm=(CollectionModel)treeTable.getValue();
-      JUCtrlHierBinding treeBinding=(JUCtrlHierBinding)cm.getWrappedData();
-      treeNode=treeBinding.findNodeByKeyPath(key);
-      return treeNode;
+
+    public static JUCtrlHierNodeBinding getTreeNodeByKey(RichTreeTable treeTable,
+                                                         List key) {
+        JUCtrlHierNodeBinding treeNode = null;
+        CollectionModel cm = (CollectionModel)treeTable.getValue();
+        JUCtrlHierBinding treeBinding = (JUCtrlHierBinding)cm.getWrappedData();
+        treeNode = treeBinding.findNodeByKeyPath(key);
+        return treeNode;
     }
-    
-    public static JUCtrlHierNodeBinding getDraggedRowNodeFromTreeTable(DropEvent dropEvent, String discriminant ){
-      JUCtrlHierNodeBinding draggedRowNode=null;
-      //Get the Dragged Row  
-        Transferable transferable= dropEvent.getTransferable();
-        DataFlavor<RowKeySet> rowKeySetFlavor= DataFlavor.getDataFlavor(RowKeySet.class,discriminant);
-        RowKeySet rowKeySet=transferable.getData(rowKeySetFlavor);
-        if(rowKeySet !=null){ 
-          List firstRowKey=(List)rowKeySet.iterator().next();
-          CollectionModel treeTableCollectionModel=transferable.getData(CollectionModel.class);
-          JUCtrlHierBinding binding=(JUCtrlHierBinding)treeTableCollectionModel.getWrappedData();
-          System.out.println(binding.getIteratorBinding().getDisplayName());
-          draggedRowNode=binding.findNodeByKeyPath(firstRowKey);
-          
-          
-          
+
+    public static JUCtrlHierNodeBinding getDraggedRowNodeFromTreeTable(DropEvent dropEvent,
+                                                                       String discriminant) {
+        JUCtrlHierNodeBinding draggedRowNode = null;
+        //Get the Dragged Row
+        Transferable transferable = dropEvent.getTransferable();
+        DataFlavor<RowKeySet> rowKeySetFlavor =
+            DataFlavor.getDataFlavor(RowKeySet.class, discriminant);
+        RowKeySet rowKeySet = transferable.getData(rowKeySetFlavor);
+        if (rowKeySet != null) {
+            List firstRowKey = (List)rowKeySet.iterator().next();
+            CollectionModel treeTableCollectionModel =
+                transferable.getData(CollectionModel.class);
+            JUCtrlHierBinding binding =
+                (JUCtrlHierBinding)treeTableCollectionModel.getWrappedData();
+            System.out.println(binding.getIteratorBinding().getDisplayName());
+            draggedRowNode = binding.findNodeByKeyPath(firstRowKey);
+
+
         }
-      return draggedRowNode;
+        return draggedRowNode;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public static HttpServletRequest getRequest() {
+        return (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
     }
 }

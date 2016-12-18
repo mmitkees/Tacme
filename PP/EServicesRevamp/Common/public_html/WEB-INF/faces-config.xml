@@ -2,5 +2,20 @@
 <faces-config version="1.2" xmlns="http://java.sun.com/xml/ns/javaee">
   <application>
     <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
+    <resource-bundle>
+      <base-name>com.tacme.pp.model.common.bundle.ErrorMsgBundle</base-name>
+      <var>ErrorMsgBundle</var>
+    </resource-bundle>
+    <resource-bundle>
+      <base-name>com.tacme.pp.common.bundle.CommonBundle</base-name>
+      <var>CommonBundle</var>
+    </resource-bundle>
+    <locale-config>
+      <default-locale>en</default-locale>
+    </locale-config>
+    <resource-bundle>
+      <base-name>com.tacme.pp.model.common.bundle.Patterns</base-name>
+      <var>Patterns</var>
+    </resource-bundle>
   </application>
 </faces-config>

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Created-By: Mohamed Mitkees
 Implementation-Title: PP-EservicesSharedLibs
-Extension-Name: pp.eservices.shared.lib
-Specification-Version: 2.4.34
-Implementation-Version: 2.4.34
+Extension-Name: pp.new.eservices.shared.lib
+Specification-Version: 2.1.7
+Implementation-Version: 2.1.7
 Implementation-Vendor: tacme

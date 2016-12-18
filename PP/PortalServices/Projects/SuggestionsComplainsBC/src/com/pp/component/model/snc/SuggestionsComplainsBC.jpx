@@ -9,9 +9,8 @@
   PackageName="com.pp.component.model.snc">
   <DesignTime>
     <Attr Name="_jprName" Value="../../../../../../SuggestionsComplainsBC.jpr"/>
+    <Attr Name="_appModuleNames0" Value="com.pp.component.model.snc.services.SNVAppModule"/>
     <Attr Name="_NamedConnection" Value="ppdev"/>
-    <Attr Name="_appModuleNames0"
-      Value="com.pp.component.model.snc.services.SNVAppModule"/>
   </DesignTime>
   <Containee
     Name="entities"

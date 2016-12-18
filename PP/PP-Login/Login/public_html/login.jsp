@@ -59,11 +59,10 @@ java.util.Locale myLocale = (java.util.Locale) new Locale(locale);
 String reqId = "";
 reqId=request.getParameter("request_id");
 String errorMsg="";
-//String errorCode=request.getParameter("p_error_code");
-//if(errorCode!=null){
-//errorMsg=msgBundle.getString(errorCode);
-
-//}
+String errorCode=request.getParameter("p_error_code");
+if(errorCode!=null){
+errorMsg=msgBundle.getString(errorCode);
+}
 
 
 %>
@@ -92,15 +91,10 @@ String errorMsg="";
   <%
     }
     %>
-  <script src="<%=assetsUrl%>/js/jquery-1.7.1.min.js" type="text/javascript">
- / js / jquery - 1.7.1.min.js" type="
-    text / javascript"></script>
-  <link rel="
-  </script>
+  <script src="<%=assetsUrl%>/js/jquery-1.7.1.min.js" type="text/javascript"/>
+
   <link rel="stylesheet" type="text/css" afrres="true"
         href="<%=assetsUrl%>/css/customStyle.css"/>
-  <link rel="stylesheet" charset="UTF-8" type="text/css"
-        href="<%=assetsUrl%>/css/gsr490f6209_d62f_41db_95c6_87f3a4fa0f69-desktop-ut5aa4-en-lt.css"/>
   <link rel="stylesheet" type="text/css" afrres="true"
         href="<%=assetsUrl%>/css/slider.css"/>
   <link rel="stylesheet" type="text/css" afrres="true"
@@ -108,9 +102,7 @@ String errorMsg="";
   <link rel="stylesheet" type="text/css" afrres="true"
         href="<%=assetsUrl%>/css/font-awesome.min.css"/>
   <script type="text/javascript" language="javascript">
-">
     var locale = 'en'
-  </script>
   </script>
   <style> 
   .x10x.p_AFHighlighted.x117 .x11a {
@@ -170,6 +162,7 @@ String errorMsg="";
     .green .button-holder input{  background-color: #0C874F ;}
          
           .login_error{  width: 100%; font-size: 12px; float: left; color:red;}
+		  .oam_error{  width: 100%; font-size: 12px; float: left; color:red;}
           label.mandtry:after{content:"*"; color:red; font-size: 12px; position:absolute;}
           ul li {list-style: none;}
           .social-footer-icons a, .footer-social-icons .af_goImageLink{ text-decoration: none !important;}
@@ -220,7 +213,7 @@ String errorMsg="";
               <div>
                <ul class="header-list">
                 <li>
-                 <a href="<%=assetsUrl%>/webcenter/portal/AlAin/Home">
+                 <a href="<%=assetsUrl%>/webcenter/">
                   <img src="<%=assetsUrl%>/images//main_logo.png"></img></a>
                 </li>
                  
@@ -239,7 +232,7 @@ String errorMsg="";
                  class="content-main af_panelGroupLayout">
             <div class="login-box">
              <form id="login_form" action='<%=envBundle.getString("OAM-URL")%>'
-                   method="post" class="loginForm">
+               onsubmit="return validateForm()"    method="post" class="loginForm">
               <div class="box_body">
                <div class="section_title">
                 <%=msgBundle.getString("loginHeader")%>
@@ -265,7 +258,7 @@ String errorMsg="";
                 <!--<input class="input_login required msisdn" type="text" name="j_username" value="">-->
                  
                 <input type="text" name="username" id="username"
-                       class="msisdn input_login required" maxlength="25"></input>
+                       class="msisdn input_login required" maxlength="40"></input>
                </div>
                <div class="login-field">
                 <label class="login_label mandtry">
@@ -287,20 +280,16 @@ String errorMsg="";
                </div>
                <input type="hidden" name="request_id" value="<%=reqId%>"/>
                 
-               <label class="login_error" style="display:none;">Both Username
-                                                                and Password is
-                                                                required</label>
-                
-               <!--<button type="submit" class="submit-button" value="Valider">Identifiez-vous</button>-->
+               <label class="login_error" style="display:none;"><%=msgBundle.getString("form-error-7")%></label>
+			   <label class="oam_error" ><%=errorMsg%></label>
+				
                <div class="button-holder">
                 <input type="submit" value='<%=msgBundle.getString("login")%>'
                        class="submit-button btn-action"></input>
                </div>
                <div id="blok-login-link">
                 <br></br>
-                 
-                <!--<a href="/inscription" id="login-link-register">Inscris toi maintenant</a>
-		    <a href="/reinitialiser-mot-de-passe" id="login-link-forget-pwd">Mot de passe oublié</a>-->
+
                </div>
               </div>
              </form>
@@ -391,65 +380,25 @@ String errorMsg="";
                                <li class="nav-parent no-children">
                                 <a id="T:oc_7993975121region1:pt_gl3m"
                                    class="af_goLink"
-                                   href="<%=assetsUrl%>/webcenter/portal/AlAin/footerLinks/page1?_adf.ctrl-state=30dmez6zm_117&wc.contextURL%3D%2Fspaces%2FAlAin%26%3D%26">
+                                   href="<%=assetsUrl%>/webcenter/portal/pp/footerLinks/page1">
                                  <%=msgBundle.getString("link-sitemap")%></a>
                                </li>
                                 
                                <li class="nav-parent no-children">
                                 <a id="T:oc_7993975121region1:pt_gl3mj_id_13"
                                    class="af_goLink"
-                                   href="<%=assetsUrl%>/webcenter/portal/AlAin/footerLinks/page1473?_adf.ctrl-state=30dmez6zm_117&wc.contextURL%3D%2Fspaces%2FAlAin%26%3D%26">
+                                   href="<%=assetsUrl%>/webcenter/portal/pp/footerLinks/page1473?_adf.ctrl-state=16zoorllsk_247&wc.contextURL%3D%2Fspaces%2Fpp%26leftWidth%3D0%25%26showFooter%3Dfalse%26showHeader%3Dfalse%26rightWidth%3D0%25%26centerWidth%3D100%25">
                                  <%=msgBundle.getString("link-contactus")%></a>
                                </li>
                                 
                                <li class="nav-parent no-children">
                                 <a id="T:oc_7993975121region1:pt_gl3mj_id_14"
                                    class="af_goLink"
-                                   href="<%=assetsUrl%>/webcenter/portal/AlAin/footerLinks/page138?_adf.ctrl-state=30dmez6zm_117&wc.contextURL%3D%2Fspaces%2FAlAin%26%3D%26">
+                                   href="<%=assetsUrl%>/webcenter/portal/pp/footerLinks/page138?_adf.ctrl-state=16zoorllsk_247&wc.contextURL%3D%2Fspaces%2Fpp%26leftWidth%3D0%25%26showFooter%3Dfalse%26showHeader%3Dfalse%26rightWidth%3D0%25%26centerWidth%3D100%25">
                                  <%=msgBundle.getString("link-terms")%></a>
                                </li>
                                 
-                               <li class="nav-parent no-children">
-                                <a id="T:oc_7993975121region1:pt_gl3mj_id_15"
-                                   class="af_goLink"
-                                   href="<%=assetsUrl%>/webcenter/portal/AlAin/footerLinks/page150?_adf.ctrl-state=30dmez6zm_117&wc.contextURL%3D%2Fspaces%2FAlAin%26%3D%26">
-                                 <%=msgBundle.getString("link-copyright")%></a>
-                               </li>
-                                
-                               <li class="nav-parent no-children">
-                                <a id="T:oc_7993975121region1:pt_gl3mj_id_16"
-                                   class="af_goLink"
-                                   href="<%=assetsUrl%>/webcenter/portal/AlAin/footerLinks/page11?_adf.ctrl-state=30dmez6zm_117&wc.contextURL%3D%2Fspaces%2FAlAin%26%3D%26">
-                                 <%=msgBundle.getString("link-Disclamer")%></a>
-                               </li>
-                                
-                               <li class="nav-parent no-children">
-                                <a id="T:oc_7993975121region1:pt_gl3mj_id_17"
-                                   class="af_goLink"
-                                   href="<%=assetsUrl%>/webcenter/portal/AlAin/footerLinks/page19?_adf.ctrl-state=30dmez6zm_117&wc.contextURL%3D%2Fspaces%2FAlAin%26%3D%26">
-                                 <%=msgBundle.getString("link-PrivacyPolicy")%></a>
-                               </li>
-                                
-                               <li class="nav-parent no-children">
-                                <a id="T:oc_7993975121region1:pt_gl3mj_id_18"
-                                   class="af_goLink"
-                                   href="<%=assetsUrl%>/webcenter/portal/AlAin/footerLinks/page1438?_adf.ctrl-state=30dmez6zm_117&wc.contextURL%3D%2Fspaces%2FAlAin%26%3D%26">
-                                 <%=msgBundle.getString("link-AccessibiityPolicy")%></a>
-                               </li>
-                                
-                               <li class="nav-parent no-children">
-                                <a id="T:oc_7993975121region1:pt_gl3mj_id_19"
-                                   class="af_goLink"
-                                   href="<%=assetsUrl%>/webcenter/portal/AlAin/footerLinks/page1495?_adf.ctrl-state=30dmez6zm_117&wc.contextURL%3D%2Fspaces%2FAlAin%26%3D%26">
-                                 <%=msgBundle.getString("link-NewsLetter")%></a>
-                               </li>
-                                
-                               <li class="nav-parent no-children">
-                                <a id="T:oc_7993975121region1:pt_gl3mj_id_20"
-                                   class="af_goLink"
-                                   href="<%=assetsUrl%>/webcenter/portal/AlAin/footerLinks/page157?_adf.ctrl-state=30dmez6zm_117&wc.contextURL%3D%2Fspaces%2FAlAin%26%3D%26">
-                                 <%=msgBundle.getString("link-FAQ")%></a>
-                               </li>
+                              
                               </ul></span></span>
                            </div>
                           </div>
@@ -557,58 +506,35 @@ String errorMsg="";
    </div>
   </div>
   <script src="<%=assetsUrl%>/js/caroufredsel-carousel.js"
-          type="text/javascript">
- / js / caroufredsel - carousel.js" type="
-    text / javascript"></script>
-  <script src="
-  </script>
-  <script src="<%=assetsUrl%>/js/jquery.film_roll.js" type="text/javascript">
-">/js/jquery.film_roll.js"
-    type = "text/javascript" > 
-  </script>
-  <script src="<%=assetsUrl%>/js/jquery.bxslider.js" type="text/javascript">
- / js / jquery.bxslider.js" type="
-    text / javascript"></script>
-  <script src="
-  </script>
-  <script src="<%=assetsUrl%>/js/jquery.touchSwipe.min.js"
-          type="text/javascript">
-">/js/jquery.touchSwipe.min.js"
-    type = "text/javascript" > 
-  </script>
+          type="text/javascript"/>
+
+
+  <script src="<%=assetsUrl%>/js/jquery.film_roll.js" type="text/javascript"/>
+
+  <script src="<%=assetsUrl%>/js/jquery.bxslider.js" type="text/javascript"/>
+
+  <script src="<%=assetsUrl%>/js/jquery.touchSwipe.min.js" type="text/javascript"/>
+
   <script src="<%=assetsUrl%>/fancybox/jquery.fancybox.js"
-          type="text/javascript">
- / fancybox / jquery.fancybox.js" type="
-    text / javascript"></script>
-  <script src="
-  </script>
+          type="text/javascript"/>
+
   <script src="<%=assetsUrl%>/fancybox/jquery.fancybox.pack.js"
-          type="text/javascript">
-">/fancybox/jquery.fancybox.pack.js"
-    type = "text/javascript" > 
-  </script>
-  <script src="<%=assetsUrl%>/js/comman_script.js" type="text/javascript">
- / js / comman_script.js" type="
-    text / javascript"></script>
-  <script>
-"
-  </script>
-  <script>
-"></script>
-  <script>
+          type="text/javascript"/>
+
+  <script src="<%=assetsUrl%>/js/comman_script.js" type="text/javascript"/>
+
+
  
-  $("# login_form.submit - button").click(function(){ 
-  
-  var username= $("# username").val();
-  var password=$("# password").val();
+  function validateForm(){ 
+  var username= $("#username").val();
+  var password=$("#password").val();
    errorLogin=0;
   if(username == "" || password ==""){ 
       errorLogin=1;
-  }
-  if(errorLogin ===1){
-      $(".login_error").show();
+	   $(".login_error").show();
       return false;
-  }else{
+  }
+else{
       $(".login_error").hide();  
     errorLogin = 0;
     return true;

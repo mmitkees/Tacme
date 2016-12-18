@@ -44,7 +44,7 @@ public class PagesListener implements PagePhaseListener {
             FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale(locale));
 
         } else {
-           FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale("en"));
+           FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale("ar"));
         }
 //        SiteStructureContext ctx = SiteStructureContext.getInstance();
 //

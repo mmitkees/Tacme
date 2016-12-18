@@ -2,7 +2,6 @@
 <weblogic-web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://www.bea.com/ns/weblogic/weblogic-web-app/1.0/weblogic-web-app.xsd"
                   xmlns="http://www.bea.com/ns/weblogic/weblogic-web-app">
-
     <!--   
     CUSTOMER: 
      enter application (ear) level shared library references here 
@@ -10,11 +9,11 @@
         <library-ref>
             <library-name>com.acme.custom.webcenter.spaces</library-name>
         </library-ref>
-    --> 
+    -->
     <library-ref>
-            <library-name>pp.shared.lib</library-name>
-        </library-ref>
-          <library-ref>
-            <library-name>pp.eservices.shared.lib</library-name>
-        </library-ref>
+        <library-name>pp.shared.lib</library-name>
+    </library-ref>
+    <library-ref>
+        <library-name>pp.eservices.shared.lib</library-name>
+    </library-ref>
 </weblogic-web-app>

@@ -7,7 +7,11 @@ import java.io.IOException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
 
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
@@ -23,6 +27,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import javax.faces.validator.ValidatorException;
+
+import javax.servlet.http.HttpServletRequest;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
@@ -638,5 +644,192 @@ public class ADFUtils {
            FacesContext facesContext = FacesContext.getCurrentInstance();
            return facesContext;
        }
+    public static void setPageFlowScopeParamter(String key,
+                                                  Object value) {
+          AdfFacesContext.getCurrentInstance().getPageFlowScope().put(key, value);
+      }
+      
+      
+      public static Object getPageFlowScopeParamter(String key) {
+          return AdfFacesContext.getCurrentInstance().getPageFlowScope().get(key);
+      }
+    /**
+     *
+     * @param expression
+     * @param params
+     * @return
+     */
+    public static String getMessageFromBundle(String expression,
+                                              String[] params) {
+        String resource = resolveExpressionAsString(expression);
+        if (params != null && params.length > 0) {
+            for (int i = 0; i < params.length; i++)
+                resource = resource.replace("{" + i + "}", params[i]);
+        }
+        return resource;
+        // MessageFormat formatter = new MessageFormat(resource, bundle.getLocale());
+        // return formatter.format(params);
 
+    }
+
+    /**
+     * Reload current page.
+     */
+    public static void refreshPage() {
+        FacesContext context = FacesContext.getCurrentInstance();
+      
+        String url = JSFUtils.getRequest().getRequestURI();
+        System.out.println("************* " + url);
+        if (url == null)
+            return;
+        String urlParams =
+            (String)AdfFacesContext.getCurrentInstance().getViewScope().get("urlParams");
+        if (urlParams != null && urlParams.length() > 0)
+            url = url + "?" + urlParams;
+        ExternalContext external = context.getExternalContext();
+        try {
+            String contextPath =
+                FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
+            external.redirect(contextPath + "/faces" +
+                              "/jsp/redirect.jsp?end_url=" + url);
+        } catch (IOException e) {e.printStackTrace();
+            // to do ...
+        }
+    }
+
+    /**
+     *
+     * @param pageURL
+     */
+    public static void redirectPage(String pageURL) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext external = context.getExternalContext();
+        try {
+            String contextPath =
+                FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
+            String endUrl = contextPath + pageURL;
+            external.redirect(endUrl);
+        } catch (IOException e) {e.printStackTrace();
+        }
+    }
+
+    /**
+     *
+     * @param component
+     */
+    public static void clearComponentMessages(UIComponent component) {
+    Iterator<FacesMessage> messages = FacesContext.getCurrentInstance().getMessages(component.getClientId(FacesContext.getCurrentInstance()));
+
+    while (messages.hasNext()) {
+        messages.next();
+        messages.remove();
+    }
+    }
+    /**
+     *
+     */
+    public static void clearAllMessages() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        Iterator<String> clients = context.getClientIdsWithMessages();
+        while (clients.hasNext()) {
+            String clientId = clients.next();
+            Iterator<FacesMessage> messages = context.getMessages(clientId);
+
+            while (messages.hasNext()) {
+                messages.next();
+                messages.remove();
+            }
+        }
+    }
+
+    /**
+     *
+     * @param clientId
+     * @return
+     */
+    public static Boolean hasMessageForClientId(String clientId) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        final Iterator<String> clientIdIterator = context.getClientIdsWithMessages();
+        while (clientIdIterator.hasNext()) {
+            if (clientIdIterator.next().equals(clientId)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
+    public static String getLanguage(){
+        return FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage();
+    }
+
+
+    public static void showPopup(String pId) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            String popupId= findComponentInRoot(pId).getClientId(context);
+            ExtendedRenderKitService erkService = Service.getService(context.getRenderKit(), ExtendedRenderKitService.class);
+            erkService.addScript(context,"AdfPage.PAGE.findComponent('" + popupId + "').show();");
+    
+    }
+    public static void hidePopup(String pId) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            String popupId= findComponentInRoot(pId).getClientId(context);
+            ExtendedRenderKitService erkService = Service.getService(context.getRenderKit(), ExtendedRenderKitService.class);
+            erkService.addScript(context,"AdfPage.PAGE.findComponent('" + popupId + "').hide();");
+    
+    }
+    /**
+     * Locate an UIComponent in view root with its component id. Use a recursive way to achieve this.
+     * Taken from http://www.jroller.com/page/mert?entry=how_to_find_a_uicomponent
+     * @param id UIComponent id
+     * @return UIComponent object
+     */
+    public static UIComponent findComponentInRoot(String id) {
+        UIComponent component = null;
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        if (facesContext != null) {
+            UIComponent root = facesContext.getViewRoot();
+            component = findComponent(root, id);
+        }
+        return component;
+    }
+    /**
+       * Locate an UIComponent from its root component.
+       * Taken from http://www.jroller.com/page/mert?entry=how_to_find_a_uicomponent
+       * @param base root Component (parent)
+       * @param id UIComponent id
+       * @return UIComponent object
+       */
+      public static UIComponent findComponent(UIComponent base, String id) {
+          if (id.equals(base.getId()))
+              return base;
+
+          UIComponent children = null;
+          UIComponent result = null;
+          Iterator childrens = base.getFacetsAndChildren();
+          while (childrens.hasNext() && (result == null)) {
+              children = (UIComponent)childrens.next();
+              if (id.equals(children.getId())) {
+                  result = children;
+                  break;
+              }
+              result = findComponent(children, id);
+              if (result != null) {
+                  break;
+              }
+          }
+          return result;
+      }
+    public static String resolveExpressionAsString(String expression) {
+        return (String)JSFUtils.resolveExpression(expression);
+    }
+
+    public static String getResourceBundleString(String resourceBundleName,
+                                                 String resourceBundleKey) throws MissingResourceException {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        ResourceBundle bundle =
+            facesContext.getApplication().getResourceBundle(facesContext,
+                                                            resourceBundleName);
+        return bundle.getString(resourceBundleKey);
+    }
 }

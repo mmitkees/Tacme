@@ -4,17 +4,17 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ReqAdjSfndView"
-  Version="11.1.1.64.93"
+  Version="11.1.1.66.73"
   InheritPersonalization="true"
+  SelectList="ReqAdjournCourtHearing.REQ_ID, 
+       ReqAdjournCourtHearing.REASON_DESC, 
+       ReqAdjournCourtHearing.SESSION_DATE, 
+       ReqAdjournCourtHearing.CASE_INFO"
   FromList="REQ_ADJOURN_COURT_HEARING ReqAdjournCourtHearing"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
-  UseGlueCode="false"
-  SelectList="ReqAdjournCourtHearing.REQ_ID, 
-       ReqAdjournCourtHearing.REASON_DESC, 
-       ReqAdjournCourtHearing.SESSION_DATE, 
-       ReqAdjournCourtHearing.CASE_INFO">
+  UseGlueCode="false">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
   </DesignTime>
@@ -134,24 +134,22 @@
     DeleteParticipant="false"/>
   <ViewAttribute
     Name="CaseNo"
-    IsNotNull="false"
-    PrecisionRule="true"
-    AliasName="CASE_NO"
     IsSelected="false"
     IsPersistent="false"
+    PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
+    AliasName="CASE_NO"
     SQLType="NUMERIC"/>
   <ViewAttribute
     Name="CaseYear"
-    IsNotNull="false"
-    PrecisionRule="true"
-    AliasName="CASE_YEAR"
     LOVName="LOV_CaseYear"
     IsSelected="false"
     IsPersistent="false"
+    PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
     ColumnType="$none$"
+    AliasName="CASE_YEAR"
     SQLType="$none$">
     <Properties>
       <SchemaBasedProperties>
@@ -162,15 +160,14 @@
   </ViewAttribute>
   <ViewAttribute
     Name="ProsecutionName"
-    IsNotNull="false"
-    PrecisionRule="true"
-    AliasName="PROSECUTION_NAME"
     LOVName="LOV_pn_ar"
     LOVFinder="LOVSwitcherPros"
     IsSelected="false"
     IsPersistent="false"
+    PrecisionRule="true"
     Type="java.lang.String"
     ColumnType="$none$"
+    AliasName="PROSECUTION_NAME"
     SQLType="VARCHAR">
     <Dependencies>
       <Item
@@ -185,15 +182,14 @@
   </ViewAttribute>
   <ViewAttribute
     Name="RelationCase"
-    IsNotNull="false"
-    PrecisionRule="true"
-    AliasName="RELATION_CASE"
     LOVName="LOV_RelationCase_en"
     LOVFinder="LOVSwitcherRel"
     IsSelected="false"
     IsPersistent="false"
+    PrecisionRule="true"
     Type="java.lang.String"
     ColumnType="$none$"
+    AliasName="RELATION_CASE"
     SQLType="VARCHAR">
     <Dependencies>
       <Item

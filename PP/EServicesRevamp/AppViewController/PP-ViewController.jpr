@@ -288,7 +288,7 @@
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
       <value n="j2eeWebAppName" v="PPApp-AppViewController-webapp"/>
-      <value n="j2eeWebContextRoot" v="PPApp"/>
+      <value n="j2eeWebContextRoot" v="PPVC"/>
    </hash>
    <hash n="oracle.jdeveloper.runner.RunConfigurations">
       <hash n="runConfigurationDefinitions">
@@ -527,6 +527,13 @@
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
                <value n="id" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Common/deploy/adflibCommon1.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library1"/>
+               <value n="id" v="Library1"/>
             </hash>
          </list>
       </hash>
@@ -836,6 +843,17 @@
             <value n="tldURL" v="@oracle.home@../modules/glassfish.jstl_1.2.0.1.jar!/META-INF/scriptfree.tld"/>
             <value n="URI" v="http://jakarta.apache.org/taglibs/standard/scriptfree"/>
             <value n="version" v="1.2"/>
+         </hash>
+         <hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="libraries" v="AttachmentDecComponent 1.0 Tag Libraries"/>
+            <value n="name" v="AttachmentDecComponent"/>
+            <value n="prefix" v="AttachmentDecComponent"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="tldURL" v="@project@../Common/deploy/adflibCommon1.jar!/META-INF/AttachmentDecComponent.tld"/>
+            <value n="URI" v="/AttachmentDecComponent"/>
+            <value n="version" v="1.0"/>
          </hash>
       </list>
    </hash>
