@@ -50,9 +50,9 @@
       <property
          name="y">113.29297</property>
       <property
-         name="x">233.02539</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">233.02539</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -87,9 +87,9 @@
       <property
          name="y">236.44238</property>
       <property
-         name="x">471.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">471.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -124,9 +124,9 @@
       <property
          name="y">-33.603516</property>
       <property
-         name="x">384.3457</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">384.3457</property>
    </View>
    <MethodCall
       id="MethodCall11">
@@ -159,7 +159,7 @@
       <property
          name="fromOutcome">Rollback</property>
       <property
-         name="sdm:polyPoints">L50,185.5,-56.304688,67.5,11.448242,T50</property>
+         name="sdm:polyPoints">L50,185.5,-56.304688,67.5,10.74707,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -359,8 +359,8 @@
       <property
          name="y">92.53418</property>
       <property
-         name="x">681.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">681.0</property>
    </View>
 </SDM>

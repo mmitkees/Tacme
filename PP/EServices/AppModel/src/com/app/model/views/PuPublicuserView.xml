@@ -55,8 +55,8 @@
     ViewObjectName="com.app.model.views.CountryNationalityArabView"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="LanguageROVO1"
-    ViewObjectName="com.app.model.views.readonly.LanguageROVO"
+    Name="LanguageLOV1"
+    ViewObjectName="com.app.model.views.readonly.lov.LanguageLOV"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Nationality_en"
@@ -96,7 +96,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_RegistrationLang"
-    ListVOName="LanguageROVO1"
+    ListVOName="LanguageLOV1"
     ListRangeSize="-1"
     NullValueFlag="start"
     NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
@@ -105,7 +105,7 @@
       <Item Value="RegistrationLang"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="Lang_Key"/>
+      <Item Value="Lang_Value"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Lang_Value"/>
@@ -330,9 +330,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR">
-    <TransientExpression><![CDATA[adf.context.expressionEvaluator.evaluate('#{pageFlowScope.locale}')]]></TransientExpression>
-  </ViewAttribute>
+    SQLType="VARCHAR"
+    DefaultValue="en"/>
   <ViewAttribute
     Name="LOV_Switcher_nationality"
     IsSelected="false"

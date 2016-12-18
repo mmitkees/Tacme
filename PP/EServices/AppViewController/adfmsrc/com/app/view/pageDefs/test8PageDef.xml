@@ -13,6 +13,180 @@
         <parameter id="locale" value="en"/>
       </parameters>
     </taskFlow>
+    <iterator Binds="PuPublicuserView1" RangeSize="25"
+              DataControl="PPAppServicesDataControl"
+              id="PuPublicuserView1Iterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Password">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="FamilyName">
+      <AttrNames>
+        <Item Value="FamilyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Mobile">
+      <AttrNames>
+        <Item Value="Mobile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Dob">
+      <AttrNames>
+        <Item Value="Dob"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Education">
+      <AttrNames>
+        <Item Value="Education"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="PuPublicuserView1Iterator" StaticList="false"
+          Uses="LOV_Nationality_ar" id="Nationality" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="PasswordHint">
+      <AttrNames>
+        <Item Value="PasswordHint"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Occupation">
+      <AttrNames>
+        <Item Value="Occupation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="EmiratesId">
+      <AttrNames>
+        <Item Value="EmiratesId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator"
+                     id="EmiratesIdExpiry">
+      <AttrNames>
+        <Item Value="EmiratesIdExpiry"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="UnionNo">
+      <AttrNames>
+        <Item Value="UnionNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="ApprovedDate">
+      <AttrNames>
+        <Item Value="ApprovedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="CreatedDate">
+      <AttrNames>
+        <Item Value="CreatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="ModifiedDate">
+      <AttrNames>
+        <Item Value="ModifiedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="StatusReason">
+      <AttrNames>
+        <Item Value="StatusReason"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="PuPublicuserView1Iterator" StaticList="false"
+          Uses="LOV_RegistrationLang" id="RegistrationLang"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="PuPublicuserView1Iterator"
+                     id="ModifiedByPerson">
+      <AttrNames>
+        <Item Value="ModifiedByPerson"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="ClientIp">
+      <AttrNames>
+        <Item Value="ClientIp"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="UpdatedById">
+      <AttrNames>
+        <Item Value="UpdatedById"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator"
+                     id="LastUpdateDate">
+      <AttrNames>
+        <Item Value="LastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="ResetPwd">
+      <AttrNames>
+        <Item Value="ResetPwd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="Language">
+      <AttrNames>
+        <Item Value="Language"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator"
+                     id="LOV_Switcher_nationality">
+      <AttrNames>
+        <Item Value="LOV_Switcher_nationality"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="chgpwrd">
+      <AttrNames>
+        <Item Value="chgpwrd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="disableDates">
+      <AttrNames>
+        <Item Value="disableDates"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicuserView1Iterator" id="DateOfBirth">
+      <AttrNames>
+        <Item Value="DateOfBirth"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

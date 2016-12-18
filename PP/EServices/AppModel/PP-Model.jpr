@@ -365,5 +365,6 @@
    </hash>
    <hash n="ResourceBundleOptions">
       <value n="ADFRestricted" v="true"/>
+      <value n="DefaultProjectBundleName" v="com.app.model.AppModelBundle"/>
    </hash>
 </jpr:project>

@@ -8,8 +8,8 @@
   <f:view>
   
     <af:document id="d1">
-     
-    <af:resource type="css" source="http://demoserver.tacme.net:12127/css/customStyle.css"/>
+      <af:messages id="m1"/>
+      <af:resource type="css" source="http://demoserver.tacme.net:12127/css/customStyle.css"/>
 
       <af:resource type="css" source="http://demoserver.tacme.net:12127/css/responsive.css"/>
  <!--     <af:resource type="javascript" source="http://demoserver.tacme.net:12127/js/jquery-1.7.1.min.js"/>
@@ -22,9 +22,7 @@
       <af:resource type="javascript" source="http://demoserver.tacme.net:12127/fancybox/jquery.fancybox.pack.js"/>
       <af:resource type="javascript" source="http://demoserver.tacme.net:12127/fancybox/jquery.mousewheel-3.0.4.pack.js"/>
       <af:resource type="javascript" source="http://demoserver.tacme.net:12127/js/comman_script.js"/>-->
-      <af:form id="f1">
-        <af:region value="#{bindings.searchCaseTFDef1.regionModel}" id="r1"/>
-      </af:form>
+
     </af:document>
   </f:view>
 </jsp:root>
