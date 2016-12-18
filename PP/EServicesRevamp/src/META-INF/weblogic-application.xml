@@ -11,4 +11,7 @@
   <library-ref>
     <library-name>adf.oracle.domain</library-name>
   </library-ref>
+  <library-ref>
+    <library-name>oracle.ucm.ridc.app-lib</library-name>
+  </library-ref>
 </weblogic-application>

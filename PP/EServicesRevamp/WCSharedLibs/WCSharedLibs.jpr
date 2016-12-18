@@ -64,6 +64,20 @@
       <string v="oracle.stellent.wcm.jdev.features.settings.WorkingDirPathSettings/SiteFilesWorkingDir"/>
    </list>
    <value n="defaultPackage" v="wcsharedlibs"/>
+   <hash n="oracle.ide.model.DependencyConfiguration">
+      <list n="dependencyList">
+         <hash>
+            <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+            <url n="ownerURL" path="../Common/Common.jpr"/>
+            <value n="profileName" v="adflibCommon1"/>
+         </hash>
+         <hash>
+            <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+            <url n="ownerURL" path="../ViewController/ViewController.jpr"/>
+            <value n="profileName" v="adflibPPVC"/>
+         </hash>
+      </list>
+   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="Ant"/>
@@ -102,13 +116,7 @@
                <value n="hasManifest" v="true"/>
             </hash>
             <hash n="dependencies">
-               <list n="dependencyList">
-                  <hash>
-                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
-                     <url n="ownerURL" path="../AppViewController/PP-ViewController.jpr"/>
-                     <value n="profileName" v="PPAppVC"/>
-                  </hash>
-               </list>
+               <list n="dependencyList"/>
             </hash>
             <url n="earURL" path="deploy/PPServicesSharedLibs.ear"/>
             <value n="enterpriseAppName" v="PPServicesSharedLibs"/>
@@ -159,7 +167,7 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/PPServicesSharedLibs.war"/>
+            <url n="jarURL" path="deploy/PPServicesSharedLibsRevamp.war"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>

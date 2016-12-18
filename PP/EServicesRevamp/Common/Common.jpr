@@ -1,5 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <jpr:project xmlns:jpr="http://xmlns.oracle.com/ide/project">
+   <value n="ADFComponentWizard.LAST_TAG_NS_PREF" v="com.tacme.pp.common.components"/>
+   <value n="ADFComponentWizard.LAST_TAGLIB_URI_PREF" v="/pp"/>
    <hash n="component-versions">
       <value n="oracle.adfdt.controller.adfc.source.migration.AdfControllerSchemaMigrator" v="11.1.1.1.0"/>
       <value n="oracle.adfdt.controller.common.migrator.ProjectMigrator" v="11.1.1.1.0"/>
@@ -57,18 +59,83 @@
       <string v="oracle.stellent.wcm.jdev.features.settings.ProjectTemplatePathSettings/WCMProjectPathContentSet"/>
       <string v="oracle.stellent.wcm.jdev.features.settings.WorkingDirPathSettings/SiteFilesWorkingDir"/>
    </list>
-   <value n="defaultPackage" v="com.pp.tacme.common.view"/>
+   <value n="defaultPackage" v="com.tacme.pp.common"/>
+   <value n="jbo.JpxName" v="com.tacme.pp.common.Common"/>
+   <value n="JboProject" v="true"/>
+   <hash n="oracle.ide.model.DependencyConfiguration">
+      <list n="dependencyList">
+         <hash>
+            <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
+            <url n="sourceOwnerURL" path="../PP-EservicesRevamp.jws"/>
+            <url n="sourceURL" path="../Model/Model.jpr"/>
+         </hash>
+         <hash>
+            <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+            <url n="ownerURL" path="../DeclerativeComponents/DeclerativeComponents.jpr"/>
+            <value n="profileName" v="adflibDeclerativeComponents1"/>
+         </hash>
+      </list>
+   </hash>
+   <hash n="oracle.ide.model.ResourcePaths">
+      <hash n="resourcesContentSet">
+         <list n="constituent-sets">
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+view1.jsff"/>
+               </list>
+               <list n="url-path">
+                  <url path="../ViewController/public_html/"/>
+               </list>
+            </hash>
+         </list>
+         <list n="pattern-filters">
+            <string v="+*"/>
+         </list>
+         <list n="url-path">
+            <url path="."/>
+         </list>
+      </hash>
+   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="Java"/>
-         <string v="JavaBeans"/>
          <string v="JSF"/>
          <string v="JSP"/>
          <string v="ADF_FACES"/>
          <string v="ADFc"/>
+         <string v="RIDC"/>
+         <string v="HTML"/>
       </list>
    </hash>
+   <value n="oracle.jbo.ObjAMSuffix" v="AM"/>
+   <value n="oracle.jbo.ObjAssocSuffix" v="Assoc"/>
+   <value n="oracle.jbo.ObjEOSuffix" v="EO"/>
+   <value n="oracle.jbo.ObjViewLinkSuffix" v="Link"/>
+   <value n="oracle.jbo.ObjVOSuffix" v="VO"/>
+   <value n="oracle.jbo.SavedPreferences" v="true"/>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
+      <list n="copyRes">
+         <string v=".gif"/>
+         <string v=".jpg"/>
+         <string v=".jpeg"/>
+         <string v=".png"/>
+         <string v=".properties"/>
+         <string v=".xml"/>
+         <string v=".ejx"/>
+         <string v=".xcfg"/>
+         <string v=".cpx"/>
+         <string v=".dcx"/>
+         <string v=".sva"/>
+         <string v=".wsdl"/>
+         <string v=".ini"/>
+         <string v=".tld"/>
+         <string v=".tag"/>
+         <string v=".xlf"/>
+         <string v=".xsl"/>
+         <string v=".xsd"/>
+         <string v=".jpx"/>
+         <string v=".rpx"/>
+      </list>
       <value n="internalEncoding" v="UTF-8"/>
       <list n="Javac.commandline.optionlist">
          <string v="-g"/>
@@ -80,11 +147,67 @@
          <string v="-Xlint:-serial"/>
          <string v="-Xlint:-unchecked"/>
       </list>
+      <value n="source" v="Default"/>
+      <value n="target" v="Default"/>
       <value n="webIANAEncoding" v="UTF-8"/>
    </hash>
+   <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
+      <hash n="profileDefinitions">
+         <hash n="adflibCommon1">
+            <value n="adflib-connectionDetails" v="false"/>
+            <value n="adflib-nonReusablesError" v="false"/>
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="true"/>
+            </hash>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="2"/>
+                        </hash>
+                        <hash>
+                           <value n="type" v="5"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Project Output"/>
+                     <hash n="filters">
+                        <list n="rules"/>
+                     </hash>
+                     <value n="internalName" v="project-output"/>
+                     <value n="type" v="1"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="jarURL" path="deploy/adflibCommon1.jar"/>
+            <hash n="libraryDependencies">
+               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
+            </hash>
+            <hash n="LibraryDependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
+                     <url n="sourceOwnerURL" path="../PP-EservicesRevamp.jws"/>
+                     <url n="sourceURL" path="../Model/Model.jpr"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="../DeclerativeComponents/DeclerativeComponents.jpr"/>
+                     <value n="profileName" v="adflibDeclerativeComponents1"/>
+                  </hash>
+               </list>
+            </hash>
+            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
+            <value n="profileName" v="adflibCommon1"/>
+         </hash>
+      </hash>
+      <list n="profileList">
+         <string v="adflibCommon1"/>
+      </list>
+   </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="PPApp-Common-webapp"/>
-      <value n="j2eeWebContextRoot" v="PPApp-Common-context-root"/>
+      <value n="j2eeWebAppName" v="PPCommon"/>
+      <value n="j2eeWebContextRoot" v="PPCommon"/>
    </hash>
    <hash n="oracle.jdeveloper.runner.RunConfigurations">
       <hash n="runConfigurationDefinitions">
@@ -156,27 +279,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Model Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="BC4J Security"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
             <value n="id" v="BC4J Tester"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle JDBC"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -189,6 +296,62 @@
          </hash>
          <hash>
             <value n="id" v="ADF Controller Schema"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="RIDC Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Support"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Variable Resolver"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="JSTL 1.2 Tags"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle JEWT"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Faces Databinding Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle XML Parser v2"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="JDeveloper Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="SQLJ Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Model Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="BC4J Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle JDBC"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Connection Manager"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -250,27 +413,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Model Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="BC4J Security"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
             <value n="id" v="BC4J Tester"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle JDBC"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -285,6 +432,62 @@
             <value n="id" v="ADF Controller Schema"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="RIDC Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Support"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Variable Resolver"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="JSTL 1.2 Tags"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle JEWT"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Faces Databinding Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle XML Parser v2"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="JDeveloper Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="SQLJ Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Model Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="BC4J Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle JDBC"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Connection Manager"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
@@ -292,6 +495,95 @@
    </hash>
    <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">
       <list n="tag-libraries">
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Core"/>
+               <value n="version" v="1.2"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSTL Core"/>
+            <value n="runInEditor" v="true"/>
+            <value n="tldURL" v="@oracle.home@../modules/glassfish.jstl_1.2.0.1.jar!/META-INF/c.tld"/>
+            <value n="URI" v="http://java.sun.com/jsp/jstl/core"/>
+            <value n="version" v="1.2"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Format"/>
+               <value n="version" v="1.2"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSTL Format"/>
+            <value n="tldURL" v="@oracle.home@../modules/glassfish.jstl_1.2.0.1.jar!/META-INF/fmt.tld"/>
+            <value n="URI" v="http://java.sun.com/jsp/jstl/fmt"/>
+            <value n="version" v="1.2"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL SQL"/>
+               <value n="version" v="1.2"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSTL SQL"/>
+            <value n="tldURL" v="@oracle.home@../modules/glassfish.jstl_1.2.0.1.jar!/META-INF/sql.tld"/>
+            <value n="URI" v="http://java.sun.com/jsp/jstl/sql"/>
+            <value n="version" v="1.2"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL XML"/>
+               <value n="version" v="1.2"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSTL XML"/>
+            <value n="tldURL" v="@oracle.home@../modules/glassfish.jstl_1.2.0.1.jar!/META-INF/x.tld"/>
+            <value n="URI" v="http://java.sun.com/jsp/jstl/xml"/>
+            <value n="version" v="1.2"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Functions"/>
+               <value n="version" v="1.2"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSTL Functions"/>
+            <value n="tldURL" v="@oracle.home@../modules/glassfish.jstl_1.2.0.1.jar!/META-INF/fn.tld"/>
+            <value n="URI" v="http://java.sun.com/jsp/jstl/functions"/>
+            <value n="version" v="1.2"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Permitted Taglibs"/>
+               <value n="version" v="1.2"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSTL Permitted Taglibs"/>
+            <value n="tldURL" v="@oracle.home@../modules/glassfish.jstl_1.2.0.1.jar!/META-INF/permittedTaglibs.tld"/>
+            <value n="URI" v="http://jakarta.apache.org/taglibs/standard/permittedTaglibs"/>
+            <value n="version" v="1.2"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Script Free"/>
+               <value n="version" v="1.2"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSTL Script Free"/>
+            <value n="tldURL" v="@oracle.home@../modules/glassfish.jstl_1.2.0.1.jar!/META-INF/scriptfree.tld"/>
+            <value n="URI" v="http://jakarta.apache.org/taglibs/standard/scriptfree"/>
+            <value n="version" v="1.2"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="ADF Faces Components"/>
+               <value n="version" v="11"/>
+            </hash>
+            <value n="jspVersion" v="1.2"/>
+            <value n="name" v="ADF Faces Components"/>
+            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view_11.1.1/adf-richclient-impl-11.jar!/META-INF/afu.tld"/>
+            <value n="URI" v="http://xmlns.oracle.com/adf/faces/rich"/>
+            <value n="version" v="11"/>
+         </hash>
          <hash>
             <hash n="baseLibrary">
                <value n="name" v="JSF Core"/>
@@ -316,18 +608,31 @@
          </hash>
          <hash>
             <hash n="baseLibrary">
-               <value n="name" v="ADF Faces Components"/>
-               <value n="version" v="11"/>
+               <value n="name" v="ADF Data Visualization"/>
+               <value n="version" v="1.1"/>
             </hash>
-            <value n="jspVersion" v="1.2"/>
-            <value n="name" v="ADF Faces Components"/>
-            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view_11.1.1/adf-richclient-impl-11.jar!/META-INF/afu.tld"/>
-            <value n="URI" v="http://xmlns.oracle.com/adf/faces/rich"/>
-            <value n="version" v="11"/>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="ADF Data Visualization"/>
+            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view_11.1.1/dvt-faces.jar!/META-INF/bi.tld"/>
+            <value n="URI" v="http://xmlns.oracle.com/dss/adf/faces"/>
+            <value n="version" v="1.1"/>
          </hash>
       </list>
    </hash>
    <hash n="ResourceBundleOptions">
-      <value n="ADFRestricted" v="false"/>
+      <value n="ADFRestricted" v="true"/>
+      <value n="DefaultProjectBundleName" v="com.tacme.pp.common.bundle.CommonBundle"/>
+      <list n="RegisteredResourceBundles">
+         <hash>
+            <value n="BundleId" v="com.tacme.pp.model.common.bundle.ErrorMsgBundle"/>
+            <value n="LibraryURL"/>
+            <url n="ProjectURL" path="../Model/Model.jpr"/>
+         </hash>
+         <hash>
+            <value n="BundleId" v="com.tacme.pp.model.common.bundle.Patterns"/>
+            <value n="LibraryURL"/>
+            <url n="ProjectURL" path="../Model/Model.jpr"/>
+         </hash>
+      </list>
    </hash>
 </jpr:project>
