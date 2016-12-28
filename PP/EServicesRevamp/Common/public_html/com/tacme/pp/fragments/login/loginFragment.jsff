@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <c:set var="commonBundle"
+         value="#{adfBundle['com.tacme.pp.common.bundle.CommonBundle']}"/>
+  <af:panelGroupLayout binding="#{backingBeanScope.backing_loginFragment.pgl1}"
+                       id="pgl1" layout="vertical">
+    <af:panelGroupLayout id="pgl5">
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_loginFragment.pgl2}"
+                           id="pgl2" layout="vertical">
+        <af:outputText value="#{commonBundle.EMAIL}"
+                       binding="#{backingBeanScope.backing_loginFragment.ot1}"
+                       id="ot1"/>
+        <af:inputText label="Label 1" required="true" requiredMessageDetail="#{ErrorMsgBundle.LOGIN_EMAIL_REQUIRED}"
+                      binding="#{backingBeanScope.backing_loginFragment.it1}"
+                      id="it1" simple="true">
+          <af:validateRegExp pattern="#{Patterns.email}" id="v1"
+                             messageDetailNoMatch="#{ErrorMsgBundle.LOGIN_EMAIL_WRONG_FORMAT}"
+                             hint="xx@yy.com"/>
+          <f:validator binding="#{bindings.Email.validator}"/>
+        </af:inputText>
+        <af:message id="m1" for="it1"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_loginFragment.pgl3}"
+                           id="pgl3" layout="vertical">
+        <af:outputText value="#{commonBundle.PASSWORD}"
+                       binding="#{backingBeanScope.backing_loginFragment.ot2}"
+                       id="ot2"/>
+        <af:inputText label="Label 2" required="true" requiredMessageDetail="#{ErrorMsgBundle.LOGIN_PASSWORD_REQUIRED}"
+                      binding="#{backingBeanScope.backing_loginFragment.it2}"
+                      id="it2" simple="true" secret="true">
+          <!--<af:validateRegExp pattern="#{Patterns.password}" id="validateRegExp1"
+                             messageDetailNoMatch="#{ErrorMsgBundle.LOGIN_PASSWORD_WRONG_FORMAT}"
+                             hint="xx@yy.com"/>-->
+          <af:validateLength minimum="6"
+                             messageDetailMinimum="#{ErrorMsgBundle.LOGIN_PASSWORD_WRONG_FORMAT}"
+                             messageDetailMaximum="#{ErrorMsgBundle.LOGIN_PASSWORD_WRONG_FORMAT}"
+                             messageDetailNotInRange="#{ErrorMsgBundle.LOGIN_PASSWORD_WRONG_FORMAT}"/>
+          <f:validator binding="#{bindings.Password.validator}"/>
+        </af:inputText>
+      <af:message id="m2" for="it2"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_loginFragment.pgl4}"
+                           id="pgl4" layout="vertical">
+        <af:outputText value="#{commonBundle.DATE_OF_BIRTH}"
+                       binding="#{backingBeanScope.backing_loginFragment.ot3}"
+                       id="ot3"/>
+        <af:inputDate label="Label 1" required="true" requiredMessageDetail="#{ErrorMsgBundle.LOGIN_DOB_REQUIRED}"
+                      binding="#{backingBeanScope.backing_loginFragment.id1}"
+                      id="id1" simple="true" minValue="1916-01-01">
+          <f:validator binding="#{bindings.DateOfBirth.validator}"/>
+          <af:convertDateTime pattern="#{bindings.DateOfBirth.format}"/>
+        </af:inputDate>
+        <af:message id="m3" for="id1"/>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl6">
+      <af:commandButton text="#{commonBundle.LOGIN}" id="cb1"
+                        action="#{backingBeanScope.backing_loginFragment.loginAction}"/>
+    </af:panelGroupLayout>
+   
+  </af:panelGroupLayout>
+</jsp:root>

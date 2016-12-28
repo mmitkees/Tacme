@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="LoginTF">
+    <default-activity id="__1">loginFragment</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name id="__4">backing_loginFragment</managed-bean-name>
+      <managed-bean-class id="__5">com.tacme.pp.common.beans.backing.login.LoginFragment</managed-bean-class>
+      <managed-bean-scope id="__3">backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1com/tacme/pp/fragments/login/loginFragment.jsff-->
+    </managed-bean>
+    <view id="loginFragment">
+      <page>/com/tacme/pp/fragments/login/loginFragment.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

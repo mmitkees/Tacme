@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.tacme.pp.vc" ClientType="Generic">
+  <pageMap>
+    <page path="/untitled1.jspx" usageId="com_tacme_pp_vc_untitled1PageDef"/>
+  </pageMap>
+  <dataControlUsages>
+    <BC4JDataControl id="PPAppModuleDataControl"
+                     Package="com.tacme.pp.model.common.service"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="PPAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+  <pageDefinitionUsages>
+    <page id="com_tacme_pp_vc_untitled1PageDef"
+          path="com.tacme.pp.vc.pageDefs.untitled1PageDef"/>
+  </pageDefinitionUsages>
+</Application>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.tacme.pp.model.common.service.PPAppModule">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.tacme.pp.model.Model" name="PPAppModuleLocal" ApplicationName="com.tacme.pp.model.common.service.PPAppModule">
+         <Security AppModuleJndiName="com.tacme.pp.model.common.service.PPAppModule"/>
+         <Custom JDBCDataSource="jdbc/ppdevDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="PPAppModuleShared" ApplicationName="com.tacme.pp.model.common.service.PPAppModule" DeployPlatform="LOCAL" jbo.project="com.tacme.pp.model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="com.tacme.pp.model.common.service.PPAppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/ppdevDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

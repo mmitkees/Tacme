@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="RegistrationTF_RegistrationTF_CreateInsertPageDef"
+                Package="com.tacme.pp.taskflows.common.registration"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="PuPublicUser1" RangeSize="25"
+              DataControl="PPAppModuleDataControl" id="PuPublicUser1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="PuPublicUser1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>
