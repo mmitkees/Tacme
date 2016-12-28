@@ -30,6 +30,8 @@
       <hash><url n="URL" path="Common/Common.jpr"/></hash>
       <hash><url n="URL" path="Paymentscheduler/Scheduler.jpr"/></hash>
       <hash><url n="URL" path="PMRIntegration/PMRIntegration.jpr"/></hash>
+      <hash><url n="URL" path="SuggestionsComplainsBC/SuggestionsComplainsBC.jpr"/></hash>
+      <hash><url n="URL" path="SuggestionsComplainsVC/SuggestionsComplainsVC.jpr"/></hash>
       <hash><url n="URL" path="WCSharedLibs/WCSharedLibs.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">

@@ -757,9 +757,7 @@
    <ViewUsage
       Name="PublicSearchTranslatorsROVO1"
       ViewObjectName="com.app.model.views.readonly.publicservices.PublicSearchTranslatorsROVO"/>
-   <ViewUsage
-      Name="LanguageLOV1"
-      ViewObjectName="com.app.model.views.readonly.lov.LanguageLOV"/>
+  
    <ViewLinkUsage
       Name="AttachementsToSubSMS1"
       ViewLinkObjectName="com.app.model.views.viewLink.AttachementsToSubSMS"

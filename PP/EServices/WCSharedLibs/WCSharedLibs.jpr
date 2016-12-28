@@ -64,6 +64,28 @@
       <string v="oracle.stellent.wcm.jdev.features.settings.WorkingDirPathSettings/SiteFilesWorkingDir"/>
    </list>
    <value n="defaultPackage" v="wcsharedlibs"/>
+   <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
+      <value n="hasDataControls" v="true"/>
+   </hash>
+   <hash n="oracle.ide.model.DependencyConfiguration">
+      <list n="dependencyList">
+         <hash>
+            <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+            <url n="ownerURL" path="../AppModel/PP-Model.jpr"/>
+            <value n="profileName" v="PPAppModel"/>
+         </hash>
+         <hash>
+            <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+            <url n="ownerURL" path="../AppViewController/PP-ViewController.jpr"/>
+            <value n="profileName" v="PPAppVC"/>
+         </hash>
+         <hash>
+            <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+            <url n="ownerURL" path="../SuggestionsComplainsVC/SuggestionsComplainsVC.jpr"/>
+            <value n="profileName" v="adflibSuggestionsComplainsVC1"/>
+         </hash>
+      </list>
+   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="Ant"/>
@@ -87,7 +109,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="PPServicesSharedLibs">
+         <hash n="PP-Eservices-SharedLib">
             <hash n="appletArchives"/>
             <hash n="appletFiles">
                <value n="autoInclude" v="true"/>
@@ -101,17 +123,28 @@
                </list>
                <value n="hasManifest" v="true"/>
             </hash>
+            <value n="defaultConnection"/>
             <hash n="dependencies">
                <list n="dependencyList">
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="../AppModel/PP-Model.jpr"/>
+                     <value n="profileName" v="PPAppModel"/>
+                  </hash>
                   <hash>
                      <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
                      <url n="ownerURL" path="../AppViewController/PP-ViewController.jpr"/>
                      <value n="profileName" v="PPAppVC"/>
                   </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="../SuggestionsComplainsVC/SuggestionsComplainsVC.jpr"/>
+                     <value n="profileName" v="adflibSuggestionsComplainsVC1"/>
+                  </hash>
                </list>
             </hash>
-            <url n="earURL" path="deploy/PPServicesSharedLibs.ear"/>
-            <value n="enterpriseAppName" v="PPServicesSharedLibs"/>
+            <url n="earURL" path="deploy/PP-Eservices-SharedLib.ear"/>
+            <value n="enterpriseAppName" v="PP-Eservices-SharedLib"/>
             <hash n="fileGroups">
                <list n="groups">
                   <hash>
@@ -159,16 +192,16 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/PPServicesSharedLibs.war"/>
+            <url n="jarURL" path="deploy/PP-Eservices-SharedLib.war"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
-            <value n="profileName" v="PPServicesSharedLibs"/>
+            <value n="profileName" v="PP-Eservices-SharedLib"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="PPServicesSharedLibs"/>
+         <string v="PP-Eservices-SharedLib"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
@@ -186,7 +219,51 @@
          <string v="Default"/>
       </list>
    </hash>
+   <hash n="oracle.jdevimpl.config.JProjectLibraries">
+      <list n="exportedReferences"/>
+      <hash n="internalDefinitions">
+         <list n="libraryDefinitions"/>
+      </hash>
+      <list n="libraryReferences"/>
+   </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="classes/"/>
+   </hash>
+   <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">
+      <list n="tag-libraries">
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="ADF Faces Components"/>
+               <value n="version" v="11"/>
+            </hash>
+            <value n="jspVersion" v="1.2"/>
+            <value n="name" v="ADF Faces Components"/>
+            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view_11.1.1/adf-richclient-impl-11.jar!/META-INF/afu.tld"/>
+            <value n="URI" v="http://xmlns.oracle.com/adf/faces/rich"/>
+            <value n="version" v="11"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSF Core"/>
+               <value n="version" v="1.2"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSF Core"/>
+            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.jsf_1.2.9/glassfish.jsf_1.0.0.0_1-2-15.jar!/META-INF/jsf_core.tld"/>
+            <value n="URI" v="http://java.sun.com/jsf/core"/>
+            <value n="version" v="1.2"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSF HTML"/>
+               <value n="version" v="1.2"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSF HTML"/>
+            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.jsf_1.2.9/glassfish.jsf_1.0.0.0_1-2-15.jar!/META-INF/html_basic.tld"/>
+            <value n="URI" v="http://java.sun.com/jsf/html"/>
+            <value n="version" v="1.2"/>
+         </hash>
+      </list>
    </hash>
 </jpr:project>

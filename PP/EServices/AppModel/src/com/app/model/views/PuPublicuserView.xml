@@ -54,10 +54,6 @@
     Name="CountryNationalityArabView1"
     ViewObjectName="com.app.model.views.CountryNationalityArabView"
     RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="LanguageLOV1"
-    ViewObjectName="com.app.model.views.readonly.lov.LanguageLOV"
-    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Nationality_en"
     ListVOName="CountryNationalityEngView1"
@@ -91,24 +87,6 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="NationalityNameE"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_RegistrationLang"
-    ListVOName="LanguageLOV1"
-    ListRangeSize="-1"
-    NullValueFlag="none"
-    NullValueId="LOV_RegistrationLang_LOVUIHints_NullValueId"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="RegistrationLang"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Lang_Key"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Lang_Value"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -263,15 +241,7 @@
     PrecisionRule="true"
     EntityAttrName="RegistrationLang"
     EntityUsage="PuPublicuser"
-    AliasName="REGISTRATION_LANG"
-    LOVName="LOV_RegistrationLang">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="REGISTRATION_LANG"/>
   <ViewAttribute
     Name="ModifiedByPerson"
     PrecisionRule="true"

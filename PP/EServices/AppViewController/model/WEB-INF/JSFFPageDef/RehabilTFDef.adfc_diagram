@@ -12,7 +12,7 @@
       <property
          name="activityId">RehabilView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/RehabilView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/RehabilView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>RehabilView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -20,9 +20,9 @@
       <property
          name="y">91.149414</property>
       <property
-         name="x">256.35156</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">256.35156</property>
    </View>
    <MethodCall
       id="MethodCall3">
@@ -79,7 +79,7 @@
       <property
          name="activityId">SuccessMsgView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/SuccessMsgView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/SuccessMsgView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>SuccessMsgView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -87,16 +87,16 @@
       <property
          name="y">-69.90234</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">301.01562</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View8">
       <property
          name="activityId">NotPartyView</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/NotPartyView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/NotPartyView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>NotPartyView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -104,9 +104,9 @@
       <property
          name="y">205.09766</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">355.3457</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"

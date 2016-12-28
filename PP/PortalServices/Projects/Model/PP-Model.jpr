@@ -246,10 +246,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="SMSPrjadfLib.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Commons Beanutils 1.6"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -271,17 +267,7 @@
          </hash>
       </list>
       <hash n="internalDefinitions">
-         <list n="libraryDefinitions">
-            <hash>
-               <list n="classPath">
-                  <url path="../SMSPrj/ViewController/deploy/SMSPrjadfLib.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="SMSPrjadfLib.jar"/>
-               <value n="id" v="SMSPrjadfLib.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-         </list>
+         <list n="libraryDefinitions"/>
       </hash>
       <list n="libraryReferences">
          <hash>
@@ -322,10 +308,6 @@
          </hash>
          <hash>
             <value n="id" v="ADF Common Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="SMSPrjadfLib.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>

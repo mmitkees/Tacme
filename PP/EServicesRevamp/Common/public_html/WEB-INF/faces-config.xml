@@ -3,7 +3,7 @@
   <application>
     <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
     <resource-bundle>
-      <base-name>com.tacme.pp.model.common.bundle.ErrorMsgBundle</base-name>
+      <base-name>com.tacme.pp.model.ErrorMsgBundle</base-name>
       <var>ErrorMsgBundle</var>
     </resource-bundle>
     <resource-bundle>
@@ -14,7 +14,7 @@
       <default-locale>en</default-locale>
     </locale-config>
     <resource-bundle>
-      <base-name>com.tacme.pp.model.common.bundle.Patterns</base-name>
+      <base-name>com.tacme.pp.model.Patterns</base-name>
       <var>Patterns</var>
     </resource-bundle>
   </application>

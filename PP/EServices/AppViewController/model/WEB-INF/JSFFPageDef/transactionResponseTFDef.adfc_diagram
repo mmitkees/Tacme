@@ -9,7 +9,7 @@
       <property
          name="start">false</property>
       <property
-         name="page">/WEB-INF/JSFF Pages/responseView.jsff</property>
+         name="page">/WEB-INF/jsf_pages/responseView.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>responseView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property

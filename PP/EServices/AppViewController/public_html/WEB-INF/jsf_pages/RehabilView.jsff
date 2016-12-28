@@ -21,7 +21,7 @@
     </af:panelGroupLayout>
     <af:panelGroupLayout id="pgl8" layout="vertical"
                          styleClass="eServicesHeading">
-      <af:outputText value="#{appviewcontrollerbundle.P_Reh}" id="ot2"/>
+      <af:outputText value="#{appviewcontrollerbundle.P_Reh}hopaaa" id="ot2"/>
     </af:panelGroupLayout>
     <af:panelGroupLayout id="pgl7" layout="vertical"
                          styleClass="eServicesFormData">

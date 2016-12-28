@@ -230,6 +230,9 @@
          </hash>
          <hash n="PPAppVC">
             <value n="adflib-connectionDetails" v="true"/>
+            <list n="adflib-excludedConnections">
+               <string v="|"/>
+            </list>
             <value n="adflib-nonReusablesError" v="false"/>
             <hash n="archiveOptions">
                <value n="hasManifest" v="true"/>
@@ -269,11 +272,6 @@
                      <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
                      <url n="sourceOwnerURL" path="../PP-Eservices.jws"/>
                      <url n="sourceURL" path="../PMRIntegration/PMRIntegration.jpr"/>
-                  </hash>
-                  <hash>
-                     <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
-                     <url n="sourceOwnerURL" path="../PP-Eservices.jws"/>
-                     <url n="sourceURL" path="../AppModel/PP-Model.jpr"/>
                   </hash>
                </list>
             </hash>

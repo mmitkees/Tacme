@@ -5,25 +5,30 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="serviceRatingGraphTF1"
-              taskFlowId="/WEB-INF/com/tacme/pp/taskflows/serviceRatingAdmin/serviceRatingGraphTF.xml#serviceRatingGraphTF"
-              activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <taskFlow id="EserviceSuccessRatingTF1"
-              taskFlowId="/WEB-INF/com/tacme/pp/taskflows/common/EserviceSuccessRatingTF.xml#EserviceSuccessRatingTF"
+    <taskFlow id="AdjSessNewDte1"
+              taskFlowId="/WEB-INF/JSFFPageDef/AdjSessNewDte.xml#AdjSessNewDte"
               activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding">
       <parameters>
-        <parameter id="ReqId" value="3333"/>
-        <parameter id="ServiceId" value="3333"/>
+        <parameter id="locale" value="en"/>
+        <parameter id="key" value="11"/>
       </parameters>
     </taskFlow>
-    <taskFlow id="AppealTFDef1"
-              taskFlowId="/WEB-INF/JSFFPageDef/AppealTFDef.xml#AppealTFDef"
+    <taskFlow id="AppealCaseTFDef1"
+              taskFlowId="/WEB-INF/JSFFPageDef/AppealCaseTFDef.xml#AppealCaseTFDef"
               activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding">
       <parameters>
         <parameter id="key" value="11"/>
+        <parameter id="locale" value="en"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="RehabilTFDef1"
+              taskFlowId="/WEB-INF/JSFFPageDef/RehabilTFDef.xml#RehabilTFDef"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="key" value="22"/>
         <parameter id="locale" value="en"/>
       </parameters>
     </taskFlow>

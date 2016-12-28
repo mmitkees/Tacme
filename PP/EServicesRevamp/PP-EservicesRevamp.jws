@@ -26,6 +26,7 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="Common/Common.jpr"/></hash>
+      <hash><url n="URL" path="CommonVC/CommonVC.jpr"/></hash>
       <hash><url n="URL" path="DeclerativeComponents/DeclerativeComponents.jpr"/></hash>
       <hash><url n="URL" path="Model/Model.jpr"/></hash>
       <hash><url n="URL" path="PMRIntegration/PMRIntegration.jpr"/></hash>
@@ -134,6 +135,11 @@
                      <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
                      <url n="ownerURL" path="ViewController/ViewController.jpr"/>
                      <value n="profileName" v="PP-EservicesRevamp_ViewController_webapp1"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="CommonVC/CommonVC.jpr"/>
+                     <value n="profileName" v="PP-EservicesRevamp_CommonVC_webapp1"/>
                   </hash>
                </list>
             </hash>

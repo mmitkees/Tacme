@@ -1,5 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <jws:workspace xmlns:jws="http://xmlns.oracle.com/ide/project">
+   <url n="application-source-directory" path="src/"/>
    <value n="appTemplateId" v="#WebCenter Portal Server Extension"/>
    <hash n="component-versions">
       <value n="oracle.adf.share.dt.migration.jps.JaznCredStoreMigratorHelper" v="11.1.1.1.0"/>
@@ -17,4 +18,7 @@
       <hash><url n="URL" path="PortalExtension/PortalExtension.jpr"/></hash>
       <hash><url n="URL" path="PortalSharedLibrary/PortalSharedLibrary.jpr"/></hash>
    </list>
+   <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
+      <value n="Weblogic-JDBC-Auto-Sync-Key" v="false"/>
+   </hash>
 </jws:workspace>

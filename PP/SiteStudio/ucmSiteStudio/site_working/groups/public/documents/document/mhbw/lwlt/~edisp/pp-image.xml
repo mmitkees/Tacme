@@ -44,7 +44,7 @@
 		<property name="canExcludeFromList" value="false" />
 		<property name="canViewDocInfo" value="false" />
 		<property name="canSpellCheck" value="false" />
-		<property name="isRequired" value="true" />
+		<property name="isRequired" value="false" />
 		<property name="canApplyCssClasses" value="true" />
 		<property name="canEditTarget" value="false" />
 		<property name="canIncludeInList" value="false" />

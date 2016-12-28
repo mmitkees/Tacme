@@ -10,9 +10,10 @@
             <library-name>com.acme.custom.webcenter.spaces</library-name>
         </library-ref>
     -->
-    <library-ref>
+  <library-ref>
         <library-name>pp.shared.lib</library-name>
     </library-ref>
+
     <library-ref>
         <library-name>pp.eservices.shared.lib</library-name>
     </library-ref>
