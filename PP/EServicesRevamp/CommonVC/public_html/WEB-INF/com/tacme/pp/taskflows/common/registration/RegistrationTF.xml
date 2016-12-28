@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="RegistrationTF">
+    <template-reference >
+      <document id="__x1">/WEB-INF/com/tacme/pp/taskflows/common/template/PPEserviceTemplate.xml</document>
+      <id>PPEserviceTemplate</id>
+    </template-reference>
+    <default-activity id="__7">CreateInsert</default-activity>
+    <managed-bean id="__8">
+      <managed-bean-name id="__10">backing_registrationFragment</managed-bean-name>
+      <managed-bean-class id="__9">com.tacme.pp.common.beans.backing.registration.RegistrationFragment</managed-bean-class>
+      <managed-bean-scope id="__11">backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1registrationFragment.jsff-->
+    </managed-bean>
+    <view id="registrationFragment">
+      <page>/com/tacme/pp/fragments/registration/registrationFragment.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__1">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">CreateInsert</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__5">CreateInsert</from-outcome>
+        <to-activity-id id="__4">registrationFragment</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

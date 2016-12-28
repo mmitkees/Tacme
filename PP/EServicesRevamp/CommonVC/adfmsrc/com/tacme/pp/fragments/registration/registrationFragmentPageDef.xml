@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="registrationFragmentPageDef"
+                Package="com.tacme.pp.fragments.registration">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PuPublicUser1" RangeSize="25"
+              DataControl="PPAppModuleDataControl" id="PuPublicUser1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="Password">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="Mobile">
+      <AttrNames>
+        <Item Value="Mobile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="FamilyName">
+      <AttrNames>
+        <Item Value="FamilyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="Education">
+      <AttrNames>
+        <Item Value="Education"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="PuPublicUser1Iterator" StaticList="false" Uses="ar"
+          id="Nationality" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="PasswordHint">
+      <AttrNames>
+        <Item Value="PasswordHint"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="Occupation">
+      <AttrNames>
+        <Item Value="Occupation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="EmiratesId">
+      <AttrNames>
+        <Item Value="EmiratesId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="EmiratesIdExpiry">
+      <AttrNames>
+        <Item Value="EmiratesIdExpiry"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPublicUser1Iterator" id="DateOfBirth">
+      <AttrNames>
+        <Item Value="DateOfBirth"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="commonBundle"
+         value="#{adfBundle['com.tacme.pp.common.bundle.CommonBundle']}"/>
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:subform id="s1">
+      <af:panelGroupLayout id="pgl4" layout="vertical">
+        <af:panelGroupLayout id="pgl5" layout="vertical">
+          <af:outputText value="#{commonBundle.REGISTRATION_REGISTRATION_TITLE}" id="ot1"/>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl6" layout="vertical"/>
+        <af:panelGroupLayout id="pgl7" layout="vertical">
+          <af:inputText label="Label 1" id="globalMsgIt" visible="false" binding="#{backingBeanScope.backing_registrationFragment.globalMsgIt}"/>
+          <af:message id="globalMsg" for="globalMsgIt"/>
+          <af:messages id="m15" globalOnly="true" inline="true"/>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl2" layout="vertical">
+        <af:outputText value="#{bindings.Email.hints.label}" id="ot2"/>
+        <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}" required="true" columns="#{bindings.Email.hints.displayWidth}"
+                      maximumLength="#{bindings.Email.hints.precision}" shortDesc="#{bindings.Email.hints.tooltip}" id="it1" simple="true">
+          <f:validator binding="#{bindings.Email.validator}"/>
+          <af:validateRegExp pattern="#{Patterns.email}" messageDetailNoMatch="#{commonBundle.CMMN_ERROR_EMAIL}"/>
+        </af:inputText>
+        <af:message id="m1" for="it1"/>
+        <af:outputText value="#{bindings.Password.hints.label}" id="ot3"/>
+        <af:inputText value="#{bindings.Password.inputValue}" label="#{bindings.Password.hints.label}" required="true"
+                      columns="#{bindings.Password.hints.displayWidth}" maximumLength="#{bindings.Password.hints.precision}"
+                      shortDesc="#{bindings.Password.hints.tooltip}" id="it2" simple="true" secret="true"
+                      binding="#{backingBeanScope.backing_registrationFragment.passwordIt}" autoSubmit="true">
+          <f:validator binding="#{bindings.Password.validator}"/>
+          <af:validateRegExp pattern="#{Patterns.password}" messageDetailNoMatch="#{commonBundle.CMMN_ERROR_PASSWORD}"/>
+        </af:inputText>
+        <af:message id="m2" for="it2"/>
+        <af:outputText value="#{commonBundle.REGESTRATION_PASSWORD_RETYPE}" id="outputText1"/>
+        <af:inputText label="#{bindings.Password.hints.label}" required="true" columns="#{bindings.Password.hints.displayWidth}"
+                      maximumLength="#{bindings.Password.hints.precision}" shortDesc="#{bindings.Password.hints.tooltip}" id="inputText1" simple="true"
+                      secret="true" binding="#{backingBeanScope.backing_registrationFragment.passwordRetypeIt}" autoSubmit="true"
+                      validator="#{backingBeanScope.backing_registrationFragment.validatePasswordRetype}"></af:inputText>
+        <af:message id="m3" for="inputText1"/>
+        <af:outputText value="#{bindings.PasswordHint.hints.label}" id="ot4"/>
+        <af:inputText value="#{bindings.PasswordHint.inputValue}" label="#{bindings.PasswordHint.hints.label}" required="true"
+                      columns="#{bindings.PasswordHint.hints.displayWidth}" maximumLength="#{bindings.PasswordHint.hints.precision}"
+                      shortDesc="#{bindings.PasswordHint.hints.tooltip}" id="it3" simple="true">
+          <f:validator binding="#{bindings.PasswordHint.validator}"/>
+        </af:inputText>
+        <af:message id="m14" for="it3"/>
+        <af:outputText value="#{bindings.DateOfBirth.hints.label}" id="ot5"/>
+        <af:inputDate value="#{bindings.DateOfBirth.inputValue}" label="#{bindings.DateOfBirth.hints.label}" required="true"
+                      shortDesc="#{bindings.DateOfBirth.hints.tooltip}" id="id1" simple="true" >
+          <f:validator binding="#{bindings.DateOfBirth.validator}"/>
+          <af:convertDateTime pattern="#{bindings.DateOfBirth.format}"/>
+        </af:inputDate>
+        <af:message id="m13" for="id1"/>
+        <af:outputText value="#{bindings.FirstName.hints.label}" id="ot6"/>
+        <af:inputText value="#{bindings.FirstName.inputValue}" label="#{bindings.FirstName.hints.label}" required="true"
+                      columns="#{bindings.FirstName.hints.displayWidth}" maximumLength="#{bindings.FirstName.hints.precision}"
+                      shortDesc="#{bindings.FirstName.hints.tooltip}" id="it4" simple="true">
+          <f:validator binding="#{bindings.FirstName.validator}"/>
+        </af:inputText>
+        <af:message id="m12" for="it4"/>
+        <af:outputText value="#{bindings.LastName.hints.label}" id="ot7"/>
+        <af:inputText value="#{bindings.LastName.inputValue}" label="#{bindings.LastName.hints.label}" required="true"
+                      columns="#{bindings.LastName.hints.displayWidth}" maximumLength="#{bindings.LastName.hints.precision}"
+                      shortDesc="#{bindings.LastName.hints.tooltip}" id="it5" simple="true">
+          <f:validator binding="#{bindings.LastName.validator}"/>
+        </af:inputText>
+        <af:message id="m11" for="it5"/>
+        <af:outputText value="#{bindings.FamilyName.hints.label}" id="ot8"/>
+        <af:inputText value="#{bindings.FamilyName.inputValue}" label="#{bindings.FamilyName.hints.label}" required="true"
+                      columns="#{bindings.FamilyName.hints.displayWidth}" maximumLength="#{bindings.FamilyName.hints.precision}"
+                      shortDesc="#{bindings.FamilyName.hints.tooltip}" id="it6" simple="true">
+          <f:validator binding="#{bindings.FamilyName.validator}"/>
+        </af:inputText>
+        <af:message id="m10" for="it6"/>
+        <af:outputText value="#{bindings.Mobile.hints.label}" id="ot9"/>
+        <af:inputText value="#{bindings.Mobile.inputValue}" label="#{bindings.Mobile.hints.label}" required="true"
+                      columns="#{bindings.Mobile.hints.displayWidth}" maximumLength="#{bindings.Mobile.hints.precision}"
+                      shortDesc="#{bindings.Mobile.hints.tooltip}" id="it7" simple="true" placeholder="#{Patterns.mobilePlaceholder}">
+          <f:validator binding="#{bindings.Mobile.validator}"/>
+          <af:validateRegExp pattern="#{Patterns.mobile}" messageDetailNoMatch="#{commonBundle.CMMN_ERROR_MOBILE}"/>
+        </af:inputText>
+        <af:message id="m9" for="it7"/>
+        <af:outputText value="#{bindings.Education.hints.label}" id="ot10"/>
+        <af:inputText value="#{bindings.Education.inputValue}" label="#{bindings.Education.hints.label}" required="true"
+                      columns="#{bindings.Education.hints.displayWidth}" maximumLength="#{bindings.Education.hints.precision}"
+                      shortDesc="#{bindings.Education.hints.tooltip}" id="it8" simple="true">
+          <f:validator binding="#{bindings.Education.validator}"/>
+        </af:inputText>
+        <af:message id="m8" for="it1"/>
+        <af:outputText value="#{bindings.Nationality.hints.label}" id="ot11"/>
+        <af:selectOneChoice value="#{bindings.Nationality.inputValue}" label="#{bindings.Nationality.label}" required="true" unselectedLabel=""
+                            shortDesc="#{bindings.Nationality.hints.tooltip}" id="soc1" simple="true">
+          <f:selectItems value="#{bindings.Nationality.items}" id="si1"/>
+        </af:selectOneChoice>
+        <af:message id="m7" for="soc1"/>
+        <af:outputText value="#{bindings.Occupation.hints.label}" id="ot12"/>
+        <af:inputText value="#{bindings.Occupation.inputValue}" label="#{bindings.Occupation.hints.label}" required="true"
+                      columns="#{bindings.Occupation.hints.displayWidth}" maximumLength="#{bindings.Occupation.hints.precision}"
+                      shortDesc="#{bindings.Occupation.hints.tooltip}" id="it9" simple="true">
+          <f:validator binding="#{bindings.Occupation.validator}"/>
+        </af:inputText>
+        <af:message id="m6" for="it9"/>
+        <af:outputText value="#{bindings.EmiratesId.hints.label}" id="ot13"/>
+        <af:inputText value="#{bindings.EmiratesId.inputValue}" label="#{bindings.EmiratesId.hints.label}" required="true"
+                      placeholder="#{Patterns.emiratesIDPlaceholder}" columns="#{bindings.EmiratesId.hints.displayWidth}"
+                      maximumLength="#{bindings.EmiratesId.hints.precision}" shortDesc="#{bindings.EmiratesId.hints.tooltip}" id="it10" simple="true">
+          <f:validator binding="#{bindings.EmiratesId.validator}"/>
+          <af:validateRegExp pattern="#{Patterns.emiratesIDFullPattern}" messageDetailNoMatch="#{commonBundle.CMMN_ERROR_EMIRATESID}"/>
+        </af:inputText>
+        <af:message id="m5" for="it10"/>
+        <af:outputText value="#{bindings.EmiratesIdExpiry.hints.label}" id="ot14"/>
+        <af:inputDate id="id2" simple="true" shortDesc="#{bindings.EmiratesIdExpiry.hints.tooltip}" value="#{bindings.EmiratesIdExpiry.inputValue}"
+                      required="true">
+          <af:convertDateTime pattern="#{Patterns.datePattern}"/>
+        
+        </af:inputDate>
+        <af:message id="m4" for="id2"/>
+      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl3" layout="vertical">
+        <af:commandButton text="#{commonBundle.REGISTRATION_CREATE_USER}" 
+                          id="cb1" action="#{backingBeanScope.backing_registrationFragment.createUser_action}"/>
+        <af:resetButton text="#{commonBundle.CMMN_CEAR_FORM}" id="rb1"/>
+      </af:panelGroupLayout>
+    </af:subform>
+  </af:panelGroupLayout>
+</jsp:root>
