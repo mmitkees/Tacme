@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="SuggestionsViewer">
+    <default-activity id="__1">CreateInsert</default-activity>
+    <input-parameter-definition id="__12">
+      <name id="__13">locale</name>
+      <value id="__s12">#{pageFlowScope.locale}</value>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__9">
+      <managed-bean-name id="__8">AddComplainBKBean</managed-bean-name>
+      <managed-bean-class id="__10">AddComplainBKBean</managed-bean-class>
+      <managed-bean-scope id="__11">backingBean</managed-bean-scope>
+    </managed-bean>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__2">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="view1">
+      <page>/AddComplain.jsff</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">CreateInsert</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__7">CreateInsert</from-outcome>
+        <to-activity-id id="__5">view1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

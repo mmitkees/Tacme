@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="suggestionscomplainsvcBundle"
+         value="#{adfBundle['com.pp.component.view.snc.SuggestionsComplainsVCBundle']}"/>
+  <af:subform id="s1">
+    <af:panelGroupLayout id="pgl9" layout="vertical"
+                         styleClass="eServicesHeading">
+      <af:outputText value="#{suggestionscomplainsvcBundle.page_Complain_And_Suggestion}"
+                     id="ot2"/>
+    </af:panelGroupLayout>
+    <af:messages id="m6" globalOnly="true"/>
+    <af:panelFormLayout id="pfl1" styleClass="complain-form">
+      <af:outputLabel value="#{bindings.Id.hints.label}" styleClass="astrix" for="tx" id="plam1x"/>
+   
+      <af:inputText value="#{bindings.Id.inputValue}" simple="true"
+                    required="#{bindings.Id.hints.mandatory}"
+                    columns="#{bindings.Id.hints.displayWidth}"
+                    maximumLength="#{bindings.Id.hints.precision}"
+                    disabled="true" shortDesc="#{bindings.Id.hints.tooltip}"
+                    id="tx">
+        <f:validator binding="#{bindings.Id.validator}"/>
+      </af:inputText>
+      <af:message id="m1" for="tx" styleClass="af_message_error"/>
+      <af:outputLabel value="#{bindings.SenderName.hints.label}" styleClass="astrix" for="it3"
+                      id="plam1"/>
+      <af:inputText value="#{bindings.SenderName.inputValue}" simple="true"
+                    label="" required="#{bindings.SenderName.hints.mandatory}"
+                    columns="#{bindings.SenderName.hints.displayWidth}"
+                    maximumLength="#{bindings.SenderName.hints.precision}"
+                    id="it3" showRequired="true">
+        <f:validator binding="#{bindings.SenderName.validator}"/>
+      </af:inputText>
+      <af:message id="m2" styleClass="af_message_error" for="it3"/>
+      <af:outputLabel value="#{bindings.SenderEmail.hints.label}" styleClass="astrix" for="it1"
+                      id="plam2"/>
+      <af:inputText value="#{bindings.SenderEmail.inputValue}" simple="true"
+                    label="" required="#{bindings.SenderEmail.hints.mandatory}"
+                    columns="#{bindings.SenderEmail.hints.displayWidth}"
+                    maximumLength="#{bindings.SenderEmail.hints.precision}"
+                    shortDesc="#{bindings.SenderEmail.hints.tooltip}" id="it1"
+                    showRequired="true">
+        <f:validator binding="#{bindings.SenderEmail.validator}"/>
+        <af:validateRegExp pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+                           id="v1"
+                           messageDetailNoMatch="#{facesContext.externalContext.requestLocale eq 'ar' ? 'ادخل بريد الكتروني صحيح' : 'Please enter right Email Format'} "/>
+      </af:inputText>
+      <af:message id="m5" styleClass="af_message_error" for="it1"/>
+      <af:outputLabel value="#{bindings.MessageBody.hints.label}"  styleClass="astrix" for="it2"
+                      id="plam3"/>
+      <af:inputText value="#{bindings.MessageBody.inputValue}" simple="true"
+                    label="" required="#{bindings.MessageBody.hints.mandatory}"
+                    columns="50"
+                    maximumLength="#{bindings.MessageBody.hints.precision}"
+                    shortDesc="#{bindings.MessageBody.hints.tooltip}" id="it2"
+                    rows="4">
+        <f:validator binding="#{bindings.MessageBody.validator}"/>
+      </af:inputText>
+      <af:message id="m3" styleClass="af_message_error" for="it2"/>
+      <af:outputLabel value="#{bindings.MessageType.hints.label}" styleClass="astrix" for="soc1"
+                      id="plam4"/>
+      <af:selectOneChoice value="#{bindings.MessageType.inputValue}"
+                          simple="true" label=""
+                          required="#{bindings.MessageType.hints.mandatory}"
+                          shortDesc="#{bindings.MessageType.hints.tooltip}"
+                          id="soc1" showRequired="true">
+        <f:selectItems value="#{bindings.MessageType.items}" id="si1"/>
+      </af:selectOneChoice>
+      <af:message id="m4" styleClass="af_message_error" for="soc1"/>
+      <af:panelGroupLayout id="pgl1" styleClass="VTOH">
+        <af:commandButton styleClass="btn-action"
+                          text="#{suggestionscomplainsvcBundle.SUBMIT}" id="cb1"
+                          action="#{backingBeanScope.AddComplainBKBean.addComplain}"/>
+        <af:commandButton styleClass="btn-action"
+                          text="#{suggestionscomplainsvcBundle.ADD_NEW}"
+                          id="cb2"
+                          actionListener="#{bindings.CreateInsert.execute}"/>
+        <af:resetButton styleClass="btn-secondary af_commandButton"
+                        text="#{suggestionscomplainsvcBundle.CLEAR_FIELDS}"
+                        id="rb1"/>
+      </af:panelGroupLayout>
+     
+    </af:panelFormLayout>
+  </af:subform>
+</jsp:root>
